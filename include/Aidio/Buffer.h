@@ -29,6 +29,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <iostream>
 #include "gsl.h"
 
 namespace ado
@@ -60,6 +61,13 @@ public:
     int numSamples()  const { return (numChannels() > 0) ? bufferData[0].size() : 0; }
 
     float** getWriteArray() { return pointerAccess.data(); }
+    const float** getReadArray() { return const_cast<const float**> (getWriteArray()); } // Ugh, const_cast
+
+    void clear()
+    {
+        for (auto& chan : bufferData)
+            std::fill (chan.begin(), chan.end(), 0.0f);
+    }
 
     void fillAllOnes()
     {
@@ -71,6 +79,19 @@ private:
     std::vector<std::vector<float>> bufferData;
     std::vector<float*> pointerAccess;
 };
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
+    Print all elements in buffer using cout
+*/
+void coutBuffer (ado::Buffer& buffer)
+{
+    for (int chan = 0; chan < buffer.numChannels(); ++chan)
+        for (int samp = 0; samp < buffer.numSamples(); ++samp)
+            std::cout << buffer.getWriteArray()[chan][samp]
+                      << " [" << chan << "][" << samp << "]"<< "\n";
+    std::cout << "\n";
+}
 
 } // namespace
 

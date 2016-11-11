@@ -27,9 +27,10 @@
 #ifndef CONVOLUTION_H_INCLUDED
 #define CONVOLUTION_H_INCLUDED
 
+#include <cassert>
 #include "gsl.h"
-#include "Audio/Buffer.h"
-#include "Audio/Utility.h"
+#include "Utility.h"
+#include "Buffer.h"
 #include "WDL/convoengine.h"
 
 namespace ado
@@ -39,44 +40,43 @@ namespace ado
 /**
 */
 class Convolution
-{/*
+{
 public:
-    Convolution (const ado::Buffer& impulse)                                   // WDL_CONVO_MAX_IMPULSE_NCH max channels set to 2
+    explicit Convolution (ado::Buffer& impulse)                         // WDL_CONVO_MAX_IMPULSE_NCH max channels set to 2
     {
-        imp.Set (const_cast<const float**> (impulse.getWriteArray()),   // sigh, const_cast
-                                            impulse.numSamples(),
-                                            impulse.numChannels());
+        imp.Set (impulse.getReadArray(), impulse.numSamples(), impulse.numChannels());
+
         eng.SetImpulse (&imp,
-                        4,      // fft size
+                        -1,     // fft size                             // probably should be pow2 after processBufferSize?
                         0,      // starting sample
-                        8       // max impulse size
-                        false); // brute convolution
+                        0,      // max impulse size
+                        true);  // brute convolution
     }
     ~Convolution() {}
 
-    void reset() { engine.Reset(); }
+    void reset() { eng.Reset(); }
 
-    void process (ado::Buffer& data)
+    void process (ado::Buffer& block)
     {
-        engine.Add (data.getWriteArray(),              // Send input to conv engine
-                    data.numSamples(),
-                    data.numChannels());
+        eng.Add (block.getWriteArray(),                      // Send input to conv eng
+                 block.numSamples(),
+                 block.numChannels());
 
-        const int avail = engine.Avail (data.numSamples());   // Confirm full buffer available
-        std::cout << avail << "\n"; // debug
+        const int avail = eng.Avail (block.numSamples());    // Confirm full buffer available
+        assert (avail == block.numSamples());
 
-        float** convolved = engine.Get();
+        float** convolved = eng.Get();
 
-        ado::rawBufferCopy (convolved,
-                            data.getWriteArray(),
-                            data.numChannels(),
-                            data.numSamples()); // does NOT range check!!!
+        ado::rawBufferCopy (const_cast<const float**> (convolved),  // source
+                            block.getWriteArray(),                  // dest
+                            block.numChannels(),
+                            block.numSamples());
 
-        engine.Advance (data.numSamples());                   // Advance the engine
+        eng.Advance (block.numSamples());                    // Advance the eng
     }
 
     WDL_ImpulseBuffer imp;
-    WDL_ConvolutionEngine eng;*/
+    WDL_ConvolutionEngine eng;
 };
 
 } // namespace

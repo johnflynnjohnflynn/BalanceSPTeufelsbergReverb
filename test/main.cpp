@@ -5,13 +5,61 @@
 #define gsl_CONFIG_CONTRACT_VIOLATION_THROWS 1
 
 #include "WDL/convoengine.h"
-#include "Aidio/Buffer.h"
-#include "Aidio/Utility.h"
+#include "Aidio/Aidio.h"
 
-TEST_CASE ("conv1", "sdkl") {
+//--------//--------//--------//--------//--------//--------//--------//--------
 
+TEST_CASE ("Delta through 9 point moving average", "Convolution") {
+    ado::Buffer h {1, 9};
+    h.fillAllOnes(); // moving average
+
+    ado::Convolution engine {h};
+    engine.reset();
+
+    int blockSize = 8;
+    ado::Buffer block {1, blockSize};
+    block.getWriteArray()[0][0] = 1.0f; // kronecker
+
+    engine.process (block);     // run one block and sum
+    //ado::coutBuffer (block);
+
+    float sum = ado::sumElements (block.getReadArray(), blockSize);
+
+    block.clear();              // run next block (clear last output) and sum
+    engine.process (block);
+    //ado::coutBuffer (block);
+
+    sum += ado::sumElements (block.getReadArray(), blockSize);
+
+    REQUIRE (sum == 9.0f);
 }
+/*
+TEST_CASE ("Delta through 256 point moving average", "Convolution") {
+    ado::Buffer h {1, 256};
+    h.fillAllOnes(); // moving average
 
+    ado::Convolution engine {h};
+    engine.reset();
+
+    int blockSize = 8;
+    ado::Buffer block {1, blockSize};
+    block.getWriteArray()[0][0] = 1.0f; // kronecker
+
+    engine.process (block);     // run one block and sum
+    //ado::coutBuffer (block);
+
+    float sum = ado::sumElements (block.getReadArray(), blockSize);
+
+    block.clear();              // run next block (clear last output) and sum
+    engine.process (block);
+    //ado::coutBuffer (block);
+
+    sum += ado::sumElements (block.getReadArray(), blockSize);
+
+    REQUIRE (sum == 9.0f);
+}*/
+
+/*
 TEST_CASE ("sdf234sf", "sdf") {
     ado::Buffer hh {1, 8};
     hh.fillAllOnes();
@@ -43,12 +91,12 @@ TEST_CASE ("sdf234sf", "sdf") {
     for (int channel = 0; channel < y.numChannels(); ++channel)
         for (int sample = 0; sample < y.numSamples(); ++sample)
             y.getWriteArray()[channel][sample] = convolved[channel][sample]; // does NOT range check [channel][sample]!!!
-/*
+
     for (int i = 0; i < y.numSamples(); ++i)
         std::cout << y.getWriteArray()[0][i] << "\n";
-*/
+
     engine.Advance (y.numSamples());                   // Advance the engine
-}
+}*/
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 
@@ -101,15 +149,25 @@ TEST_CASE ("fillAllOnes()", "Buffer") {
     REQUIRE (elementSum == b.numSamples());
 }
 
+TEST_CASE ("Clear()", "Buffer") {
+    ado::Buffer b {4, 1024};
+    CHECK_NOTHROW(b.fillAllOnes());
+    CHECK_NOTHROW(b.clear());
+    float elementSum = 0.0f;
+    for (int i = 0; i < b.numSamples(); ++i)
+        elementSum += b.getWriteArray()[0][i];
+    REQUIRE (elementSum == 0.0f);
+}
+
 //--------//--------//--------//--------//--------//--------//--------//--------
 
 TEST_CASE("rawBufferEquals()", "Utility") {
     ado::Buffer a {2, 2048};
     ado::Buffer b {2, 2048};
     b.fillAllOnes();
-    REQUIRE_FALSE (ado::rawBufferEquals (a.getWriteArray(), b.getWriteArray(), 2, 2048));
+    REQUIRE_FALSE (ado::rawBufferEquals (a.getReadArray(), b.getReadArray(), 2, 2048));
     a.fillAllOnes();
-    REQUIRE       (ado::rawBufferEquals (a.getWriteArray(), b.getWriteArray(), 2, 2048));
+    REQUIRE       (ado::rawBufferEquals (a.getReadArray(), b.getReadArray(), 2, 2048));
 
 }
 
@@ -117,7 +175,22 @@ TEST_CASE("rawBufferCopy()", "Utility") {
     ado::Buffer source {2, 2048};
     ado::Buffer dest   {2, 2048};
     source.fillAllOnes();
-    REQUIRE_FALSE (ado::rawBufferEquals (source.getWriteArray(), dest.getWriteArray(), 2, 2048));
-    ado::rawBufferCopy (source.getWriteArray(), dest.getWriteArray(), 2, 2048);
-    REQUIRE       (ado::rawBufferEquals (source.getWriteArray(), dest.getWriteArray(), 2, 2048));
+    REQUIRE_FALSE (ado::rawBufferEquals (source.getReadArray(), dest.getReadArray(), 2, 2048));
+    ado::rawBufferCopy (source.getReadArray(), dest.getWriteArray(), 2, 2048);
+    REQUIRE       (ado::rawBufferEquals (source.getReadArray(), dest.getReadArray(), 2, 2048));
+}
+
+TEST_CASE("sumElements()", "Utility") {
+    ado::Buffer buffer {2, 2048};
+    buffer.fillAllOnes();
+    REQUIRE (ado::sumElements(buffer.getReadArray(), 2048) == 2048.0f);
+}
+
+TEST_CASE("nextPowerOf2()", "Utility") {
+    int x = 55;
+    REQUIRE(ado::nextPowerOf2(x) == 64);
+    x = -234;
+    REQUIRE(ado::nextPowerOf2(x) == 1);
+    x = 16300;
+    REQUIRE(ado::nextPowerOf2(x) == 16384);
 }

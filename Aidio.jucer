@@ -6,6 +6,7 @@
   <MAINGROUP id="fnjyVf" name="Aidio">
     <GROUP id="{BFE1FDC9-D33D-C6B1-AC94-4DE0B5745B67}" name="include">
       <GROUP id="{867580C2-0BDF-B4A4-90E8-5484586D65F1}" name="Aidio">
+        <FILE id="Rno1kH" name="Aidio.h" compile="0" resource="0" file="include/Aidio/Aidio.h"/>
         <FILE id="Gym9f7" name="Buffer.h" compile="0" resource="0" file="include/Aidio/Buffer.h"/>
         <FILE id="AT7e09" name="Convolution.h" compile="0" resource="0" file="include/Aidio/Convolution.h"/>
         <FILE id="j6xazy" name="Utility.h" compile="0" resource="0" file="include/Aidio/Utility.h"/>
