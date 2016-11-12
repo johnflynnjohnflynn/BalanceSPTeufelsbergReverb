@@ -168,6 +168,40 @@ TEST_CASE ("Long ascending sequence with ascending sequence", "Convolution") {
     REQUIRE (sum == Approx(2.5050e+11 * channels)); // octave: sum(conv(h, h))
 }
 
+TEST_CASE ("set()", "Convolution") {
+    ado::Buffer h {1, 2};
+    h.fillAllOnes();
+
+    ado::Convolution engine {h};
+    engine.reset();
+
+    ado::Buffer block {1, 4};
+    block.getWriteArray()[0][0] = 1.0f; // kronecker
+
+    engine.process (block);     // run one block and sum
+
+    float sum = ado::rawBufferSum (block.getReadArray(), 1, 4);
+
+    REQUIRE (sum == 2.0f);
+
+    block.clear();
+    engine.process(block);
+
+    ado::Buffer hh {1, 2};
+    hh.fillAscending();      // hh[n] = {1,2}
+
+    engine.set(hh); // set new impulse
+
+    block.clear();
+    block.getWriteArray()[0][0] = 1.0f; // kronecker
+
+    engine.process (block);     // run one block and sum
+
+    sum = ado::rawBufferSum (block.getReadArray(), 1, 4);
+
+    REQUIRE (sum == 3.0f);
+}
+
 //--------//--------//--------//--------//--------//--------//--------//--------
 
 TEST_CASE ("Constructs", "Buffer") {

@@ -44,6 +44,12 @@ class Convolution
 public:
     explicit Convolution (ado::Buffer& impulse)                         // WDL_CONVO_MAX_IMPULSE_NCH max channels set to 2
     {
+        set (impulse);
+    }
+    ~Convolution() {}
+
+    void set (ado::Buffer& impulse)
+    {
         imp.Set (impulse.getReadArray(), impulse.numSamples(), impulse.numChannels());
 
         eng.SetImpulse (&imp,
@@ -52,7 +58,6 @@ public:
                         0,      // max impulse size
                         true);  // brute convolution
     }
-    ~Convolution() {}
 
     void reset() { eng.Reset(); }
 
