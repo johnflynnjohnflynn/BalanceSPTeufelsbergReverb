@@ -63,25 +63,36 @@ public:
 
     void process (ado::Buffer& block)
     {
-        eng.Add (block.getWriteArray(),                      // Send input to conv eng
-                 block.numSamples(),
-                 block.numChannels());
+        convolve (block.getWriteArray(), block.numChannels(), block.numSamples());
+    }
 
-        const int avail = eng.Avail (block.numSamples());    // Confirm full buffer available
-        assert (avail == block.numSamples());
+    void process (float** block, int blockNumChannels, int blockNumSamples)
+    {
+        convolve (block, blockNumChannels, blockNumSamples);
+    }
+
+    WDL_ImpulseBuffer imp;                                                      // Why public??
+    WDL_ConvolutionEngine eng;
+
+private:
+    void convolve (float** block, int blockNumChannels, int blockNumSamples)
+    {
+        eng.Add (block,                      // Send input to conv eng
+                 blockNumSamples,
+                 blockNumChannels);
+
+        const int avail = eng.Avail (blockNumSamples);    // Confirm full buffer available
+        assert (avail == blockNumSamples);
 
         float** convolved = eng.Get();
 
         ado::rawBufferCopy (const_cast<const float**> (convolved),  // source
-                            block.getWriteArray(),                  // dest
-                            block.numChannels(),
-                            block.numSamples());
+                            block,                                  // dest
+                            blockNumChannels,
+                            blockNumSamples);
 
-        eng.Advance (block.numSamples());                    // Advance the eng
+        eng.Advance (blockNumSamples);                    // Advance the eng
     }
-
-    WDL_ImpulseBuffer imp;
-    WDL_ConvolutionEngine eng;
 };
 
 } // namespace
