@@ -88,6 +88,86 @@ TEST_CASE (">2 channels does not work!!!", "Convolution") {                     
     REQUIRE (sum != 6.0f); // uncomment coutBuffer lines to inspect
 }
 
+TEST_CASE ("Ascending sequence with delta, 2 channels", "Convolution") {
+    const int channels {2};
+    ado::Buffer h {channels, 8};
+    h.fillAscending(); // h[n] = {1,2,3,4,5,6,7,8}
+
+    ado::Convolution engine {h};
+    engine.reset();
+
+    const int blockSize = 9;
+    ado::Buffer block {channels, blockSize};
+    block.getWriteArray()[0][0] = 1.0f; // kronecker
+    block.getWriteArray()[1][0] = 1.0f; // kronecker
+
+    engine.process (block);     // run one block and sum
+    //ado::coutBuffer (block);
+
+    float sum = ado::rawBufferSum (block.getReadArray(), channels, blockSize);
+
+    block.clear();              // run next block (clear last output) and sum
+    engine.process (block);
+    //ado::coutBuffer (block);
+
+    sum += ado::rawBufferSum (block.getReadArray(), channels, blockSize);
+
+    REQUIRE (sum == 36.0f * channels); // octave: sum(conv(h, x))
+}
+
+TEST_CASE ("Ascending sequence with ascending sequence", "Convolution") {
+    const int channels {2};
+    ado::Buffer h {channels, 8};
+    h.fillAscending(); // h[n] = {1,2,3,4,5,6,7,8}
+
+    ado::Convolution engine {h};
+    engine.reset();
+
+    const int blockSize = 8;
+    ado::Buffer block {channels, blockSize};
+    block.fillAscending(); // x[n] = {1,2,3,4,5,6,7,8}
+
+    engine.process (block);     // run one block and sum
+    //ado::coutBuffer (block);
+
+    float sum = ado::rawBufferSum (block.getReadArray(), channels, blockSize);
+
+    block.clear();              // run next block (clear last output) and sum
+    engine.process (block);
+    //ado::coutBuffer (block);
+
+    sum += ado::rawBufferSum (block.getReadArray(), channels, blockSize);
+
+    REQUIRE (sum == 1296.0f * channels); // octave: sum(conv(h, x))
+}
+
+TEST_CASE ("Long ascending sequence with ascending sequence", "Convolution") {
+    const int channels {2};
+    const int ascendingSequenceLength {1000};
+    ado::Buffer h {channels, ascendingSequenceLength};
+    h.fillAscending(); // octave h = 1:1000
+
+    ado::Convolution engine {h};
+    engine.reset();
+
+    const int blockSize = ascendingSequenceLength;
+    ado::Buffer block {channels, blockSize};
+    block.fillAscending();
+
+    engine.process (block);     // run one block and sum
+    //ado::coutBuffer (block);
+
+    float sum = ado::rawBufferSum (block.getReadArray(), channels, blockSize);
+
+    block.clear();              // run next block (clear last output) and sum
+    engine.process (block);
+    //ado::coutBuffer (block);
+
+    sum += ado::rawBufferSum (block.getReadArray(), channels, blockSize);
+
+    REQUIRE (sum == Approx(2.5050e+11 * channels)); // octave: sum(conv(h, h))
+}
+
 //--------//--------//--------//--------//--------//--------//--------//--------
 
 TEST_CASE ("Constructs", "Buffer") {
