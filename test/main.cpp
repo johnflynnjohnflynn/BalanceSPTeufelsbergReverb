@@ -69,11 +69,10 @@ TEST_CASE (">2 channels does not work!!!", "Convolution") {                     
     engine.reset();
 
     const int blockSize = 16;
-    ado::Buffer block {4, blockSize};
+    ado::Buffer block {channels, blockSize};
     block.getWriteArray()[0][0] = 1.0f; // kronecker
     block.getWriteArray()[1][0] = 1.0f; // kronecker
     block.getWriteArray()[2][0] = 1.0f; // kronecker
-    block.getWriteArray()[3][0] = 1.0f; // kronecker
 
     engine.process (block);     // run one block and sum
     //ado::coutBuffer (block);
