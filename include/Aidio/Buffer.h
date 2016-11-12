@@ -75,6 +75,19 @@ public:
             std::fill (chan.begin(), chan.end(), 1.0f);
     }
 
+    void fillAscending()
+    {
+        for (auto& chan : bufferData)
+        {
+            float sum = 1.0f;
+            for (auto& samp : chan)
+            {
+                samp = sum;
+                sum += 1.0f;
+            }
+        }
+    }
+
 private:
     std::vector<std::vector<float>> bufferData;
     std::vector<float*> pointerAccess;

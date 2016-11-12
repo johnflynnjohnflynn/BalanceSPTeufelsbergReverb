@@ -110,6 +110,15 @@ TEST_CASE ("fillAllOnes()", "Buffer") {
     REQUIRE (elementSum == b.numSamples());
 }
 
+TEST_CASE ("fillAscending()", "Buffer") {
+    ado::Buffer b {64, 4};
+    CHECK_NOTHROW(b.fillAscending());
+    float elementSum = 0.0f;
+    for (int i = 0; i < b.numSamples(); ++i)
+        elementSum += b.getWriteArray()[0][i];
+    REQUIRE (elementSum == 1 + 2 + 3 + 4);
+}
+
 TEST_CASE ("Clear()", "Buffer") {
     ado::Buffer b {4, 1024};
     CHECK_NOTHROW(b.fillAllOnes());
