@@ -58,7 +58,7 @@ void rawBufferCopy (const float** source, float** dest, int channels, int sample
 /** 
     Sum elements (in first channel only) for raw audio buffers. NOT CHECKED!
 */
-float sumElements (const float** buffer, int samples)
+float rawBufferSum (const float** buffer, int samples)
 {
     float elementSum = 0.0f;
     for (int samp = 0; samp < samples; ++samp)

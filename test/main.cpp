@@ -23,17 +23,17 @@ TEST_CASE ("Delta through 9 point moving average", "Convolution") {
     engine.process (block);     // run one block and sum
     //ado::coutBuffer (block);
 
-    float sum = ado::sumElements (block.getReadArray(), blockSize);
+    float sum = ado::rawBufferSum (block.getReadArray(), blockSize);
 
     block.clear();              // run next block (clear last output) and sum
     engine.process (block);
     //ado::coutBuffer (block);
 
-    sum += ado::sumElements (block.getReadArray(), blockSize);
+    sum += ado::rawBufferSum (block.getReadArray(), blockSize);
 
     REQUIRE (sum == 9.0f);
 }
-/*
+
 TEST_CASE ("Delta through 256 point moving average", "Convolution") {
     ado::Buffer h {1, 256};
     h.fillAllOnes(); // moving average
@@ -41,62 +41,23 @@ TEST_CASE ("Delta through 256 point moving average", "Convolution") {
     ado::Convolution engine {h};
     engine.reset();
 
-    int blockSize = 8;
+    int blockSize = 200;
     ado::Buffer block {1, blockSize};
     block.getWriteArray()[0][0] = 1.0f; // kronecker
 
     engine.process (block);     // run one block and sum
     //ado::coutBuffer (block);
 
-    float sum = ado::sumElements (block.getReadArray(), blockSize);
+    float sum = ado::rawBufferSum (block.getReadArray(), blockSize);
 
     block.clear();              // run next block (clear last output) and sum
     engine.process (block);
     //ado::coutBuffer (block);
 
-    sum += ado::sumElements (block.getReadArray(), blockSize);
+    sum += ado::rawBufferSum (block.getReadArray(), blockSize);
 
-    REQUIRE (sum == 9.0f);
-}*/
-
-/*
-TEST_CASE ("sdf234sf", "sdf") {
-    ado::Buffer hh {1, 8};
-    hh.fillAllOnes();
-
-    WDL_ImpulseBuffer h;
-    h.Set (const_cast<const float**> (hh.getWriteArray()), // ugly!
-                                      hh.numSamples(),
-                                      hh.numChannels());
-
-    WDL_ConvolutionEngine engine;
-
-    engine.SetImpulse (&h, 4, 0, 8, false);
-
-    engine.Reset();
-
-    
-    ado::Buffer y {1, 32};
-    y.getWriteArray()[0][0] = 1.0f;
-
-    engine.Add (y.getWriteArray(),              // Send input to conv engine
-                y.numSamples(),
-                y.numChannels());
-
-    const int avail = engine.Avail (y.numSamples());   // Confirm full buffer available
-    //std::cout << avail << "\n";
-
-    float** convolved = engine.Get();
-
-    for (int channel = 0; channel < y.numChannels(); ++channel)
-        for (int sample = 0; sample < y.numSamples(); ++sample)
-            y.getWriteArray()[channel][sample] = convolved[channel][sample]; // does NOT range check [channel][sample]!!!
-
-    for (int i = 0; i < y.numSamples(); ++i)
-        std::cout << y.getWriteArray()[0][i] << "\n";
-
-    engine.Advance (y.numSamples());                   // Advance the engine
-}*/
+    REQUIRE (sum == 256.0f);
+}
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 
@@ -180,10 +141,10 @@ TEST_CASE("rawBufferCopy()", "Utility") {
     REQUIRE       (ado::rawBufferEquals (source.getReadArray(), dest.getReadArray(), 2, 2048));
 }
 
-TEST_CASE("sumElements()", "Utility") {
+TEST_CASE("rawBufferSum()", "Utility") {
     ado::Buffer buffer {2, 2048};
     buffer.fillAllOnes();
-    REQUIRE (ado::sumElements(buffer.getReadArray(), 2048) == 2048.0f);
+    REQUIRE (ado::rawBufferSum (buffer.getReadArray(), 2048) == 2048.0f);
 }
 
 TEST_CASE("nextPowerOf2()", "Utility") {
