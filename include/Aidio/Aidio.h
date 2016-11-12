@@ -27,8 +27,8 @@
 #ifndef AIDIO_H_INCLUDED
 #define AIDIO_H_INCLUDED
 
+#include "Utility.h"
 #include "Buffer.h"
 #include "Convolution.h"
-#include "Utility.h"
 
 #endif  // AIDIO_H_INCLUDED

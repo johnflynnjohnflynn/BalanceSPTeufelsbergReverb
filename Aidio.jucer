@@ -34,6 +34,7 @@
         <FILE id="v9aqSj" name="fft.c" compile="1" resource="0" file="src/WDL/fft.c"/>
         <FILE id="tcQYx0" name="resample.cpp" compile="1" resource="0" file="src/WDL/resample.cpp"/>
       </GROUP>
+      <FILE id="shYYt3" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
     </GROUP>
     <GROUP id="{34C7B81C-2196-9DC5-A8D1-DB0CC56513D6}" name="test">
       <FILE id="McJ5WG" name="catch.hpp" compile="0" resource="0" file="test/catch.hpp"/>
