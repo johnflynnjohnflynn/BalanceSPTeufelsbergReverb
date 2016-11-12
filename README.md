@@ -2,7 +2,9 @@
 Aidio
 -----
 
-### Aid + audio = Aidio. MIT licensed DSP routines for sound applications.
+### Aid + audio = Aidio.
+
+MIT licensed DSP helper routines for sound applications.
 
 Early version of audio DSP helper library covering high level routines not found in other libraries.
 
