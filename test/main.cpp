@@ -23,13 +23,13 @@ TEST_CASE ("Delta through 9 point moving average", "Convolution") {
     engine.process (block);     // run one block and sum
     //ado::coutBuffer (block);
 
-    float sum = ado::rawBufferSum (block.getReadArray(), blockSize);
+    float sum = ado::rawBufferSum (block.getReadArray(), 1, blockSize);
 
     block.clear();              // run next block (clear last output) and sum
     engine.process (block);
     //ado::coutBuffer (block);
 
-    sum += ado::rawBufferSum (block.getReadArray(), blockSize);
+    sum += ado::rawBufferSum (block.getReadArray(), 1, blockSize);
 
     REQUIRE (sum == 9.0f);
 }
@@ -48,13 +48,13 @@ TEST_CASE ("Delta through 256 point moving average", "Convolution") {
     engine.process (block);     // run one block and sum
     //ado::coutBuffer (block);
 
-    float sum = ado::rawBufferSum (block.getReadArray(), blockSize);
+    float sum = ado::rawBufferSum (block.getReadArray(), 1, blockSize);
 
     block.clear();              // run next block (clear last output) and sum
     engine.process (block);
     //ado::coutBuffer (block);
 
-    sum += ado::rawBufferSum (block.getReadArray(), blockSize);
+    sum += ado::rawBufferSum (block.getReadArray(), 1, blockSize);
 
     REQUIRE (sum == 256.0f);
 }
@@ -153,7 +153,7 @@ TEST_CASE("rawBufferCopy()", "Utility") {
 TEST_CASE("rawBufferSum()", "Utility") {
     ado::Buffer buffer {2, 2048};
     buffer.fillAllOnes();
-    REQUIRE (ado::rawBufferSum (buffer.getReadArray(), 2048) == 2048.0f);
+    REQUIRE (ado::rawBufferSum (buffer.getReadArray(), 1, 2048) == 2048.0f);
 }
 
 TEST_CASE("nextPowerOf2()", "Utility") {
