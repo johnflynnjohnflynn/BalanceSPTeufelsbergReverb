@@ -25,9 +25,23 @@
 //--------//--------//--------//--------//--------//--------//--------//--------
 
 #include "Aidio/Utility.h"
+#include "Aidio/Buffer.h"
 
 namespace ado
 {
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
+    Print all elements in buffer using cout
+*/
+void coutBuffer (ado::Buffer& buffer)
+{
+    for (int chan = 0; chan < buffer.numChannels(); ++chan)
+        for (int samp = 0; samp < buffer.numSamples(); ++samp)
+            std::cout << buffer.getWriteArray()[chan][samp]
+                      << " [" << chan << "][" << samp << "]"<< "\n";
+    std::cout << "\n";
+}
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 

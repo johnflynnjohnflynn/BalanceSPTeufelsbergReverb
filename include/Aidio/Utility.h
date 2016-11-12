@@ -27,8 +27,16 @@
 #ifndef UTILITY_H_INCLUDED
 #define UTILITY_H_INCLUDED
 
+#include "Buffer.h"
+
 namespace ado
 {
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
+    Print all elements in buffer using cout
+*/
+void coutBuffer (ado::Buffer& buffer);
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
