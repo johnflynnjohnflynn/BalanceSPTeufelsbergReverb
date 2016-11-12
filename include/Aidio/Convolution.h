@@ -71,9 +71,6 @@ public:
         convolve (block, blockNumChannels, blockNumSamples);
     }
 
-    WDL_ImpulseBuffer imp;                                                      // Why public??
-    WDL_ConvolutionEngine eng;
-
 private:
     void convolve (float** block, int blockNumChannels, int blockNumSamples)
     {
@@ -93,6 +90,9 @@ private:
 
         eng.Advance (blockNumSamples);                    // Advance the eng
     }
+
+    WDL_ImpulseBuffer imp;
+    WDL_ConvolutionEngine eng;
 };
 
 } // namespace
