@@ -2,8 +2,6 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
-#define gsl_CONFIG_CONTRACT_VIOLATION_THROWS 1
-
 #include "Judio/Utility.h"
 
 //--------//--------//--------//--------//--------//--------//--------//--------
