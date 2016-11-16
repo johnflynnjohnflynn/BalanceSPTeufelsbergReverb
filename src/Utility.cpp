@@ -24,6 +24,7 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
+#include <iostream>
 #include "Aidio/Utility.h"
 #include "Aidio/Buffer.h"
 
