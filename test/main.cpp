@@ -59,35 +59,6 @@ TEST_CASE ("Delta through 256 point moving average", "Convolution") {
     REQUIRE (sum == 256.0f);
 }
 
-TEST_CASE (">2 channels does not work!!!", "Convolution") {                     // NB: >2 channels will not work!
-    const int channels {3};
-
-    ado::Buffer h {channels, 2};
-    h.fillAllOnes(); // 2 point moving average
-
-    ado::Convolution engine {h};
-    engine.reset();
-
-    const int blockSize = 16;
-    ado::Buffer block {channels, blockSize};
-    block.getWriteArray()[0][0] = 1.0f; // kronecker
-    block.getWriteArray()[1][0] = 1.0f; // kronecker
-    block.getWriteArray()[2][0] = 1.0f; // kronecker
-
-    engine.process (block);     // run one block and sum
-    //ado::coutBuffer (block);
-
-    float sum = ado::rawBufferSum (block.getReadArray(), channels, blockSize);
-
-    block.clear();              // run next block (clear last output) and sum
-    engine.process (block);
-    //ado::coutBuffer (block);
-
-    sum += ado::rawBufferSum (block.getReadArray(), channels, blockSize);
-
-    REQUIRE (sum != 6.0f); // uncomment coutBuffer lines to inspect
-}
-
 TEST_CASE ("Ascending sequence with delta, 2 channels", "Convolution") {
     const int channels {2};
     ado::Buffer h {channels, 8};
