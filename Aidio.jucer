@@ -9,6 +9,7 @@
         <FILE id="dlyr4b" name="Aidio.h" compile="0" resource="0" file="include/Aidio/Aidio.h"/>
         <FILE id="dJd8DC" name="Buffer.h" compile="0" resource="0" file="include/Aidio/Buffer.h"/>
         <FILE id="eiRqqm" name="Convolution.h" compile="0" resource="0" file="include/Aidio/Convolution.h"/>
+        <FILE id="kkw0KA" name="Resample.h" compile="0" resource="0" file="include/Aidio/Resample.h"/>
         <FILE id="UWciV8" name="Utility.h" compile="0" resource="0" file="include/Aidio/Utility.h"/>
       </GROUP>
     </GROUP>
@@ -16,6 +17,23 @@
       <GROUP id="{378DC97D-18E1-2C19-FDDF-6EE391601B07}" name="gsl">
         <FILE id="ZtGBb1" name="gsl-lite-vc6.h" compile="0" resource="0" file="src/gsl/gsl-lite-vc6.h"/>
         <FILE id="HNYrPD" name="gsl-lite.h" compile="0" resource="0" file="src/gsl/gsl-lite.h"/>
+      </GROUP>
+      <GROUP id="{5A0C456A-709E-52D3-820F-B70A3CD00F78}" name="r8brain">
+        <FILE id="hN24Ok" name="CDSPBlockConvolver.h" compile="0" resource="0"
+              file="src/r8brain/CDSPBlockConvolver.h"/>
+        <FILE id="oRktHr" name="CDSPFIRFilter.h" compile="0" resource="0" file="src/r8brain/CDSPFIRFilter.h"/>
+        <FILE id="xGxCFY" name="CDSPFracInterpolator.h" compile="0" resource="0"
+              file="src/r8brain/CDSPFracInterpolator.h"/>
+        <FILE id="QRTo2I" name="CDSPProcessor.h" compile="0" resource="0" file="src/r8brain/CDSPProcessor.h"/>
+        <FILE id="ojP3Ii" name="CDSPRealFFT.h" compile="0" resource="0" file="src/r8brain/CDSPRealFFT.h"/>
+        <FILE id="yM464w" name="CDSPResampler.h" compile="0" resource="0" file="src/r8brain/CDSPResampler.h"/>
+        <FILE id="Cy78j9" name="CDSPSincFilterGen.h" compile="0" resource="0"
+              file="src/r8brain/CDSPSincFilterGen.h"/>
+        <FILE id="dy1Bzw" name="fft4g.h" compile="0" resource="0" file="src/r8brain/fft4g.h"/>
+        <FILE id="AFlNB5" name="r8bbase.cpp" compile="1" resource="0" file="src/r8brain/r8bbase.cpp"/>
+        <FILE id="yoOTpR" name="r8bbase.h" compile="0" resource="0" file="src/r8brain/r8bbase.h"/>
+        <FILE id="DeQhmh" name="r8bconf.h" compile="0" resource="0" file="src/r8brain/r8bconf.h"/>
+        <FILE id="tg8BXa" name="r8butil.h" compile="0" resource="0" file="src/r8brain/r8butil.h"/>
       </GROUP>
       <GROUP id="{0C68E354-A0DB-9494-8624-9468B22BE894}" name="WDL">
         <FILE id="sPYUZj" name="convoengine.cpp" compile="1" resource="0" file="src/WDL/convoengine.cpp"/>
@@ -43,9 +61,9 @@
     <XCODE_MAC targetFolder="build/MacOSX">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aidio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aidio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
@@ -66,9 +84,9 @@
     <VS2013 targetFolder="build/VisualStudio2013">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="Aidio" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       isDebug="1" optimisation="1" targetName="Aidio" headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="Aidio" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       isDebug="0" optimisation="3" targetName="Aidio" headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
@@ -89,9 +107,9 @@
     <LINUX_MAKE targetFolder="build/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aidio"
-                       headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aidio"
-                       headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>

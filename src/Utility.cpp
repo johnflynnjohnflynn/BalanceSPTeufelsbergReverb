@@ -34,11 +34,11 @@ namespace ado
 /** 
     Print all elements in buffer using cout
 */
-void coutBuffer (ado::Buffer& buffer)
+void coutBuffer (const ado::Buffer& buffer)
 {
     for (int chan = 0; chan < buffer.numChannels(); ++chan)
         for (int samp = 0; samp < buffer.numSamples(); ++samp)
-            std::cout << buffer.getWriteArray()[chan][samp]
+            std::cout << buffer.getReadArray()[chan][samp]
                       << " [" << chan << "][" << samp << "]"<< "\n";
     std::cout << "\n";
 }

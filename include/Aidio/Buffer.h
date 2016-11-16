@@ -61,7 +61,12 @@ public:
     int numSamples()  const { return (numChannels() > 0) ? bufferData[0].size() : 0; }
 
     float** getWriteArray() { return pointerAccess.data(); }
-    const float** getReadArray() { return const_cast<const float**> (getWriteArray()); } // Ugh, const_cast
+    const float** getReadArray() const { return const_cast<const float**> (pointerAccess.data()); } // const!? Really?!
+
+    std::vector<std::vector<float>>::iterator       begin()       { return bufferData.begin(); }
+    std::vector<std::vector<float>>::const_iterator begin() const { return bufferData.begin(); }
+    std::vector<std::vector<float>>::iterator       end()         { return bufferData.end(); }
+    std::vector<std::vector<float>>::const_iterator end()   const { return bufferData.end(); }
 
     void clear()
     {
