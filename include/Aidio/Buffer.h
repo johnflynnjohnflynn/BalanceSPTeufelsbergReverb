@@ -58,7 +58,7 @@ struct BufferHandle
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
-    @brief   Audio buffer
+    Simple audio buffer
 
     @param   numChannels
     @param   numSamples
