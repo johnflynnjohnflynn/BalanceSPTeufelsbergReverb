@@ -21,6 +21,10 @@
       <FILE id="yeADX3" name="catch.hpp" compile="0" resource="0" file="test/catch.hpp"/>
       <FILE id="xLKk4s" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
     </GROUP>
+    <GROUP id="{47819558-27D8-7D48-14FA-9893F478FC8B}" name="resource">
+      <FILE id="J1pVnN" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
+            file="resource/Stereo64SamplesAllOnes.wav"/>
+    </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="build/MacOSX">

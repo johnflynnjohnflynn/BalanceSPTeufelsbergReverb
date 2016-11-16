@@ -25,9 +25,45 @@ namespace jdo
 {
 
 //--------//--------//--------//--------//--------//--------//--------//--------
-/** 
-    Next power of two integer larger than x
-*/
+
+void bufferLoadFromWavBinaryData (const void* binaryData,
+                                  size_t binaryDataSize,
+                                  AudioBuffer<float>& targetBuffer)
+{
+    WavAudioFormat wav;
+    ScopedPointer<MemoryInputStream> mis {new MemoryInputStream {binaryData, binaryDataSize, false}};
+    ScopedPointer<AudioFormatReader> audioReader {wav.createReaderFor (mis.release(), true)}; // now owns mis
+
+    targetBuffer.setSize (static_cast<int> (audioReader->numChannels),
+                          static_cast<int> (audioReader->lengthInSamples)); // watch cast for super long audio!
+
+    audioReader->read(&targetBuffer, 0, static_cast<int> (audioReader->lengthInSamples), 0, true, true);
+}
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+
+void bufferFillAllOnes (AudioBuffer<float>& b)
+{
+    for (int chan = 0; chan < b.getNumChannels(); ++chan)
+        for (int samp = 0; samp < b.getNumSamples(); ++samp)
+            b.setSample(chan, samp, 1.0f);
+}
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+
+float bufferSumElements (const AudioBuffer<float>& b)
+{
+    float sum {0};
+
+    for (int chan = 0; chan < b.getNumChannels(); ++chan)
+        for (int samp = 0; samp < b.getNumSamples(); ++samp)
+            sum += b.getSample(chan, samp);
+
+    return sum;
+}
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+
 int nextPowerOf2 (int x)
 {
     int nextPO2 {1};
