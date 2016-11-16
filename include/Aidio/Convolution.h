@@ -42,7 +42,7 @@ namespace ado
 class Convolution
 {
 public:
-    explicit Convolution (ado::Buffer& impulse)                         // WDL_CONVO_MAX_IMPULSE_NCH max channels set to 2
+    explicit Convolution (ado::Buffer& impulse)                 // WDL_CONVO_MAX_IMPULSE_NCH max channels set to 2
     {
         set (impulse);
     }
@@ -51,12 +51,7 @@ public:
     void set (ado::Buffer& impulse)
     {
         imp.Set (impulse.getReadArray(), impulse.numSamples(), impulse.numChannels());
-
-        eng.SetImpulse (&imp,
-                        -1,     // fft size                             // probably should be pow2 after processBufferSize?
-                        0,      // starting sample
-                        0,      // max impulse size
-                        true);  // brute convolution
+        eng.SetImpulse (&imp);
     }
 
     void reset() { eng.Reset(); }
@@ -74,25 +69,26 @@ public:
 private:
     void convolve (float** block, int blockNumChannels, int blockNumSamples)
     {
-        eng.Add (block,                      // Send input to conv eng
+        eng.Add (block,                                 // Send input to conv eng
                  blockNumSamples,
                  blockNumChannels);
 
-        const int avail = eng.Avail (blockNumSamples);    // Confirm full buffer available
+        const int avail = eng.Avail (blockNumSamples);  // Confirm full buffer available
         assert (avail == blockNumSamples);
 
         float** convolved = eng.Get();
+        auto constConvolved = const_cast<const float**> (convolved);
 
-        ado::rawBufferCopy (const_cast<const float**> (convolved),  // source
-                            block,                                  // dest
+        ado::rawBufferCopy (constConvolved,             // source
+                            block,                      // dest
                             blockNumChannels,
                             blockNumSamples);
 
-        eng.Advance (blockNumSamples);                    // Advance the eng
+        eng.Advance (blockNumSamples);                  // Advance the eng
     }
 
     WDL_ImpulseBuffer imp;
-    WDL_ConvolutionEngine eng;
+    WDL_ConvolutionEngine_Div eng;
 };
 
 } // namespace
