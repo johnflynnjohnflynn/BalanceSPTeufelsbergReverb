@@ -6,55 +6,38 @@
   <MAINGROUP id="fnjyVf" name="Aidio">
     <GROUP id="{0CD79B56-AA54-45FD-3070-BD8980F822E9}" name="include">
       <GROUP id="{9D333B87-D773-B048-9039-4B6665C95DD1}" name="Aidio">
-        <FILE id="dlyr4b" name="Aidio.h" compile="0" resource="0" file="include/Aidio/Aidio.h"/>
-        <FILE id="dJd8DC" name="Buffer.h" compile="0" resource="0" file="include/Aidio/Buffer.h"/>
-        <FILE id="eiRqqm" name="Convolution.h" compile="0" resource="0" file="include/Aidio/Convolution.h"/>
-        <FILE id="kkw0KA" name="Resample.h" compile="0" resource="0" file="include/Aidio/Resample.h"/>
-        <FILE id="UWciV8" name="Utility.h" compile="0" resource="0" file="include/Aidio/Utility.h"/>
+        <FILE id="zVE1V1" name="Aidio.h" compile="0" resource="0" file="include/Aidio/Aidio.h"/>
+        <FILE id="SspGRn" name="Buffer.h" compile="0" resource="0" file="include/Aidio/Buffer.h"/>
+        <FILE id="zOrYCN" name="Convolution.h" compile="0" resource="0" file="include/Aidio/Convolution.h"/>
+        <FILE id="g6FUpp" name="Utility.h" compile="0" resource="0" file="include/Aidio/Utility.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{6C2CBE0C-5224-A47B-B5B5-6FA487FD4344}" name="src">
       <GROUP id="{378DC97D-18E1-2C19-FDDF-6EE391601B07}" name="gsl">
-        <FILE id="ZtGBb1" name="gsl-lite-vc6.h" compile="0" resource="0" file="src/gsl/gsl-lite-vc6.h"/>
-        <FILE id="HNYrPD" name="gsl-lite.h" compile="0" resource="0" file="src/gsl/gsl-lite.h"/>
-      </GROUP>
-      <GROUP id="{5A0C456A-709E-52D3-820F-B70A3CD00F78}" name="r8brain">
-        <FILE id="hN24Ok" name="CDSPBlockConvolver.h" compile="0" resource="0"
-              file="src/r8brain/CDSPBlockConvolver.h"/>
-        <FILE id="oRktHr" name="CDSPFIRFilter.h" compile="0" resource="0" file="src/r8brain/CDSPFIRFilter.h"/>
-        <FILE id="xGxCFY" name="CDSPFracInterpolator.h" compile="0" resource="0"
-              file="src/r8brain/CDSPFracInterpolator.h"/>
-        <FILE id="QRTo2I" name="CDSPProcessor.h" compile="0" resource="0" file="src/r8brain/CDSPProcessor.h"/>
-        <FILE id="ojP3Ii" name="CDSPRealFFT.h" compile="0" resource="0" file="src/r8brain/CDSPRealFFT.h"/>
-        <FILE id="yM464w" name="CDSPResampler.h" compile="0" resource="0" file="src/r8brain/CDSPResampler.h"/>
-        <FILE id="Cy78j9" name="CDSPSincFilterGen.h" compile="0" resource="0"
-              file="src/r8brain/CDSPSincFilterGen.h"/>
-        <FILE id="dy1Bzw" name="fft4g.h" compile="0" resource="0" file="src/r8brain/fft4g.h"/>
-        <FILE id="AFlNB5" name="r8bbase.cpp" compile="1" resource="0" file="src/r8brain/r8bbase.cpp"/>
-        <FILE id="yoOTpR" name="r8bbase.h" compile="0" resource="0" file="src/r8brain/r8bbase.h"/>
-        <FILE id="DeQhmh" name="r8bconf.h" compile="0" resource="0" file="src/r8brain/r8bconf.h"/>
-        <FILE id="tg8BXa" name="r8butil.h" compile="0" resource="0" file="src/r8brain/r8butil.h"/>
+        <FILE id="FdK3ie" name="gsl-lite-vc6.h" compile="0" resource="0" file="src/gsl/gsl-lite-vc6.h"/>
+        <FILE id="oQd52W" name="gsl-lite.h" compile="0" resource="0" file="src/gsl/gsl-lite.h"/>
       </GROUP>
       <GROUP id="{0C68E354-A0DB-9494-8624-9468B22BE894}" name="WDL">
-        <FILE id="sPYUZj" name="convoengine.cpp" compile="1" resource="0" file="src/WDL/convoengine.cpp"/>
-        <FILE id="DNOfjO" name="convoengine.h" compile="0" resource="0" file="src/WDL/convoengine.h"/>
-        <FILE id="f69FCs" name="denormal.h" compile="0" resource="0" file="src/WDL/denormal.h"/>
-        <FILE id="ahlyS9" name="fastqueue.h" compile="0" resource="0" file="src/WDL/fastqueue.h"/>
-        <FILE id="nGEmfh" name="fft.c" compile="1" resource="0" file="src/WDL/fft.c"/>
-        <FILE id="sagGhC" name="fft.h" compile="0" resource="0" file="src/WDL/fft.h"/>
-        <FILE id="FuFdF4" name="heapbuf.h" compile="0" resource="0" file="src/WDL/heapbuf.h"/>
-        <FILE id="KSGLbA" name="ptrlist.h" compile="0" resource="0" file="src/WDL/ptrlist.h"/>
-        <FILE id="sdEllr" name="queue.h" compile="0" resource="0" file="src/WDL/queue.h"/>
-        <FILE id="g6WF8n" name="resample.cpp" compile="1" resource="0" file="src/WDL/resample.cpp"/>
-        <FILE id="MifgHO" name="resample.h" compile="0" resource="0" file="src/WDL/resample.h"/>
-        <FILE id="ZZxNai" name="wdltypes.h" compile="0" resource="0" file="src/WDL/wdltypes.h"/>
+        <FILE id="rafEH9" name="convoengine.cpp" compile="1" resource="0" file="src/WDL/convoengine.cpp"/>
+        <FILE id="ft220f" name="convoengine.h" compile="0" resource="0" file="src/WDL/convoengine.h"/>
+        <FILE id="XAuYjM" name="denormal.h" compile="0" resource="0" file="src/WDL/denormal.h"/>
+        <FILE id="dB6niP" name="fastqueue.h" compile="0" resource="0" file="src/WDL/fastqueue.h"/>
+        <FILE id="QgyK6x" name="fft.c" compile="1" resource="0" file="src/WDL/fft.c"/>
+        <FILE id="VlP8gA" name="fft.h" compile="0" resource="0" file="src/WDL/fft.h"/>
+        <FILE id="y8YpSu" name="heapbuf.h" compile="0" resource="0" file="src/WDL/heapbuf.h"/>
+        <FILE id="v2ZJNv" name="ptrlist.h" compile="0" resource="0" file="src/WDL/ptrlist.h"/>
+        <FILE id="HODueo" name="queue.h" compile="0" resource="0" file="src/WDL/queue.h"/>
+        <FILE id="Bh00Tv" name="resample.cpp" compile="1" resource="0" file="src/WDL/resample.cpp"/>
+        <FILE id="BZREtf" name="resample.h" compile="0" resource="0" file="src/WDL/resample.h"/>
+        <FILE id="HUC5FL" name="wdltypes.h" compile="0" resource="0" file="src/WDL/wdltypes.h"/>
       </GROUP>
-      <FILE id="tuZIzr" name="gsl.h" compile="0" resource="0" file="src/gsl.h"/>
-      <FILE id="fXl3HH" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
+      <FILE id="UszdCr" name="Buffer.cpp" compile="1" resource="0" file="src/Buffer.cpp"/>
+      <FILE id="gSM6eI" name="gsl.h" compile="0" resource="0" file="src/gsl.h"/>
+      <FILE id="S3EipK" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
     </GROUP>
     <GROUP id="{5D4CA619-7798-0E4C-521D-2C9B9B16E1BB}" name="test">
-      <FILE id="EQYQSD" name="catch.hpp" compile="0" resource="0" file="test/catch.hpp"/>
-      <FILE id="B8Q3WI" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
+      <FILE id="Uic4cI" name="catch.hpp" compile="0" resource="0" file="test/catch.hpp"/>
+      <FILE id="wDS2px" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>

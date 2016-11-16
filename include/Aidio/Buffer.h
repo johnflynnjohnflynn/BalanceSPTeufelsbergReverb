@@ -37,10 +37,36 @@ namespace ado
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
-    Simple audio buffer
+    Non-owning, audio buffer handle
 
-    Buffer b (2, 512);
-    float** ptrPtrBuffer = b.getWriteArray();
+    @param data         raw buffer (e.g. in float** form)
+    @param numChannels
+    @param numSamples
+*/
+template <typename FloatType>
+struct BufferHandle
+{
+    BufferHandle (FloatType** array, int chans, int samps)
+        : data {array},
+          numChannels {chans},
+          numSamples {samps}
+    {}
+    ~BufferHandle();
+
+    FloatType** data;
+    int numChannels;
+    int numSamples;
+};
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
+    @brief   Audio buffer
+
+    @param   numChannels
+    @param   numSamples
+
+    @example Buffer b (2, 512);
+             float** ptrPtrBuffer = b.getWriteArray();
 */
 class Buffer
 {
