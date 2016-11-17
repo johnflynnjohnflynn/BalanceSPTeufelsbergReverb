@@ -24,13 +24,16 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#ifndef AIDIO_H_INCLUDED
-#define AIDIO_H_INCLUDED
+#ifndef RESAMPLE_H_INCLUDED
+#define RESAMPLE_H_INCLUDED
 
-#include "Utility.h"
 #include "Buffer.h"
-#include "Convolution.h"
-// Don't forget WDL_RESAMPLE_TYPE=float in Projucer > Preprocessor definitions
-#include "Resample.h"
 
-#endif  // AIDIO_H_INCLUDED
+namespace ado
+{
+
+ado::Buffer resampleBuffer (ado::Buffer buffer, double sourceRate, double destRate);
+
+} // namespace
+
+#endif  // RESAMPLE_H_INCLUDED

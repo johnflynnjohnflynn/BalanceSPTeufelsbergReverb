@@ -2,9 +2,34 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
-#define gsl_CONFIG_CONTRACT_VIOLATION_THROWS 1
-
 #include "Aidio/Aidio.h"
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+
+TEST_CASE ("Resample 441 samples to 882", "Resample") {
+    ado::Buffer source {1, 441};
+    source.fillAscending();
+    ado::Buffer dest = ado::resampleBuffer (source, 441, 882);
+    //ado::coutBuffer(source);
+    //ado::coutBuffer(dest);
+    REQUIRE (source.getReadArray()[0][440]
+     == Approx(dest.getReadArray()[0][880]));
+}
+
+TEST_CASE ("Resample 441 samples to 220", "Resample") {
+    ado::Buffer source {1, 128};
+    source.fillAscending();
+    ado::Buffer dest = ado::resampleBuffer (source, 128, 64);
+    REQUIRE (134.632 == Approx(dest.getReadArray()[0][63]));
+}
+
+TEST_CASE ("Should not resample at all", "Resample") {
+    ado::Buffer source {1, 128};
+    source.fillAscending();
+    ado::Buffer dest = ado::resampleBuffer (source, 128, 128);
+    REQUIRE (source.getReadArray()[0][127]
+            == dest.getReadArray()[0][127]);
+}
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 
