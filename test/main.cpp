@@ -16,10 +16,12 @@ TEST_CASE ("Resample 441 samples to 882", "Resample") {
      == Approx(dest.getReadArray()[0][880]));
 }
 
-TEST_CASE ("Resample 441 samples to 220", "Resample") {
+TEST_CASE ("Resample 128 samples to 64", "Resample") {
     ado::Buffer source {1, 128};
     source.fillAscending();
     ado::Buffer dest = ado::resampleBuffer (source, 128, 64);
+    //ado::coutBuffer(source);
+    //ado::coutBuffer(dest);
     REQUIRE (134.632 == Approx(dest.getReadArray()[0][63]));
 }
 
@@ -29,6 +31,35 @@ TEST_CASE ("Should not resample at all", "Resample") {
     ado::Buffer dest = ado::resampleBuffer (source, 128, 128);
     REQUIRE (source.getReadArray()[0][127]
             == dest.getReadArray()[0][127]);
+}
+
+TEST_CASE ("2 channels, should not resample", "Resample") {
+    ado::Buffer source {2, 300};
+    source.fillAscending();
+    ado::Buffer dest = ado::resampleBuffer (source, 441, 441);
+    //ado::coutBuffer(source);
+    //ado::coutBuffer(dest);
+    REQUIRE (source.getReadArray()[1][299]
+            == dest.getReadArray()[1][299]);
+}
+
+TEST_CASE ("2 channels, 441->882", "Resample") {
+    ado::Buffer source {2, 300};
+    source.fillAscending();
+    ado::Buffer dest = ado::resampleBuffer (source, 441, 882);
+    //ado::coutBuffer(source);
+    //ado::coutBuffer(dest);
+    REQUIRE (source.getReadArray()[1][299]
+     == Approx(dest.getReadArray()[1][598]));
+}
+
+TEST_CASE ("16 channels, 441->480", "Resample") {
+    ado::Buffer source {16, 30};
+    source.fillAscending();
+    ado::Buffer dest = ado::resampleBuffer (source, 441, 480);
+    REQUIRE (33.5712 == Approx(dest.getReadArray()[15][31]));   // check many channels
+    REQUIRE (33.5712 == Approx(dest.getReadArray()[14][31]));   // i.e. don't carry garbage
+    REQUIRE (33.5712 == Approx(dest.getReadArray()[5][31]));    // from previous channel pass
 }
 
 //--------//--------//--------//--------//--------//--------//--------//--------

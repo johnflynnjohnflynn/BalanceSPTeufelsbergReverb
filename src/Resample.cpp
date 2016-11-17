@@ -32,52 +32,36 @@ namespace ado
 
 ado::Buffer resampleBuffer (ado::Buffer buffer, double sourceRate, double destRate)
 {
+    WDL_Resampler engine;
 
-    const float* src = buffer.getReadArray()[0];                        // hmmmmmmmmmmmmm [0]
-    int src_len = buffer.numSamples();
+    engine.SetMode (false, 0, true); // sinc, default size (interp, filtercnt, sinc)
+    engine.SetRates (sourceRate, destRate);
 
-    int dest_len = src_len * (destRate / sourceRate);
+    int sourceLength = buffer.numSamples();
+    int destLength = sourceLength * (destRate / sourceRate);
 
-    ado::Buffer destBuff {1, dest_len};
-    float* dest = destBuff.getWriteArray()[0];
+    ado::Buffer destBuff {buffer.numChannels(), destLength};
 
-    if (dest_len == src_len)
+    if (destLength == sourceLength)            // copy and exit
     {
-        for (int i = 0; i < dest_len; ++i) // Copy
-            *dest++ = *src++;
+        destBuff = buffer;
         return destBuff;
     }
 
-    const int mBlockLength {64};
-    WDL_Resampler engine;
-
-    engine.SetMode (false, 0, true);  // Sinc, default size
-    engine.SetFeedMode (true);        // Input driven
-    engine.SetRates (sourceRate, destRate);
-
-    while (dest_len > 0)
+    for (int chan = 0; chan < buffer.numChannels(); ++chan)
     {
-        float* p;
-        int n = engine.ResamplePrepare(mBlockLength, 1, &p);
-        int m = n;
-        if (n > src_len)
-            n = src_len;
-        for (int i = 0; i < n; ++i)
-            *p++ = *src++;
-        if (n < m)
-            memset(p, 0, (m - n) * sizeof(float));
-        src_len -= n;
+        float* source = buffer.getWriteArray()[chan];
+        float* dest = destBuff.getWriteArray()[chan];
 
-        float buf[mBlockLength];
-        n = engine.ResampleOut(buf, m, m, 1);
-        if (n > dest_len)
-            n = dest_len;
-        p = buf;
-        for (int i = 0; i < n; ++i)
-            *dest++ = *p++;
-        dest_len -= n;
+        float* p;                                       // needs to work this way
+        engine.ResamplePrepare (destLength, 1, &p);
+        for (int i = 0; i < sourceLength; ++i)
+            *p++ = *source++;
+
+        engine.ResampleOut (dest, sourceLength, destLength, 1);
+        
+        engine.Reset(); // don't carry garbage over to next channel pass
     }
-    engine.Reset();
 
     return destBuff;
 }
