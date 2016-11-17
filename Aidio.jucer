@@ -9,6 +9,7 @@
         <FILE id="zVE1V1" name="Aidio.h" compile="0" resource="0" file="include/Aidio/Aidio.h"/>
         <FILE id="SspGRn" name="Buffer.h" compile="0" resource="0" file="include/Aidio/Buffer.h"/>
         <FILE id="zOrYCN" name="Convolution.h" compile="0" resource="0" file="include/Aidio/Convolution.h"/>
+        <FILE id="qOswJn" name="Resample.h" compile="0" resource="0" file="include/Aidio/Resample.h"/>
         <FILE id="g6FUpp" name="Utility.h" compile="0" resource="0" file="include/Aidio/Utility.h"/>
       </GROUP>
     </GROUP>

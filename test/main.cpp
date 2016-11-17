@@ -4,7 +4,6 @@
 
 #define gsl_CONFIG_CONTRACT_VIOLATION_THROWS 1
 
-#include "WDL/convoengine.h"
 #include "Aidio/Aidio.h"
 
 //--------//--------//--------//--------//--------//--------//--------//--------
