@@ -35,7 +35,7 @@ namespace ado
 /** 
     Print all elements in buffer using cout
 */
-void coutBuffer (const ado::Buffer& buffer)
+void coutBuffer (ado::Buffer& buffer)
 {
     for (int chan = 0; chan < buffer.numChannels(); ++chan)
         for (int samp = 0; samp < buffer.numSamples(); ++samp)
