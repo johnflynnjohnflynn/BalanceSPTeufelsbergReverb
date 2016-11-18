@@ -38,6 +38,9 @@ namespace ado
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /**
+    Simple, zero latency convolution engine.
+    
+    Note: Max 2 channels!!!
 */
 class Convolution
 {

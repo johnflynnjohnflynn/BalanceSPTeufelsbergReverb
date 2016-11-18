@@ -5,6 +5,7 @@
 #include "Aidio/Aidio.h"
 
 //--------//--------//--------//--------//--------//--------//--------//--------
+// Resample.h
 
 TEST_CASE ("Resample 441 samples to 882", "Resample") {
     ado::Buffer source {1, 441};
@@ -63,6 +64,7 @@ TEST_CASE ("16 channels, 441->480", "Resample") {
 }
 
 //--------//--------//--------//--------//--------//--------//--------//--------
+// Convolution.h
 
 TEST_CASE ("Delta through 9 point moving average", "Convolution") {
     ado::Buffer h {1, 9};
@@ -229,6 +231,7 @@ TEST_CASE ("set()", "Convolution") {
 }
 
 //--------//--------//--------//--------//--------//--------//--------//--------
+// Buffer.h
 
 TEST_CASE ("Constructs", "Buffer") {
     CHECK_NOTHROW (ado::Buffer (2, 512));
@@ -299,6 +302,7 @@ TEST_CASE ("Clear()", "Buffer") {
 }
 
 //--------//--------//--------//--------//--------//--------//--------//--------
+// Utility.h
 
 TEST_CASE("rawBufferEquals()", "Utility") {
     ado::Buffer a {2, 2048};

@@ -27,10 +27,17 @@
 #ifndef AIDIO_H_INCLUDED
 #define AIDIO_H_INCLUDED
 
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
+    Parent header for the library
+    
+    @example    #include "Aidio/Aidio.h"
+*/
 #include "Utility.h"
 #include "Buffer.h"
 #include "Convolution.h"
-// Don't forget WDL_RESAMPLE_TYPE=float in Projucer > Preprocessor definitions
+// Don't forget WDL_RESAMPLE_TYPE=float in project preprocessor definitions.
 #include "Resample.h"
+// You may also want gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1 for the tests.
 
 #endif  // AIDIO_H_INCLUDED

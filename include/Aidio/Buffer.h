@@ -60,9 +60,6 @@ struct BufferHandle
 /** 
     Simple audio buffer
 
-    @param   numChannels
-    @param   numSamples
-
     @example Buffer b (2, 512);
              float** ptrPtrBuffer = b.getWriteArray();
 */
