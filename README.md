@@ -2,6 +2,8 @@
 Aidio
 -----
 
+![Aidio logo](http://www.johnflynn.info/images/aidio.png)
+
 ### Aid + audio = Aidio.
 
 Permissively licensed DSP helper routines for sound applications.

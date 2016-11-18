@@ -2,14 +2,14 @@
 
 <JUCERPROJECT id="UgKWOL" name="Aidio" projectType="consoleapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.Aidio" includeBinaryInAppConfig="1"
-              jucerVersion="4.3.0" defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;WDL_RESAMPLE_TYPE=float">
+              jucerVersion="4.3.0" defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float">
   <MAINGROUP id="fnjyVf" name="Aidio">
     <GROUP id="{0CD79B56-AA54-45FD-3070-BD8980F822E9}" name="include">
       <GROUP id="{9D333B87-D773-B048-9039-4B6665C95DD1}" name="Aidio">
         <FILE id="zVE1V1" name="Aidio.h" compile="0" resource="0" file="include/Aidio/Aidio.h"/>
         <FILE id="SspGRn" name="Buffer.h" compile="0" resource="0" file="include/Aidio/Buffer.h"/>
         <FILE id="zOrYCN" name="Convolution.h" compile="0" resource="0" file="include/Aidio/Convolution.h"/>
-        <FILE id="qOswJn" name="Resample.h" compile="0" resource="0" file="include/Aidio/Resample.h"/>
+        <FILE id="qOswJn" name="Resampling.h" compile="0" resource="0" file="include/Aidio/Resampling.h"/>
         <FILE id="g6FUpp" name="Utility.h" compile="0" resource="0" file="include/Aidio/Utility.h"/>
       </GROUP>
     </GROUP>
@@ -34,7 +34,7 @@
       </GROUP>
       <FILE id="UszdCr" name="Buffer.cpp" compile="1" resource="0" file="src/Buffer.cpp"/>
       <FILE id="gSM6eI" name="gsl.h" compile="0" resource="0" file="src/gsl.h"/>
-      <FILE id="lfapbX" name="Resample.cpp" compile="1" resource="0" file="src/Resample.cpp"/>
+      <FILE id="lfapbX" name="Resampling.cpp" compile="1" resource="0" file="src/Resampling.cpp"/>
       <FILE id="S3EipK" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
     </GROUP>
     <GROUP id="{5D4CA619-7798-0E4C-521D-2C9B9B16E1BB}" name="test">
@@ -46,9 +46,9 @@
     <XCODE_MAC targetFolder="build/MacOSX">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aidio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aidio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
@@ -60,9 +60,9 @@
     <VS2013 targetFolder="build/VisualStudio2013">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="Aidio" headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
+                       isDebug="1" optimisation="1" targetName="Aidio" headerPath="..\..\include&#10;..\..\src&#10;..\..\src\WDL"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="Aidio" headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
+                       isDebug="0" optimisation="3" targetName="Aidio" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
@@ -74,9 +74,9 @@
     <LINUX_MAKE targetFolder="build/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aidio"
-                       headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
+                       headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aidio"
-                       headerPath="../../include&#10;../../src&#10;../../src/WDL&#10;../../src/r8brain"/>
+                       headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>

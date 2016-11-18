@@ -5,7 +5,7 @@
 #include "Aidio/Aidio.h"
 
 //--------//--------//--------//--------//--------//--------//--------//--------
-// Resample.h
+// Resampling.h
 
 TEST_CASE ("Resample 441 samples to 882", "Resample") {
     ado::Buffer source {1, 441};

@@ -24,20 +24,46 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#ifndef AIDIO_H_INCLUDED
-#define AIDIO_H_INCLUDED
+#include "WDL/resample.h"
+#include "Aidio/Resampling.h"
 
-//--------//--------//--------//--------//--------//--------//--------//--------
-/** 
-    Parent header for the library
-    
-    @example    #include "Aidio/Aidio.h"
-*/
-#include "Utility.h"
-#include "Buffer.h"
-#include "Convolution.h"
-// Don't forget WDL_RESAMPLE_TYPE=float in project preprocessor definitions.
-#include "Resampling.h"
-// You may also want gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1 for the tests.
+namespace ado
+{
 
-#endif  // AIDIO_H_INCLUDED
+ado::Buffer resampleBuffer (ado::Buffer buffer, double sourceRate, double destRate)
+{
+    WDL_Resampler engine;
+
+    engine.SetMode (false, 0, true); // sinc, default size (interp, filtercnt, sinc)
+    engine.SetRates (sourceRate, destRate);
+
+    int sourceLength = buffer.numSamples();
+    int destLength = static_cast<int> (sourceLength * (destRate / sourceRate)); // round down
+
+    ado::Buffer destBuff {buffer.numChannels(), destLength};
+
+    if (destLength == sourceLength)            // copy and exit
+    {
+        destBuff = buffer;
+        return destBuff;
+    }
+
+    for (int chan = 0; chan < buffer.numChannels(); ++chan)
+    {
+        float* source = buffer.getWriteArray()[chan];
+        float* dest = destBuff.getWriteArray()[chan];
+
+        float* p;                                       // needs to work this way
+        engine.ResamplePrepare (destLength, 1, &p);
+        for (int i = 0; i < sourceLength; ++i)
+            *p++ = *source++;
+
+        engine.ResampleOut (dest, sourceLength, destLength, 1);
+        
+        engine.Reset(); // don't carry garbage over to next channel pass
+    }
+
+    return destBuff;
+}
+
+} // namespace

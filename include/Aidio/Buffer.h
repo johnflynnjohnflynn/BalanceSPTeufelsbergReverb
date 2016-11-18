@@ -67,8 +67,8 @@ class Buffer
 {
 public:
     Buffer (int numChannels, int numSamples)
-        : bufferData {gsl::narrow<size_t> (numChannels),
-                      std::vector<float>  (numSamples)}
+        : bufferData (gsl::narrow<size_t> (numChannels),
+                      std::vector<float>  (numSamples))
     {
         Expects (numChannels > 0);
         Expects (numSamples  > 0);
