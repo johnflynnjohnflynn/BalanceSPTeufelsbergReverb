@@ -6,49 +6,51 @@
   <MAINGROUP id="fnjyVf" name="Aidio">
     <GROUP id="{0CD79B56-AA54-45FD-3070-BD8980F822E9}" name="include">
       <GROUP id="{9D333B87-D773-B048-9039-4B6665C95DD1}" name="Aidio">
-        <FILE id="zVE1V1" name="Aidio.h" compile="0" resource="0" file="include/Aidio/Aidio.h"/>
-        <FILE id="SspGRn" name="Buffer.h" compile="0" resource="0" file="include/Aidio/Buffer.h"/>
-        <FILE id="zOrYCN" name="Convolution.h" compile="0" resource="0" file="include/Aidio/Convolution.h"/>
-        <FILE id="qOswJn" name="Resampling.h" compile="0" resource="0" file="include/Aidio/Resampling.h"/>
-        <FILE id="g6FUpp" name="Utility.h" compile="0" resource="0" file="include/Aidio/Utility.h"/>
+        <FILE id="bFIxjn" name="Aidio.h" compile="0" resource="0" file="include/Aidio/Aidio.h"/>
+        <FILE id="Bcu4Uc" name="Buffer.h" compile="0" resource="0" file="include/Aidio/Buffer.h"/>
+        <FILE id="QnVMYP" name="Convolution.h" compile="0" resource="0" file="include/Aidio/Convolution.h"/>
+        <FILE id="Nfw6yd" name="Resampling.h" compile="0" resource="0" file="include/Aidio/Resampling.h"/>
+        <FILE id="OTeAkZ" name="Utility.h" compile="0" resource="0" file="include/Aidio/Utility.h"/>
       </GROUP>
     </GROUP>
-    <GROUP id="{6C2CBE0C-5224-A47B-B5B5-6FA487FD4344}" name="src">
-      <GROUP id="{378DC97D-18E1-2C19-FDDF-6EE391601B07}" name="gsl">
-        <FILE id="FdK3ie" name="gsl-lite-vc6.h" compile="0" resource="0" file="src/gsl/gsl-lite-vc6.h"/>
-        <FILE id="oQd52W" name="gsl-lite.h" compile="0" resource="0" file="src/gsl/gsl-lite.h"/>
+    <GROUP id="{7759A782-846C-3897-F032-6EC2BBBE4367}" name="lib">
+      <GROUP id="{F80B86C9-B637-D3CF-BE1E-7A2C77AB81B2}" name="gsl">
+        <FILE id="fMe6Iy" name="gsl-lite-vc6.h" compile="0" resource="0" file="lib/gsl/gsl-lite-vc6.h"/>
+        <FILE id="fxGELW" name="gsl-lite.h" compile="0" resource="0" file="lib/gsl/gsl-lite.h"/>
       </GROUP>
-      <GROUP id="{0C68E354-A0DB-9494-8624-9468B22BE894}" name="WDL">
-        <FILE id="rafEH9" name="convoengine.cpp" compile="1" resource="0" file="src/WDL/convoengine.cpp"/>
-        <FILE id="ft220f" name="convoengine.h" compile="0" resource="0" file="src/WDL/convoengine.h"/>
-        <FILE id="XAuYjM" name="denormal.h" compile="0" resource="0" file="src/WDL/denormal.h"/>
-        <FILE id="dB6niP" name="fastqueue.h" compile="0" resource="0" file="src/WDL/fastqueue.h"/>
-        <FILE id="QgyK6x" name="fft.c" compile="1" resource="0" file="src/WDL/fft.c"/>
-        <FILE id="VlP8gA" name="fft.h" compile="0" resource="0" file="src/WDL/fft.h"/>
-        <FILE id="y8YpSu" name="heapbuf.h" compile="0" resource="0" file="src/WDL/heapbuf.h"/>
-        <FILE id="v2ZJNv" name="ptrlist.h" compile="0" resource="0" file="src/WDL/ptrlist.h"/>
-        <FILE id="HODueo" name="queue.h" compile="0" resource="0" file="src/WDL/queue.h"/>
-        <FILE id="Bh00Tv" name="resample.cpp" compile="1" resource="0" file="src/WDL/resample.cpp"/>
-        <FILE id="BZREtf" name="resample.h" compile="0" resource="0" file="src/WDL/resample.h"/>
-        <FILE id="HUC5FL" name="wdltypes.h" compile="0" resource="0" file="src/WDL/wdltypes.h"/>
+      <GROUP id="{43626DEB-D1CB-40B5-6FD0-C6ACC0E37183}" name="WDL">
+        <FILE id="cZ7X8n" name="convoengine.cpp" compile="1" resource="0" file="lib/WDL/convoengine.cpp"/>
+        <FILE id="Nez1QC" name="convoengine.h" compile="0" resource="0" file="lib/WDL/convoengine.h"/>
+        <FILE id="ncK0Z8" name="denormal.h" compile="0" resource="0" file="lib/WDL/denormal.h"/>
+        <FILE id="Z8Qtr9" name="fastqueue.h" compile="0" resource="0" file="lib/WDL/fastqueue.h"/>
+        <FILE id="K2ZeH2" name="fft.c" compile="1" resource="0" file="lib/WDL/fft.c"/>
+        <FILE id="mtgZUV" name="fft.h" compile="0" resource="0" file="lib/WDL/fft.h"/>
+        <FILE id="YGrDnn" name="heapbuf.h" compile="0" resource="0" file="lib/WDL/heapbuf.h"/>
+        <FILE id="aeSuZ5" name="ptrlist.h" compile="0" resource="0" file="lib/WDL/ptrlist.h"/>
+        <FILE id="kkATCI" name="queue.h" compile="0" resource="0" file="lib/WDL/queue.h"/>
+        <FILE id="hoMTuR" name="resample.cpp" compile="1" resource="0" file="lib/WDL/resample.cpp"/>
+        <FILE id="SsPkOm" name="resample.h" compile="0" resource="0" file="lib/WDL/resample.h"/>
+        <FILE id="aeM45Q" name="wdltypes.h" compile="0" resource="0" file="lib/WDL/wdltypes.h"/>
       </GROUP>
-      <FILE id="UszdCr" name="Buffer.cpp" compile="1" resource="0" file="src/Buffer.cpp"/>
-      <FILE id="gSM6eI" name="gsl.h" compile="0" resource="0" file="src/gsl.h"/>
-      <FILE id="lfapbX" name="Resampling.cpp" compile="1" resource="0" file="src/Resampling.cpp"/>
-      <FILE id="S3EipK" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
+      <FILE id="xrsqyj" name="catch.hpp" compile="0" resource="0" file="lib/catch.hpp"/>
+      <FILE id="Ye9spz" name="gsl.h" compile="0" resource="0" file="lib/gsl.h"/>
     </GROUP>
-    <GROUP id="{5D4CA619-7798-0E4C-521D-2C9B9B16E1BB}" name="test">
-      <FILE id="Uic4cI" name="catch.hpp" compile="0" resource="0" file="test/catch.hpp"/>
-      <FILE id="wDS2px" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
+    <GROUP id="{5090576E-6AF9-AF11-36EA-BF254F141EBB}" name="src">
+      <FILE id="EpTudg" name="Buffer.cpp" compile="1" resource="0" file="src/Buffer.cpp"/>
+      <FILE id="FkvLoG" name="Resampling.cpp" compile="1" resource="0" file="src/Resampling.cpp"/>
+      <FILE id="XULf4b" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
+    </GROUP>
+    <GROUP id="{34C7B81C-2196-9DC5-A8D1-DB0CC56513D6}" name="test">
+      <FILE id="x16It2" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="build/MacOSX">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aidio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../lib&#10;../../lib/WDL"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aidio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../lib&#10;../../lib/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
@@ -60,9 +62,9 @@
     <VS2013 targetFolder="build/VisualStudio2013">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="Aidio" headerPath="..\..\include&#10;..\..\src&#10;..\..\src\WDL"/>
+                       isDebug="1" optimisation="1" targetName="Aidio" headerPath="..\..\include&#10;..\..\lib&#10;..\..\lib\WDL"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="Aidio" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       isDebug="0" optimisation="3" targetName="Aidio" headerPath="..\..\include&#10;..\..\lib&#10;..\..\lib\WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
@@ -74,9 +76,9 @@
     <LINUX_MAKE targetFolder="build/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aidio"
-                       headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       headerPath="../../include&#10;../../lib&#10;../../lib/WDL"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aidio"
-                       headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       headerPath="../../include&#10;../../lib&#10;../../lib/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
