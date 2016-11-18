@@ -30,9 +30,9 @@
     <XCODE_MAC targetFolder="build/MacOSX">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Judio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Judio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
@@ -53,9 +53,9 @@
     <VS2013 targetFolder="build/VisualStudio2013">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="Judio" headerPath="../../include&#10;../../src"/>
+                       isDebug="1" optimisation="1" targetName="Judio" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="Judio" headerPath="../../include&#10;../../src"/>
+                       isDebug="0" optimisation="3" targetName="Judio" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
@@ -76,9 +76,9 @@
     <LINUX_MAKE targetFolder="build/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Judio"
-                       headerPath="../../include&#10;../../src"/>
+                       headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Judio"
-                       headerPath="../../include&#10;../../src"/>
+                       headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
