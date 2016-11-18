@@ -19,8 +19,8 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#ifndef UTILITY_H_INCLUDED
-#define UTILITY_H_INCLUDED
+#ifndef UTILITIES_H_INCLUDED
+#define UTILITIES_H_INCLUDED
 
 #include "../../JuceLibraryCode/JuceHeader.h"
 
@@ -69,4 +69,4 @@ int nextPowerOf2 (int x);
 
 } // namespace
 
-#endif  // UTILITY_H_INCLUDED
+#endif  // UTILITIES_H_INCLUDED

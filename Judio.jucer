@@ -2,37 +2,77 @@
 
 <JUCERPROJECT id="UgKWOL" name="Judio" projectType="consoleapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.Judio" includeBinaryInAppConfig="1"
-              jucerVersion="4.3.0">
+              jucerVersion="4.3.0" defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float">
   <MAINGROUP id="fnjyVf" name="Judio">
     <GROUP id="{0CD79B56-AA54-45FD-3070-BD8980F822E9}" name="include">
       <GROUP id="{77F93BBA-AAA9-8BD8-AC0C-D44DA216EF0C}" name="Judio">
-        <FILE id="CIPPf1" name="Utility.h" compile="0" resource="0" file="include/Judio/Utility.h"/>
+        <FILE id="USO5Yl" name="Utility.h" compile="0" resource="0" file="include/Judio/Utility.h"/>
       </GROUP>
     </GROUP>
-    <GROUP id="{6C2CBE0C-5224-A47B-B5B5-6FA487FD4344}" name="src">
-      <GROUP id="{378DC97D-18E1-2C19-FDDF-6EE391601B07}" name="gsl">
-        <FILE id="SgZwXK" name="gsl-lite-vc6.h" compile="0" resource="0" file="src/gsl/gsl-lite-vc6.h"/>
-        <FILE id="GdsXY0" name="gsl-lite.h" compile="0" resource="0" file="src/gsl/gsl-lite.h"/>
+    <GROUP id="{7759A782-846C-3897-F032-6EC2BBBE4367}" name="lib">
+      <GROUP id="{D15964CB-4837-BB10-A632-D70653BEB6BC}" name="Aidio">
+        <GROUP id="{2541C78D-09F4-2306-9403-54F677A507FB}" name="include">
+          <GROUP id="{FDD64791-FFAF-C1F6-820E-DCF94C6B4D37}" name="Aidio">
+            <FILE id="zxEUbA" name="Aidio.h" compile="0" resource="0" file="lib/Aidio/include/Aidio/Aidio.h"/>
+            <FILE id="X5odrc" name="Buffer.h" compile="0" resource="0" file="lib/Aidio/include/Aidio/Buffer.h"/>
+            <FILE id="sbM1ZZ" name="Convolution.h" compile="0" resource="0" file="lib/Aidio/include/Aidio/Convolution.h"/>
+            <FILE id="aTy9zb" name="Resampling.h" compile="0" resource="0" file="lib/Aidio/include/Aidio/Resampling.h"/>
+            <FILE id="bRAnSV" name="Utility.h" compile="0" resource="0" file="lib/Aidio/include/Aidio/Utility.h"/>
+          </GROUP>
+        </GROUP>
+        <GROUP id="{D0A04BDB-4520-A937-7642-87EDF11D7D93}" name="lib">
+          <GROUP id="{D5C7B1A7-D3E6-8DF2-405F-2177621B7F55}" name="gsl">
+            <FILE id="CD9r6j" name="gsl-lite-vc6.h" compile="0" resource="0" file="lib/Aidio/lib/gsl/gsl-lite-vc6.h"/>
+            <FILE id="KEDlRN" name="gsl-lite.h" compile="0" resource="0" file="lib/Aidio/lib/gsl/gsl-lite.h"/>
+          </GROUP>
+          <GROUP id="{81E445B2-B00E-0046-A2C0-5561F92913BF}" name="WDL">
+            <FILE id="N2dadz" name="convoengine.cpp" compile="1" resource="0" file="lib/Aidio/lib/WDL/convoengine.cpp"/>
+            <FILE id="Pu4iIa" name="convoengine.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/convoengine.h"/>
+            <FILE id="OFOuuQ" name="denormal.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/denormal.h"/>
+            <FILE id="FzLZkG" name="fastqueue.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/fastqueue.h"/>
+            <FILE id="pubYdX" name="fft.c" compile="1" resource="0" file="lib/Aidio/lib/WDL/fft.c"/>
+            <FILE id="EEngLk" name="fft.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/fft.h"/>
+            <FILE id="jpUWab" name="heapbuf.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/heapbuf.h"/>
+            <FILE id="Tr0d2o" name="ptrlist.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/ptrlist.h"/>
+            <FILE id="KhoanO" name="queue.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/queue.h"/>
+            <FILE id="Y2Gaai" name="resample.cpp" compile="1" resource="0" file="lib/Aidio/lib/WDL/resample.cpp"/>
+            <FILE id="NHC9zN" name="resample.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/resample.h"/>
+            <FILE id="vAqJMm" name="wdltypes.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/wdltypes.h"/>
+          </GROUP>
+          <FILE id="XJeCOG" name="catch.hpp" compile="0" resource="0" file="lib/Aidio/lib/catch.hpp"/>
+          <FILE id="VthUx5" name="gsl.h" compile="0" resource="0" file="lib/Aidio/lib/gsl.h"/>
+        </GROUP>
+        <GROUP id="{DA12DB0A-5EE9-53FC-BF8B-FFE9898B4BDD}" name="src">
+          <FILE id="ATcf8m" name="Buffer.cpp" compile="1" resource="0" file="lib/Aidio/src/Buffer.cpp"/>
+          <FILE id="cl6vtI" name="Resampling.cpp" compile="1" resource="0" file="lib/Aidio/src/Resampling.cpp"/>
+          <FILE id="Ld8emr" name="Utility.cpp" compile="1" resource="0" file="lib/Aidio/src/Utility.cpp"/>
+        </GROUP>
+        <GROUP id="{5070623E-7168-BD52-3C29-B1C05699A834}" name="test">
+          <FILE id="bPGbch" name="main.cpp" compile="0" resource="0" file="lib/Aidio/test/main.cpp"/>
+        </GROUP>
+        <FILE id="ad7DIu" name="Aidio.jucer" compile="0" resource="1" file="lib/Aidio/Aidio.jucer"/>
+        <FILE id="bDLQ6h" name="LICENSE.txt" compile="0" resource="1" file="lib/Aidio/LICENSE.txt"/>
+        <FILE id="tr3QZP" name="README.md" compile="0" resource="1" file="lib/Aidio/README.md"/>
       </GROUP>
-      <FILE id="oEwe2j" name="gsl.h" compile="0" resource="0" file="src/gsl.h"/>
-      <FILE id="LriAB8" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
     </GROUP>
-    <GROUP id="{5D4CA619-7798-0E4C-521D-2C9B9B16E1BB}" name="test">
-      <FILE id="yeADX3" name="catch.hpp" compile="0" resource="0" file="test/catch.hpp"/>
-      <FILE id="xLKk4s" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
-    </GROUP>
-    <GROUP id="{47819558-27D8-7D48-14FA-9893F478FC8B}" name="resource">
-      <FILE id="J1pVnN" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
+    <GROUP id="{2A1C611E-190D-AA45-C000-1A371C74FE5E}" name="resource">
+      <FILE id="ftIXmZ" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
             file="resource/Stereo64SamplesAllOnes.wav"/>
+    </GROUP>
+    <GROUP id="{4B898E90-88E1-0AB9-BCFF-CE6C4D7F1A0B}" name="src">
+      <FILE id="J9exD8" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
+    </GROUP>
+    <GROUP id="{212D3666-643B-40F2-E63C-8919A8950546}" name="test">
+      <FILE id="GpVIYM" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="build/MacOSX">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Judio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../lib/Aidio/include&#10;../../lib/Aidio/lib&#10;../../lib/Aidio/lib/WDL"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Judio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../lib/Aidio/include&#10;../../lib/Aidio/lib&#10;../../lib/Aidio/lib/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
@@ -53,9 +93,9 @@
     <VS2013 targetFolder="build/VisualStudio2013">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="Judio" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       isDebug="1" optimisation="1" targetName="Judio" headerPath="..\..\include&#10;..\..\lib\Aidio\include&#10;..\..\lib\Aidio\lib&#10;..\..\lib\Aidio\lib\WDL"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="Judio" headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       isDebug="0" optimisation="3" targetName="Judio" headerPath="..\..\include&#10;..\..\lib\Aidio\include&#10;..\..\lib\Aidio\lib&#10;..\..\lib\Aidio\lib\WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
@@ -76,9 +116,9 @@
     <LINUX_MAKE targetFolder="build/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Judio"
-                       headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       headerPath="../../include&#10;../../lib/Aidio/include&#10;../../lib/Aidio/lib&#10;../../lib/Aidio/lib/WDL"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Judio"
-                       headerPath="../../include&#10;../../src&#10;../../src/WDL"/>
+                       headerPath="../../include&#10;../../lib/Aidio/include&#10;../../lib/Aidio/lib&#10;../../lib/Aidio/lib/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
