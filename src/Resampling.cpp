@@ -42,7 +42,7 @@ ado::Buffer resampleBuffer (ado::Buffer buffer, double sourceRate, double destRa
 
     ado::Buffer destBuff {buffer.numChannels(), destLength};
 
-    if (destLength == sourceLength)            // copy and exit
+    if (destLength == sourceLength)             // copy and exit
     {
         destBuff = buffer;
         return destBuff;
@@ -53,10 +53,10 @@ ado::Buffer resampleBuffer (ado::Buffer buffer, double sourceRate, double destRa
         float* source = buffer.getWriteArray()[chan];
         float* dest = destBuff.getWriteArray()[chan];
 
-        float* p;                                       // needs to work this way
-        engine.ResamplePrepare (destLength, 1, &p);
+        ado::Buffer p {1, sourceLength};                    // needs to work this way
+        engine.ResamplePrepare (destLength, 1, p.getWriteArray());
         for (int i = 0; i < sourceLength; ++i)
-            *p++ = *source++;
+            p.getWriteArray()[0][i] = source[i];
 
         engine.ResampleOut (dest, sourceLength, destLength, 1);
         
