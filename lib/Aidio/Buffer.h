@@ -67,16 +67,24 @@ class Buffer
 {
 public:
     Buffer (int numChannels, int numSamples)
-        : bufferData (gsl::narrow<size_t> (numChannels),
-                      std::vector<float>  (numSamples))
+    {
+        clearAndResize (numChannels, numSamples);
+    }
+    ~Buffer() {}
+
+    void clearAndResize (int numChannels, int numSamples)
     {
         Expects (numChannels > 0);
         Expects (numSamples  > 0);
 
+        bufferData.clear();
+
+        for (int i = 0; i < numChannels; ++i)
+            bufferData.push_back (std::vector<float> (numSamples));
+
         for (auto& channel : bufferData)
             pointerAccess.push_back (channel.data());
     }
-    ~Buffer() {}
 
     int numChannels() const { return bufferData.size(); }
     int numSamples()  const { return bufferData[0].size(); }
