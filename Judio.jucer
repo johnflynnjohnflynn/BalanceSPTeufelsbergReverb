@@ -6,134 +6,118 @@
   <MAINGROUP id="fnjyVf" name="Judio">
     <GROUP id="{0CD79B56-AA54-45FD-3070-BD8980F822E9}" name="include">
       <GROUP id="{77F93BBA-AAA9-8BD8-AC0C-D44DA216EF0C}" name="Judio">
-        <FILE id="USO5Yl" name="Utility.h" compile="0" resource="0" file="include/Judio/Utility.h"/>
+        <FILE id="dw0n08" name="Helper.h" compile="0" resource="0" file="include/Judio/Helper.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{7759A782-846C-3897-F032-6EC2BBBE4367}" name="lib">
       <GROUP id="{D15964CB-4837-BB10-A632-D70653BEB6BC}" name="Aidio">
-        <GROUP id="{2541C78D-09F4-2306-9403-54F677A507FB}" name="include">
-          <GROUP id="{FDD64791-FFAF-C1F6-820E-DCF94C6B4D37}" name="Aidio">
-            <FILE id="zxEUbA" name="Aidio.h" compile="0" resource="0" file="lib/Aidio/include/Aidio/Aidio.h"/>
-            <FILE id="X5odrc" name="Buffer.h" compile="0" resource="0" file="lib/Aidio/include/Aidio/Buffer.h"/>
-            <FILE id="sbM1ZZ" name="Convolution.h" compile="0" resource="0" file="lib/Aidio/include/Aidio/Convolution.h"/>
-            <FILE id="aTy9zb" name="Resampling.h" compile="0" resource="0" file="lib/Aidio/include/Aidio/Resampling.h"/>
-            <FILE id="bRAnSV" name="Utility.h" compile="0" resource="0" file="lib/Aidio/include/Aidio/Utility.h"/>
-          </GROUP>
+        <GROUP id="{AB4EF5B3-633A-30EB-687E-ABF1D6FA1A8C}" name="src">
+          <FILE id="DbqklJ" name="Buffer.cpp" compile="1" resource="0" file="lib/Aidio/src/Buffer.cpp"/>
+          <FILE id="pfNsr9" name="Resampling.cpp" compile="1" resource="0" file="lib/Aidio/src/Resampling.cpp"/>
+          <FILE id="bvcUYp" name="Utility.cpp" compile="1" resource="0" file="lib/Aidio/src/Utility.cpp"/>
         </GROUP>
-        <GROUP id="{D0A04BDB-4520-A937-7642-87EDF11D7D93}" name="lib">
-          <GROUP id="{D5C7B1A7-D3E6-8DF2-405F-2177621B7F55}" name="gsl">
-            <FILE id="CD9r6j" name="gsl-lite-vc6.h" compile="0" resource="0" file="lib/Aidio/lib/gsl/gsl-lite-vc6.h"/>
-            <FILE id="KEDlRN" name="gsl-lite.h" compile="0" resource="0" file="lib/Aidio/lib/gsl/gsl-lite.h"/>
-          </GROUP>
-          <GROUP id="{81E445B2-B00E-0046-A2C0-5561F92913BF}" name="WDL">
-            <FILE id="N2dadz" name="convoengine.cpp" compile="1" resource="0" file="lib/Aidio/lib/WDL/convoengine.cpp"/>
-            <FILE id="Pu4iIa" name="convoengine.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/convoengine.h"/>
-            <FILE id="OFOuuQ" name="denormal.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/denormal.h"/>
-            <FILE id="FzLZkG" name="fastqueue.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/fastqueue.h"/>
-            <FILE id="pubYdX" name="fft.c" compile="1" resource="0" file="lib/Aidio/lib/WDL/fft.c"/>
-            <FILE id="EEngLk" name="fft.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/fft.h"/>
-            <FILE id="jpUWab" name="heapbuf.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/heapbuf.h"/>
-            <FILE id="Tr0d2o" name="ptrlist.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/ptrlist.h"/>
-            <FILE id="KhoanO" name="queue.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/queue.h"/>
-            <FILE id="Y2Gaai" name="resample.cpp" compile="1" resource="0" file="lib/Aidio/lib/WDL/resample.cpp"/>
-            <FILE id="NHC9zN" name="resample.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/resample.h"/>
-            <FILE id="vAqJMm" name="wdltypes.h" compile="0" resource="0" file="lib/Aidio/lib/WDL/wdltypes.h"/>
-          </GROUP>
-          <FILE id="XJeCOG" name="catch.hpp" compile="0" resource="0" file="lib/Aidio/lib/catch.hpp"/>
-          <FILE id="VthUx5" name="gsl.h" compile="0" resource="0" file="lib/Aidio/lib/gsl.h"/>
-        </GROUP>
-        <GROUP id="{DA12DB0A-5EE9-53FC-BF8B-FFE9898B4BDD}" name="src">
-          <FILE id="ATcf8m" name="Buffer.cpp" compile="1" resource="0" file="lib/Aidio/src/Buffer.cpp"/>
-          <FILE id="cl6vtI" name="Resampling.cpp" compile="1" resource="0" file="lib/Aidio/src/Resampling.cpp"/>
-          <FILE id="Ld8emr" name="Utility.cpp" compile="1" resource="0" file="lib/Aidio/src/Utility.cpp"/>
-        </GROUP>
-        <GROUP id="{5070623E-7168-BD52-3C29-B1C05699A834}" name="test">
-          <FILE id="bPGbch" name="main.cpp" compile="0" resource="0" file="lib/Aidio/test/main.cpp"/>
-        </GROUP>
-        <FILE id="ad7DIu" name="Aidio.jucer" compile="0" resource="1" file="lib/Aidio/Aidio.jucer"/>
-        <FILE id="bDLQ6h" name="LICENSE.txt" compile="0" resource="1" file="lib/Aidio/LICENSE.txt"/>
-        <FILE id="tr3QZP" name="README.md" compile="0" resource="1" file="lib/Aidio/README.md"/>
+        <FILE id="aKXZy4" name="Aidio.h" compile="0" resource="0" file="lib/Aidio/Aidio.h"/>
+        <FILE id="Lwpkmz" name="Buffer.h" compile="0" resource="0" file="lib/Aidio/Buffer.h"/>
+        <FILE id="zEycw0" name="Convolution.h" compile="0" resource="0" file="lib/Aidio/Convolution.h"/>
+        <FILE id="ZlO3v7" name="Resampling.h" compile="0" resource="0" file="lib/Aidio/Resampling.h"/>
+        <FILE id="tWgP3I" name="Test.h" compile="0" resource="0" file="lib/Aidio/Test.h"/>
+        <FILE id="yLrWBJ" name="Utility.h" compile="0" resource="0" file="lib/Aidio/Utility.h"/>
       </GROUP>
+      <GROUP id="{D3EEB57C-6313-CE3E-F5DE-9E805528C37E}" name="WDL">
+        <FILE id="onyHx5" name="convoengine.cpp" compile="1" resource="0" file="lib/WDL/convoengine.cpp"/>
+        <FILE id="rduHH6" name="convoengine.h" compile="0" resource="0" file="lib/WDL/convoengine.h"/>
+        <FILE id="LGqBbe" name="denormal.h" compile="0" resource="0" file="lib/WDL/denormal.h"/>
+        <FILE id="nP5zob" name="fastqueue.h" compile="0" resource="0" file="lib/WDL/fastqueue.h"/>
+        <FILE id="xKnTQc" name="fft.c" compile="1" resource="0" file="lib/WDL/fft.c"/>
+        <FILE id="XOfl3n" name="fft.h" compile="0" resource="0" file="lib/WDL/fft.h"/>
+        <FILE id="DgRjuC" name="heapbuf.h" compile="0" resource="0" file="lib/WDL/heapbuf.h"/>
+        <FILE id="WWWtlC" name="ptrlist.h" compile="0" resource="0" file="lib/WDL/ptrlist.h"/>
+        <FILE id="iDhFmK" name="queue.h" compile="0" resource="0" file="lib/WDL/queue.h"/>
+        <FILE id="qmPcb1" name="resample.cpp" compile="1" resource="0" file="lib/WDL/resample.cpp"/>
+        <FILE id="JMpWCZ" name="resample.h" compile="0" resource="0" file="lib/WDL/resample.h"/>
+        <FILE id="gHBIxe" name="wdltypes.h" compile="0" resource="0" file="lib/WDL/wdltypes.h"/>
+      </GROUP>
+      <FILE id="y2Zf30" name="gsl.h" compile="0" resource="0" file="lib/gsl.h"/>
     </GROUP>
     <GROUP id="{2A1C611E-190D-AA45-C000-1A371C74FE5E}" name="resource">
-      <FILE id="ftIXmZ" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
+      <FILE id="qvQkVR" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
             file="resource/Stereo64SamplesAllOnes.wav"/>
     </GROUP>
     <GROUP id="{4B898E90-88E1-0AB9-BCFF-CE6C4D7F1A0B}" name="src">
-      <FILE id="J9exD8" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
+      <FILE id="pXsBTc" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
     </GROUP>
     <GROUP id="{212D3666-643B-40F2-E63C-8919A8950546}" name="test">
-      <FILE id="GpVIYM" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
+      <FILE id="ueU1DK" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="build/MacOSX">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Judio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../lib/Aidio/include&#10;../../lib/Aidio/lib&#10;../../lib/Aidio/lib/WDL"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../lib&#10;../../lib/WDL"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Judio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../lib/Aidio/include&#10;../../lib/Aidio/lib&#10;../../lib/Aidio/lib/WDL"/>
+                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../lib&#10;../../lib/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2013 targetFolder="build/VisualStudio2013">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="Judio" headerPath="..\..\include&#10;..\..\lib\Aidio\include&#10;..\..\lib\Aidio\lib&#10;..\..\lib\Aidio\lib\WDL"/>
+                       isDebug="1" optimisation="1" targetName="Judio" headerPath="..\..\include&#10;..\..\lib&#10;..\..\lib\WDL"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="Judio" headerPath="..\..\include&#10;..\..\lib\Aidio\include&#10;..\..\lib\Aidio\lib&#10;..\..\lib\Aidio\lib\WDL"/>
+                       isDebug="0" optimisation="3" targetName="Judio" headerPath="..\..\include&#10;..\..\lib&#10;..\..\lib\WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
       </MODULEPATHS>
     </VS2013>
     <LINUX_MAKE targetFolder="build/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Judio"
-                       headerPath="../../include&#10;../../lib/Aidio/include&#10;../../lib/Aidio/lib&#10;../../lib/Aidio/lib/WDL"/>
+                       headerPath="../../include&#10;../../lib&#10;../../lib/WDL"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Judio"
-                       headerPath="../../include&#10;../../lib/Aidio/include&#10;../../lib/Aidio/lib&#10;../../lib/Aidio/lib/WDL"/>
+                       headerPath="../../include&#10;../../lib&#10;../../lib/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
   </EXPORTFORMATS>

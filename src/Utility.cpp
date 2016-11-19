@@ -19,7 +19,7 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#include "Judio/Utility.h"
+#include "Judio/Helper.h"
 
 namespace jdo
 {
