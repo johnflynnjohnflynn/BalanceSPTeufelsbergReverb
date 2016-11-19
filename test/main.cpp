@@ -272,6 +272,18 @@ void Buffer::runTest()
     beginTest ("No ridiculous numChannels");
     expectThrows (ado::Buffer (size_t(2147483647)+12039812, 0));
 
+    beginTest ("clearAndResize()");
+
+    {
+        ado::Buffer source7 {2, 12};
+        source7.fillAscending();
+        expectEquals (source7.getReadArray()[1][10], 11.f);
+        source7.clearAndResize(4, 30);
+        expectEquals (source7.getReadArray()[3][29], 0.f);
+        source7.fillAscending();
+        expectEquals (source7.getReadArray()[3][29], 30.f);
+    }
+
     beginTest ("numChannels()");
 
     {
