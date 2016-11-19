@@ -1,38 +1,55 @@
 
-#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include "../JuceLibraryCode/JuceHeader.h"
+#include "Aidio/Aidio.h"
 
 #include "Judio/Helper.h"
 
-//--------//--------//--------//--------//--------//--------//--------//--------
+int main (int argc, const char* argv[])
+{
+    juce::UnitTestRunner runner;
+    runner.runAllTests();
 
-TEST_CASE("bufferFillAllOnes()", "Utility") {
-    AudioBuffer<float> buffer {2, 32};
-    jdo::bufferFillAllOnes (buffer);
-    REQUIRE (buffer.getSample(1, 31) == 1.0f);
+    return 0;
 }
 
-TEST_CASE("bufferSumElements()", "Utility") {
+//--------//--------//--------//--------//--------//--------//--------//--------
+
+AIDIO_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(Resample)
+
+Resample::Resample() : UnitTest ("Resample") {}
+
+void Resample::runTest()
+{
+
+beginTest ("bufferFillAllOnes()"); {
+    AudioBuffer<float> buffer {2, 32};
+    jdo::bufferFillAllOnes (buffer);
+    expectEquals (buffer.getSample(1, 31), 1.0f);
+}
+
+beginTest ("bufferSumElements()"); {
     AudioBuffer<float> buffer {1, 500};
     jdo::bufferFillAllOnes (buffer);
     const float sum {jdo::bufferSumElements(buffer)};
-    REQUIRE (sum == 500.0f);
+    expectEquals (sum, 500.0f);
 }
 
-TEST_CASE("loadBufferFromWavBinaryData()", "Utility") {
+beginTest ("loadBufferFromWavBinaryData()"); {
     AudioBuffer<float> buffer;
     jdo::bufferLoadFromWavBinaryData(BinaryData::Stereo64SamplesAllOnes_wav,
                                      BinaryData::Stereo64SamplesAllOnes_wavSize,
                                      buffer);
     const float sum {jdo::bufferSumElements(buffer)};
-    REQUIRE (Approx(sum) == 128.0f);
+    expectEquals (Approx(sum), 128.0f);
 }
 
-TEST_CASE("nextPowerOf2()", "Utility") {
+beginTest ("nextPowerOf2()"); {
     int x = 55;
-    REQUIRE(jdo::nextPowerOf2(x) == 64);
+    expectEquals(jdo::nextPowerOf2(x), 64);
     x = -234;
-    REQUIRE(jdo::nextPowerOf2(x) == 1);
+    expectEquals(jdo::nextPowerOf2(x), 1);
     x = 16300;
-    REQUIRE(jdo::nextPowerOf2(x) == 16384);
+    expectEquals(jdo::nextPowerOf2(x), 16384);
+}
+
 }
