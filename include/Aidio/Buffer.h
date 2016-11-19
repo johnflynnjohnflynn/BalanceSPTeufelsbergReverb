@@ -78,10 +78,10 @@ public:
         Expects (numSamples  > 0);
 
         bufferData.clear();
-
         for (int i = 0; i < numChannels; ++i)
             bufferData.push_back (std::vector<float> (numSamples));
 
+        pointerAccess.clear();
         for (auto& channel : bufferData)
             pointerAccess.push_back (channel.data());
     }

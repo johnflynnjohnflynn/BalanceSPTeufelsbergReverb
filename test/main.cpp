@@ -284,6 +284,19 @@ void Buffer::runTest()
         expectEquals (source7.getReadArray()[3][29], 30.f);
     }
 
+    beginTest ("clearAndResize() must clear pointer array first");
+
+    {
+        ado::Buffer source7 {2, 12};
+        source7.fillAscending();
+        expectEquals (source7.getReadArray()[1][11], 12.f);
+        source7.clearAndResize(4, 30);
+        source7.fillAscending();
+        expectEquals (source7.getReadArray()[2][29], 30.f);
+        source7.clearAndResize(1, 9);
+        expectEquals (source7.getReadArray()[0][7], 0.f);
+    }
+
     beginTest ("numChannels()");
 
     {
