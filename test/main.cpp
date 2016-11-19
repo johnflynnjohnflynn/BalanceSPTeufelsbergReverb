@@ -40,11 +40,16 @@ void Helper::runTest()
     beginTest ("loadBufferFromWavBinaryData()");
 
     {
-        AudioBuffer<float> buffer;
+        ado::Buffer buffer {1,1};
         jdo::bufferLoadFromWavBinaryData(BinaryData::Stereo64SamplesAllOnes_wav,
                                          BinaryData::Stereo64SamplesAllOnes_wavSize,
                                          buffer);
-        const float sum {jdo::bufferSumElements(buffer)};
+        float sum {ado::rawBufferSum (buffer.getReadArray(), buffer.numChannels(), buffer.numSamples())};
+        expectWithinAbsoluteError (sum, 128.0f, 0.001f);
+        jdo::bufferLoadFromWavBinaryData(BinaryData::Stereo64SamplesAllOnes_wav,
+                                         BinaryData::Stereo64SamplesAllOnes_wavSize,
+                                         buffer);
+        sum = ado::rawBufferSum (buffer.getReadArray(), buffer.numChannels(), buffer.numSamples());
         expectWithinAbsoluteError (sum, 128.0f, 0.001f);
     }
 

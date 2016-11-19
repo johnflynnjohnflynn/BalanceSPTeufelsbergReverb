@@ -23,6 +23,7 @@
 #define HELPER_H_INCLUDED
 
 #include "../../JuceLibraryCode/JuceHeader.h"
+#include "Aidio/Buffer.h"
 
 namespace jdo
 {
@@ -38,7 +39,7 @@ namespace jdo
 */
 void bufferLoadFromWavBinaryData (const void* binaryData,
                                   size_t binaryDataSize,
-                                  AudioBuffer<float>& targetBuffer);
+                                  ado::Buffer& targetBuffer);
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /**

@@ -20,6 +20,7 @@
 //--------//--------//--------//--------//--------//--------//--------//--------
 
 #include "Judio/Helper.h"
+#include "Aidio/Utility.h"
 
 namespace jdo
 {
@@ -28,16 +29,20 @@ namespace jdo
 
 void bufferLoadFromWavBinaryData (const void* binaryData,
                                   size_t binaryDataSize,
-                                  AudioBuffer<float>& targetBuffer)
+                                  ado::Buffer& targetBuffer)
 {
-    WavAudioFormat wav;
+    ScopedPointer<WavAudioFormat> wav {new WavAudioFormat};
     ScopedPointer<MemoryInputStream> mis {new MemoryInputStream {binaryData, binaryDataSize, false}};
-    ScopedPointer<AudioFormatReader> audioReader {wav.createReaderFor (mis.release(), true)}; // now owns mis
+    ScopedPointer<AudioFormatReader> audioReader {wav->createReaderFor (mis.release(), true)}; // now owns mis
 
-    targetBuffer.setSize (static_cast<int> (audioReader->numChannels),
-                          static_cast<int> (audioReader->lengthInSamples)); // watch cast for super long audio!
+    const int chans = gsl::narrow<int> (audioReader->numChannels);
+    const int samps = gsl::narrow<int> (audioReader->lengthInSamples);
 
-    audioReader->read(&targetBuffer, 0, static_cast<int> (audioReader->lengthInSamples), 0, true, true);
+    AudioBuffer<float> temp {chans, samps};
+    audioReader->read (&temp, 0, samps, 0, true, true);
+
+    targetBuffer.clearAndResize (chans, samps);
+    ado::rawBufferCopy (temp.getArrayOfReadPointers(), targetBuffer.getWriteArray(), chans, samps);
 }
 
 //--------//--------//--------//--------//--------//--------//--------//--------
