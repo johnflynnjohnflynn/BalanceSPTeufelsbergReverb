@@ -36,7 +36,7 @@ namespace ado
 /** 
     Resamples a buffer from one sampling frequency to another
 */
-ado::Buffer resampleBuffer (ado::Buffer buffer, double sourceRate, double destRate);
+ado::Buffer resampleBuffer (ado::Buffer buffer, int destRate);
 
 } // namespace
 

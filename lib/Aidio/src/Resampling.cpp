@@ -30,17 +30,20 @@
 namespace ado
 {
 
-ado::Buffer resampleBuffer (ado::Buffer buffer, double sourceRate, double destRate)
+ado::Buffer resampleBuffer (ado::Buffer buffer, int destRate)
 {
     WDL_Resampler engine;
+
+    int sourceRate = buffer.getSampleRate();
 
     engine.SetMode (false, 0, true); // sinc, default size (interp, filtercnt, sinc)
     engine.SetRates (sourceRate, destRate);
 
     int sourceLength = buffer.numSamples();
-    int destLength = static_cast<int> (sourceLength * (destRate / sourceRate)); // round down
+    const double factor = static_cast<double> (destRate) / sourceRate; // divide in double
+    int destLength = static_cast<int> (sourceLength * factor);         // then round down
 
-    ado::Buffer destBuff {buffer.numChannels(), destLength};
+    ado::Buffer destBuff {buffer.numChannels(), destLength, destRate};
 
     if (destLength == sourceLength)             // copy and exit
     {

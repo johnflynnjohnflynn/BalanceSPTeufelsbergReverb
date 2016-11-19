@@ -74,9 +74,9 @@ public:
 
     void clearAndResize (int numChannels, int numSamples, int samplingRate = 44100)
     {
-        Expects (numChannels > 0);
-        Expects (numSamples  > 0);
-        Expects (samplingRate > 44099); // at least 44.1kHz audio
+        Expects (numChannels  > 0);
+        Expects (numSamples   > 0);
+        Expects (samplingRate > 0);
 
         sampleRate = samplingRate;
 
