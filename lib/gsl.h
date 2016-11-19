@@ -107,8 +107,8 @@
 
 // Compiler detection:
 
-#define gsl_CPP11_OR_GREATER ( false )
-#define gsl_CPP14_OR_GREATER ( false )
+#define gsl_CPP11_OR_GREATER 0
+#define gsl_CPP14_OR_GREATER 0
 
 //#define gsl_CPP11_OR_GREATER  ( __cplusplus >= 201103L )
 //#define gsl_CPP14_OR_GREATER  ( __cplusplus >= 201402L )
