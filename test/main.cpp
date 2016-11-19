@@ -356,6 +356,14 @@ void Buffer::runTest()
             elementSum += b.getWriteArray()[0][i];
         expectEquals (elementSum, 0.0f);
     }
+
+    beginTest ("getSamplingRate()");
+
+    {
+        ado::Buffer b {4, 1024, 96000};
+        const int rate = b.getSampleRate();
+        expectEquals (rate, 96000);
+    }
 }
 
 //--------//--------//--------//--------//--------//--------//--------//--------

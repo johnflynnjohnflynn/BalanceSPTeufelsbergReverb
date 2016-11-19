@@ -66,16 +66,19 @@ struct BufferHandle
 class Buffer
 {
 public:
-    Buffer (int numChannels, int numSamples)
+    Buffer (int numChannels, int numSamples, int samplingRate = 44100)
     {
-        clearAndResize (numChannels, numSamples);
+        clearAndResize (numChannels, numSamples, samplingRate);
     }
     ~Buffer() {}
 
-    void clearAndResize (int numChannels, int numSamples)
+    void clearAndResize (int numChannels, int numSamples, int samplingRate = 44100)
     {
         Expects (numChannels > 0);
         Expects (numSamples  > 0);
+        Expects (samplingRate > 44099); // at least 44.1kHz audio
+
+        sampleRate = samplingRate;
 
         bufferData.clear();
         for (int i = 0; i < numChannels; ++i)
@@ -86,8 +89,9 @@ public:
             pointerAccess.push_back (channel.data());
     }
 
-    int numChannels() const { return bufferData.size(); }
-    int numSamples()  const { return bufferData[0].size(); }
+    int numChannels()   const { return bufferData.size(); }
+    int numSamples()    const { return bufferData[0].size(); }
+    int getSampleRate() const { return sampleRate; }
 
     float** getWriteArray() { return pointerAccess.data(); }
     const float** getReadArray() const { return const_cast<const float**> (pointerAccess.data()); } // const!? Really?!
@@ -97,6 +101,7 @@ public:
     void fillAscending();
 
 private:
+    int sampleRate;
     std::vector<std::vector<float>> bufferData;
     std::vector<float*> pointerAccess;
 };
