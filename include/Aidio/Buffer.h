@@ -100,11 +100,26 @@ public:
     void fillAllOnes();
     void fillAscending();
 
+    Buffer& operator*= (float scale)
+    {
+        for (auto& chan : bufferData)
+            for (auto& samp : chan)
+                samp *= scale;
+
+        return *this;
+    }
+
 private:
     int sampleRate;
     std::vector<std::vector<float>> bufferData;
     std::vector<float*> pointerAccess;
 };
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
+    Sum all elements in all channels of buffer
+*/
+float bufferSumElements (const Buffer& buffer);
 
 } // namespace
 

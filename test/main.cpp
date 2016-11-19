@@ -364,6 +364,27 @@ void Buffer::runTest()
         const int rate = b.getSampleRate();
         expectEquals (rate, 96000);
     }
+
+    beginTest ("bufferSumElements()");
+
+    {
+        ado::Buffer b {1, 5};
+        b.fillAscending();
+        const float sum {ado::bufferSumElements(b)};
+        expectEquals (sum, 1.f + 2 + 3 + 4 + 5);
+    }
+
+    beginTest ("operator *= ()");
+
+    {
+        ado::Buffer b {1, 128};
+        b.fillAllOnes();
+        float sum {ado::bufferSumElements(b)};
+        expectEquals (sum, 128.0f);
+        b *= 0.5f;
+        sum = ado::bufferSumElements(b);
+        expectEquals (sum, 64.0f);
+    }
 }
 
 //--------//--------//--------//--------//--------//--------//--------//--------

@@ -58,5 +58,15 @@ void Buffer::fillAscending()
 }
 
 //--------//--------//--------//--------//--------//--------//--------//--------
+
+float bufferSumElements (const Buffer& buffer)                          // should probably add iterators to class
+{
+    float sum {0};
+    for (int chan = 0; chan < buffer.numChannels(); ++chan)
+        for (int samp = 0; samp < buffer.numSamples(); ++samp)
+            sum += buffer.getReadArray()[chan][samp];
+
+    return sum;
+}
     
 } // namespace
