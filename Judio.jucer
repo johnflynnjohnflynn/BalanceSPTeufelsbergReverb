@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="UgKWOL" name="Judio" projectType="consoleapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.Judio" includeBinaryInAppConfig="1"
-              jucerVersion="4.3.0" defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float">
+              jucerVersion="4.3.0" defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;AIDIO_UNIT_TESTS=1">
   <MAINGROUP id="fnjyVf" name="Judio">
     <GROUP id="{0CD79B56-AA54-45FD-3070-BD8980F822E9}" name="include">
       <GROUP id="{77F93BBA-AAA9-8BD8-AC0C-D44DA216EF0C}" name="Judio">
