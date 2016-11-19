@@ -24,20 +24,29 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#ifndef AIDIO_H_INCLUDED
-#define AIDIO_H_INCLUDED
+#ifndef TEST_H_INCLUDED
+#define TEST_H_INCLUDED
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
-    Parent header for the library
-    
-    @example    #include "Aidio/Aidio.h"
-*/
-#include "Utility.h"
-#include "Buffer.h"
-#include "Convolution.h"
-// Don't forget WDL_RESAMPLE_TYPE=float in project preprocessor definitions.
-#include "Resampling.h"
-#include "Test.h"
+    Boilerplate macro to make sure a static instance of a test gets created in 
+    the header. (Otherwise an instance of the class will need to be created 
+    somewhere else before the tests run.)
 
-#endif  // AIDIO_H_INCLUDED
+    @see UnitTestRunner
+*/
+
+#if AIDIO_UNIT_TESTS
+ #define AIDIO_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(TestClassName)        \
+ class TestClassName  : public UnitTest                                     \
+ {                                                                          \
+ public:                                                                    \
+     TestClassName();                                                       \
+     void runTest() override;                                               \
+ };                                                                         \
+ static TestClassName TestClassName; // eek! instance same as class name
+#else
+ #define JF_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(TestClassName) // do nothing
+#endif
+
+#endif  // TEST_H_INCLUDED
