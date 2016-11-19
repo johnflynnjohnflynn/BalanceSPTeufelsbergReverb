@@ -48,9 +48,10 @@
     <XCODE_MAC targetFolder="build/MacOSX">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aidio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../lib&#10;../../lib/WDL"/>
+                       osxCompatibility="10.5 SDK" headerPath="../../include&#10;../../lib&#10;../../lib/WDL"
+                       osxSDK="default"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aidio"
-                       osxCompatibility="10.10 SDK" headerPath="../../include&#10;../../lib&#10;../../lib/WDL"/>
+                       osxCompatibility="10.5 SDK" headerPath="../../include&#10;../../lib&#10;../../lib/WDL"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
