@@ -32,13 +32,7 @@ namespace ado
 
 ado::Buffer resampleBuffer (const ado::Buffer& buffer, int destRate)
 {
-    WDL_Resampler engine;
-
     int sourceRate = buffer.getSampleRate();
-
-    engine.SetMode (false, 0, true); // sinc, default size (interp, filtercnt, sinc)
-    engine.SetRates (sourceRate, destRate);
-
     int sourceLength = buffer.numSamples();
     const double factor = static_cast<double> (destRate) / sourceRate; // divide in double
     int destLength = static_cast<int> (sourceLength * factor);         // then round down
@@ -50,16 +44,19 @@ ado::Buffer resampleBuffer (const ado::Buffer& buffer, int destRate)
         destBuff = buffer;
         return destBuff;
     }
+    
+    WDL_Resampler engine;                       // else resample...
+    engine.SetMode (false, 0, true); // sinc, default size (interp, filtercnt, sinc)
+    engine.SetRates (sourceRate, destRate);
 
     for (int chan = 0; chan < buffer.numChannels(); ++chan)
     {
-        const float* source = buffer.getReadArray()[chan];
-        float* dest = destBuff.getWriteArray()[chan];
-
         ado::Buffer p {1, sourceLength};                    // needs to work this way
         engine.ResamplePrepare (destLength, 1, p.getWriteArray());
-        for (int i = 0; i < sourceLength; ++i)
-            p.getWriteArray()[0][i] = source[i];
+        for (int samp = 0; samp < sourceLength; ++samp)
+            p.getWriteArray()[0][samp] = buffer.getReadArray()[chan][samp];
+
+        float* dest = destBuff.getWriteArray()[chan];
 
         engine.ResampleOut (dest, sourceLength, destLength, 1);
         
