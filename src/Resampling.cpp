@@ -30,7 +30,7 @@
 namespace ado
 {
 
-ado::Buffer resampleBuffer (ado::Buffer buffer, int destRate)
+ado::Buffer resampleBuffer (const ado::Buffer& buffer, int destRate)
 {
     WDL_Resampler engine;
 
@@ -53,7 +53,7 @@ ado::Buffer resampleBuffer (ado::Buffer buffer, int destRate)
 
     for (int chan = 0; chan < buffer.numChannels(); ++chan)
     {
-        float* source = buffer.getWriteArray()[chan];
+        const float* source = buffer.getReadArray()[chan];
         float* dest = destBuff.getWriteArray()[chan];
 
         ado::Buffer p {1, sourceLength};                    // needs to work this way
