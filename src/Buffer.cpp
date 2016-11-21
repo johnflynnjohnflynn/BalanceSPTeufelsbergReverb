@@ -24,6 +24,7 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
+#include <iostream>
 #include "Aidio/Buffer.h"
 
 namespace ado
@@ -79,6 +80,15 @@ Buffer& Buffer::operator*= (float scale)
 }
 
 //--------//--------//--------//--------//--------//--------//--------//--------
+
+void coutBuffer (ado::Buffer& buffer)
+{
+    for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
+        for (int samp = 0; samp < buffer.getNumSamples(); ++samp)
+            std::cout << buffer.getReadArray()[chan][samp]
+                      << " [" << chan << "][" << samp << "]"<< "\n";
+    std::cout << "\n";
+}
 
 float bufferSumElements (const Buffer& buffer)
 {

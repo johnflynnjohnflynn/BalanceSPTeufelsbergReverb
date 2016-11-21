@@ -72,6 +72,13 @@ private:
     juce::AudioBuffer<float> bufferData;
 };
 
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
+    Print all elements in buffer using cout
+*/
+void coutBuffer (ado::Buffer& buffer);
+
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
     Sum all elements in all channels of buffer
