@@ -24,8 +24,8 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#ifndef RESAMPLE_H_INCLUDED
-#define RESAMPLE_H_INCLUDED
+#ifndef RESAMPLING_H_INCLUDED_LS23K
+#define RESAMPLING_H_INCLUDED_LS23K
 
 #include "Buffer.h"
 
@@ -36,8 +36,9 @@ namespace ado
 /** 
     Resamples a buffer from one sampling frequency to another
 */
-ado::Buffer resampleBuffer (const ado::Buffer& buffer, int destRate);
-
+ado::Buffer resampleBuffer (const ado::Buffer& buffer, int destRate); // No move construct/assign for Buffer
+                                                                      // so this COPIES the return Buffer!!! Eek!
+                                                                      // (Refactor to non-const & param in?)
 } // namespace
 
-#endif  // RESAMPLE_H_INCLUDED
+#endif  // RESAMPLING_H_INCLUDED_LS23K
