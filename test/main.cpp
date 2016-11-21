@@ -68,7 +68,7 @@ void Resample::runTest()
         expectWithinAbsoluteError (source5.getReadArray()[0][299],
                                      dest5.getReadArray()[0][598], 0.001f);
         dest5 = ado::resampleBuffer (source5, 176400);
-        ado::coutBuffer(dest5);                                     // and again
+        //ado::coutBuffer(dest5);                                     // and again
         expectWithinAbsoluteError (source5.getReadArray()[0][299],
                                      dest5.getReadArray()[0][1196], 0.001f);
     }
