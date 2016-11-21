@@ -33,19 +33,6 @@ namespace ado
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
-    Print all elements in buffer using cout
-*/
-void coutBuffer (ado::Buffer& buffer)
-{
-    for (int chan = 0; chan < buffer.numChannels(); ++chan)
-        for (int samp = 0; samp < buffer.numSamples(); ++samp)
-            std::cout << buffer.getReadArray()[chan][samp]
-                      << " [" << chan << "][" << samp << "]"<< "\n";
-    std::cout << "\n";
-}
-
-//--------//--------//--------//--------//--------//--------//--------//--------
-/** 
     Test element equality for raw audio buffers. NOT CHECKED!
 */
 bool rawBufferEquals (const float** a, const float** b, int channels, int samples)

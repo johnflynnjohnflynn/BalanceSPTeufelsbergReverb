@@ -24,7 +24,7 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#include <algorithm>
+#include <iostream>
 #include "Aidio/Buffer.h"
 
 namespace ado
@@ -32,31 +32,72 @@ namespace ado
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-void Buffer::clear()
+void Buffer::clearAndResize (int numChannels, int numSamples)
 {
-    for (auto& chan : bufferData)
-        std::fill (chan.begin(), chan.end(), 0.0f);
+    Expects (numChannels  > 0);
+    Expects (numSamples   > 0);
+
+    bufferData.setSize (numChannels, numSamples);
+    clear(); // juce buffer does not clear on creation
+}
+
+void Buffer::clearAndResize (int numChannels, int numSamples, int samplingRate)
+{
+    Expects (samplingRate > 0);
+    
+    sampleRate = samplingRate;
+    clearAndResize (numChannels, numSamples);
 }
 
 void Buffer::fillAllOnes()
 {
-    for (auto& chan : bufferData)
-        std::fill (chan.begin(), chan.end(), 1.0f);
+    for (int chan = 0; chan < getNumChannels(); ++chan)
+        for (int samp = 0; samp < getNumSamples(); ++samp)
+            bufferData.setSample(chan, samp, 1.0f);
 }
 
 void Buffer::fillAscending()
 {
-    for (auto& chan : bufferData)
+    for (int chan = 0; chan < getNumChannels(); ++chan)
     {
         float sum = 1.0f;
-        for (auto& samp : chan)
+
+        for (int samp = 0; samp < getNumSamples(); ++samp)
         {
-            samp = sum;
+            bufferData.setSample(chan, samp, sum);
             sum += 1.0f;
         }
     }
 }
 
+Buffer& Buffer::operator*= (float scale)
+{
+    for (int chan = 0; chan < getNumChannels(); ++chan)
+        for (int samp = 0; samp < getNumSamples(); ++samp)
+            getWriteArray()[chan][samp] *= scale;
+
+    return *this;
+}
+
 //--------//--------//--------//--------//--------//--------//--------//--------
+
+void coutBuffer (ado::Buffer& buffer)
+{
+    for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
+        for (int samp = 0; samp < buffer.getNumSamples(); ++samp)
+            std::cout << buffer.getReadArray()[chan][samp]
+                      << " [" << chan << "][" << samp << "]"<< "\n";
+    std::cout << "\n";
+}
+
+float bufferSumElements (const Buffer& buffer)
+{
+    float sum {0};
+    for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
+        for (int samp = 0; samp < buffer.getNumSamples(); ++samp)
+            sum += buffer.getReadArray()[chan][samp];
+
+    return sum;
+}
     
 } // namespace
