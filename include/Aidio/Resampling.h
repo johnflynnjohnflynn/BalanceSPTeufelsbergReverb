@@ -24,8 +24,8 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#ifndef RESAMPLE_H_INCLUDED
-#define RESAMPLE_H_INCLUDED
+#ifndef RESAMPLING_H_INCLUDED_LS23K
+#define RESAMPLING_H_INCLUDED_LS23K
 
 #include "Buffer.h"
 
@@ -41,4 +41,4 @@ ado::Buffer resampleBuffer (const ado::Buffer& buffer, int destRate); // No move
                                                                       // (Refactor to non-const & param in?)
 } // namespace
 
-#endif  // RESAMPLE_H_INCLUDED
+#endif  // RESAMPLING_H_INCLUDED_LS23K
