@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2013
+Project("{9088FE0C-8574-03FF-34E0-9089BFFD9B29}") = "Judio", "Judio.vcxproj", "{9EAE6786-3987-8089-446A-00998658D097}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EAE6786-3987-8089-446A-00998658D097}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9EAE6786-3987-8089-446A-00998658D097}.Debug|Win32.Build.0 = Debug|Win32
+		{9EAE6786-3987-8089-446A-00998658D097}.Release|Win32.ActiveCfg = Release|Win32
+		{9EAE6786-3987-8089-446A-00998658D097}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
