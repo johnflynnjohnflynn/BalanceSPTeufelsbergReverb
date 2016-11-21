@@ -27,7 +27,7 @@
 #ifndef BUFFER_H_INCLUDED
 #define BUFFER_H_INCLUDED
 
-#include <vector>
+#include "../JuceLibraryCode/JuceHeader.h"
 #include "gsl.h"
 
 namespace ado
@@ -35,33 +35,12 @@ namespace ado
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
-    Non-owning, audio buffer handle
+    Simple audio buffer based on juce::AudioBuffer<T>
 
-    @param data         raw buffer (e.g. in float** form)
-    @param numChannels
-    @param numSamples
-*/
-template <typename FloatType>
-struct BufferHandle
-{
-    BufferHandle (FloatType** array, int chans, int samps)
-        : data {array},
-          numChannels {chans},
-          numSamples {samps}
-    {}
-    ~BufferHandle();
-
-    FloatType** data;
-    int numChannels;
-    int numSamples;
-};
-
-//--------//--------//--------//--------//--------//--------//--------//--------
-/** 
-    Simple audio buffer
-
-    @example Buffer b (2, 512);
-             float** ptrPtrBuffer = b.getWriteArray();
+    @example Buffer b {2, 512, 44100};
+             float** rawBuff = b.getWriteArray();
+             
+    @see juce::AudioBuffer<T>
 */
 class Buffer
 {
@@ -72,47 +51,25 @@ public:
     }
     ~Buffer() {}
 
-    void clearAndResize (int numChannels, int numSamples, int samplingRate = 44100)
-    {
-        Expects (numChannels  > 0);
-        Expects (numSamples   > 0);
-        Expects (samplingRate > 0);
+    void clearAndResize (int numChannels, int numSamples);
+    void clearAndResize (int numChannels, int numSamples, int samplingRate);
 
-        sampleRate = samplingRate;
+    int getNumChannels() const { return bufferData.getNumChannels(); }
+    int getNumSamples()  const { return bufferData.getNumSamples();  }
+    int getSampleRate()  const { return sampleRate; }
 
-        bufferData.clear();
-        for (int i = 0; i < numChannels; ++i)
-            bufferData.push_back (std::vector<float> (numSamples));
+    const float** getReadArray() const { return bufferData.getArrayOfReadPointers();  }
+          float** getWriteArray()      { return bufferData.getArrayOfWritePointers(); }
 
-        pointerAccess.clear();
-        for (auto& channel : bufferData)
-            pointerAccess.push_back (channel.data());
-    }
-
-    int numChannels()   const { return bufferData.size(); }
-    int numSamples()    const { return bufferData[0].size(); }
-    int getSampleRate() const { return sampleRate; }
-
-    float** getWriteArray() { return pointerAccess.data(); }
-    const float** getReadArray() const { return const_cast<const float**> (pointerAccess.data()); } // const!? Really?!
-
-    void clear();
+    void clear() { bufferData.clear(); }
     void fillAllOnes();
     void fillAscending();
 
-    Buffer& operator*= (float scale)
-    {
-        for (auto& chan : bufferData)
-            for (auto& samp : chan)
-                samp *= scale;
-
-        return *this;
-    }
+    Buffer& operator*= (float scale);
 
 private:
     int sampleRate;
-    std::vector<std::vector<float>> bufferData;
-    std::vector<float*> pointerAccess;
+    juce::AudioBuffer<float> bufferData;
 };
 
 //--------//--------//--------//--------//--------//--------//--------//--------

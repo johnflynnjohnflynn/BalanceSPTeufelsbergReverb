@@ -38,7 +38,7 @@ namespace ado
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /**
-    Simple, zero latency convolution engine.
+    Simple, zero latency convolution engine built on WDL.
     
     Note: Max 2 channels!!!
 */
@@ -53,7 +53,7 @@ public:
 
     void set (const ado::Buffer& impulse)
     {
-        imp.Set (impulse.getReadArray(), impulse.numSamples(), impulse.numChannels());
+        imp.Set (impulse.getReadArray(), impulse.getNumSamples(), impulse.getNumChannels());
         eng.SetImpulse (&imp);
     }
 
@@ -61,7 +61,7 @@ public:
 
     void process (ado::Buffer& block)
     {
-        convolve (block.getWriteArray(), block.numChannels(), block.numSamples());
+        convolve (block.getWriteArray(), block.getNumChannels(), block.getNumSamples());
     }
 
     void process (float** block, int blockNumChannels, int blockNumSamples)

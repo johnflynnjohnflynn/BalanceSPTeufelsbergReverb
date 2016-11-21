@@ -32,6 +32,8 @@
     Boilerplate macro to make sure a static instance of a test gets created in 
     the header. (Otherwise an instance of the class will need to be created 
     somewhere else before the tests run.)
+    
+    @example (...look in test/main.cpp...)
 
     @see UnitTestRunner
 */

@@ -306,6 +306,20 @@ void Buffer::runTest()
         expectEquals (source7.getReadArray()[3][29], 30.f);
     }
 
+    beginTest ("clearAndResize() with sampling rate");
+
+    {
+        ado::Buffer source7 {2, 12};
+        expectEquals (source7.getSampleRate(), 44100);
+        source7.fillAscending();
+        expectEquals (source7.getReadArray()[1][10], 11.f);
+        source7.clearAndResize(4, 30, 88200);
+        expectEquals (source7.getReadArray()[3][29], 0.f);
+        expectEquals (source7.getSampleRate(), 88200);
+        source7.fillAscending();
+        expectEquals (source7.getReadArray()[3][29], 30.f);
+    }
+
     beginTest ("clearAndResize() must clear pointer array first");
 
     {
@@ -323,14 +337,14 @@ void Buffer::runTest()
 
     {
         ado::Buffer b {4, 1024};
-        expectEquals (b.numChannels(), 4);
+        expectEquals (b.getNumChannels(), 4);
     }
 
     beginTest ("numSamples()");
 
     {
         ado::Buffer b {4, 1024};
-        expectEquals (b.numSamples(), 1024);
+        expectEquals (b.getNumSamples(), 1024);
     }
 
     beginTest ("getWriteArray()");
@@ -351,9 +365,9 @@ void Buffer::runTest()
         ado::Buffer b {4, 1024};
         expectDoesNotThrow (b.fillAllOnes());
         float elementSum = 0.0f;
-        for (int i = 0; i < b.numSamples(); ++i)
+        for (int i = 0; i < b.getNumSamples(); ++i)
             elementSum += b.getWriteArray()[0][i];
-        expectEquals (elementSum, static_cast<float> (b.numSamples()));
+        expectEquals (elementSum, static_cast<float> (b.getNumSamples()));
     }
 
     beginTest ("fillAscending()");
@@ -362,7 +376,7 @@ void Buffer::runTest()
         ado::Buffer b {64, 4};
         expectDoesNotThrow (b.fillAscending());
         float elementSum = 0.0f;
-        for (int i = 0; i < b.numSamples(); ++i)
+        for (int i = 0; i < b.getNumSamples(); ++i)
             elementSum += b.getWriteArray()[0][i];
         expectEquals (elementSum, 1.f + 2.f + 3.f + 4.f);
     }
@@ -374,7 +388,7 @@ void Buffer::runTest()
         expectDoesNotThrow (b.fillAllOnes());
         expectDoesNotThrow (b.clear());
         float elementSum = 0.0f;
-        for (int i = 0; i < b.numSamples(); ++i)
+        for (int i = 0; i < b.getNumSamples(); ++i)
             elementSum += b.getWriteArray()[0][i];
         expectEquals (elementSum, 0.0f);
     }
