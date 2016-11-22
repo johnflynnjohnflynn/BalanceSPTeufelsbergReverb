@@ -93,6 +93,32 @@ Convolution::Convolution() : UnitTest ("Convolution") {}
 
 void Convolution::runTest()
 {
+    beginTest ("4 channel convolution");
+
+    {
+        ado::Buffer h {4, 1};
+        h.getWriteArray()[0][0] = 1;    // NOTE! these MUST be different
+        h.getWriteArray()[1][0] = 2;    // Otherwise WDL will treat as a mono
+        h.getWriteArray()[2][0] = 3;    // impulse and just convolve ch1&2 (not 3&4!!!)
+        h.getWriteArray()[3][0] = 4;
+
+        ado::Convolution engine {h};
+
+        int blockSize = 4;
+        ado::Buffer block {4, blockSize};
+        block.getWriteArray()[0][0] = 1.0f; // kronecker
+        block.getWriteArray()[1][0] = 2.0f; // kronecker
+        block.getWriteArray()[2][0] = 3.0f; // kronecker
+        block.getWriteArray()[3][0] = 4.0f; // kronecker
+
+        engine.process (block);     // run one block and sum
+        //ado::coutBuffer (block);
+
+        float sum = ado::rawBufferSum (block.getReadArray(), 4, blockSize);
+
+        expectEquals (sum, 1 + 4 + 9 + 16.0f);
+    }
+
     beginTest ("Delta through 9 point moving average");
 
     {
