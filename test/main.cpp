@@ -93,6 +93,34 @@ Convolution::Convolution() : UnitTest ("Convolution") {}
 
 void Convolution::runTest()
 {
+    beginTest ("Different sample rates");
+
+    {
+        ado::Buffer h {1, 16};      // 16x 1.0f values in...
+        h.fillAllOnes();
+
+        ado::Convolution engine {h};
+
+        int blockSize = 40;
+        ado::Buffer block {1, blockSize};
+        block.getWriteArray()[0][0] = 1.0f; // kronecker
+
+        engine.process (block);     // run one block
+        //ado::coutBuffer (block);
+
+        engine.reset (88200);       // change rate to double
+
+        block.clear();              // clear last output & reset kronecker
+        block.getWriteArray()[0][0] = 1.0f;
+
+        engine.process (block);     // run one block and sum
+        //ado::coutBuffer (block);
+
+        float sum = ado::rawBufferSum (block.getReadArray(), block.getNumChannels(), block.getNumSamples());
+
+        expectWithinAbsoluteError (sum, 16.f, 0.5f); // we should get 32x (approx) 0.5f values.
+    }
+
     beginTest ("4 channel convolution");
 
     {
@@ -107,9 +135,9 @@ void Convolution::runTest()
         int blockSize = 4;
         ado::Buffer block {4, blockSize};
         block.getWriteArray()[0][0] = 1.0f; // kronecker
-        block.getWriteArray()[1][0] = 2.0f; // kronecker
-        block.getWriteArray()[2][0] = 3.0f; // kronecker
-        block.getWriteArray()[3][0] = 4.0f; // kronecker
+        block.getWriteArray()[1][0] = 2.0f; // kronecker * 2
+        block.getWriteArray()[2][0] = 3.0f; // kronecker * 3
+        block.getWriteArray()[3][0] = 4.0f; // kronecker * 4
 
         engine.process (block);     // run one block and sum
         //ado::coutBuffer (block);
@@ -126,7 +154,6 @@ void Convolution::runTest()
         h.fillAllOnes(); // moving average
 
         ado::Convolution engine {h};
-        engine.reset();
 
         int blockSize = 8;
         ado::Buffer block {1, blockSize};
@@ -153,7 +180,6 @@ void Convolution::runTest()
         h.fillAllOnes(); // moving average
 
         ado::Convolution engine {h};
-        engine.reset();
 
         int blockSize = 200;
         ado::Buffer block {1, blockSize};
@@ -182,7 +208,6 @@ void Convolution::runTest()
         h.fillAscending(); // h[n] = {1,2,3,4,5,6,7,8}
 
         ado::Convolution engine {h};
-        engine.reset();
 
         const int blockSize = 9;
         ado::Buffer block {channels, blockSize};
@@ -211,7 +236,6 @@ void Convolution::runTest()
         h.fillAscending(); // h[n] = {1,2,3,4,5,6,7,8}
 
         ado::Convolution engine {h};
-        engine.reset();
 
         const int blockSize = 8;
         ado::Buffer block {channels, blockSize};
@@ -240,7 +264,6 @@ void Convolution::runTest()
         h.fillAscending(); // octave h = 1:1000
 
         ado::Convolution engine {h};
-        engine.reset();
 
         const int blockSize = ascendingSequenceLength;
         ado::Buffer block {channels, blockSize};
@@ -267,7 +290,6 @@ void Convolution::runTest()
         h.fillAllOnes();
 
         ado::Convolution engine {h};
-        engine.reset();
 
         ado::Buffer block {1, 4};
         block.getWriteArray()[0][0] = 1.0f; // kronecker

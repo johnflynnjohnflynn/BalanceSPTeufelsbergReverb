@@ -31,6 +31,7 @@
 #include "gsl.h"
 #include "Utility.h"
 #include "Buffer.h"
+#include "Resampling.h"
 #include "WDL/convoengine.h"
 
 namespace ado
@@ -50,8 +51,10 @@ class Convolution
 {
 public:
     explicit Convolution (const ado::Buffer& impulse)
+        : lastSampleRate (impulse.getSampleRate()),
+          irOriginal {impulse}
     {
-        set (impulse);
+        set (irOriginal);
     }
     ~Convolution() {}
 
@@ -61,7 +64,22 @@ public:
         eng.SetImpulse (&imp);
     }
 
-    void reset() { eng.Reset(); }
+    void reset (double sampleRate)
+    {
+        eng.Reset();
+
+        if (sampleRate != lastSampleRate)
+        {
+            irResampled = ado::resampleBuffer (irOriginal, sampleRate);
+
+            const double scale = irOriginal.getSampleRate() / sampleRate; // more samples convolved = louder!
+            irResampled *= scale;
+
+            set (irResampled);
+
+            lastSampleRate = sampleRate;
+        }
+    }
 
     void process (ado::Buffer& block)
     {
@@ -93,6 +111,11 @@ private:
 
         eng.Advance (blockNumSamples);                  // Advance the eng
     }
+
+
+    double lastSampleRate;
+    ado::Buffer irOriginal;                                             // lots of copies of the impulse now! Eek!
+    ado::Buffer irResampled {1, 1};
 
     WDL_ImpulseBuffer imp;
     WDL_ConvolutionEngine_Div eng;
