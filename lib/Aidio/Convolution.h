@@ -31,6 +31,7 @@
 #include "gsl.h"
 #include "Utility.h"
 #include "Buffer.h"
+#include "Resampling.h"
 #include "WDL/convoengine.h"
 
 namespace ado
@@ -40,14 +41,20 @@ namespace ado
 /**
     Simple, zero latency convolution engine built on WDL.
     
-    Note: Max 2 channels!!!
+    Notes: 
+    - Max 4 channels!!!
+    - If impulse has same data in all channels, WDL treats signal as mono and
+      won't work > 2 channels.
+
 */
 class Convolution
 {
 public:
-    explicit Convolution (const ado::Buffer& impulse)                 // WDL_CONVO_MAX_IMPULSE_NCH max channels set to 2
+    explicit Convolution (const ado::Buffer& impulse)
+        : lastSampleRate (impulse.getSampleRate()),
+          irOriginal {impulse}
     {
-        set (impulse);
+        set (irOriginal);
     }
     ~Convolution() {}
 
@@ -57,7 +64,22 @@ public:
         eng.SetImpulse (&imp);
     }
 
-    void reset() { eng.Reset(); }
+    void reset (double sampleRate)
+    {
+        eng.Reset();
+
+        if (sampleRate != lastSampleRate)
+        {
+            irResampled = ado::resampleBuffer (irOriginal, sampleRate);
+
+            const double scale = irOriginal.getSampleRate() / sampleRate; // more samples convolved = louder!
+            irResampled *= scale;
+
+            set (irResampled);
+
+            lastSampleRate = sampleRate;
+        }
+    }
 
     void process (ado::Buffer& block)
     {
@@ -89,6 +111,11 @@ private:
 
         eng.Advance (blockNumSamples);                  // Advance the eng
     }
+
+
+    double lastSampleRate;
+    ado::Buffer irOriginal;                                             // lots of copies of the impulse now! Eek!
+    ado::Buffer irResampled {1, 1};
 
     WDL_ImpulseBuffer imp;
     WDL_ConvolutionEngine_Div eng;
