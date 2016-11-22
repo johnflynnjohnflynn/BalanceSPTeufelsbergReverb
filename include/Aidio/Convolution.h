@@ -40,12 +40,16 @@ namespace ado
 /**
     Simple, zero latency convolution engine built on WDL.
     
-    Note: Max 2 channels!!!
+    Notes: 
+    - Max 4 channels!!!
+    - If impulse has same data in all channels, WDL treats signal as mono and
+      won't work > 2 channels.
+
 */
 class Convolution
 {
 public:
-    explicit Convolution (const ado::Buffer& impulse)                 // WDL_CONVO_MAX_IMPULSE_NCH max channels set to 2
+    explicit Convolution (const ado::Buffer& impulse)
     {
         set (impulse);
     }

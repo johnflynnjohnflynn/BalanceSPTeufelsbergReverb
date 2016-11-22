@@ -26,7 +26,7 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -Dgsl_CONFIG_CONTRACT_VIOLATION_THROWS=1 -DNOMINMAX=1 -DWDL_RESAMPLE_TYPE=float -DAIDIO_UNIT_TESTS=1 -DJUCER_LINUX_MAKE_7F81F77D=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa libcurl x11) -pthread -I../../JuceLibraryCode -I../../modules -I../../include -I../../lib -I../../lib/WDL
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -Dgsl_CONFIG_CONTRACT_VIOLATION_THROWS=1 -DNOMINMAX=1 -DWDL_RESAMPLE_TYPE=float -DAIDIO_UNIT_TESTS=1 -DWDL_CONVO_MAX_IMPULSE_NCH=4 -DWDL_CONVO_MAX_PROC_NCH=4 -DJUCER_LINUX_MAKE_7F81F77D=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa libcurl x11) -pthread -I../../JuceLibraryCode -I../../modules -I../../include -I../../lib -I../../lib/WDL
   JUCE_CFLAGS += $(CFLAGS) $(JUCE_CPPFLAGS) $(TARGET_ARCH) -g -ggdb -O0
   JUCE_CXXFLAGS += $(CXXFLAGS) $(JUCE_CFLAGS) -std=c++11
   JUCE_LDFLAGS += $(LDFLAGS) $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa libcurl x11) -ldl -lpthread -lrt 
@@ -46,7 +46,7 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -Dgsl_CONFIG_CONTRACT_VIOLATION_THROWS=1 -DNOMINMAX=1 -DWDL_RESAMPLE_TYPE=float -DAIDIO_UNIT_TESTS=1 -DJUCER_LINUX_MAKE_7F81F77D=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa libcurl x11) -pthread -I../../JuceLibraryCode -I../../modules -I../../include -I../../lib -I../../lib/WDL
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -Dgsl_CONFIG_CONTRACT_VIOLATION_THROWS=1 -DNOMINMAX=1 -DWDL_RESAMPLE_TYPE=float -DAIDIO_UNIT_TESTS=1 -DWDL_CONVO_MAX_IMPULSE_NCH=4 -DWDL_CONVO_MAX_PROC_NCH=4 -DJUCER_LINUX_MAKE_7F81F77D=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa libcurl x11) -pthread -I../../JuceLibraryCode -I../../modules -I../../include -I../../lib -I../../lib/WDL
   JUCE_CFLAGS += $(CFLAGS) $(JUCE_CPPFLAGS) $(TARGET_ARCH) -O3
   JUCE_CXXFLAGS += $(CXXFLAGS) $(JUCE_CFLAGS) -std=c++11
   JUCE_LDFLAGS += $(LDFLAGS) $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) -fvisibility=hidden $(shell pkg-config --libs alsa libcurl x11) -ldl -lpthread -lrt 
