@@ -51,7 +51,7 @@ class Convolution
 {
 public:
     explicit Convolution (const ado::Buffer& impulse)
-        : lastSampleRate (impulse.getSampleRate()),
+        : lastSampleRate {static_cast<double> (impulse.getSampleRate())},
           irOriginal {impulse}
     {
         set (irOriginal);
@@ -68,7 +68,7 @@ public:
     {
         eng.Reset();
 
-        if (sampleRate != lastSampleRate)
+        if (sampleRate != lastSampleRate)                               // should split to separate function
         {
             irResampled = ado::resampleBuffer (irOriginal, sampleRate);
 
@@ -114,7 +114,7 @@ private:
 
 
     double lastSampleRate;
-    ado::Buffer irOriginal;                                             // lots of copies of the impulse now! Eek!
+    const ado::Buffer& irOriginal;
     ado::Buffer irResampled {1, 1};
 
     WDL_ImpulseBuffer imp;
