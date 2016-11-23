@@ -43,14 +43,27 @@ void Helper::runTest()
         ado::Buffer buffer {1,1};
         jdo::bufferLoadFromWavBinaryData(BinaryData::Stereo64SamplesAllOnes_wav,
                                          BinaryData::Stereo64SamplesAllOnes_wavSize,
-                                         buffer);
+                                         buffer,
+                                         44100);
         float sum {ado::rawBufferSum (buffer.getReadArray(), buffer.getNumChannels(), buffer.getNumSamples())};
         expectWithinAbsoluteError (sum, 128.0f, 0.001f);
         jdo::bufferLoadFromWavBinaryData(BinaryData::Stereo64SamplesAllOnes_wav,
                                          BinaryData::Stereo64SamplesAllOnes_wavSize,
-                                         buffer);
+                                         buffer,
+                                         44100);
         sum = ado::rawBufferSum (buffer.getReadArray(), buffer.getNumChannels(), buffer.getNumSamples());
         expectWithinAbsoluteError (sum, 128.0f, 0.001f);
+    }
+
+    beginTest ("loadBufferFromWavBinaryData() check sample rate");
+
+    {
+        ado::Buffer buffer {1,1};
+        jdo::bufferLoadFromWavBinaryData(BinaryData::Stereo64SamplesAllOnes_wav,
+                                         BinaryData::Stereo64SamplesAllOnes_wavSize,
+                                         buffer,
+                                         48000);
+        expectEquals (buffer.getSampleRate(), 48000);
     }
 
     beginTest ("nextPowerOf2()");

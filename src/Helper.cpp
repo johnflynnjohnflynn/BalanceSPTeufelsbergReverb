@@ -29,7 +29,8 @@ namespace jdo
 
 void bufferLoadFromWavBinaryData (const void* binaryData,
                                   size_t binaryDataSize,
-                                  ado::Buffer& targetBuffer)
+                                  ado::Buffer& targetBuffer,
+                                  int fileSampleRate)
 {
     ScopedPointer<WavAudioFormat> wav {new WavAudioFormat};
     ScopedPointer<MemoryInputStream> mis {new MemoryInputStream {binaryData, binaryDataSize, false}};
@@ -38,10 +39,10 @@ void bufferLoadFromWavBinaryData (const void* binaryData,
     const int chans = gsl::narrow<int> (audioReader->numChannels);
     const int samps = gsl::narrow<int> (audioReader->lengthInSamples);
 
-    AudioBuffer<float> temp {chans, samps};
+    juce::AudioBuffer<float> temp {chans, samps};
     audioReader->read (&temp, 0, samps, 0, true, true);
 
-    targetBuffer.clearAndResize (chans, samps);
+    targetBuffer.clearAndResize (chans, samps, fileSampleRate);
     ado::rawBufferCopy (temp.getArrayOfReadPointers(), targetBuffer.getWriteArray(), chans, samps);
 }
 

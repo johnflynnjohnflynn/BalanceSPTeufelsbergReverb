@@ -29,27 +29,30 @@ namespace jdo
 {
 //--------//--------//--------//--------//--------//--------//--------//--------
 /**
-    @brief  Loads JUCE binary data in WAV format into AudioBuffer<float>
+    Loads JUCE binary data in WAV format into AudioBuffer<float>
 
     @param  binaryData      Binary data. Needs WAV but DOES NOT CHECK!!!
     @param  binaryDataSize  Binary data size.
     @param  targetBuffer    buffer to write into. Will be cleared and resized!!!
+    @param  fileSampleRate  Native sample rate of the file
+                            Does not check if sample rate is correct!!!
 
-    @see    AudioBuffer<T>
+    @see    juce::AudioBuffer<T>
 */
 void bufferLoadFromWavBinaryData (const void* binaryData,
                                   size_t binaryDataSize,
-                                  ado::Buffer& targetBuffer);
+                                  ado::Buffer& targetBuffer,
+                                  int fileSampleRate);
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /**
-    @brief  Fills entire AudioBuffer<float> with value 1.0f
+    Fills entire AudioBuffer<float> with value 1.0f
 
     @param  buffer  Buffer to fill.
 
-    @see    AudioBuffer<T>
+    @see    juce::AudioBuffer<T>
 */
-void bufferFillAllOnes (AudioBuffer<float>& buffer);
+void bufferFillAllOnes (juce::AudioBuffer<float>& buffer);
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /**
@@ -58,9 +61,9 @@ void bufferFillAllOnes (AudioBuffer<float>& buffer);
     @param  buffer  Buffer to sum.
     @return         Summed value.
 
-    @see    AudioBuffer<T>
+    @see    juce::AudioBuffer<T>
 */
-float bufferSumElements (const AudioBuffer<float>& buffer);
+float bufferSumElements (const juce::AudioBuffer<float>& buffer);
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
