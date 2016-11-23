@@ -37,10 +37,27 @@ namespace ado
 /**
     Simple, zero latency convolution engine built on WDL.
     
+    @example    ado::Buffer ir {1, 1};      // member variables
+                ado::Convolution engine {ir};
+                                            
+                                            // put in constructor
+                jdo::bufferLoadFromWavBinaryData (BinaryData::IR_wav,
+                                                  BinaryData::IR_wavSize,
+                                                  ir, 
+                                                  44100);
+                engine.set (ir);
+                
+                engine.reset (sampleRate);  // put in prepareToPlay()
+                
+                                            // put in processBlock()
+                engine.process (buffer.getArrayOfWritePointers(),
+                                buffer.getNumChannels(),
+                                buffer.getNumSamples());
+    
     Notes: 
     - Max 4 channels!!!
     - If impulse has same data in all channels, WDL treats signal as mono and
-      won't work > 2 channels.
+      won't work > 2 channels. Watch for this!
 
 */
 class Convolution
@@ -51,7 +68,6 @@ public:
 
     void set (const ado::Buffer& impulse);
 
-    void reset () { eng.Reset(); }
     void resampleIrOnRateChange (double sampleRate);
 
     void process (ado::Buffer& block);
