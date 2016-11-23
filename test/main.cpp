@@ -108,7 +108,7 @@ void Convolution::runTest()
         engine.process (block);     // run one block
         //ado::coutBuffer (block);
 
-        engine.reset (88200);       // change rate to double
+        engine.resampleIrOnRateChange (88200);       // change rate to double
 
         block.clear();              // clear last output & reset kronecker
         block.getWriteArray()[0][0] = 1.0f;

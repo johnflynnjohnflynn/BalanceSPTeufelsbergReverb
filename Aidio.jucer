@@ -33,6 +33,7 @@
     </GROUP>
     <GROUP id="{5090576E-6AF9-AF11-36EA-BF254F141EBB}" name="src">
       <FILE id="EpTudg" name="Buffer.cpp" compile="1" resource="0" file="src/Buffer.cpp"/>
+      <FILE id="VhkIuv" name="Convolution.cpp" compile="1" resource="0" file="src/Convolution.cpp"/>
       <FILE id="FkvLoG" name="Resampling.cpp" compile="1" resource="0" file="src/Resampling.cpp"/>
       <FILE id="XULf4b" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
     </GROUP>

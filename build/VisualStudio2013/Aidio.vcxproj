@@ -133,6 +133,7 @@
     <ClCompile Include="..\..\lib\WDL\fft.c"/>
     <ClCompile Include="..\..\lib\WDL\resample.cpp"/>
     <ClCompile Include="..\..\src\Buffer.cpp"/>
+    <ClCompile Include="..\..\src\Convolution.cpp"/>
     <ClCompile Include="..\..\src\Resampling.cpp"/>
     <ClCompile Include="..\..\src\Utility.cpp"/>
     <ClCompile Include="..\..\test\main.cpp"/>

@@ -18,6 +18,7 @@
 		2DDCE40FC14F20ED72B83FF3 = {isa = PBXBuildFile; fileRef = 4BFF4490A74227A6B1AD8F30; };
 		2C984671EB9A8B592F8A70CF = {isa = PBXBuildFile; fileRef = 85C87B4F9C1CBBA9A9325260; };
 		0C989C80BC416E04CADCF73B = {isa = PBXBuildFile; fileRef = 6703F2FC7DB17E45463B44E7; };
+		E20BE5496A81369EAFCE6E8C = {isa = PBXBuildFile; fileRef = B5B199D97952196D89BE29AD; };
 		625844D12DF1DAB9DA8646B5 = {isa = PBXBuildFile; fileRef = 5CB5A5ABDF3B67B236D64143; };
 		58F8D0CFC071CDAB3A2CB4FB = {isa = PBXBuildFile; fileRef = 6EA8462FBFC4C7DE9EB082C9; };
 		840833696F64A586389CF20A = {isa = PBXBuildFile; fileRef = B7F62C662DF352D7FBB6791A; };
@@ -314,6 +315,7 @@
 		B52C2D037B2F99F8AD2CC9DC = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_audio_devices.cpp"; path = "../../modules/juce_audio_devices/juce_audio_devices.cpp"; sourceTree = "SOURCE_ROOT"; };
 		B5924EDF5113233D609D330C = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_MPEInstrument.h"; path = "../../modules/juce_audio_basics/mpe/juce_MPEInstrument.h"; sourceTree = "SOURCE_ROOT"; };
 		B59D920F1191B1D96B3C3CC9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_FileInputStream.h"; path = "../../modules/juce_core/files/juce_FileInputStream.h"; sourceTree = "SOURCE_ROOT"; };
+		B5B199D97952196D89BE29AD = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Convolution.cpp; path = ../../src/Convolution.cpp; sourceTree = "SOURCE_ROOT"; };
 		B6D54E237272D38119A82752 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_CatmullRomInterpolator.h"; path = "../../modules/juce_audio_basics/effects/juce_CatmullRomInterpolator.h"; sourceTree = "SOURCE_ROOT"; };
 		B6FE0AE5A0C2A540BA44662D = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_MPESynthesiser.h"; path = "../../modules/juce_audio_basics/mpe/juce_MPESynthesiser.h"; sourceTree = "SOURCE_ROOT"; };
 		B7F62C662DF352D7FBB6791A = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../test/main.cpp; sourceTree = "SOURCE_ROOT"; };
@@ -459,6 +461,7 @@
 					F1D6674629C19368752AFA56, ); name = lib; sourceTree = "<group>"; };
 		D71421BA7ECB5C607B26F7AE = {isa = PBXGroup; children = (
 					6703F2FC7DB17E45463B44E7,
+					B5B199D97952196D89BE29AD,
 					5CB5A5ABDF3B67B236D64143,
 					6EA8462FBFC4C7DE9EB082C9, ); name = src; sourceTree = "<group>"; };
 		3BC5301BBA086F4074BA6C13 = {isa = PBXGroup; children = (
@@ -1043,6 +1046,7 @@
 					2DDCE40FC14F20ED72B83FF3,
 					2C984671EB9A8B592F8A70CF,
 					0C989C80BC416E04CADCF73B,
+					E20BE5496A81369EAFCE6E8C,
 					625844D12DF1DAB9DA8646B5,
 					58F8D0CFC071CDAB3A2CB4FB,
 					840833696F64A586389CF20A,

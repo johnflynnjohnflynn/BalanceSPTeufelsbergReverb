@@ -61,6 +61,7 @@ OBJECTS := \
   $(JUCE_OBJDIR)/fft_e0f7290f.o \
   $(JUCE_OBJDIR)/resample_dfc8d2ac.o \
   $(JUCE_OBJDIR)/Buffer_1588d5c0.o \
+  $(JUCE_OBJDIR)/Convolution_8b7b2262.o \
   $(JUCE_OBJDIR)/Resampling_62c0e21a.o \
   $(JUCE_OBJDIR)/Utility_bb6148b6.o \
   $(JUCE_OBJDIR)/main_23d5fb2b.o \
@@ -108,6 +109,11 @@ $(JUCE_OBJDIR)/resample_dfc8d2ac.o: ../../lib/WDL/resample.cpp
 $(JUCE_OBJDIR)/Buffer_1588d5c0.o: ../../src/Buffer.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling Buffer.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/Convolution_8b7b2262.o: ../../src/Convolution.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling Convolution.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/Resampling_62c0e21a.o: ../../src/Resampling.cpp
