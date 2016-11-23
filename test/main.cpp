@@ -66,6 +66,20 @@ void Helper::runTest()
         expectEquals (buffer.getSampleRate(), 48000);
     }
 
+    
+    beginTest ("loadBufferFromWavBinaryData() 4 channels");
+
+    {
+        ado::Buffer buffer {1,1};
+        jdo::bufferLoadFromWavBinaryData(BinaryData::_4Channel_wav,     // 4 channel WAV file.
+                                         BinaryData::_4Channel_wavSize, // ch1: 1 impulse
+                                         buffer,                        // ch2: 2 impulses
+                                         44100);                        // ch3: 3 impulses
+        //ado::coutBuffer(buffer);                                      // ch4: 4 impulses
+        expectEquals (buffer.getNumChannels(), 4);
+        expectWithinAbsoluteError (ado::bufferSumElements (buffer), 1 + 2 + 3 + 4.f, 0.001f);
+    }
+
     beginTest ("nextPowerOf2()");
 
     {

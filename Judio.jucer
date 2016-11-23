@@ -40,6 +40,7 @@
       <FILE id="y2Zf30" name="gsl.h" compile="0" resource="0" file="lib/gsl.h"/>
     </GROUP>
     <GROUP id="{2A1C611E-190D-AA45-C000-1A371C74FE5E}" name="resource">
+      <FILE id="XzAGzn" name="4Channel.wav" compile="0" resource="1" file="resource/4Channel.wav"/>
       <FILE id="qvQkVR" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
             file="resource/Stereo64SamplesAllOnes.wav"/>
     </GROUP>
