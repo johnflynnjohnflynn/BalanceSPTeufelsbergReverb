@@ -58,6 +58,24 @@ float rawBufferSum (const float** buffer, int channelsToSum, int samples);
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
+    4 channels to 2. Sum channels 1 & 3 to 1, channels 2 & 4 to 2. NOT CHECKED!
+*/
+void rawBufferDownmix4To2 (float** buffer, int samples);
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
+    Outputs 2 channel from a mono raw buffer pointer 1->11. NOT CHECKED!
+*/
+ado::RawBufferView rawBufferCopyChannelPointers1to2 (float** buffer);
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
+    Outputs 4 channel from a 2 channel raw buffer pointer 12->1122. NOT CHECKED!
+*/
+ado::RawBufferView rawBufferCopyChannelPointers2to4 (float** buffer);
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
     Next power of two integer larger than x
 */
 int nextPowerOf2 (int x);

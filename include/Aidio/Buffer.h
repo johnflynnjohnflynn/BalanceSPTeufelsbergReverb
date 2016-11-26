@@ -72,6 +72,16 @@ private:
     juce::AudioBuffer<float> bufferData;
 };
 
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
+    Quick data struct for raw pointers of up to 4 channels
+*/
+struct RawBufferView
+{
+    float*  channels[4] {nullptr};
+    float** writeArray  {channels};
+};
+
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 

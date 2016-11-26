@@ -510,6 +510,41 @@ void Utility::runTest()
         expectEquals (ado::rawBufferSum (buffer.getReadArray(), 1, 2048), 2048.0f);
     }
 
+    beginTest("rawBufferCopyChannelPointers1to2()");
+
+    {
+        ado::Buffer buffer {1, 16};
+        buffer.fillAscending();
+        ado::RawBufferView buffer2Chan = ado::rawBufferCopyChannelPointers1to2 (buffer.getWriteArray());
+        expectEquals (buffer2Chan.writeArray[1][15], 16.f);
+    }
+
+    beginTest("rawBufferCopyChannelPointers2to4()");
+
+    {
+        ado::Buffer buffer {2, 16};
+        buffer.getWriteArray()[0][15] = 1.f;
+        buffer.getWriteArray()[1][15] = 2.f;
+        ado::RawBufferView buffer4Chan = ado::rawBufferCopyChannelPointers2to4 (buffer.getWriteArray());
+        expectEquals (buffer4Chan.writeArray[0][15], 1.f);
+        expectEquals (buffer4Chan.writeArray[1][15], 1.f);
+        expectEquals (buffer4Chan.writeArray[2][15], 2.f);
+        expectEquals (buffer4Chan.writeArray[3][15], 2.f);
+    }
+
+    beginTest("rawBufferDownmix4To2()");
+
+    {
+        ado::Buffer buffer {4, 6};
+        buffer.getWriteArray()[0][3] = 1.f;
+        buffer.getWriteArray()[1][3] = 2.f;
+        buffer.getWriteArray()[2][3] = 3.f;
+        buffer.getWriteArray()[3][3] = 4.f;
+        ado::rawBufferDownmix4To2 (buffer.getWriteArray(), buffer.getNumSamples());
+        expectEquals (buffer.getReadArray()[0][3], 1 + 3.f);
+        expectEquals (buffer.getReadArray()[1][3], 2 + 4.f);
+    }
+
     beginTest("nextPowerOf2()");
 
     {
