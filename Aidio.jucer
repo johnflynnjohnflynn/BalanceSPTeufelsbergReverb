@@ -15,6 +15,7 @@
       </GROUP>
     </GROUP>
     <GROUP id="{6EAFBCFC-E586-0525-3D7B-65F9ADF47CE9}" name="lib">
+      <FILE id="FEL6D4" name="gsl.h" compile="0" resource="0" file="lib/gsl.h"/>
       <GROUP id="{2D49C065-826F-3B30-5B15-82C4AD7BD827}" name="WDL">
         <FILE id="JIw6bQ" name="convoengine.cpp" compile="1" resource="0" file="lib/WDL/convoengine.cpp"/>
         <FILE id="QV5K7R" name="convoengine.h" compile="0" resource="0" file="lib/WDL/convoengine.h"/>
@@ -29,7 +30,6 @@
         <FILE id="Ao4KhB" name="resample.h" compile="0" resource="0" file="lib/WDL/resample.h"/>
         <FILE id="pFQK81" name="wdltypes.h" compile="0" resource="0" file="lib/WDL/wdltypes.h"/>
       </GROUP>
-      <FILE id="FEL6D4" name="gsl.h" compile="0" resource="0" file="lib/gsl.h"/>
     </GROUP>
     <GROUP id="{5090576E-6AF9-AF11-36EA-BF254F141EBB}" name="src">
       <FILE id="EpTudg" name="Buffer.cpp" compile="1" resource="0" file="src/Buffer.cpp"/>
@@ -39,6 +39,12 @@
     </GROUP>
     <GROUP id="{34C7B81C-2196-9DC5-A8D1-DB0CC56513D6}" name="test">
       <FILE id="x16It2" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
+      <FILE id="wlhZ82" name="TestBuffer.cpp" compile="1" resource="0" file="test/TestBuffer.cpp"/>
+      <FILE id="DTIF66" name="TestConvolution.cpp" compile="1" resource="0"
+            file="test/TestConvolution.cpp"/>
+      <FILE id="cK8HZn" name="TestResampling.cpp" compile="1" resource="0"
+            file="test/TestResampling.cpp"/>
+      <FILE id="VkpOJK" name="TestUtility.cpp" compile="1" resource="0" file="test/TestUtility.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>

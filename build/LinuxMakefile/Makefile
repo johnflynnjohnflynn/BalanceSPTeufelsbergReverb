@@ -65,6 +65,10 @@ OBJECTS := \
   $(JUCE_OBJDIR)/Resampling_62c0e21a.o \
   $(JUCE_OBJDIR)/Utility_bb6148b6.o \
   $(JUCE_OBJDIR)/main_23d5fb2b.o \
+  $(JUCE_OBJDIR)/TestBuffer_5a02aac4.o \
+  $(JUCE_OBJDIR)/TestConvolution_a9b1cfde.o \
+  $(JUCE_OBJDIR)/TestResampling_7c80951e.o \
+  $(JUCE_OBJDIR)/TestUtility_6221432.o \
   $(JUCE_OBJDIR)/juce_audio_basics_6b797ca1.o \
   $(JUCE_OBJDIR)/juce_audio_devices_a742c38b.o \
   $(JUCE_OBJDIR)/juce_core_75b14332.o \
@@ -129,6 +133,26 @@ $(JUCE_OBJDIR)/Utility_bb6148b6.o: ../../src/Utility.cpp
 $(JUCE_OBJDIR)/main_23d5fb2b.o: ../../test/main.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling main.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/TestBuffer_5a02aac4.o: ../../test/TestBuffer.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling TestBuffer.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/TestConvolution_a9b1cfde.o: ../../test/TestConvolution.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling TestConvolution.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/TestResampling_7c80951e.o: ../../test/TestResampling.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling TestResampling.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/TestUtility_6221432.o: ../../test/TestUtility.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling TestUtility.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/juce_audio_basics_6b797ca1.o: ../../JuceLibraryCode/juce_audio_basics.cpp

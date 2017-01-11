@@ -39,8 +39,10 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Aidio</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Aidio</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
@@ -137,6 +139,10 @@
     <ClCompile Include="..\..\src\Resampling.cpp"/>
     <ClCompile Include="..\..\src\Utility.cpp"/>
     <ClCompile Include="..\..\test\main.cpp"/>
+    <ClCompile Include="..\..\test\TestBuffer.cpp"/>
+    <ClCompile Include="..\..\test\TestConvolution.cpp"/>
+    <ClCompile Include="..\..\test\TestResampling.cpp"/>
+    <ClCompile Include="..\..\test\TestUtility.cpp"/>
     <ClCompile Include="..\..\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -626,6 +632,7 @@
     <ClInclude Include="..\..\include\Aidio\Resampling.h"/>
     <ClInclude Include="..\..\include\Aidio\Test.h"/>
     <ClInclude Include="..\..\include\Aidio\Utility.h"/>
+    <ClInclude Include="..\..\lib\gsl.h"/>
     <ClInclude Include="..\..\lib\WDL\convoengine.h"/>
     <ClInclude Include="..\..\lib\WDL\denormal.h"/>
     <ClInclude Include="..\..\lib\WDL\fastqueue.h"/>
@@ -635,7 +642,6 @@
     <ClInclude Include="..\..\lib\WDL\queue.h"/>
     <ClInclude Include="..\..\lib\WDL\resample.h"/>
     <ClInclude Include="..\..\lib\WDL\wdltypes.h"/>
-    <ClInclude Include="..\..\lib\gsl.h"/>
     <ClInclude Include="..\..\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>

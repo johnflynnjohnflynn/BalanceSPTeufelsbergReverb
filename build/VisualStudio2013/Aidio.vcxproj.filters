@@ -166,6 +166,18 @@
     <ClCompile Include="..\..\test\main.cpp">
       <Filter>Aidio\test</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\test\TestBuffer.cpp">
+      <Filter>Aidio\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\TestConvolution.cpp">
+      <Filter>Aidio\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\TestResampling.cpp">
+      <Filter>Aidio\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\TestUtility.cpp">
+      <Filter>Aidio\test</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -708,6 +720,9 @@
     <ClInclude Include="..\..\include\Aidio\Utility.h">
       <Filter>Aidio\include\Aidio</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\lib\gsl.h">
+      <Filter>Aidio\lib</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\lib\WDL\convoengine.h">
       <Filter>Aidio\lib\WDL</Filter>
     </ClInclude>
@@ -734,9 +749,6 @@
     </ClInclude>
     <ClInclude Include="..\..\lib\WDL\wdltypes.h">
       <Filter>Aidio\lib\WDL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\lib\gsl.h">
-      <Filter>Aidio\lib</Filter>
     </ClInclude>
     <ClInclude Include="..\..\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
