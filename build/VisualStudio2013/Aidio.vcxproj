@@ -58,7 +58,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\modules;..\..\include;..\..\lib;..\..\lib\WDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CONSOLE;WIN32;_WINDOWS;DEBUG;_DEBUG;gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1;NOMINMAX=1;WDL_RESAMPLE_TYPE=float;AIDIO_UNIT_TESTS=1;WDL_CONVO_MAX_IMPULSE_NCH=4;WDL_CONVO_MAX_PROC_NCH=4;JUCER_VS2013_B3E0C0B7=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CONSOLE;WIN32;_WINDOWS;DEBUG;_DEBUG;gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1;NOMINMAX=1;WDL_RESAMPLE_TYPE=float;AIDIO_UNIT_TESTS=0;WDL_CONVO_MAX_IMPULSE_NCH=4;WDL_CONVO_MAX_PROC_NCH=4;JUCER_VS2013_B3E0C0B7=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -99,7 +99,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\modules;..\..\include;..\..\lib;..\..\lib\WDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CONSOLE;WIN32;_WINDOWS;NDEBUG;gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1;NOMINMAX=1;WDL_RESAMPLE_TYPE=float;AIDIO_UNIT_TESTS=1;WDL_CONVO_MAX_IMPULSE_NCH=4;WDL_CONVO_MAX_PROC_NCH=4;JUCER_VS2013_B3E0C0B7=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CONSOLE;WIN32;_WINDOWS;NDEBUG;gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1;NOMINMAX=1;WDL_RESAMPLE_TYPE=float;AIDIO_UNIT_TESTS=0;WDL_CONVO_MAX_IMPULSE_NCH=4;WDL_CONVO_MAX_PROC_NCH=4;JUCER_VS2013_B3E0C0B7=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -136,11 +136,13 @@
     <ClCompile Include="..\..\lib\WDL\resample.cpp"/>
     <ClCompile Include="..\..\src\Buffer.cpp"/>
     <ClCompile Include="..\..\src\Convolution.cpp"/>
+    <ClCompile Include="..\..\Maths.cpp"/>
     <ClCompile Include="..\..\src\Resampling.cpp"/>
     <ClCompile Include="..\..\src\Utility.cpp"/>
     <ClCompile Include="..\..\test\main.cpp"/>
     <ClCompile Include="..\..\test\TestBuffer.cpp"/>
     <ClCompile Include="..\..\test\TestConvolution.cpp"/>
+    <ClCompile Include="..\..\test\TestMaths.cpp"/>
     <ClCompile Include="..\..\test\TestResampling.cpp"/>
     <ClCompile Include="..\..\test\TestUtility.cpp"/>
     <ClCompile Include="..\..\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -629,6 +631,7 @@
     <ClInclude Include="..\..\include\Aidio\Aidio.h"/>
     <ClInclude Include="..\..\include\Aidio\Buffer.h"/>
     <ClInclude Include="..\..\include\Aidio\Convolution.h"/>
+    <ClInclude Include="..\..\Maths.h"/>
     <ClInclude Include="..\..\include\Aidio\Resampling.h"/>
     <ClInclude Include="..\..\include\Aidio\Test.h"/>
     <ClInclude Include="..\..\include\Aidio\Utility.h"/>

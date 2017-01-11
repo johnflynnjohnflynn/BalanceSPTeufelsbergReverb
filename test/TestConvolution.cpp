@@ -13,6 +13,8 @@
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 
+#if AIDIO_UNIT_TESTS
+
 AIDIO_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(Convolution)
 
 Convolution::Convolution() : UnitTest ("Convolution") {}
@@ -244,3 +246,5 @@ void Convolution::runTest()
         expectEquals (sum, 3.0f);
     }
 }
+
+#endif // AIDIO_UNIT_TESTS

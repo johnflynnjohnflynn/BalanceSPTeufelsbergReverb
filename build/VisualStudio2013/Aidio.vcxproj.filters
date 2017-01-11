@@ -157,6 +157,9 @@
     <ClCompile Include="..\..\src\Convolution.cpp">
       <Filter>Aidio\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Maths.cpp">
+      <Filter>Aidio\src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\Resampling.cpp">
       <Filter>Aidio\src</Filter>
     </ClCompile>
@@ -170,6 +173,9 @@
       <Filter>Aidio\test</Filter>
     </ClCompile>
     <ClCompile Include="..\..\test\TestConvolution.cpp">
+      <Filter>Aidio\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\TestMaths.cpp">
       <Filter>Aidio\test</Filter>
     </ClCompile>
     <ClCompile Include="..\..\test\TestResampling.cpp">
@@ -709,6 +715,9 @@
       <Filter>Aidio\include\Aidio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Aidio\Convolution.h">
+      <Filter>Aidio\include\Aidio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Maths.h">
       <Filter>Aidio\include\Aidio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Aidio\Resampling.h">

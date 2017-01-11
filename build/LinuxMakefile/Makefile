@@ -26,7 +26,7 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -Dgsl_CONFIG_CONTRACT_VIOLATION_THROWS=1 -DNOMINMAX=1 -DWDL_RESAMPLE_TYPE=float -DAIDIO_UNIT_TESTS=1 -DWDL_CONVO_MAX_IMPULSE_NCH=4 -DWDL_CONVO_MAX_PROC_NCH=4 -DJUCER_LINUX_MAKE_7F81F77D=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa libcurl x11) -pthread -I../../JuceLibraryCode -I../../modules -I../../include -I../../lib -I../../lib/WDL
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -Dgsl_CONFIG_CONTRACT_VIOLATION_THROWS=1 -DNOMINMAX=1 -DWDL_RESAMPLE_TYPE=float -DAIDIO_UNIT_TESTS=0 -DWDL_CONVO_MAX_IMPULSE_NCH=4 -DWDL_CONVO_MAX_PROC_NCH=4 -DJUCER_LINUX_MAKE_7F81F77D=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa libcurl x11) -pthread -I../../JuceLibraryCode -I../../modules -I../../include -I../../lib -I../../lib/WDL
   JUCE_CFLAGS += $(CFLAGS) $(JUCE_CPPFLAGS) $(TARGET_ARCH) -g -ggdb -O0
   JUCE_CXXFLAGS += $(CXXFLAGS) $(JUCE_CFLAGS) -std=c++11
   JUCE_LDFLAGS += $(LDFLAGS) $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa libcurl x11) -ldl -lpthread -lrt 
@@ -46,7 +46,7 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -Dgsl_CONFIG_CONTRACT_VIOLATION_THROWS=1 -DNOMINMAX=1 -DWDL_RESAMPLE_TYPE=float -DAIDIO_UNIT_TESTS=1 -DWDL_CONVO_MAX_IMPULSE_NCH=4 -DWDL_CONVO_MAX_PROC_NCH=4 -DJUCER_LINUX_MAKE_7F81F77D=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa libcurl x11) -pthread -I../../JuceLibraryCode -I../../modules -I../../include -I../../lib -I../../lib/WDL
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -Dgsl_CONFIG_CONTRACT_VIOLATION_THROWS=1 -DNOMINMAX=1 -DWDL_RESAMPLE_TYPE=float -DAIDIO_UNIT_TESTS=0 -DWDL_CONVO_MAX_IMPULSE_NCH=4 -DWDL_CONVO_MAX_PROC_NCH=4 -DJUCER_LINUX_MAKE_7F81F77D=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa libcurl x11) -pthread -I../../JuceLibraryCode -I../../modules -I../../include -I../../lib -I../../lib/WDL
   JUCE_CFLAGS += $(CFLAGS) $(JUCE_CPPFLAGS) $(TARGET_ARCH) -O3
   JUCE_CXXFLAGS += $(CXXFLAGS) $(JUCE_CFLAGS) -std=c++11
   JUCE_LDFLAGS += $(LDFLAGS) $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) -fvisibility=hidden $(shell pkg-config --libs alsa libcurl x11) -ldl -lpthread -lrt 
@@ -62,11 +62,13 @@ OBJECTS := \
   $(JUCE_OBJDIR)/resample_dfc8d2ac.o \
   $(JUCE_OBJDIR)/Buffer_1588d5c0.o \
   $(JUCE_OBJDIR)/Convolution_8b7b2262.o \
+  $(JUCE_OBJDIR)/Maths_26f255e0.o \
   $(JUCE_OBJDIR)/Resampling_62c0e21a.o \
   $(JUCE_OBJDIR)/Utility_bb6148b6.o \
   $(JUCE_OBJDIR)/main_23d5fb2b.o \
   $(JUCE_OBJDIR)/TestBuffer_5a02aac4.o \
   $(JUCE_OBJDIR)/TestConvolution_a9b1cfde.o \
+  $(JUCE_OBJDIR)/TestMaths_e29615f1.o \
   $(JUCE_OBJDIR)/TestResampling_7c80951e.o \
   $(JUCE_OBJDIR)/TestUtility_6221432.o \
   $(JUCE_OBJDIR)/juce_audio_basics_6b797ca1.o \
@@ -120,6 +122,11 @@ $(JUCE_OBJDIR)/Convolution_8b7b2262.o: ../../src/Convolution.cpp
 	@echo "Compiling Convolution.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
+$(JUCE_OBJDIR)/Maths_26f255e0.o: ../../Maths.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling Maths.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
 $(JUCE_OBJDIR)/Resampling_62c0e21a.o: ../../src/Resampling.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling Resampling.cpp"
@@ -143,6 +150,11 @@ $(JUCE_OBJDIR)/TestBuffer_5a02aac4.o: ../../test/TestBuffer.cpp
 $(JUCE_OBJDIR)/TestConvolution_a9b1cfde.o: ../../test/TestConvolution.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling TestConvolution.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/TestMaths_e29615f1.o: ../../test/TestMaths.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling TestMaths.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/TestResampling_7c80951e.o: ../../test/TestResampling.cpp

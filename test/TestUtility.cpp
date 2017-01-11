@@ -13,6 +13,8 @@
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 
+#if AIDIO_UNIT_TESTS
+
 AIDIO_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(Utility)
 
 Utility::Utility() : UnitTest ("Utility") {}
@@ -96,3 +98,5 @@ void Utility::runTest()
         expectEquals(ado::nextPowerOf2(x), 16384);
     }
 }
+
+#endif // AIDIO_UNIT_TESTS

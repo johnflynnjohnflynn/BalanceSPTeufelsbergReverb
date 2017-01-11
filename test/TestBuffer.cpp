@@ -13,6 +13,8 @@
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 
+#if AIDIO_UNIT_TESTS
+
 AIDIO_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(Buffer)
 
 Buffer::Buffer() : UnitTest ("Buffer") {}
@@ -163,3 +165,4 @@ void Buffer::runTest()
     }
 }
 
+#endif // AIDIO_UNIT_TESTS

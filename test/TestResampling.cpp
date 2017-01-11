@@ -13,6 +13,8 @@
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 
+#if AIDIO_UNIT_TESTS
+
 AIDIO_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(Resample)
 
 Resample::Resample() : UnitTest ("Resample") {}
@@ -85,3 +87,5 @@ void Resample::runTest()
         expectWithinAbsoluteError (33.5712f, dest6.getReadArray()[5][31], 0.001f);    // from previous channel pass
     }
 }
+
+#endif // AIDIO_UNIT_TESTS

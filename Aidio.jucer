@@ -2,13 +2,14 @@
 
 <JUCERPROJECT id="UgKWOL" name="Aidio" projectType="consoleapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.Aidio" includeBinaryInAppConfig="1"
-              jucerVersion="4.3.0" defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;AIDIO_UNIT_TESTS=1&#10;WDL_CONVO_MAX_IMPULSE_NCH=4&#10;WDL_CONVO_MAX_PROC_NCH=4">
+              jucerVersion="4.3.0" defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;AIDIO_UNIT_TESTS=0&#10;WDL_CONVO_MAX_IMPULSE_NCH=4&#10;WDL_CONVO_MAX_PROC_NCH=4">
   <MAINGROUP id="fnjyVf" name="Aidio">
     <GROUP id="{0CD79B56-AA54-45FD-3070-BD8980F822E9}" name="include">
       <GROUP id="{9D333B87-D773-B048-9039-4B6665C95DD1}" name="Aidio">
         <FILE id="bFIxjn" name="Aidio.h" compile="0" resource="0" file="include/Aidio/Aidio.h"/>
         <FILE id="Bcu4Uc" name="Buffer.h" compile="0" resource="0" file="include/Aidio/Buffer.h"/>
         <FILE id="QnVMYP" name="Convolution.h" compile="0" resource="0" file="include/Aidio/Convolution.h"/>
+        <FILE id="H5T6QY" name="Maths.h" compile="0" resource="0" file="Maths.h"/>
         <FILE id="Nfw6yd" name="Resampling.h" compile="0" resource="0" file="include/Aidio/Resampling.h"/>
         <FILE id="CFs5Xu" name="Test.h" compile="0" resource="0" file="include/Aidio/Test.h"/>
         <FILE id="OTeAkZ" name="Utility.h" compile="0" resource="0" file="include/Aidio/Utility.h"/>
@@ -34,6 +35,7 @@
     <GROUP id="{5090576E-6AF9-AF11-36EA-BF254F141EBB}" name="src">
       <FILE id="EpTudg" name="Buffer.cpp" compile="1" resource="0" file="src/Buffer.cpp"/>
       <FILE id="VhkIuv" name="Convolution.cpp" compile="1" resource="0" file="src/Convolution.cpp"/>
+      <FILE id="tKsqpp" name="Maths.cpp" compile="1" resource="0" file="Maths.cpp"/>
       <FILE id="FkvLoG" name="Resampling.cpp" compile="1" resource="0" file="src/Resampling.cpp"/>
       <FILE id="XULf4b" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
     </GROUP>
@@ -42,6 +44,7 @@
       <FILE id="wlhZ82" name="TestBuffer.cpp" compile="1" resource="0" file="test/TestBuffer.cpp"/>
       <FILE id="DTIF66" name="TestConvolution.cpp" compile="1" resource="0"
             file="test/TestConvolution.cpp"/>
+      <FILE id="tfhqZh" name="TestMaths.cpp" compile="1" resource="0" file="test/TestMaths.cpp"/>
       <FILE id="cK8HZn" name="TestResampling.cpp" compile="1" resource="0"
             file="test/TestResampling.cpp"/>
       <FILE id="VkpOJK" name="TestUtility.cpp" compile="1" resource="0" file="test/TestUtility.cpp"/>
