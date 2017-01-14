@@ -11,6 +11,15 @@
     <Filter Include="Judio\include\Judio">
       <UniqueIdentifier>{30D0AFD3-079F-4808-83E8-B768B4454CE6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Judio\resource">
+      <UniqueIdentifier>{659D1EBC-714D-7AA9-788C-12224FCD31EA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Judio\src">
+      <UniqueIdentifier>{FBD40B1E-99C4-3BBD-9343-D15AA5BD5DDD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Judio\test">
+      <UniqueIdentifier>{B73125AF-EA42-E5AC-7AF0-A11EC65ADC5E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Judio\lib">
       <UniqueIdentifier>{94048923-7665-76EA-BB84-C9C4712D7CA1}</UniqueIdentifier>
     </Filter>
@@ -22,15 +31,6 @@
     </Filter>
     <Filter Include="Judio\lib\WDL">
       <UniqueIdentifier>{EB9420F2-710D-5A65-8F20-95DB621D4EF5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Judio\resource">
-      <UniqueIdentifier>{659D1EBC-714D-7AA9-788C-12224FCD31EA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Judio\src">
-      <UniqueIdentifier>{FBD40B1E-99C4-3BBD-9343-D15AA5BD5DDD}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Judio\test">
-      <UniqueIdentifier>{B73125AF-EA42-E5AC-7AF0-A11EC65ADC5E}</UniqueIdentifier>
     </Filter>
     <Filter Include="Juce Modules">
       <UniqueIdentifier>{422C46B7-0467-2DB0-BF3C-16DFCAFD69AC}</UniqueIdentifier>
@@ -376,7 +376,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Helper.cpp">
+      <Filter>Judio\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\main.cpp">
+      <Filter>Judio\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\TestHelper.cpp">
+      <Filter>Judio\test</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\lib\Aidio\src\Buffer.cpp">
+      <Filter>Judio\lib\Aidio\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\Aidio\src\Convolution.cpp">
+      <Filter>Judio\lib\Aidio\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\Aidio\src\Maths.cpp">
       <Filter>Judio\lib\Aidio\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\lib\Aidio\src\Resampling.cpp">
@@ -393,12 +408,6 @@
     </ClCompile>
     <ClCompile Include="..\..\lib\WDL\resample.cpp">
       <Filter>Judio\lib\WDL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Helper.cpp">
-      <Filter>Judio\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\test\main.cpp">
-      <Filter>Judio\test</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -2074,6 +2083,9 @@
       <Filter>Judio\lib\Aidio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\lib\Aidio\Convolution.h">
+      <Filter>Judio\lib\Aidio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\Aidio\Maths.h">
       <Filter>Judio\lib\Aidio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\lib\Aidio\Resampling.h">

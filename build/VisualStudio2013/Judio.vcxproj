@@ -39,8 +39,10 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Judio</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Judio</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
@@ -129,14 +131,17 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Helper.cpp"/>
+    <ClCompile Include="..\..\test\main.cpp"/>
+    <ClCompile Include="..\..\test\TestHelper.cpp"/>
     <ClCompile Include="..\..\lib\Aidio\src\Buffer.cpp"/>
+    <ClCompile Include="..\..\lib\Aidio\src\Convolution.cpp"/>
+    <ClCompile Include="..\..\lib\Aidio\src\Maths.cpp"/>
     <ClCompile Include="..\..\lib\Aidio\src\Resampling.cpp"/>
     <ClCompile Include="..\..\lib\Aidio\src\Utility.cpp"/>
     <ClCompile Include="..\..\lib\WDL\convoengine.cpp"/>
     <ClCompile Include="..\..\lib\WDL\fft.c"/>
     <ClCompile Include="..\..\lib\WDL\resample.cpp"/>
-    <ClCompile Include="..\..\src\Helper.cpp"/>
-    <ClCompile Include="..\..\test\main.cpp"/>
     <ClCompile Include="..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1669,6 +1674,7 @@
     <ClInclude Include="..\..\lib\Aidio\Aidio.h"/>
     <ClInclude Include="..\..\lib\Aidio\Buffer.h"/>
     <ClInclude Include="..\..\lib\Aidio\Convolution.h"/>
+    <ClInclude Include="..\..\lib\Aidio\Maths.h"/>
     <ClInclude Include="..\..\lib\Aidio\Resampling.h"/>
     <ClInclude Include="..\..\lib\Aidio\Test.h"/>
     <ClInclude Include="..\..\lib\Aidio\Utility.h"/>

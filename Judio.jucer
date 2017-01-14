@@ -9,36 +9,6 @@
         <FILE id="dw0n08" name="Helper.h" compile="0" resource="0" file="include/Judio/Helper.h"/>
       </GROUP>
     </GROUP>
-    <GROUP id="{7759A782-846C-3897-F032-6EC2BBBE4367}" name="lib">
-      <GROUP id="{D15964CB-4837-BB10-A632-D70653BEB6BC}" name="Aidio">
-        <GROUP id="{AB4EF5B3-633A-30EB-687E-ABF1D6FA1A8C}" name="src">
-          <FILE id="DbqklJ" name="Buffer.cpp" compile="1" resource="0" file="lib/Aidio/src/Buffer.cpp"/>
-          <FILE id="pfNsr9" name="Resampling.cpp" compile="1" resource="0" file="lib/Aidio/src/Resampling.cpp"/>
-          <FILE id="bvcUYp" name="Utility.cpp" compile="1" resource="0" file="lib/Aidio/src/Utility.cpp"/>
-        </GROUP>
-        <FILE id="aKXZy4" name="Aidio.h" compile="0" resource="0" file="lib/Aidio/Aidio.h"/>
-        <FILE id="Lwpkmz" name="Buffer.h" compile="0" resource="0" file="lib/Aidio/Buffer.h"/>
-        <FILE id="zEycw0" name="Convolution.h" compile="0" resource="0" file="lib/Aidio/Convolution.h"/>
-        <FILE id="ZlO3v7" name="Resampling.h" compile="0" resource="0" file="lib/Aidio/Resampling.h"/>
-        <FILE id="tWgP3I" name="Test.h" compile="0" resource="0" file="lib/Aidio/Test.h"/>
-        <FILE id="yLrWBJ" name="Utility.h" compile="0" resource="0" file="lib/Aidio/Utility.h"/>
-      </GROUP>
-      <GROUP id="{D3EEB57C-6313-CE3E-F5DE-9E805528C37E}" name="WDL">
-        <FILE id="onyHx5" name="convoengine.cpp" compile="1" resource="0" file="lib/WDL/convoengine.cpp"/>
-        <FILE id="rduHH6" name="convoengine.h" compile="0" resource="0" file="lib/WDL/convoengine.h"/>
-        <FILE id="LGqBbe" name="denormal.h" compile="0" resource="0" file="lib/WDL/denormal.h"/>
-        <FILE id="nP5zob" name="fastqueue.h" compile="0" resource="0" file="lib/WDL/fastqueue.h"/>
-        <FILE id="xKnTQc" name="fft.c" compile="1" resource="0" file="lib/WDL/fft.c"/>
-        <FILE id="XOfl3n" name="fft.h" compile="0" resource="0" file="lib/WDL/fft.h"/>
-        <FILE id="DgRjuC" name="heapbuf.h" compile="0" resource="0" file="lib/WDL/heapbuf.h"/>
-        <FILE id="WWWtlC" name="ptrlist.h" compile="0" resource="0" file="lib/WDL/ptrlist.h"/>
-        <FILE id="iDhFmK" name="queue.h" compile="0" resource="0" file="lib/WDL/queue.h"/>
-        <FILE id="qmPcb1" name="resample.cpp" compile="1" resource="0" file="lib/WDL/resample.cpp"/>
-        <FILE id="JMpWCZ" name="resample.h" compile="0" resource="0" file="lib/WDL/resample.h"/>
-        <FILE id="gHBIxe" name="wdltypes.h" compile="0" resource="0" file="lib/WDL/wdltypes.h"/>
-      </GROUP>
-      <FILE id="y2Zf30" name="gsl.h" compile="0" resource="0" file="lib/gsl.h"/>
-    </GROUP>
     <GROUP id="{2A1C611E-190D-AA45-C000-1A371C74FE5E}" name="resource">
       <FILE id="XzAGzn" name="4Channel.wav" compile="0" resource="1" file="resource/4Channel.wav"/>
       <FILE id="qvQkVR" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
@@ -49,6 +19,40 @@
     </GROUP>
     <GROUP id="{212D3666-643B-40F2-E63C-8919A8950546}" name="test">
       <FILE id="ueU1DK" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
+      <FILE id="dqOoHJ" name="TestHelper.cpp" compile="1" resource="0" file="test/TestHelper.cpp"/>
+    </GROUP>
+    <GROUP id="{7834AD35-4EE2-F6E8-A416-AB085A7BB56A}" name="lib">
+      <GROUP id="{F8D93AF3-5033-272C-1979-85BBDFB8F238}" name="Aidio">
+        <GROUP id="{72F54522-9822-2309-838A-F71EA01EFA88}" name="src">
+          <FILE id="t7BLaN" name="Buffer.cpp" compile="1" resource="0" file="lib/Aidio/src/Buffer.cpp"/>
+          <FILE id="wrwajT" name="Convolution.cpp" compile="1" resource="0" file="lib/Aidio/src/Convolution.cpp"/>
+          <FILE id="vaYVGI" name="Maths.cpp" compile="1" resource="0" file="lib/Aidio/src/Maths.cpp"/>
+          <FILE id="jmnnBo" name="Resampling.cpp" compile="1" resource="0" file="lib/Aidio/src/Resampling.cpp"/>
+          <FILE id="PqVrI4" name="Utility.cpp" compile="1" resource="0" file="lib/Aidio/src/Utility.cpp"/>
+        </GROUP>
+        <FILE id="Tt2Xcu" name="Aidio.h" compile="0" resource="0" file="lib/Aidio/Aidio.h"/>
+        <FILE id="o62Xtv" name="Buffer.h" compile="0" resource="0" file="lib/Aidio/Buffer.h"/>
+        <FILE id="ztaCgn" name="Convolution.h" compile="0" resource="0" file="lib/Aidio/Convolution.h"/>
+        <FILE id="SbQFtg" name="Maths.h" compile="0" resource="0" file="lib/Aidio/Maths.h"/>
+        <FILE id="zNbrRI" name="Resampling.h" compile="0" resource="0" file="lib/Aidio/Resampling.h"/>
+        <FILE id="EGm5Ly" name="Test.h" compile="0" resource="0" file="lib/Aidio/Test.h"/>
+        <FILE id="T5VRr9" name="Utility.h" compile="0" resource="0" file="lib/Aidio/Utility.h"/>
+      </GROUP>
+      <GROUP id="{CFE056FF-CADC-0DED-780F-6378519489F0}" name="WDL">
+        <FILE id="m8FLz4" name="convoengine.cpp" compile="1" resource="0" file="lib/WDL/convoengine.cpp"/>
+        <FILE id="V9VP3d" name="convoengine.h" compile="0" resource="0" file="lib/WDL/convoengine.h"/>
+        <FILE id="TA6Jam" name="denormal.h" compile="0" resource="0" file="lib/WDL/denormal.h"/>
+        <FILE id="DWgiZz" name="fastqueue.h" compile="0" resource="0" file="lib/WDL/fastqueue.h"/>
+        <FILE id="fJfX0k" name="fft.c" compile="1" resource="0" file="lib/WDL/fft.c"/>
+        <FILE id="OgUl9Z" name="fft.h" compile="0" resource="0" file="lib/WDL/fft.h"/>
+        <FILE id="UPuFGJ" name="heapbuf.h" compile="0" resource="0" file="lib/WDL/heapbuf.h"/>
+        <FILE id="hXSmJ8" name="ptrlist.h" compile="0" resource="0" file="lib/WDL/ptrlist.h"/>
+        <FILE id="JPbI2k" name="queue.h" compile="0" resource="0" file="lib/WDL/queue.h"/>
+        <FILE id="IML6Kb" name="resample.cpp" compile="1" resource="0" file="lib/WDL/resample.cpp"/>
+        <FILE id="xz8dmr" name="resample.h" compile="0" resource="0" file="lib/WDL/resample.h"/>
+        <FILE id="ySxzWE" name="wdltypes.h" compile="0" resource="0" file="lib/WDL/wdltypes.h"/>
+      </GROUP>
+      <FILE id="fmM079" name="gsl.h" compile="0" resource="0" file="lib/gsl.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
