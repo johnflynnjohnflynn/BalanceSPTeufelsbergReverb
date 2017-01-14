@@ -140,6 +140,7 @@
     <ClCompile Include="..\..\lib\WDL\fft.c"/>
     <ClCompile Include="..\..\lib\WDL\resample.cpp"/>
     <ClCompile Include="..\..\src\Helper.cpp"/>
+    <ClCompile Include="..\..\src\Look.cpp"/>
     <ClCompile Include="..\..\src\Parameter.cpp"/>
     <ClCompile Include="..\..\src\Slider.cpp"/>
     <ClCompile Include="..\..\src\State.cpp"/>
@@ -1678,6 +1679,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Judio\Helper.h"/>
+    <ClInclude Include="..\..\include\Judio\Look.h"/>
     <ClInclude Include="..\..\include\Judio\Parameter.h"/>
     <ClInclude Include="..\..\include\Judio\Slider.h"/>
     <ClInclude Include="..\..\include\Judio\State.h"/>
@@ -2300,6 +2302,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\resource\4Channel.wav"/>
+    <None Include="..\..\resource\knob05LargeForeground4-fs8.png"/>
+    <None Include="..\..\resource\markerFilmstrip-fs8.png"/>
     <None Include="..\..\resource\Stereo64SamplesAllOnes.wav"/>
     <None Include="..\..\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
     <None Include="..\..\JUCE\modules\juce_audio_formats\codecs\oggvorbis\Ogg Vorbis Licence.txt"/>

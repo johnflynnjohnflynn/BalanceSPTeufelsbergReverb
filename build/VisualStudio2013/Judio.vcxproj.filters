@@ -403,6 +403,9 @@
     <ClCompile Include="..\..\src\Helper.cpp">
       <Filter>Judio\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Look.cpp">
+      <Filter>Judio\src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\Parameter.cpp">
       <Filter>Judio\src</Filter>
     </ClCompile>
@@ -2095,6 +2098,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Judio\Helper.h">
+      <Filter>Judio\include\Judio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Judio\Look.h">
       <Filter>Judio\include\Judio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Judio\Parameter.h">
@@ -3957,6 +3963,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\resource\4Channel.wav">
+      <Filter>Judio\resource</Filter>
+    </None>
+    <None Include="..\..\resource\knob05LargeForeground4-fs8.png">
+      <Filter>Judio\resource</Filter>
+    </None>
+    <None Include="..\..\resource\markerFilmstrip-fs8.png">
       <Filter>Judio\resource</Filter>
     </None>
     <None Include="..\..\resource\Stereo64SamplesAllOnes.wav">

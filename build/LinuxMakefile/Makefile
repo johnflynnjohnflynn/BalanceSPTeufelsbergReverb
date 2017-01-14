@@ -66,6 +66,7 @@ OBJECTS := \
   $(JUCE_OBJDIR)/fft_e0f7290f.o \
   $(JUCE_OBJDIR)/resample_dfc8d2ac.o \
   $(JUCE_OBJDIR)/Helper_b3fea2e.o \
+  $(JUCE_OBJDIR)/Look_bd86f75f.o \
   $(JUCE_OBJDIR)/Parameter_7b46b333.o \
   $(JUCE_OBJDIR)/Slider_e5d881e1.o \
   $(JUCE_OBJDIR)/State_3650029b.o \
@@ -154,6 +155,11 @@ $(JUCE_OBJDIR)/resample_dfc8d2ac.o: ../../lib/WDL/resample.cpp
 $(JUCE_OBJDIR)/Helper_b3fea2e.o: ../../src/Helper.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling Helper.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/Look_bd86f75f.o: ../../src/Look.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling Look.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/Parameter_7b46b333.o: ../../src/Parameter.cpp

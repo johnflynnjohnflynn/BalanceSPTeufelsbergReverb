@@ -7,6 +7,7 @@
     <GROUP id="{525861AE-8579-69D1-737F-D9C63E67F617}" name="include">
       <GROUP id="{8E4E0A0E-0E39-95C3-AE83-77B5D166BF59}" name="Judio">
         <FILE id="YYt7T3" name="Helper.h" compile="0" resource="0" file="include/Judio/Helper.h"/>
+        <FILE id="JOvEju" name="Look.h" compile="0" resource="0" file="include/Judio/Look.h"/>
         <FILE id="capDKs" name="Parameter.h" compile="0" resource="0" file="include/Judio/Parameter.h"/>
         <FILE id="w1VaXd" name="Slider.h" compile="0" resource="0" file="include/Judio/Slider.h"/>
         <FILE id="gd3N3j" name="State.h" compile="0" resource="0" file="include/Judio/State.h"/>
@@ -48,11 +49,16 @@
     </GROUP>
     <GROUP id="{2A1C611E-190D-AA45-C000-1A371C74FE5E}" name="resource">
       <FILE id="XzAGzn" name="4Channel.wav" compile="0" resource="1" file="resource/4Channel.wav"/>
+      <FILE id="AA0Iwk" name="knob05LargeForeground4-fs8.png" compile="0"
+            resource="1" file="resource/knob05LargeForeground4-fs8.png"/>
+      <FILE id="EeP2ER" name="markerFilmstrip-fs8.png" compile="0" resource="1"
+            file="resource/markerFilmstrip-fs8.png"/>
       <FILE id="qvQkVR" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
             file="resource/Stereo64SamplesAllOnes.wav"/>
     </GROUP>
     <GROUP id="{5654B0EA-1998-7632-A6D7-27B7A76276EE}" name="src">
       <FILE id="g8bBGW" name="Helper.cpp" compile="1" resource="0" file="src/Helper.cpp"/>
+      <FILE id="saM9u7" name="Look.cpp" compile="1" resource="0" file="src/Look.cpp"/>
       <FILE id="eP6CdY" name="Parameter.cpp" compile="1" resource="0" file="src/Parameter.cpp"/>
       <FILE id="N9hIRs" name="Slider.cpp" compile="1" resource="0" file="src/Slider.cpp"/>
       <FILE id="jmsCK0" name="State.cpp" compile="1" resource="0" file="src/State.cpp"/>
