@@ -62,7 +62,7 @@ OBJECTS := \
   $(JUCE_OBJDIR)/resample_dfc8d2ac.o \
   $(JUCE_OBJDIR)/Buffer_1588d5c0.o \
   $(JUCE_OBJDIR)/Convolution_8b7b2262.o \
-  $(JUCE_OBJDIR)/Maths_26f255e0.o \
+  $(JUCE_OBJDIR)/Maths_e0609b75.o \
   $(JUCE_OBJDIR)/Resampling_62c0e21a.o \
   $(JUCE_OBJDIR)/Utility_bb6148b6.o \
   $(JUCE_OBJDIR)/main_23d5fb2b.o \
@@ -122,7 +122,7 @@ $(JUCE_OBJDIR)/Convolution_8b7b2262.o: ../../src/Convolution.cpp
 	@echo "Compiling Convolution.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(JUCE_OBJDIR)/Maths_26f255e0.o: ../../Maths.cpp
+$(JUCE_OBJDIR)/Maths_e0609b75.o: ../../src/Maths.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling Maths.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"

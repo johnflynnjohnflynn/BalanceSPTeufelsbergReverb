@@ -136,7 +136,7 @@
     <ClCompile Include="..\..\lib\WDL\resample.cpp"/>
     <ClCompile Include="..\..\src\Buffer.cpp"/>
     <ClCompile Include="..\..\src\Convolution.cpp"/>
-    <ClCompile Include="..\..\Maths.cpp"/>
+    <ClCompile Include="..\..\src\Maths.cpp"/>
     <ClCompile Include="..\..\src\Resampling.cpp"/>
     <ClCompile Include="..\..\src\Utility.cpp"/>
     <ClCompile Include="..\..\test\main.cpp"/>
@@ -631,7 +631,7 @@
     <ClInclude Include="..\..\include\Aidio\Aidio.h"/>
     <ClInclude Include="..\..\include\Aidio\Buffer.h"/>
     <ClInclude Include="..\..\include\Aidio\Convolution.h"/>
-    <ClInclude Include="..\..\Maths.h"/>
+    <ClInclude Include="..\..\include\Aidio\Maths.h"/>
     <ClInclude Include="..\..\include\Aidio\Resampling.h"/>
     <ClInclude Include="..\..\include\Aidio\Test.h"/>
     <ClInclude Include="..\..\include\Aidio\Utility.h"/>

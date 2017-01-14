@@ -9,7 +9,7 @@
         <FILE id="bFIxjn" name="Aidio.h" compile="0" resource="0" file="include/Aidio/Aidio.h"/>
         <FILE id="Bcu4Uc" name="Buffer.h" compile="0" resource="0" file="include/Aidio/Buffer.h"/>
         <FILE id="QnVMYP" name="Convolution.h" compile="0" resource="0" file="include/Aidio/Convolution.h"/>
-        <FILE id="H5T6QY" name="Maths.h" compile="0" resource="0" file="Maths.h"/>
+        <FILE id="jYdvuU" name="Maths.h" compile="0" resource="0" file="include/Aidio/Maths.h"/>
         <FILE id="Nfw6yd" name="Resampling.h" compile="0" resource="0" file="include/Aidio/Resampling.h"/>
         <FILE id="CFs5Xu" name="Test.h" compile="0" resource="0" file="include/Aidio/Test.h"/>
         <FILE id="OTeAkZ" name="Utility.h" compile="0" resource="0" file="include/Aidio/Utility.h"/>
@@ -35,7 +35,7 @@
     <GROUP id="{5090576E-6AF9-AF11-36EA-BF254F141EBB}" name="src">
       <FILE id="EpTudg" name="Buffer.cpp" compile="1" resource="0" file="src/Buffer.cpp"/>
       <FILE id="VhkIuv" name="Convolution.cpp" compile="1" resource="0" file="src/Convolution.cpp"/>
-      <FILE id="tKsqpp" name="Maths.cpp" compile="1" resource="0" file="Maths.cpp"/>
+      <FILE id="enrul0" name="Maths.cpp" compile="1" resource="0" file="src/Maths.cpp"/>
       <FILE id="FkvLoG" name="Resampling.cpp" compile="1" resource="0" file="src/Resampling.cpp"/>
       <FILE id="XULf4b" name="Utility.cpp" compile="1" resource="0" file="src/Utility.cpp"/>
     </GROUP>
