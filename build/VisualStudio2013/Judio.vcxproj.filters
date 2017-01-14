@@ -406,6 +406,9 @@
     <ClCompile Include="..\..\src\Parameter.cpp">
       <Filter>Judio\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Slider.cpp">
+      <Filter>Judio\src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\State.cpp">
       <Filter>Judio\src</Filter>
     </ClCompile>
@@ -416,6 +419,9 @@
       <Filter>Judio\test</Filter>
     </ClCompile>
     <ClCompile Include="..\..\test\TestParameter.cpp">
+      <Filter>Judio\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\TestSlider.cpp">
       <Filter>Judio\test</Filter>
     </ClCompile>
     <ClCompile Include="..\..\test\TestState.cpp">
@@ -2089,6 +2095,9 @@
       <Filter>Judio\include\Judio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Judio\Parameter.h">
+      <Filter>Judio\include\Judio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Judio\Slider.h">
       <Filter>Judio\include\Judio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Judio\State.h">

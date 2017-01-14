@@ -8,6 +8,7 @@
       <GROUP id="{8E4E0A0E-0E39-95C3-AE83-77B5D166BF59}" name="Judio">
         <FILE id="YYt7T3" name="Helper.h" compile="0" resource="0" file="include/Judio/Helper.h"/>
         <FILE id="capDKs" name="Parameter.h" compile="0" resource="0" file="include/Judio/Parameter.h"/>
+        <FILE id="w1VaXd" name="Slider.h" compile="0" resource="0" file="include/Judio/Slider.h"/>
         <FILE id="gd3N3j" name="State.h" compile="0" resource="0" file="include/Judio/State.h"/>
       </GROUP>
     </GROUP>
@@ -52,6 +53,7 @@
     <GROUP id="{5654B0EA-1998-7632-A6D7-27B7A76276EE}" name="src">
       <FILE id="g8bBGW" name="Helper.cpp" compile="1" resource="0" file="src/Helper.cpp"/>
       <FILE id="eP6CdY" name="Parameter.cpp" compile="1" resource="0" file="src/Parameter.cpp"/>
+      <FILE id="N9hIRs" name="Slider.cpp" compile="1" resource="0" file="src/Slider.cpp"/>
       <FILE id="jmsCK0" name="State.cpp" compile="1" resource="0" file="src/State.cpp"/>
     </GROUP>
     <GROUP id="{212D3666-643B-40F2-E63C-8919A8950546}" name="test">
@@ -59,6 +61,7 @@
       <FILE id="dqOoHJ" name="TestHelper.cpp" compile="1" resource="0" file="test/TestHelper.cpp"/>
       <FILE id="o81KFB" name="TestParameter.cpp" compile="1" resource="0"
             file="test/TestParameter.cpp"/>
+      <FILE id="f6YmD8" name="TestSlider.cpp" compile="1" resource="0" file="test/TestSlider.cpp"/>
       <FILE id="U1rotQ" name="TestState.cpp" compile="1" resource="0" file="test/TestState.cpp"/>
     </GROUP>
   </MAINGROUP>

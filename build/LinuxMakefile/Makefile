@@ -67,10 +67,12 @@ OBJECTS := \
   $(JUCE_OBJDIR)/resample_dfc8d2ac.o \
   $(JUCE_OBJDIR)/Helper_b3fea2e.o \
   $(JUCE_OBJDIR)/Parameter_7b46b333.o \
+  $(JUCE_OBJDIR)/Slider_e5d881e1.o \
   $(JUCE_OBJDIR)/State_3650029b.o \
   $(JUCE_OBJDIR)/main_23d5fb2b.o \
   $(JUCE_OBJDIR)/TestHelper_4fb9bf32.o \
   $(JUCE_OBJDIR)/TestParameter_19028faf.o \
+  $(JUCE_OBJDIR)/TestSlider_2a5256e5.o \
   $(JUCE_OBJDIR)/TestState_38857d17.o \
   $(JUCE_OBJDIR)/BinaryData_ce4232d4.o \
   $(JUCE_OBJDIR)/juce_audio_basics_6b797ca1.o \
@@ -158,6 +160,11 @@ $(JUCE_OBJDIR)/Parameter_7b46b333.o: ../../src/Parameter.cpp
 	@echo "Compiling Parameter.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
+$(JUCE_OBJDIR)/Slider_e5d881e1.o: ../../src/Slider.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling Slider.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
 $(JUCE_OBJDIR)/State_3650029b.o: ../../src/State.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling State.cpp"
@@ -176,6 +183,11 @@ $(JUCE_OBJDIR)/TestHelper_4fb9bf32.o: ../../test/TestHelper.cpp
 $(JUCE_OBJDIR)/TestParameter_19028faf.o: ../../test/TestParameter.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling TestParameter.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/TestSlider_2a5256e5.o: ../../test/TestSlider.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling TestSlider.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/TestState_38857d17.o: ../../test/TestState.cpp

@@ -141,10 +141,12 @@
     <ClCompile Include="..\..\lib\WDL\resample.cpp"/>
     <ClCompile Include="..\..\src\Helper.cpp"/>
     <ClCompile Include="..\..\src\Parameter.cpp"/>
+    <ClCompile Include="..\..\src\Slider.cpp"/>
     <ClCompile Include="..\..\src\State.cpp"/>
     <ClCompile Include="..\..\test\main.cpp"/>
     <ClCompile Include="..\..\test\TestHelper.cpp"/>
     <ClCompile Include="..\..\test\TestParameter.cpp"/>
+    <ClCompile Include="..\..\test\TestSlider.cpp"/>
     <ClCompile Include="..\..\test\TestState.cpp"/>
     <ClCompile Include="..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
@@ -1676,6 +1678,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\Judio\Helper.h"/>
     <ClInclude Include="..\..\include\Judio\Parameter.h"/>
+    <ClInclude Include="..\..\include\Judio\Slider.h"/>
     <ClInclude Include="..\..\include\Judio\State.h"/>
     <ClInclude Include="..\..\lib\Aidio\Aidio.h"/>
     <ClInclude Include="..\..\lib\Aidio\Buffer.h"/>
