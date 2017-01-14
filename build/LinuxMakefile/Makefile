@@ -71,6 +71,7 @@ OBJECTS := \
   $(JUCE_OBJDIR)/main_23d5fb2b.o \
   $(JUCE_OBJDIR)/TestHelper_4fb9bf32.o \
   $(JUCE_OBJDIR)/TestParameter_19028faf.o \
+  $(JUCE_OBJDIR)/TestState_38857d17.o \
   $(JUCE_OBJDIR)/BinaryData_ce4232d4.o \
   $(JUCE_OBJDIR)/juce_audio_basics_6b797ca1.o \
   $(JUCE_OBJDIR)/juce_audio_devices_a742c38b.o \
@@ -175,6 +176,11 @@ $(JUCE_OBJDIR)/TestHelper_4fb9bf32.o: ../../test/TestHelper.cpp
 $(JUCE_OBJDIR)/TestParameter_19028faf.o: ../../test/TestParameter.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling TestParameter.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/TestState_38857d17.o: ../../test/TestState.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling TestState.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/BinaryData_ce4232d4.o: ../../JuceLibraryCode/BinaryData.cpp

@@ -59,6 +59,7 @@
       <FILE id="dqOoHJ" name="TestHelper.cpp" compile="1" resource="0" file="test/TestHelper.cpp"/>
       <FILE id="o81KFB" name="TestParameter.cpp" compile="1" resource="0"
             file="test/TestParameter.cpp"/>
+      <FILE id="U1rotQ" name="TestState.cpp" compile="1" resource="0" file="test/TestState.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
