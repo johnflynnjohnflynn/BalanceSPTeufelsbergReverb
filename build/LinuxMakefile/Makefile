@@ -69,6 +69,7 @@ OBJECTS := \
   $(JUCE_OBJDIR)/Parameter_7b46b333.o \
   $(JUCE_OBJDIR)/Slider_e5d881e1.o \
   $(JUCE_OBJDIR)/State_3650029b.o \
+  $(JUCE_OBJDIR)/UtilityBar_bc9f1387.o \
   $(JUCE_OBJDIR)/main_23d5fb2b.o \
   $(JUCE_OBJDIR)/TestHelper_4fb9bf32.o \
   $(JUCE_OBJDIR)/TestParameter_19028faf.o \
@@ -168,6 +169,11 @@ $(JUCE_OBJDIR)/Slider_e5d881e1.o: ../../src/Slider.cpp
 $(JUCE_OBJDIR)/State_3650029b.o: ../../src/State.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling State.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/UtilityBar_bc9f1387.o: ../../src/UtilityBar.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling UtilityBar.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/main_23d5fb2b.o: ../../test/main.cpp

@@ -10,6 +10,7 @@
         <FILE id="capDKs" name="Parameter.h" compile="0" resource="0" file="include/Judio/Parameter.h"/>
         <FILE id="w1VaXd" name="Slider.h" compile="0" resource="0" file="include/Judio/Slider.h"/>
         <FILE id="gd3N3j" name="State.h" compile="0" resource="0" file="include/Judio/State.h"/>
+        <FILE id="IJazBn" name="UtilityBar.h" compile="0" resource="0" file="include/Judio/UtilityBar.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{7834AD35-4EE2-F6E8-A416-AB085A7BB56A}" name="lib">
@@ -55,6 +56,7 @@
       <FILE id="eP6CdY" name="Parameter.cpp" compile="1" resource="0" file="src/Parameter.cpp"/>
       <FILE id="N9hIRs" name="Slider.cpp" compile="1" resource="0" file="src/Slider.cpp"/>
       <FILE id="jmsCK0" name="State.cpp" compile="1" resource="0" file="src/State.cpp"/>
+      <FILE id="nXOgf3" name="UtilityBar.cpp" compile="1" resource="0" file="src/UtilityBar.cpp"/>
     </GROUP>
     <GROUP id="{212D3666-643B-40F2-E63C-8919A8950546}" name="test">
       <FILE id="ueU1DK" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
