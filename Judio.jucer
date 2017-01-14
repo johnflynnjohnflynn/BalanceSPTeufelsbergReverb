@@ -4,22 +4,11 @@
               bundleIdentifier="com.yourcompany.Judio" includeBinaryInAppConfig="1"
               jucerVersion="4.3.0" defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;AIDIO_UNIT_TESTS=1">
   <MAINGROUP id="fnjyVf" name="Judio">
-    <GROUP id="{0CD79B56-AA54-45FD-3070-BD8980F822E9}" name="include">
-      <GROUP id="{77F93BBA-AAA9-8BD8-AC0C-D44DA216EF0C}" name="Judio">
-        <FILE id="dw0n08" name="Helper.h" compile="0" resource="0" file="include/Judio/Helper.h"/>
+    <GROUP id="{525861AE-8579-69D1-737F-D9C63E67F617}" name="include">
+      <GROUP id="{8E4E0A0E-0E39-95C3-AE83-77B5D166BF59}" name="Judio">
+        <FILE id="YYt7T3" name="Helper.h" compile="0" resource="0" file="include/Judio/Helper.h"/>
+        <FILE id="capDKs" name="Parameter.h" compile="0" resource="0" file="include/Judio/Parameter.h"/>
       </GROUP>
-    </GROUP>
-    <GROUP id="{2A1C611E-190D-AA45-C000-1A371C74FE5E}" name="resource">
-      <FILE id="XzAGzn" name="4Channel.wav" compile="0" resource="1" file="resource/4Channel.wav"/>
-      <FILE id="qvQkVR" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
-            file="resource/Stereo64SamplesAllOnes.wav"/>
-    </GROUP>
-    <GROUP id="{4B898E90-88E1-0AB9-BCFF-CE6C4D7F1A0B}" name="src">
-      <FILE id="pXsBTc" name="Helper.cpp" compile="1" resource="0" file="src/Helper.cpp"/>
-    </GROUP>
-    <GROUP id="{212D3666-643B-40F2-E63C-8919A8950546}" name="test">
-      <FILE id="ueU1DK" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
-      <FILE id="dqOoHJ" name="TestHelper.cpp" compile="1" resource="0" file="test/TestHelper.cpp"/>
     </GROUP>
     <GROUP id="{7834AD35-4EE2-F6E8-A416-AB085A7BB56A}" name="lib">
       <GROUP id="{F8D93AF3-5033-272C-1979-85BBDFB8F238}" name="Aidio">
@@ -53,6 +42,21 @@
         <FILE id="ySxzWE" name="wdltypes.h" compile="0" resource="0" file="lib/WDL/wdltypes.h"/>
       </GROUP>
       <FILE id="fmM079" name="gsl.h" compile="0" resource="0" file="lib/gsl.h"/>
+    </GROUP>
+    <GROUP id="{2A1C611E-190D-AA45-C000-1A371C74FE5E}" name="resource">
+      <FILE id="XzAGzn" name="4Channel.wav" compile="0" resource="1" file="resource/4Channel.wav"/>
+      <FILE id="qvQkVR" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
+            file="resource/Stereo64SamplesAllOnes.wav"/>
+    </GROUP>
+    <GROUP id="{5654B0EA-1998-7632-A6D7-27B7A76276EE}" name="src">
+      <FILE id="g8bBGW" name="Helper.cpp" compile="1" resource="0" file="src/Helper.cpp"/>
+      <FILE id="eP6CdY" name="Parameter.cpp" compile="1" resource="0" file="src/Parameter.cpp"/>
+    </GROUP>
+    <GROUP id="{212D3666-643B-40F2-E63C-8919A8950546}" name="test">
+      <FILE id="ueU1DK" name="main.cpp" compile="1" resource="0" file="test/main.cpp"/>
+      <FILE id="dqOoHJ" name="TestHelper.cpp" compile="1" resource="0" file="test/TestHelper.cpp"/>
+      <FILE id="o81KFB" name="TestParameter.cpp" compile="1" resource="0"
+            file="test/TestParameter.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>

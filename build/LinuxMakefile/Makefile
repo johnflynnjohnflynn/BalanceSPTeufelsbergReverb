@@ -57,9 +57,6 @@ ifeq ($(CONFIG),Release)
 endif
 
 OBJECTS := \
-  $(JUCE_OBJDIR)/Helper_b3fea2e.o \
-  $(JUCE_OBJDIR)/main_23d5fb2b.o \
-  $(JUCE_OBJDIR)/TestHelper_4fb9bf32.o \
   $(JUCE_OBJDIR)/Buffer_72b89177.o \
   $(JUCE_OBJDIR)/Convolution_662f210b.o \
   $(JUCE_OBJDIR)/Maths_56ff0cde.o \
@@ -68,6 +65,11 @@ OBJECTS := \
   $(JUCE_OBJDIR)/convoengine_78d86ad8.o \
   $(JUCE_OBJDIR)/fft_e0f7290f.o \
   $(JUCE_OBJDIR)/resample_dfc8d2ac.o \
+  $(JUCE_OBJDIR)/Helper_b3fea2e.o \
+  $(JUCE_OBJDIR)/Parameter_7b46b333.o \
+  $(JUCE_OBJDIR)/main_23d5fb2b.o \
+  $(JUCE_OBJDIR)/TestHelper_4fb9bf32.o \
+  $(JUCE_OBJDIR)/TestParameter_19028faf.o \
   $(JUCE_OBJDIR)/BinaryData_ce4232d4.o \
   $(JUCE_OBJDIR)/juce_audio_basics_6b797ca1.o \
   $(JUCE_OBJDIR)/juce_audio_devices_a742c38b.o \
@@ -103,21 +105,6 @@ clean:
 strip:
 	@echo Stripping Judio
 	-@$(STRIP) --strip-unneeded $(JUCE_OUTDIR)/$(TARGET)
-
-$(JUCE_OBJDIR)/Helper_b3fea2e.o: ../../src/Helper.cpp
-	-@mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling Helper.cpp"
-	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/main_23d5fb2b.o: ../../test/main.cpp
-	-@mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling main.cpp"
-	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/TestHelper_4fb9bf32.o: ../../test/TestHelper.cpp
-	-@mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling TestHelper.cpp"
-	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/Buffer_72b89177.o: ../../lib/Aidio/src/Buffer.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
@@ -157,6 +144,31 @@ $(JUCE_OBJDIR)/fft_e0f7290f.o: ../../lib/WDL/fft.c
 $(JUCE_OBJDIR)/resample_dfc8d2ac.o: ../../lib/WDL/resample.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling resample.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/Helper_b3fea2e.o: ../../src/Helper.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling Helper.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/Parameter_7b46b333.o: ../../src/Parameter.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling Parameter.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/main_23d5fb2b.o: ../../test/main.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling main.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/TestHelper_4fb9bf32.o: ../../test/TestHelper.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling TestHelper.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/TestParameter_19028faf.o: ../../test/TestParameter.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling TestParameter.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/BinaryData_ce4232d4.o: ../../JuceLibraryCode/BinaryData.cpp
