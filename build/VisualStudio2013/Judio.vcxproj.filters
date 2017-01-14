@@ -406,6 +406,9 @@
     <ClCompile Include="..\..\src\Parameter.cpp">
       <Filter>Judio\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\State.cpp">
+      <Filter>Judio\src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\test\main.cpp">
       <Filter>Judio\test</Filter>
     </ClCompile>
@@ -2083,6 +2086,9 @@
       <Filter>Judio\include\Judio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Judio\Parameter.h">
+      <Filter>Judio\include\Judio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Judio\State.h">
       <Filter>Judio\include\Judio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\lib\Aidio\Aidio.h">

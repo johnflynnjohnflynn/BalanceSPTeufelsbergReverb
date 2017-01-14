@@ -67,6 +67,7 @@ OBJECTS := \
   $(JUCE_OBJDIR)/resample_dfc8d2ac.o \
   $(JUCE_OBJDIR)/Helper_b3fea2e.o \
   $(JUCE_OBJDIR)/Parameter_7b46b333.o \
+  $(JUCE_OBJDIR)/State_3650029b.o \
   $(JUCE_OBJDIR)/main_23d5fb2b.o \
   $(JUCE_OBJDIR)/TestHelper_4fb9bf32.o \
   $(JUCE_OBJDIR)/TestParameter_19028faf.o \
@@ -154,6 +155,11 @@ $(JUCE_OBJDIR)/Helper_b3fea2e.o: ../../src/Helper.cpp
 $(JUCE_OBJDIR)/Parameter_7b46b333.o: ../../src/Parameter.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling Parameter.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/State_3650029b.o: ../../src/State.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling State.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/main_23d5fb2b.o: ../../test/main.cpp
