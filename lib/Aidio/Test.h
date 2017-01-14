@@ -29,6 +29,26 @@
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
+    Special version of jassert that throws exception instead of assertion when
+    unit tests are switched on with the JF_UNIT_TESTS=1 preprocessor flag.
+    
+    Note: this won't break at the proper point during debugging. If your hitting
+    an assert unrelated to the unit tests, try set JF_UNIT_TESTS=0
+    
+    This will trigger warning:
+    "Lexical or Preprocessor Issue 'jassertfalse' macro redefined"
+
+    @see jassert
+*/
+
+struct JassertError { JassertError() {} };
+
+#if AIDIO_UNIT_TESTS
+ #define jassertfalse JUCE_BLOCK_WITH_FORCED_SEMICOLON (throw JassertError();)
+#endif
+
+//--------//--------//--------//--------//--------//--------//--------//--------
+/** 
     Boilerplate macro to make sure a static instance of a test gets created in 
     the header. (Otherwise an instance of the class will need to be created 
     somewhere else before the tests run.)
@@ -48,7 +68,7 @@
  };                                                                         \
  static TestClassName TestClassName; // eek! instance same as class name
 #else
- #define JF_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(TestClassName) // do nothing
+ #define AIDIO_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(TestClassName) // do nothing
 #endif
 
 #endif  // TEST_H_INCLUDED

@@ -37,6 +37,7 @@
 #include "Buffer.h"
 #include "Convolution.h"
 // Don't forget WDL_RESAMPLE_TYPE=float in project preprocessor definitions.
+#include "Maths.h"
 #include "Resampling.h"
 #include "Test.h"
 
