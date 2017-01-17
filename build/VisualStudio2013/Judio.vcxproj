@@ -2304,6 +2304,10 @@
   <ItemGroup>
     <None Include="..\..\resource\4Channel.wav"/>
     <None Include="..\..\resource\knob05LargeForeground4-fs8.png"/>
+    <None Include="..\..\resource\layout04knob01dotoff-fs8.png"/>
+    <None Include="..\..\resource\layout04knob01doton-fs8.png"/>
+    <None Include="..\..\resource\layout04knob01off-fs8.png"/>
+    <None Include="..\..\resource\layout04knob01on-fs8.png"/>
     <None Include="..\..\resource\markerFilmstrip-fs8.png"/>
     <None Include="..\..\resource\Stereo64SamplesAllOnes.wav"/>
     <None Include="..\..\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

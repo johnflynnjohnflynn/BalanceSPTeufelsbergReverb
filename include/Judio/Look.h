@@ -34,11 +34,13 @@ public:
     void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos0to1,
                            float rotaryStartAngle, float rotaryEndAngle, Slider& slider) override;
 
+    Slider::SliderLayout getSliderLayout (Slider& slider) override;
+
 private:
-    Image knob       {ImageCache::getFromMemory (BinaryData::knob05LargeForeground4fs8_png,
-                                                 BinaryData::knob05LargeForeground4fs8_pngSize)};
-    Image knobMarker {ImageCache::getFromMemory (BinaryData::markerFilmstripfs8_png,
-                                                 BinaryData::markerFilmstripfs8_pngSize)};
+    Image knob       {ImageCache::getFromMemory (BinaryData::layout04knob01onfs8_png,
+                                                 BinaryData::layout04knob01onfs8_pngSize)};
+    Image knobMarker {ImageCache::getFromMemory (BinaryData::layout04knob01dotonfs8_png,
+                                                 BinaryData::layout04knob01dotonfs8_pngSize)};
 
 };
 
