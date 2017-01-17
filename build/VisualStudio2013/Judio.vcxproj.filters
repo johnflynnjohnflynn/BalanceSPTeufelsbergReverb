@@ -2100,6 +2100,9 @@
     <ClInclude Include="..\..\include\Judio\Helper.h">
       <Filter>Judio\include\Judio</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Judio\Judio.h">
+      <Filter>Judio\include\Judio</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\include\Judio\Look.h">
       <Filter>Judio\include\Judio</Filter>
     </ClInclude>

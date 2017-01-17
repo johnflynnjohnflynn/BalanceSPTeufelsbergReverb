@@ -185,6 +185,7 @@
 		1C808A203B26497E6E0B0C5F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "stream_decoder.h"; path = "../../JUCE/modules/juce_audio_formats/codecs/flac/libFLAC/include/protected/stream_decoder.h"; sourceTree = "SOURCE_ROOT"; };
 		1DA4220B3B8AAD96B59665E1 = {isa = PBXFileReference; lastKnownFileType = image.png; name = "knob05LargeForeground4-fs8.png"; path = "../../resource/knob05LargeForeground4-fs8.png"; sourceTree = "SOURCE_ROOT"; };
 		1DB80A4B015DE1A3401C7F04 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_MPEZoneLayout.h"; path = "../../JUCE/modules/juce_audio_basics/mpe/juce_MPEZoneLayout.h"; sourceTree = "SOURCE_ROOT"; };
+		1E5CAEB69420A2136C7F62A3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Judio.h; path = ../../include/Judio/Judio.h; sourceTree = "SOURCE_ROOT"; };
 		1E6803CAF31EFF26FB49931B = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_GlyphArrangement.h"; path = "../../JUCE/modules/juce_graphics/fonts/juce_GlyphArrangement.h"; sourceTree = "SOURCE_ROOT"; };
 		1E77D0EF95788E4C9D5AD7C7 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_TextDiff.h"; path = "../../JUCE/modules/juce_core/text/juce_TextDiff.h"; sourceTree = "SOURCE_ROOT"; };
 		1EA013E8E1636016ED08FFE0 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "juce_cryptography.mm"; path = "../../JUCE/modules/juce_cryptography/juce_cryptography.mm"; sourceTree = "SOURCE_ROOT"; };
@@ -1258,6 +1259,7 @@
 		FFCC58403D08E990276283D0 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "psych_44.h"; path = "../../JUCE/modules/juce_audio_formats/codecs/oggvorbis/libvorbis-1.3.2/lib/modes/psych_44.h"; sourceTree = "SOURCE_ROOT"; };
 		C269A76A1D5DF0C132AFF4AD = {isa = PBXGroup; children = (
 					B95C342CEC4030C561CC6F46,
+					1E5CAEB69420A2136C7F62A3,
 					0571CB8AB9959E063545C04F,
 					B0A9CF0BD4A4E5AB98BEEF82,
 					36FBC9E37D61C961553401CB,

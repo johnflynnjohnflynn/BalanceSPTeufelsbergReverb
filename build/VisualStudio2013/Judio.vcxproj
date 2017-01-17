@@ -1679,6 +1679,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Judio\Helper.h"/>
+    <ClInclude Include="..\..\include\Judio\Judio.h"/>
     <ClInclude Include="..\..\include\Judio\Look.h"/>
     <ClInclude Include="..\..\include\Judio\Parameter.h"/>
     <ClInclude Include="..\..\include\Judio\Slider.h"/>
