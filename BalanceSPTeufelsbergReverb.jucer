@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="eLVGA9" name="BalanceSPTeufelsbergReverb" projectType="audioplug"
+              version="1.0.0" bundleIdentifier="com.yourcompany.BalanceSPTeufelsbergReverb"
+              includeBinaryInAppConfig="1" buildVST="1" buildVST3="0" buildAU="1"
+              buildAUv3="0" buildRTAS="0" buildAAX="0" pluginName="BalanceSPTeufelsbergReverb"
+              pluginDesc="BalanceSPTeufelsbergReverb" pluginManufacturer="yourcompany"
+              pluginManufacturerCode="Manu" pluginCode="Elvg" pluginChannelConfigs=""
+              pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
+              pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="BalanceSPTeufelsbergReverbAU"
+              pluginRTASCategory="" aaxIdentifier="com.yourcompany.BalanceSPTeufelsbergReverb"
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.3.0"
+              defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;">
+  <MAINGROUP id="QuTSDH" name="BalanceSPTeufelsbergReverb">
+    <GROUP id="{BEE0B3EC-1FBF-760F-F70A-05FD1058C7B5}" name="Resources">
+      <FILE id="fQFaOY" name="BalanceEQ_02-fs8.png" compile="0" resource="1"
+            file="Resources/BalanceEQ_02-fs8.png"/>
+      <FILE id="Ybj4gc" name="Europa.wav" compile="0" resource="1" file="Resources/Europa.wav"/>
+      <FILE id="OELjYS" name="knob05LargeForeground4-fs8.png" compile="0"
+            resource="1" file="Resources/knob05LargeForeground4-fs8.png"/>
+      <FILE id="pdCNUD" name="layout04knob01dotoff-fs8.png" compile="0" resource="1"
+            file="Resources/layout04knob01dotoff-fs8.png"/>
+      <FILE id="dZbGDg" name="layout04knob01doton-fs8.png" compile="0" resource="1"
+            file="Resources/layout04knob01doton-fs8.png"/>
+      <FILE id="LJ0XaJ" name="layout04knob01off-fs8.png" compile="0" resource="1"
+            file="Resources/layout04knob01off-fs8.png"/>
+      <FILE id="EFHB5E" name="layout04knob01on-fs8.png" compile="0" resource="1"
+            file="Resources/layout04knob01on-fs8.png"/>
+      <FILE id="PHC0rh" name="markerFilmstrip-fs8.png" compile="0" resource="1"
+            file="Resources/markerFilmstrip-fs8.png"/>
+      <FILE id="xvTGB8" name="PercussionAir.wav" compile="0" resource="1"
+            file="Resources/PercussionAir.wav"/>
+      <FILE id="HwXqBL" name="PercussionAirShort.wav" compile="0" resource="1"
+            file="Resources/PercussionAirShort.wav"/>
+    </GROUP>
+    <GROUP id="{94CA6903-4B8D-DD43-557E-5CE559F273F9}" name="Source">
+      <GROUP id="{E8A9E07B-5DA6-04DF-FB45-FE26F1225637}" name="Aidio">
+        <GROUP id="{A2535D0B-3ECD-0742-5517-D8F05CDB0A74}" name="src">
+          <FILE id="aFgsOe" name="Buffer.cpp" compile="1" resource="0" file="Source/Aidio/src/Buffer.cpp"/>
+          <FILE id="FK0KRJ" name="Convolution.cpp" compile="1" resource="0" file="Source/Aidio/src/Convolution.cpp"/>
+          <FILE id="LtUz9k" name="Maths.cpp" compile="1" resource="0" file="Source/Aidio/src/Maths.cpp"/>
+          <FILE id="bREmP5" name="Resampling.cpp" compile="1" resource="0" file="Source/Aidio/src/Resampling.cpp"/>
+          <FILE id="qgXb0b" name="Utility.cpp" compile="1" resource="0" file="Source/Aidio/src/Utility.cpp"/>
+        </GROUP>
+        <FILE id="iB68Am" name="Aidio.h" compile="0" resource="0" file="Source/Aidio/Aidio.h"/>
+        <FILE id="wUk2uP" name="Buffer.h" compile="0" resource="0" file="Source/Aidio/Buffer.h"/>
+        <FILE id="KUJoml" name="Convolution.h" compile="0" resource="0" file="Source/Aidio/Convolution.h"/>
+        <FILE id="OkR2YS" name="Maths.h" compile="0" resource="0" file="Source/Aidio/Maths.h"/>
+        <FILE id="lFGk8y" name="Resampling.h" compile="0" resource="0" file="Source/Aidio/Resampling.h"/>
+        <FILE id="GgaA43" name="Test.h" compile="0" resource="0" file="Source/Aidio/Test.h"/>
+        <FILE id="O5ns71" name="Utility.h" compile="0" resource="0" file="Source/Aidio/Utility.h"/>
+      </GROUP>
+      <GROUP id="{71E5751D-F18A-5B51-2A94-3BC013718E0A}" name="Judio">
+        <GROUP id="{8A36BD31-9A52-59A8-3814-E3DD13905521}" name="src">
+          <FILE id="R196Vi" name="Helper.cpp" compile="1" resource="0" file="Source/Judio/src/Helper.cpp"/>
+          <FILE id="dEBRRV" name="Look.cpp" compile="1" resource="0" file="Source/Judio/src/Look.cpp"/>
+          <FILE id="etl8VG" name="Parameter.cpp" compile="1" resource="0" file="Source/Judio/src/Parameter.cpp"/>
+          <FILE id="AJ9oE0" name="Slider.cpp" compile="1" resource="0" file="Source/Judio/src/Slider.cpp"/>
+          <FILE id="IK3GMa" name="State.cpp" compile="1" resource="0" file="Source/Judio/src/State.cpp"/>
+          <FILE id="QgVnQk" name="UtilityBar.cpp" compile="1" resource="0" file="Source/Judio/src/UtilityBar.cpp"/>
+        </GROUP>
+        <FILE id="l9pyev" name="Helper.h" compile="0" resource="0" file="Source/Judio/Helper.h"/>
+        <FILE id="sf9o7k" name="Judio.h" compile="0" resource="0" file="Source/Judio/Judio.h"/>
+        <FILE id="zIJCPJ" name="Look.h" compile="0" resource="0" file="Source/Judio/Look.h"/>
+        <FILE id="PUPhb4" name="Parameter.h" compile="0" resource="0" file="Source/Judio/Parameter.h"/>
+        <FILE id="MuicsK" name="Slider.h" compile="0" resource="0" file="Source/Judio/Slider.h"/>
+        <FILE id="XX2XaJ" name="State.h" compile="0" resource="0" file="Source/Judio/State.h"/>
+        <FILE id="KS1xpV" name="UtilityBar.h" compile="0" resource="0" file="Source/Judio/UtilityBar.h"/>
+      </GROUP>
+      <GROUP id="{755BA1C8-8FF3-5F49-89DB-EF19B9B22DA1}" name="WDL">
+        <FILE id="cS7KlJ" name="convoengine.cpp" compile="1" resource="0" file="Source/WDL/convoengine.cpp"/>
+        <FILE id="o7g6IQ" name="convoengine.h" compile="0" resource="0" file="Source/WDL/convoengine.h"/>
+        <FILE id="DbArlx" name="denormal.h" compile="0" resource="0" file="Source/WDL/denormal.h"/>
+        <FILE id="ZFfKSm" name="fastqueue.h" compile="0" resource="0" file="Source/WDL/fastqueue.h"/>
+        <FILE id="OhHNcF" name="fft.c" compile="1" resource="0" file="Source/WDL/fft.c"/>
+        <FILE id="SAkCMd" name="fft.h" compile="0" resource="0" file="Source/WDL/fft.h"/>
+        <FILE id="RodJl7" name="heapbuf.h" compile="0" resource="0" file="Source/WDL/heapbuf.h"/>
+        <FILE id="wxhO1d" name="ptrlist.h" compile="0" resource="0" file="Source/WDL/ptrlist.h"/>
+        <FILE id="XIvNUi" name="queue.h" compile="0" resource="0" file="Source/WDL/queue.h"/>
+        <FILE id="pZnn79" name="resample.cpp" compile="1" resource="0" file="Source/WDL/resample.cpp"/>
+        <FILE id="dUfzzz" name="resample.h" compile="0" resource="0" file="Source/WDL/resample.h"/>
+        <FILE id="YnNp3F" name="wdltypes.h" compile="0" resource="0" file="Source/WDL/wdltypes.h"/>
+      </GROUP>
+      <FILE id="Ud1x4T" name="Filter.cpp" compile="1" resource="0" file="Source/Filter.cpp"/>
+      <FILE id="EyKJ8R" name="Filter.h" compile="0" resource="0" file="Source/Filter.h"/>
+      <FILE id="uf8KKT" name="gsl.h" compile="0" resource="0" file="Source/gsl.h"/>
+      <FILE id="RrTYMq" name="OrfanidisCalc.h" compile="0" resource="0" file="Source/OrfanidisCalc.h"/>
+      <FILE id="W6lQVZ" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="C7MkCp" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="agysNb" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="Ucvti7" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
+                       osxCompatibility="10.5 SDK" headerPath="../../Source"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
+                       osxCompatibility="10.5 SDK" headerPath="../../Source"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2013 targetFolder="Builds/VisualStudio2013">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
+                       headerPath="..\..\Source"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
+                       headerPath="..\..\Source"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2013>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
+                       headerPath="../../Source"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
+                       headerPath="../../Source"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+</JUCERPROJECT>
