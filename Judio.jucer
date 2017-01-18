@@ -50,8 +50,6 @@
     </GROUP>
     <GROUP id="{2A1C611E-190D-AA45-C000-1A371C74FE5E}" name="resource">
       <FILE id="XzAGzn" name="4Channel.wav" compile="0" resource="1" file="resource/4Channel.wav"/>
-      <FILE id="AA0Iwk" name="knob05LargeForeground4-fs8.png" compile="0"
-            resource="1" file="resource/knob05LargeForeground4-fs8.png"/>
       <FILE id="RwL7jg" name="layout04knob01dotoff-fs8.png" compile="0" resource="1"
             file="resource/layout04knob01dotoff-fs8.png"/>
       <FILE id="KMcfuz" name="layout04knob01doton-fs8.png" compile="0" resource="1"
@@ -60,8 +58,6 @@
             file="resource/layout04knob01off-fs8.png"/>
       <FILE id="OYJkIc" name="layout04knob01on-fs8.png" compile="0" resource="1"
             file="resource/layout04knob01on-fs8.png"/>
-      <FILE id="EeP2ER" name="markerFilmstrip-fs8.png" compile="0" resource="1"
-            file="resource/markerFilmstrip-fs8.png"/>
       <FILE id="qvQkVR" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
             file="resource/Stereo64SamplesAllOnes.wav"/>
     </GROUP>

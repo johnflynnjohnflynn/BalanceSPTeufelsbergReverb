@@ -3968,9 +3968,6 @@
     <None Include="..\..\resource\4Channel.wav">
       <Filter>Judio\resource</Filter>
     </None>
-    <None Include="..\..\resource\knob05LargeForeground4-fs8.png">
-      <Filter>Judio\resource</Filter>
-    </None>
     <None Include="..\..\resource\layout04knob01dotoff-fs8.png">
       <Filter>Judio\resource</Filter>
     </None>
@@ -3981,9 +3978,6 @@
       <Filter>Judio\resource</Filter>
     </None>
     <None Include="..\..\resource\layout04knob01on-fs8.png">
-      <Filter>Judio\resource</Filter>
-    </None>
-    <None Include="..\..\resource\markerFilmstrip-fs8.png">
       <Filter>Judio\resource</Filter>
     </None>
     <None Include="..\..\resource\Stereo64SamplesAllOnes.wav">
