@@ -68,10 +68,10 @@ Slider::SliderLayout CustomLook::getSliderLayout (Slider& slider)
 
     const int smallestSide {jmin (w, h)};
 
-    layout.textBoxBounds = Rectangle<int> {w / 2 + 5,                   // x pos
-                                           h / 2 - smallestSide / 2,    // y pos
-                                           50,                          // box width
-                                           12};                         // box height
+    layout.textBoxBounds = Rectangle<int> {w / 2 + 11,                      // x pos
+                                          (h / 2 - smallestSide / 2) + 4,   // y pos
+                                           40,                              // box width
+                                           12};                             // box height
 
     return layout;
 }
