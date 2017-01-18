@@ -32,29 +32,11 @@ private:
     //==============================================================================
     jdo::UtilityBarComponent utilityComponent;
 
-    jdo::SliderStep gain1Slider;
-    jdo::SliderStep freq1Slider;
-    jdo::SliderStep q1Slider;
-    jdo::SliderStep gain2Slider;
-    jdo::SliderStep freq2Slider;
-    jdo::SliderStep q2Slider;
-    jdo::SliderStep gain3Slider;
-    jdo::SliderStep freq3Slider;
-    jdo::SliderStep q3Slider;
-    jdo::SliderStep gain4Slider;
-    jdo::SliderStep freq4Slider;
-    jdo::SliderStep q4Slider;
-    jdo::SliderStep gain5Slider;
-    jdo::SliderStep freq5Slider;
-    jdo::SliderStep q5Slider;
-    jdo::SliderStep gain6Slider;
-    jdo::SliderStep freq6Slider;
-    jdo::SliderStep q6Slider;
-    jdo::SliderStep gain7Slider;
-    jdo::SliderStep freq7Slider;
-    jdo::SliderStep q7Slider;
+    jdo::SliderStep mixSlider;
+    jdo::SliderStep gainSlider;
 
-    Image backgroundImage;
+    Image backgroundImage {ImageCache::getFromMemory (BinaryData::layout04NoKnobsfs8_png,
+                                                      BinaryData::layout04NoKnobsfs8_pngSize)};
 
     jdo::CustomLook look;
 

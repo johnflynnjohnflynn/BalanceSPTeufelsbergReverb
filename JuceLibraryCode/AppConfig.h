@@ -245,10 +245,10 @@
  #define JucePlugin_Build_STANDALONE       0
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "BalanceEQTestJudio"
+ #define JucePlugin_Name                   "BalanceSPTeufelsbergReverb"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "BalanceEQTestJudio"
+ #define JucePlugin_Desc                   "BalanceSPTeufelsbergReverb"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "yourcompany"
@@ -302,16 +302,16 @@
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AUExportPrefix
- #define JucePlugin_AUExportPrefix         BalanceEQTestJudioAU
+ #define JucePlugin_AUExportPrefix         BalanceSPTeufelsbergReverbAU
 #endif
 #ifndef  JucePlugin_AUExportPrefixQuoted
- #define JucePlugin_AUExportPrefixQuoted   "BalanceEQTestJudioAU"
+ #define JucePlugin_AUExportPrefixQuoted   "BalanceSPTeufelsbergReverbAU"
 #endif
 #ifndef  JucePlugin_AUManufacturerCode
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
 #endif
 #ifndef  JucePlugin_CFBundleIdentifier
- #define JucePlugin_CFBundleIdentifier     com.yourcompany.BalanceEQTestJudio
+ #define JucePlugin_CFBundleIdentifier     com.yourcompany.BalanceSPTeufelsbergReverb
 #endif
 #ifndef  JucePlugin_RTASCategory
  #define JucePlugin_RTASCategory           ePlugInCategory_None
@@ -329,7 +329,7 @@
  #define JucePlugin_RTASDisableMultiMono   0
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.yourcompany.BalanceEQTestJudio
+ #define JucePlugin_AAXIdentifier          com.yourcompany.BalanceSPTeufelsbergReverb
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode

@@ -13,11 +13,7 @@
               defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;">
   <MAINGROUP id="QuTSDH" name="BalanceSPTeufelsbergReverb">
     <GROUP id="{BEE0B3EC-1FBF-760F-F70A-05FD1058C7B5}" name="Resources">
-      <FILE id="fQFaOY" name="BalanceEQ_02-fs8.png" compile="0" resource="1"
-            file="Resources/BalanceEQ_02-fs8.png"/>
       <FILE id="Ybj4gc" name="Europa.wav" compile="0" resource="1" file="Resources/Europa.wav"/>
-      <FILE id="OELjYS" name="knob05LargeForeground4-fs8.png" compile="0"
-            resource="1" file="Resources/knob05LargeForeground4-fs8.png"/>
       <FILE id="pdCNUD" name="layout04knob01dotoff-fs8.png" compile="0" resource="1"
             file="Resources/layout04knob01dotoff-fs8.png"/>
       <FILE id="dZbGDg" name="layout04knob01doton-fs8.png" compile="0" resource="1"
@@ -26,8 +22,8 @@
             file="Resources/layout04knob01off-fs8.png"/>
       <FILE id="EFHB5E" name="layout04knob01on-fs8.png" compile="0" resource="1"
             file="Resources/layout04knob01on-fs8.png"/>
-      <FILE id="PHC0rh" name="markerFilmstrip-fs8.png" compile="0" resource="1"
-            file="Resources/markerFilmstrip-fs8.png"/>
+      <FILE id="C3aMJc" name="layout04NoKnobs-fs8.png" compile="0" resource="1"
+            file="Resources/layout04NoKnobs-fs8.png"/>
       <FILE id="xvTGB8" name="PercussionAir.wav" compile="0" resource="1"
             file="Resources/PercussionAir.wav"/>
       <FILE id="HwXqBL" name="PercussionAirShort.wav" compile="0" resource="1"
@@ -187,4 +183,7 @@
     <MODULE id="juce_video" showAllCode="1" useLocalCopy="0"/>
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+  <LIVE_SETTINGS>
+    <OSX/>
+  </LIVE_SETTINGS>
 </JUCERPROJECT>

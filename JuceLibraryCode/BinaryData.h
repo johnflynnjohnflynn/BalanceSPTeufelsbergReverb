@@ -9,14 +9,8 @@
 
 namespace BinaryData
 {
-    extern const char*   BalanceEQ_02fs8_png;
-    const int            BalanceEQ_02fs8_pngSize = 38807;
-
     extern const char*   Europa_wav;
     const int            Europa_wavSize = 1764146;
-
-    extern const char*   knob05LargeForeground4fs8_png;
-    const int            knob05LargeForeground4fs8_pngSize = 35701;
 
     extern const char*   layout04knob01dotofffs8_png;
     const int            layout04knob01dotofffs8_pngSize = 331;
@@ -30,8 +24,8 @@ namespace BinaryData
     extern const char*   layout04knob01onfs8_png;
     const int            layout04knob01onfs8_pngSize = 7072;
 
-    extern const char*   markerFilmstripfs8_png;
-    const int            markerFilmstripfs8_pngSize = 290464;
+    extern const char*   layout04NoKnobsfs8_png;
+    const int            layout04NoKnobsfs8_pngSize = 209191;
 
     extern const char*   PercussionAir_wav;
     const int            PercussionAir_wavSize = 198590;
@@ -43,7 +37,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 10;
+    const int namedResourceListSize = 8;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).
