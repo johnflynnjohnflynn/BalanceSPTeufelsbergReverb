@@ -186,18 +186,6 @@ StateComponent::StateComponent (StateAB& sab, StatePresets& sp)
     savePresetButton.addListener (this);
     addAndMakeVisible (deletePresetButton);
     deletePresetButton.addListener (this);
-
-    
-    toggleABButton.setColour (TextButton::textColourOffId, Colour (0xff373737));    // possibly set in custom Look instead???
-    toggleABButton.setColour (TextButton::buttonColourId, Colour (0xff808080));
-    copyABButton.setColour (TextButton::textColourOffId, Colour (0xff373737));
-    copyABButton.setColour (TextButton::buttonColourId, Colour (0xff808080));
-    savePresetButton.setColour (TextButton::textColourOffId, Colour (0xff373737));
-    savePresetButton.setColour (TextButton::buttonColourId, Colour (0xff808080));
-    deletePresetButton.setColour (TextButton::textColourOffId, Colour (0xff373737));
-    deletePresetButton.setColour (TextButton::buttonColourId, Colour (0xff808080));
-
-    //setSize (400, 200); // remember to set before xtor finished
 }
 
 void StateComponent::paint (Graphics& /*g*/)
