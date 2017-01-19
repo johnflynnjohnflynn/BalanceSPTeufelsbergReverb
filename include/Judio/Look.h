@@ -30,9 +30,6 @@ namespace jdo
 //==============================================================================
 /** Custom LookAndFeel class for uniform styling across plugins
     @see juce::LookAndFeel
-    
-    Note: Visual look of button is set here AND in Button.h !!!
-    @see jdo::CustomButton
 */
 class CustomLook  : public LookAndFeel_V3
 {
