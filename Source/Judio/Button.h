@@ -19,9 +19,34 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#ifndef BUTTON_H_INCLUDED
-#define BUTTON_H_INCLUDED
+#ifndef BUTTON_H_INCLUDED_KSJDHF
+#define BUTTON_H_INCLUDED_KSJDHF
 
+#include "../../JuceLibraryCode/JuceHeader.h"
 
+namespace jdo
+{
+//==============================================================================
+/** Quick TextButton override to set button-side styles.
+    
+    Note: Visual look of button is set here AND in Look.h/.cpp !!!
+    @see jdo::CustomLook
+*/
+class CustomButton  : public TextButton
+{
+public:
+    CustomButton (const String& buttonName) //, const String& toolTip)          // add tooltip later
+        : TextButton {buttonName} //, toolTip}
+    {
+        setColour (TextButton::buttonColourId,   Colour (0xff202020));
+        setColour (TextButton::buttonOnColourId, Colour (0xff101010));
+        setColour (TextButton::textColourOffId,  Colour (0xffd9d9d9));
+        setColour (TextButton::textColourOnId,   Colour (0xffeeeeee));
+    }
+};
 
-#endif  // BUTTON_H_INCLUDED
+//==============================================================================
+
+} // namespace
+
+#endif  // BUTTON_H_INCLUDED_KSJDHF
