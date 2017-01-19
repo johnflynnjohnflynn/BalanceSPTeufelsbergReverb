@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Rule Name="Microsoft.CodeAnalysis.Extensions" DisplayName="Code Analysis" PageTemplate="tool" SwitchPrefix="/" Order="200" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <Rule.Categories>
+        <Category Name="CodeAnalysisExtensions" DisplayName="Extensions" />
+    </Rule.Categories>
+
+    <Rule.DataSource>
+        <DataSource Persistence="ProjectFile" />
+    </Rule.DataSource>
+
+    <BoolProperty Name="EnableCppCoreCheck" DisplayName="Enable C++ Core Check (Released)" Description="Checks for the C++ Core Guidelines." Category="CodeAnalysisExtensions" />
+    <BoolProperty Name="EnableExperimentalCppCoreCheck" DisplayName="Enable C++ Core Check (Experimental)" Description="Checks for the Lifetimes profile of the C++ Core Guidelines (still experimental)." Category="CodeAnalysisExtensions" />
+</Rule>

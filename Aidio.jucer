@@ -95,6 +95,20 @@
         <MODULEPATH id="juce_audio_devices" path="modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
+    <VS2015 targetFolder="build/VisualStudio2015">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Aidio" headerPath="..\..\include&#10;..\..\lib&#10;..\..\lib\WDL"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="Aidio" headerPath="..\..\include&#10;..\..\lib&#10;..\..\lib\WDL"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_events" path="modules"/>
+        <MODULEPATH id="juce_core" path="modules"/>
+        <MODULEPATH id="juce_audio_devices" path="modules"/>
+        <MODULEPATH id="juce_audio_basics" path="modules"/>
+      </MODULEPATHS>
+    </VS2015>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
