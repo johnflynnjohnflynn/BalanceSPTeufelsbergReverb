@@ -44,22 +44,17 @@ CustomLook::CustomLook()
     setColour (PopupMenu::headerTextColourId,             Colour (0xffeeeeee));
     setColour (PopupMenu::highlightedBackgroundColourId,  Colour (0xff404040));
     setColour (PopupMenu::highlightedTextColourId,        Colour (0xfff3f3f3));
-
-    /*setColour (TreeView::selectedItemBackgroundColourId, Colour (0x301111ee));
-
-    const Colour textButtonColour (0xffeeeeff);
-    setColour (TextButton::buttonColourId, textButtonColour);
-    setColour (TextButton::buttonOnColourId, Colour (0xff000000));
-    setColour (ComboBox::buttonColourId, textButtonColour);
-    setColour (TextEditor::outlineColourId, Colours::transparentBlack);
-    setColour (TabbedButtonBar::tabOutlineColourId, Colour (0x66000000));
-    setColour (TabbedComponent::outlineColourId, Colour (0x66000000));
-    setColour (Slider::trackColourId, Colour (0xbbffffff));
-    setColour (Slider::thumbColourId, Colour (0xffddddff));
-    setColour (BubbleComponent::backgroundColourId, Colour (0xeeeeeedd));
-    setColour (ScrollBar::thumbColourId, Colour::greyLevel (0.8f).contrasting().withAlpha (0.13f));*/
 }
 
+//==============================================================================
+Typeface::Ptr CustomLook::getTypefaceForFont (const Font& font)
+{
+    auto typPtr = Typeface::createSystemTypefaceFor(BinaryData::OpenSansRegular_ttf,
+                                                    BinaryData::OpenSansRegular_ttfSize);
+    return typPtr;
+}
+
+//==============================================================================
 void CustomLook::drawRotarySlider (Graphics& g,
                                          int x,                 // offset position
                                          int y,

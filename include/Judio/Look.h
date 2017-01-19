@@ -49,13 +49,13 @@ public:
     void drawToggleButton (Graphics&, ToggleButton&, bool isMouseOverButton, bool isButtonDown) override;
 
     //==============================================================================
+    virtual Typeface::Ptr getTypefaceForFont (const Font&);
 
 private:
     Image knob       {ImageCache::getFromMemory (BinaryData::layout04knob01onfs8_png,
                                                  BinaryData::layout04knob01onfs8_pngSize)};
     Image knobMarker {ImageCache::getFromMemory (BinaryData::layout04knob01dotonfs8_png,
                                                  BinaryData::layout04knob01dotonfs8_pngSize)};
-
 };
 
 //==============================================================================

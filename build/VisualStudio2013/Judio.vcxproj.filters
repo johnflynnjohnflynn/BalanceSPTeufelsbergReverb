@@ -3980,6 +3980,9 @@
     <None Include="..\..\resource\layout04knob01on-fs8.png">
       <Filter>Judio\resource</Filter>
     </None>
+    <None Include="..\..\resource\OpenSans-Regular.ttf">
+      <Filter>Judio\resource</Filter>
+    </None>
     <None Include="..\..\resource\Stereo64SamplesAllOnes.wav">
       <Filter>Judio\resource</Filter>
     </None>

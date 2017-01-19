@@ -24,6 +24,9 @@ namespace BinaryData
     extern const char*   layout04knob01onfs8_png;
     const int            layout04knob01onfs8_pngSize = 7072;
 
+    extern const char*   OpenSansRegular_ttf;
+    const int            OpenSansRegular_ttfSize = 217360;
+
     extern const char*   Stereo64SamplesAllOnes_wav;
     const int            Stereo64SamplesAllOnes_wavSize = 428;
 
@@ -31,7 +34,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 6;
+    const int namedResourceListSize = 7;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

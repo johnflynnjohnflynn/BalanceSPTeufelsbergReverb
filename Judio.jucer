@@ -58,6 +58,8 @@
             file="resource/layout04knob01off-fs8.png"/>
       <FILE id="OYJkIc" name="layout04knob01on-fs8.png" compile="0" resource="1"
             file="resource/layout04knob01on-fs8.png"/>
+      <FILE id="kjkcDM" name="OpenSans-Regular.ttf" compile="0" resource="1"
+            file="resource/OpenSans-Regular.ttf"/>
       <FILE id="qvQkVR" name="Stereo64SamplesAllOnes.wav" compile="0" resource="1"
             file="resource/Stereo64SamplesAllOnes.wav"/>
     </GROUP>
