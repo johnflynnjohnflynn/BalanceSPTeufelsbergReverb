@@ -168,6 +168,7 @@ StateComponent::StateComponent (StateAB& sab, StatePresets& sp)
       procStatePresets {sp},
       toggleABButton {"A-B"},
       copyABButton {"Copy"},
+      presetBox {"PresetBoxID"},
       savePresetButton {"Save preset"},
       deletePresetButton {"Delete preset"}
 {

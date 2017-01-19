@@ -23,7 +23,6 @@
 #define STATE_H_INCLUDED
 
 #include "../../JuceLibraryCode/JuceHeader.h"
-#include "Judio/Button.h"
 
 namespace jdo
 {
@@ -109,11 +108,11 @@ private:
     StateAB&      procStateAB;
     StatePresets& procStatePresets;
 
-    jdo::CustomButton toggleABButton;
-    jdo::CustomButton copyABButton;
-    ComboBox          presetBox;
-    jdo::CustomButton savePresetButton;
-    jdo::CustomButton deletePresetButton;
+    TextButton toggleABButton;
+    TextButton copyABButton;
+    ComboBox   presetBox;
+    TextButton savePresetButton;
+    TextButton deletePresetButton;
 
     void buttonClicked (Button* clickedButton) override;
     void comboBoxChanged (ComboBox* changedComboBox) override;

@@ -26,6 +26,34 @@ namespace jdo
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 
+CustomLook::CustomLook()
+{
+    setColour (TextButton::buttonColourId,   Colour (0xff303030));
+    setColour (TextButton::buttonOnColourId, Colour (0xff0000ff));  // change something sensible later
+    setColour (TextButton::textColourOffId,  Colour (0xffd9d9d9));
+    setColour (TextButton::textColourOnId,   Colour (0xffeeeeee));
+
+    setColour (ComboBox::backgroundColourId, Colour (0xff303030));
+    setColour (ComboBox::textColourId,       Colour (0xffeeeeee));
+    setColour (ComboBox::outlineColourId,    Colour (0xff303030));
+    setColour (ComboBox::buttonColourId,     Colour (0xff303030)); // outline when focussed ?
+    setColour (ComboBox::arrowColourId,      Colour (0xff505050));
+    
+    /*setColour (TreeView::selectedItemBackgroundColourId, Colour (0x301111ee));
+
+    const Colour textButtonColour (0xffeeeeff);
+    setColour (TextButton::buttonColourId, textButtonColour);
+    setColour (TextButton::buttonOnColourId, Colour (0xff000000));
+    setColour (ComboBox::buttonColourId, textButtonColour);
+    setColour (TextEditor::outlineColourId, Colours::transparentBlack);
+    setColour (TabbedButtonBar::tabOutlineColourId, Colour (0x66000000));
+    setColour (TabbedComponent::outlineColourId, Colour (0x66000000));
+    setColour (Slider::trackColourId, Colour (0xbbffffff));
+    setColour (Slider::thumbColourId, Colour (0xffddddff));
+    setColour (BubbleComponent::backgroundColourId, Colour (0xeeeeeedd));
+    setColour (ScrollBar::thumbColourId, Colour::greyLevel (0.8f).contrasting().withAlpha (0.13f));*/
+}
+
 void CustomLook::drawRotarySlider (Graphics& g,
                                          int x,                 // offset position
                                          int y,

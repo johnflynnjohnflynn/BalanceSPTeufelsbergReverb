@@ -30,13 +30,13 @@ namespace jdo
 //==============================================================================
 /** Custom LookAndFeel class for uniform styling across plugins
     @see juce::LookAndFeel
-    
-    Note: Visual look of button is set here AND in Button.h !!!
-    @see jdo::CustomButton
 */
 class CustomLook  : public LookAndFeel_V3
 {
 public:
+    CustomLook();
+    ~CustomLook() {}
+
     void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos0to1,
                            float rotaryStartAngle, float rotaryEndAngle, Slider& slider) override;
 
@@ -47,6 +47,8 @@ public:
                            bool isMouseOverButton, bool isButtonDown) override;         // more generic
 
     void drawToggleButton (Graphics&, ToggleButton&, bool isMouseOverButton, bool isButtonDown) override;
+
+    //==============================================================================
 
 private:
     Image knob       {ImageCache::getFromMemory (BinaryData::layout04knob01onfs8_png,
