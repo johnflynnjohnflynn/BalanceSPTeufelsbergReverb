@@ -37,6 +37,9 @@ namespace jdo
 class CustomLook  : public LookAndFeel_V3
 {
 public:
+    CustomLook();
+    ~CustomLook() {}
+
     void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos0to1,
                            float rotaryStartAngle, float rotaryEndAngle, Slider& slider) override;
 
@@ -47,6 +50,8 @@ public:
                            bool isMouseOverButton, bool isButtonDown) override;         // more generic
 
     void drawToggleButton (Graphics&, ToggleButton&, bool isMouseOverButton, bool isButtonDown) override;
+
+    //==============================================================================
 
 private:
     Image knob       {ImageCache::getFromMemory (BinaryData::layout04knob01onfs8_png,

@@ -1678,7 +1678,6 @@
     <ClCompile Include="..\..\JuceLibraryCode\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Judio\Button.h"/>
     <ClInclude Include="..\..\include\Judio\Helper.h"/>
     <ClInclude Include="..\..\include\Judio\Judio.h"/>
     <ClInclude Include="..\..\include\Judio\Look.h"/>
