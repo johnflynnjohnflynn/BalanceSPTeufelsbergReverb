@@ -38,7 +38,13 @@ CustomLook::CustomLook()
     setColour (ComboBox::outlineColourId,    Colour (0xff303030));
     setColour (ComboBox::buttonColourId,     Colour (0xff303030)); // outline when focussed ?
     setColour (ComboBox::arrowColourId,      Colour (0xff505050));
-    
+
+    setColour (PopupMenu::backgroundColourId,             Colour (0xff303030));
+    setColour (PopupMenu::textColourId,                   Colour (0xffeeeeee));
+    setColour (PopupMenu::headerTextColourId,             Colour (0xffeeeeee));
+    setColour (PopupMenu::highlightedBackgroundColourId,  Colour (0xff404040));
+    setColour (PopupMenu::highlightedTextColourId,        Colour (0xfff3f3f3));
+
     /*setColour (TreeView::selectedItemBackgroundColourId, Colour (0x301111ee));
 
     const Colour textButtonColour (0xffeeeeff);
