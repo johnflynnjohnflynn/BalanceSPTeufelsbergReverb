@@ -137,15 +137,20 @@ void CustomLook::drawButtonBackground (Graphics& g, Button& button, const Colour
     const bool flatOnTop    = button.isConnectedOnTop();
     const bool flatOnBottom = button.isConnectedOnBottom();
 
-    const float width  = button.getWidth() - 10.0f;
-    const float height = button.getHeight() - 10.0f;
+    float border = 1.0f;
+    if (dynamic_cast<ToggleButton*> (&button))            // hideous again!
+        border = 10.0f;
+
+    const float width  = button.getWidth() - border;
+    const float height = button.getHeight() - border;
+    const float pos = border / 2;
 
     if (width > 0 && height > 0)
     {
         const float cornerSize = 4.0f;
 
         Path outline;
-        outline.addRoundedRectangle (5.f, 5.f, width, height, cornerSize, cornerSize,
+        outline.addRoundedRectangle (pos, pos, width, height, cornerSize, cornerSize,
                                      ! (flatOnLeft  || flatOnTop),
                                      ! (flatOnRight || flatOnTop),
                                      ! (flatOnLeft  || flatOnBottom),
