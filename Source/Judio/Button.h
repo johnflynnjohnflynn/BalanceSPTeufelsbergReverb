@@ -38,8 +38,8 @@ public:
     CustomButton (const String& buttonName) //, const String& toolTip)          // add tooltip later
         : TextButton {buttonName} //, toolTip}
     {
-        setColour (TextButton::buttonColourId,   Colour (0xff202020));
-        setColour (TextButton::buttonOnColourId, Colour (0xff101010));
+        setColour (TextButton::buttonColourId,   Colour (0xff303030));
+        setColour (TextButton::buttonOnColourId, Colour (0xff0000ff));  // change something sensible later
         setColour (TextButton::textColourOffId,  Colour (0xffd9d9d9));
         setColour (TextButton::textColourOnId,   Colour (0xffeeeeee));
     }

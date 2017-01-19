@@ -28,6 +28,12 @@ namespace jdo
 {
 
 //==============================================================================
+/** Custom LookAndFeel class for uniform styling across plugins
+    @see juce::LookAndFeel
+    
+    Note: Visual look of button is set here AND in Button.h !!!
+    @see jdo::CustomButton
+*/
 class CustomLook  : public LookAndFeel_V3
 {
 public:
@@ -35,6 +41,10 @@ public:
                            float rotaryStartAngle, float rotaryEndAngle, Slider& slider) override;
 
     Slider::SliderLayout getSliderLayout (Slider& slider) override;
+
+    //==============================================================================
+    void drawButtonBackground (Graphics&, Button&, const Colour& backgroundColour,
+                           bool isMouseOverButton, bool isButtonDown) override;
 
 private:
     Image knob       {ImageCache::getFromMemory (BinaryData::layout04knob01onfs8_png,
