@@ -42,9 +42,11 @@ public:
 
     Slider::SliderLayout getSliderLayout (Slider& slider) override;
 
-    //==============================================================================
-    void drawButtonBackground (Graphics&, Button&, const Colour& backgroundColour,
-                           bool isMouseOverButton, bool isButtonDown) override;
+    //==============================================================================    // very hacky now!
+    void drawButtonBackground (Graphics&, Button&, const Colour& backgroundColour,      // make button/toggle
+                           bool isMouseOverButton, bool isButtonDown) override;         // more generic
+
+    void drawToggleButton (Graphics&, ToggleButton&, bool isMouseOverButton, bool isButtonDown) override;
 
 private:
     Image knob       {ImageCache::getFromMemory (BinaryData::layout04knob01onfs8_png,
