@@ -30,7 +30,7 @@ CustomLook::CustomLook()
 {
     setColour (TextButton::buttonColourId,   Colour (0xff303030));
     setColour (TextButton::buttonOnColourId, Colour (0xff0000ff));  // change something sensible later
-    setColour (TextButton::textColourOffId,  Colour (0xffd9d9d9));
+    setColour (TextButton::textColourOffId,  Colour (0xffb0b0b0));
     setColour (TextButton::textColourOnId,   Colour (0xffeeeeee));
 
     setColour (ComboBox::backgroundColourId, Colour (0xff303030));
@@ -179,13 +179,17 @@ void CustomLook::drawToggleButton (Graphics& g, ToggleButton& button,
 
         // darken when on
     button.getToggleState() ?
-        backgroundColour = Colour {0xff202020}
+        backgroundColour = Colour {0xff272727}
       : backgroundColour = Colour {0xff303030};
 
     drawButtonBackground(g, button, backgroundColour, isMouseOverButton, isButtonDown);
 
         // text stuff
-    g.setColour (Colour {0xffeeeeee}); // (button.findColour (TextButton::textColourOnId));      // magic constant!!!
+    if (button.getToggleState())
+        g.setColour (button.findColour (TextButton::textColourOnId));
+    else
+        g.setColour (button.findColour (TextButton::textColourOffId));
+
 
     float fontSize = jmin (15.0f, button.getHeight() * 0.75f);
     g.setFont (fontSize);
