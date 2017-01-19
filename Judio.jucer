@@ -6,6 +6,7 @@
   <MAINGROUP id="fnjyVf" name="Judio">
     <GROUP id="{525861AE-8579-69D1-737F-D9C63E67F617}" name="include">
       <GROUP id="{8E4E0A0E-0E39-95C3-AE83-77B5D166BF59}" name="Judio">
+        <FILE id="x7CrQ6" name="Button.h" compile="0" resource="0" file="include/Judio/Button.h"/>
         <FILE id="YYt7T3" name="Helper.h" compile="0" resource="0" file="include/Judio/Helper.h"/>
         <FILE id="YJcKwH" name="Judio.h" compile="0" resource="0" file="include/Judio/Judio.h"/>
         <FILE id="JOvEju" name="Look.h" compile="0" resource="0" file="include/Judio/Look.h"/>
@@ -62,6 +63,7 @@
             file="resource/Stereo64SamplesAllOnes.wav"/>
     </GROUP>
     <GROUP id="{5654B0EA-1998-7632-A6D7-27B7A76276EE}" name="src">
+      <FILE id="y7ebs2" name="Button.cpp" compile="1" resource="0" file="src/Button.cpp"/>
       <FILE id="g8bBGW" name="Helper.cpp" compile="1" resource="0" file="src/Helper.cpp"/>
       <FILE id="saM9u7" name="Look.cpp" compile="1" resource="0" file="src/Look.cpp"/>
       <FILE id="eP6CdY" name="Parameter.cpp" compile="1" resource="0" file="src/Parameter.cpp"/>

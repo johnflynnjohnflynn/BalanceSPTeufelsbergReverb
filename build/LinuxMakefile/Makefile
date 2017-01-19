@@ -65,6 +65,7 @@ OBJECTS := \
   $(JUCE_OBJDIR)/convoengine_78d86ad8.o \
   $(JUCE_OBJDIR)/fft_e0f7290f.o \
   $(JUCE_OBJDIR)/resample_dfc8d2ac.o \
+  $(JUCE_OBJDIR)/Button_b9489fb2.o \
   $(JUCE_OBJDIR)/Helper_b3fea2e.o \
   $(JUCE_OBJDIR)/Look_bd86f75f.o \
   $(JUCE_OBJDIR)/Parameter_7b46b333.o \
@@ -150,6 +151,11 @@ $(JUCE_OBJDIR)/fft_e0f7290f.o: ../../lib/WDL/fft.c
 $(JUCE_OBJDIR)/resample_dfc8d2ac.o: ../../lib/WDL/resample.cpp
 	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling resample.cpp"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/Button_b9489fb2.o: ../../src/Button.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling Button.cpp"
 	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/Helper_b3fea2e.o: ../../src/Helper.cpp

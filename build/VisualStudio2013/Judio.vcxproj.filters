@@ -400,6 +400,9 @@
     <ClCompile Include="..\..\lib\WDL\resample.cpp">
       <Filter>Judio\lib\WDL</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Button.cpp">
+      <Filter>Judio\src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\Helper.cpp">
       <Filter>Judio\src</Filter>
     </ClCompile>
@@ -2097,6 +2100,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\Judio\Button.h">
+      <Filter>Judio\include\Judio</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\include\Judio\Helper.h">
       <Filter>Judio\include\Judio</Filter>
     </ClInclude>

@@ -139,6 +139,7 @@
     <ClCompile Include="..\..\lib\WDL\convoengine.cpp"/>
     <ClCompile Include="..\..\lib\WDL\fft.c"/>
     <ClCompile Include="..\..\lib\WDL\resample.cpp"/>
+    <ClCompile Include="..\..\src\Button.cpp"/>
     <ClCompile Include="..\..\src\Helper.cpp"/>
     <ClCompile Include="..\..\src\Look.cpp"/>
     <ClCompile Include="..\..\src\Parameter.cpp"/>
@@ -1678,6 +1679,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\Judio\Button.h"/>
     <ClInclude Include="..\..\include\Judio\Helper.h"/>
     <ClInclude Include="..\..\include\Judio\Judio.h"/>
     <ClInclude Include="..\..\include\Judio\Look.h"/>
