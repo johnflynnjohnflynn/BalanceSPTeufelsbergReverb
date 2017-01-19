@@ -56,7 +56,6 @@ void CustomLook::drawRotarySlider (Graphics& g,
                                                          .translated (x, y));
 }
 
-//==============================================================================
 Slider::SliderLayout CustomLook::getSliderLayout (Slider& slider)
 {
     Slider::SliderLayout layout;
@@ -74,6 +73,56 @@ Slider::SliderLayout CustomLook::getSliderLayout (Slider& slider)
                                            12};                             // box height
 
     return layout;
+}
+
+//==============================================================================
+static void drawButtonShape (Graphics& g, const Path& outline, Colour baseColour, float height)
+{
+    //const float mainBrightness = baseColour.getBrightness();
+    //const float mainAlpha = baseColour.getFloatAlpha();
+
+    g.setGradientFill (ColourGradient (baseColour.brighter (0.025f), 0.0f, 0.0f,
+                                       baseColour.darker (0.025f), 0.0f, height, false));
+    g.fillPath (outline);
+
+        // Don't draw outline!
+    //g.setColour (Colours::white.withAlpha (0.4f * mainAlpha * mainBrightness * mainBrightness));
+    //g.strokePath (outline, PathStrokeType (1.0f), AffineTransform::translation (0.0f, 1.0f)
+    //                                                    .scaled (1.0f, (height - 1.6f) / height));
+    //g.setColour (Colours::black.withAlpha (0.4f * mainAlpha));
+    //g.strokePath (outline, PathStrokeType (1.0f));
+}
+
+void CustomLook::drawButtonBackground (Graphics& g, Button& button, const Colour& backgroundColour,
+                                           bool isMouseOverButton, bool isButtonDown)
+{
+    Colour baseColour (backgroundColour.withMultipliedSaturation (button.hasKeyboardFocus (true) ? 1.1f : 1.0f)
+                                       .withMultipliedAlpha (button.isEnabled() ? 0.8f : 0.7f));
+
+    if (isButtonDown || isMouseOverButton)
+        baseColour = baseColour.contrasting (isButtonDown ? 0.2f : 0.1f);
+
+    const bool flatOnLeft   = button.isConnectedOnLeft();
+    const bool flatOnRight  = button.isConnectedOnRight();
+    const bool flatOnTop    = button.isConnectedOnTop();
+    const bool flatOnBottom = button.isConnectedOnBottom();
+
+    const float width  = button.getWidth() - 1.0f;
+    const float height = button.getHeight() - 1.0f;
+
+    if (width > 0 && height > 0)
+    {
+        const float cornerSize = 4.0f;
+
+        Path outline;
+        outline.addRoundedRectangle (0.5f, 0.5f, width, height, cornerSize, cornerSize,
+                                     ! (flatOnLeft  || flatOnTop),
+                                     ! (flatOnRight || flatOnTop),
+                                     ! (flatOnLeft  || flatOnBottom),
+                                     ! (flatOnRight || flatOnBottom));
+
+        drawButtonShape (g, outline, baseColour, height);
+    }
 }
 
 } // namespace

@@ -63,7 +63,6 @@
             file="resource/Stereo64SamplesAllOnes.wav"/>
     </GROUP>
     <GROUP id="{5654B0EA-1998-7632-A6D7-27B7A76276EE}" name="src">
-      <FILE id="y7ebs2" name="Button.cpp" compile="1" resource="0" file="src/Button.cpp"/>
       <FILE id="g8bBGW" name="Helper.cpp" compile="1" resource="0" file="src/Helper.cpp"/>
       <FILE id="saM9u7" name="Look.cpp" compile="1" resource="0" file="src/Look.cpp"/>
       <FILE id="eP6CdY" name="Parameter.cpp" compile="1" resource="0" file="src/Parameter.cpp"/>
