@@ -26,7 +26,6 @@ Editor::Editor (Processor& p)
     addAndMakeVisible (&mixSlider);
     addAndMakeVisible (&gainSlider);
 
-    addAndMakeVisible (&textButton);
     addAndMakeVisible (&bypassToggle);
 
     LookAndFeel::setDefaultLookAndFeel (&look);
@@ -53,6 +52,5 @@ void Editor::resized()
     mixSlider .setBounds (37, 172, 135, 135);
     gainSlider.setBounds (38, 308, 135, 135);
 
-    textButton.setBounds (50, 50, 200, 50);
     bypassToggle.setBounds (50, 150, 200, 50);
 }

@@ -24,6 +24,8 @@
             file="Resources/layout04knob01on-fs8.png"/>
       <FILE id="NHgO4l" name="layout04NoKnobs-fs8.png" compile="0" resource="1"
             file="Resources/layout04NoKnobs-fs8.png"/>
+      <FILE id="aDbh3F" name="OpenSans-Regular.ttf" compile="0" resource="1"
+            file="Resources/OpenSans-Regular.ttf"/>
       <FILE id="YlEv0y" name="PercussionAir.wav" compile="0" resource="1"
             file="Resources/PercussionAir.wav"/>
       <FILE id="ca80CY" name="PercussionAirShort.wav" compile="0" resource="1"
@@ -55,7 +57,6 @@
           <FILE id="bgSyda" name="State.cpp" compile="1" resource="0" file="Source/Judio/src/State.cpp"/>
           <FILE id="TpYobx" name="UtilityBar.cpp" compile="1" resource="0" file="Source/Judio/src/UtilityBar.cpp"/>
         </GROUP>
-        <FILE id="VkrN0P" name="Button.h" compile="0" resource="0" file="Source/Judio/Button.h"/>
         <FILE id="EUkn2J" name="Helper.h" compile="0" resource="0" file="Source/Judio/Helper.h"/>
         <FILE id="mI6N8l" name="Judio.h" compile="0" resource="0" file="Source/Judio/Judio.h"/>
         <FILE id="IMg9kK" name="Look.h" compile="0" resource="0" file="Source/Judio/Look.h"/>
