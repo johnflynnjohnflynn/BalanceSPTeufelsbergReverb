@@ -85,6 +85,7 @@ static void drawButtonShape (Graphics& g, const Path& outline, Colour baseColour
                                        baseColour.darker (0.025f), 0.0f, height, false));
     g.fillPath (outline);
 
+
         // Don't draw outline!
     //g.setColour (Colours::white.withAlpha (0.4f * mainAlpha * mainBrightness * mainBrightness));
     //g.strokePath (outline, PathStrokeType (1.0f), AffineTransform::translation (0.0f, 1.0f)
@@ -97,32 +98,68 @@ void CustomLook::drawButtonBackground (Graphics& g, Button& button, const Colour
                                            bool isMouseOverButton, bool isButtonDown)
 {
     Colour baseColour (backgroundColour.withMultipliedSaturation (button.hasKeyboardFocus (true) ? 1.1f : 1.0f)
-                                       .withMultipliedAlpha (button.isEnabled() ? 0.8f : 0.7f));
+                                       .withMultipliedAlpha (button.isEnabled() ? 1.0f : 0.9f));
 
     if (isButtonDown || isMouseOverButton)
-        baseColour = baseColour.contrasting (isButtonDown ? 0.2f : 0.1f);
+        baseColour = baseColour.contrasting (isButtonDown ? 0.1f : 0.05f);
 
     const bool flatOnLeft   = button.isConnectedOnLeft();
     const bool flatOnRight  = button.isConnectedOnRight();
     const bool flatOnTop    = button.isConnectedOnTop();
     const bool flatOnBottom = button.isConnectedOnBottom();
 
-    const float width  = button.getWidth() - 1.0f;
-    const float height = button.getHeight() - 1.0f;
+    const float width  = button.getWidth() - 10.0f;
+    const float height = button.getHeight() - 10.0f;
 
     if (width > 0 && height > 0)
     {
         const float cornerSize = 4.0f;
 
         Path outline;
-        outline.addRoundedRectangle (0.5f, 0.5f, width, height, cornerSize, cornerSize,
+        outline.addRoundedRectangle (5.f, 5.f, width, height, cornerSize, cornerSize,
                                      ! (flatOnLeft  || flatOnTop),
                                      ! (flatOnRight || flatOnTop),
                                      ! (flatOnLeft  || flatOnBottom),
                                      ! (flatOnRight || flatOnBottom));
 
+        if (auto* b = dynamic_cast<ToggleButton*> (&button))        // this is hideous! should clearly be
+        {                                                           // handled in the function below
+            if (b->getToggleState())
+            {
+                DropShadow dropShadow {Colour {0xff1eaedb},
+                                       5,
+                                       Point<int> {0, 0}};
+
+                dropShadow.drawForPath (g, outline);
+            }
+        }
+
         drawButtonShape (g, outline, baseColour, height);
     }
+}
+
+void CustomLook::drawToggleButton (Graphics& g, ToggleButton& button,
+                                   bool isMouseOverButton, bool isButtonDown)
+{
+    Colour backgroundColour {0xff0000ff};
+
+        // darken when on
+    button.getToggleState() ?
+        backgroundColour = Colour {0xff202020}
+      : backgroundColour = Colour {0xff303030};
+
+    drawButtonBackground(g, button, backgroundColour, isMouseOverButton, isButtonDown);
+
+        // text stuff
+    g.setColour (Colour {0xffeeeeee}); // (button.findColour (TextButton::textColourOnId));      // magic constant!!!
+
+    float fontSize = jmin (15.0f, button.getHeight() * 0.75f);
+    g.setFont (fontSize);
+
+    g.drawFittedText (button.getButtonText(),
+                      0, 0,
+                      button.getWidth(), button.getHeight(),
+                      Justification::centred, 10);
 }
 
 } // namespace
