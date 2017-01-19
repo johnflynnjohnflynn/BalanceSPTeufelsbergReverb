@@ -28,22 +28,30 @@ namespace jdo
 
 CustomLook::CustomLook()
 {
-    setColour (TextButton::buttonColourId,   Colour (0xff303030));
+    Colour almostWhite {0xffeeeeee};
+    Colour grey20      {0xff202020};
+    Colour grey30      {0xff303030};
+
+    setColour (TextButton::buttonColourId,   grey30);
     setColour (TextButton::buttonOnColourId, Colour (0xff0000ff));  // change something sensible later
     setColour (TextButton::textColourOffId,  Colour (0xffb0b0b0));
-    setColour (TextButton::textColourOnId,   Colour (0xffeeeeee));
+    setColour (TextButton::textColourOnId,   almostWhite);
 
-    setColour (ComboBox::backgroundColourId, Colour (0xff303030));
-    setColour (ComboBox::textColourId,       Colour (0xffeeeeee));
-    setColour (ComboBox::outlineColourId,    Colour (0xff303030));
-    setColour (ComboBox::buttonColourId,     Colour (0xff303030)); // outline when focussed ?
+    setColour (ComboBox::backgroundColourId, grey30);
+    setColour (ComboBox::textColourId,       almostWhite);
+    setColour (ComboBox::outlineColourId,    grey30);
+    setColour (ComboBox::buttonColourId,     grey30); // outline when focussed ?
     setColour (ComboBox::arrowColourId,      Colour (0xff505050));
 
-    setColour (PopupMenu::backgroundColourId,             Colour (0xff303030));
-    setColour (PopupMenu::textColourId,                   Colour (0xffeeeeee));
-    setColour (PopupMenu::headerTextColourId,             Colour (0xffeeeeee));
+    setColour (PopupMenu::backgroundColourId,             grey30);
+    setColour (PopupMenu::textColourId,                   almostWhite);
+    setColour (PopupMenu::headerTextColourId,             almostWhite);
     setColour (PopupMenu::highlightedBackgroundColourId,  Colour (0xff404040));
     setColour (PopupMenu::highlightedTextColourId,        Colour (0xfff3f3f3));
+
+    setColour (AlertWindow::backgroundColourId, grey20);
+    setColour (AlertWindow::textColourId,       almostWhite);
+    setColour (AlertWindow::outlineColourId,    grey20);
 }
 
 //==============================================================================
