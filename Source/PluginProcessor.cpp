@@ -49,6 +49,8 @@ Processor::Processor()
       freq7Param        {new jdo::ParamStepListenFreq {"freq7ID",    "Freq7",           20.0f, 20000.0f, 632.456f, 48,   3.0f, *freqStepSizeParam}},
       q7Param           {new jdo::ParamStep           {"q7ID",       "Q7",               0.0707f,  7.07f,  0.707f, 18,   2.0f}}
 {
+    LookAndFeel::setDefaultLookAndFeel (&look);
+    
         // addParameter()s to the processor's OwnedArray<AudioProcessorParameter>
         // managedParameters (which takes ownership and deletes appropriately)
     addParameter (gainStepSizeParam);

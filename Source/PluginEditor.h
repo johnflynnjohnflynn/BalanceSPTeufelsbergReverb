@@ -30,6 +30,8 @@ public:
 
 private:
     //==============================================================================
+
+
     //jdo::UtilityBarComponent utilityComponent;
     jdo::StateComponent stateComponent;
 
@@ -40,8 +42,6 @@ private:
 
     Image backgroundImage {ImageCache::getFromMemory (BinaryData::layout04NoKnobsfs8_png,
                                                       BinaryData::layout04NoKnobsfs8_pngSize)};
-
-    jdo::CustomLook look;
 
     Processor& processor;
     

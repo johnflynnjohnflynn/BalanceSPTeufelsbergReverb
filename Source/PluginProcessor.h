@@ -64,6 +64,8 @@ public:
 
 private:
     //==============================================================================
+    jdo::CustomLook look;
+
     jdo::ParamStepBroadcast*  gainStepSizeParam;   // Raw pointers here. Processor's
     jdo::ParamStepBroadcast*  freqStepSizeParam;   // managedParameters OwnedArray
                                                          // owns and manages. (See xtor.)

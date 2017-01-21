@@ -28,8 +28,6 @@ Editor::Editor (Processor& p)
 
     addAndMakeVisible (&bypassToggle);
 
-    LookAndFeel::setDefaultLookAndFeel (&look);
-
     setSize (550, 500); // remember to set before xtor finished
 }
 
@@ -51,7 +49,7 @@ void Editor::resized()
     stateComponent.setBounds(sideBorder, 77,
                              getWidth()-2*sideBorder, jdo::CustomLook::buttonHeight);
 
-    mixSlider .setBounds (37, 172, 135, 135);
+    mixSlider .setBounds (38, 172, 135, 135);
     gainSlider.setBounds (38, 308, 135, 135);
 
     bypassToggle.setBounds (469, 13, 65, 42);
