@@ -59,7 +59,7 @@ public:
     Font getPopupMenuFont() override;
 
     //==============================================================================
-    static const int buttonWidth       {65};
+    static const int buttonWidth       {55};
     static const int buttonHeight      {22};
     static const int buttonLargeHeight {42};
 

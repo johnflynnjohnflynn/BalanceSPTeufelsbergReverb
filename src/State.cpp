@@ -207,7 +207,7 @@ void StateComponent::resized()              // set button height by setting over
 
     deletePresetButton.setBounds (r.removeFromRight (CustomLook::buttonWidth));
     r.removeFromRight (spacer);
-    presetBox         .setBounds (r.removeFromRight (CustomLook::buttonWidth * 3));
+    presetBox         .setBounds (r.removeFromRight (CustomLook::buttonWidth * 4));
     r.removeFromRight (spacer);
     savePresetButton  .setBounds (r.removeFromRight (CustomLook::buttonWidth));
 }
