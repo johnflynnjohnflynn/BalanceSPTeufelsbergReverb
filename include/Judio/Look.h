@@ -29,6 +29,7 @@ namespace jdo
 
 //==============================================================================
 /** Custom LookAndFeel class for uniform styling across plugins
+
     @see juce::LookAndFeel
 */
 class CustomLook  : public LookAndFeel_V3
@@ -48,10 +49,12 @@ public:
 
     void drawToggleButton (Graphics&, ToggleButton&, bool isMouseOverButton, bool isButtonDown) override;
 
-    Font getTextButtonFont (TextButton&, int buttonHeight);
-
     //==============================================================================
     virtual Typeface::Ptr getTypefaceForFont (const Font&);
+
+    Font getTextButtonFont (TextButton&, int buttonHeight);
+    Font getComboBoxFont (ComboBox&);
+    Font getPopupMenuFont();
 
 private:
     const float fontSize = 13.0f;
