@@ -71,7 +71,7 @@ CustomLook::CustomLook()
 }
 
 //==============================================================================
-Typeface::Ptr CustomLook::getTypefaceForFont (const Font& font)
+Typeface::Ptr CustomLook::getTypefaceForFont (const Font& /*font*/)
 {
     auto typPtr = Typeface::createSystemTypefaceFor(BinaryData::OpenSansRegular_ttf,
                                                     BinaryData::OpenSansRegular_ttfSize);
@@ -87,7 +87,7 @@ void CustomLook::drawRotarySlider (Graphics& g,
                                          float sliderPos,       // 0to1,
                                          float rotaryStartAngle,
                                          float rotaryEndAngle,
-                                         Slider& slider)
+                                         Slider& /*slider*/)
 {
     width > height ?                    // Centre knob in largest square that fits in slider rectangle
         (x = (width - height) / 2)
@@ -97,16 +97,18 @@ void CustomLook::drawRotarySlider (Graphics& g,
     const float scaleFactor = static_cast<float> (smallestSide) / knob.getWidth();
 
     g.drawImageTransformed (knob, AffineTransform{}.scaled (scaleFactor)
-                                                   .translated (x, y));
+                                                   .translated (static_cast<float> (x), 
+                                                                static_cast<float> (y)));
 
         // Calculate rotation
     const float angle = rotaryStartAngle + sliderPos * (rotaryEndAngle - rotaryStartAngle);
-    const float rotationCentre = knob.getWidth() / 2;
+    const float rotationCentre = static_cast<float> (knob.getWidth()) / 2;
     AffineTransform rotationTransform;
     rotationTransform = rotationTransform.rotation (angle, rotationCentre, rotationCentre);
 
     g.drawImageTransformed (knobMarker, rotationTransform.scaled (scaleFactor)
-                                                         .translated (x, y));
+                                                         .translated(static_cast<float> (x),
+                                                                     static_cast<float> (y)));
 }
 
 Slider::SliderLayout CustomLook::getSliderLayout (Slider& slider)
