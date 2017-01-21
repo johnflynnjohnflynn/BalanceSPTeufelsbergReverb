@@ -45,10 +45,7 @@ void Editor::paint (Graphics& g)
 
 void Editor::resized()
 {
-    const int sideBorder {20};
-    stateComponent.setBounds(sideBorder, 77,
-                             getWidth() - 2 * sideBorder,
-                             jdo::CustomLook::buttonHeight);
+    stateComponent.setBounds(0, 0, getWidth(), getHeight());
 
     mixSlider .setBounds (38, 172, 135, 135);
     gainSlider.setBounds (38, 308, 135, 135);
