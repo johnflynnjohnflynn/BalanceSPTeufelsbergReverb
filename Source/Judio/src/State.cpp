@@ -170,8 +170,8 @@ StateComponent::StateComponent (StateAB& sab, StatePresets& sp)
       toggleABButton {"A-B"},
       copyABButton {"Copy"},
       presetBox {"PresetBoxID"},
-      savePresetButton {"Save preset"},
-      deletePresetButton {"Delete preset"}
+      savePresetButton {"Save"},
+      deletePresetButton {"Delete"}
 {
     addAndMakeVisible (toggleABButton);
     addAndMakeVisible (copyABButton);
@@ -202,7 +202,7 @@ void StateComponent::resized()              // set button height by setting over
     const int spacer {5};
 
     toggleABButton    .setBounds (r.removeFromLeft (CustomLook::buttonWidth));
-    r.removeFromLeft (spacer);
+    r.removeFromLeft  (spacer);
     copyABButton      .setBounds (r.removeFromLeft (CustomLook::buttonWidth));
 
     deletePresetButton.setBounds (r.removeFromRight (CustomLook::buttonWidth));
