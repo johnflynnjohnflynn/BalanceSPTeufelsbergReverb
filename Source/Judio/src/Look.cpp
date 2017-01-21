@@ -29,29 +29,39 @@ namespace jdo
 CustomLook::CustomLook()
 {
     Colour almostWhite {0xffeeeeee};
+    Colour notSoWhite  {0xffb0b0b0};
     Colour grey20      {0xff202020};
     Colour grey30      {0xff303030};
+    Colour grey50      {0xff505050};
 
     setColour (TextButton::buttonColourId,   grey30);
     setColour (TextButton::buttonOnColourId, Colour (0xff0000ff));  // change something sensible later
-    setColour (TextButton::textColourOffId,  Colour (0xffb0b0b0));
+    setColour (TextButton::textColourOffId,  notSoWhite);
     setColour (TextButton::textColourOnId,   almostWhite);
 
     setColour (ComboBox::backgroundColourId, grey30);
     setColour (ComboBox::textColourId,       almostWhite);
     setColour (ComboBox::outlineColourId,    grey30);
     setColour (ComboBox::buttonColourId,     grey30); // outline when focussed ?
-    setColour (ComboBox::arrowColourId,      Colour (0xff505050));
+    setColour (ComboBox::arrowColourId,      grey50);
 
     setColour (PopupMenu::backgroundColourId,             grey30);
-    setColour (PopupMenu::textColourId,                   almostWhite);
+    setColour (PopupMenu::textColourId,                   notSoWhite);
     setColour (PopupMenu::headerTextColourId,             almostWhite);
     setColour (PopupMenu::highlightedBackgroundColourId,  Colour (0xff404040));
     setColour (PopupMenu::highlightedTextColourId,        Colour (0xfff3f3f3));
 
     setColour (AlertWindow::backgroundColourId, grey20);
-    setColour (AlertWindow::textColourId,       almostWhite);
+    setColour (AlertWindow::textColourId,       notSoWhite);
     setColour (AlertWindow::outlineColourId,    grey20);
+
+    setColour (TextEditor::backgroundColourId,       grey30);
+    setColour (TextEditor::textColourId,             notSoWhite);
+    setColour (TextEditor::highlightColourId,        grey50);
+    setColour (TextEditor::highlightedTextColourId,  almostWhite);
+    setColour (TextEditor::outlineColourId,          grey30);
+    setColour (TextEditor::focusedOutlineColourId,   grey30);
+    setColour (TextEditor::shadowColourId,           grey20);
 }
 
 //==============================================================================
@@ -200,4 +210,17 @@ void CustomLook::drawToggleButton (Graphics& g, ToggleButton& button,
                       Justification::centred, 10);
 }
 
+//==============================================================================
+Font CustomLook::getComboBoxFont (ComboBox& /*box*/)
+{
+    return Font (fontSize);
+}
+
+//==============================================================================
+Font CustomLook::getPopupMenuFont()
+{
+    return Font (fontSize);
+}
+
+//==============================================================================
 } // namespace
