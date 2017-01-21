@@ -47,10 +47,13 @@ void Editor::resized()
 {
     const int sideBorder {20};
     stateComponent.setBounds(sideBorder, 77,
-                             getWidth()-2*sideBorder, jdo::CustomLook::buttonHeight);
+                             getWidth() - 2 * sideBorder,
+                             jdo::CustomLook::buttonHeight);
 
     mixSlider .setBounds (38, 172, 135, 135);
     gainSlider.setBounds (38, 308, 135, 135);
 
-    bypassToggle.setBounds (469, 13, 65, 42);
+    bypassToggle.setBounds (466, 9,
+                            jdo::CustomLook::buttonWidth + 16,
+                            jdo::CustomLook::buttonLargeHeight + 8);
 }
