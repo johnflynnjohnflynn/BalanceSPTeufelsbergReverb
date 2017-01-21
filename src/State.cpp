@@ -20,6 +20,7 @@
 //--------//--------//--------//--------//--------//--------//--------//--------
 
 #include "Judio/State.h"
+#include "Judio/Look.h"
 
 namespace jdo
 {
@@ -194,18 +195,21 @@ void StateComponent::paint (Graphics& /*g*/)
     //g.fillAll (Colours::lightgrey);
 }
 
-void StateComponent::resized()
+void StateComponent::resized()              // set button height by setting overall component height!
 {
     Rectangle<int> r (getLocalBounds());
 
-    const int numComponents {6};
-    const int componentWidth {getWidth() / numComponents};
+    const int spacer {5};
 
-    toggleABButton    .setBounds (r.removeFromLeft (componentWidth).reduced (2));
-    copyABButton      .setBounds (r.removeFromLeft (componentWidth).reduced (2));
-    presetBox         .setBounds (r.removeFromLeft (componentWidth * 2).reduced (2));
-    savePresetButton  .setBounds (r.removeFromLeft (componentWidth).reduced (2));
-    deletePresetButton.setBounds (r.removeFromLeft (componentWidth).reduced (2));
+    toggleABButton    .setBounds (r.removeFromLeft (CustomLook::buttonWidth));
+    r.removeFromLeft (spacer);
+    copyABButton      .setBounds (r.removeFromLeft (CustomLook::buttonWidth));
+
+    deletePresetButton.setBounds (r.removeFromRight (CustomLook::buttonWidth));
+    r.removeFromRight (spacer);
+    presetBox         .setBounds (r.removeFromRight (CustomLook::buttonWidth * 3));
+    r.removeFromRight (spacer);
+    savePresetButton  .setBounds (r.removeFromRight (CustomLook::buttonWidth));
 }
 
 void StateComponent::buttonClicked (Button* clickedButton)

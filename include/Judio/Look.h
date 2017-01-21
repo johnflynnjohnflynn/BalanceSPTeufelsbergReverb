@@ -56,6 +56,11 @@ public:
     Font getComboBoxFont (ComboBox&);
     Font getPopupMenuFont();
 
+    //==============================================================================
+    static const int buttonWidth       {65};
+    static const int buttonHeight      {22};
+    static const int buttonLargeHeight {42};
+
 private:
     const float fontSize = 13.0f;
 
