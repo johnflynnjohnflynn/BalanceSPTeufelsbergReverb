@@ -28,12 +28,12 @@ namespace jdo
 
 CustomLook::CustomLook()
 {
-    Colour almostWhite {0xffeeeeee};                    // Slider stylings set in SliderStep not here!!!
-    Colour notSoWhite  {0xffb0b0b0};
-    Colour grey20      {0xff202020};
-    Colour grey30      {0xff303030};
-    Colour grey50      {0xff505050};
-    Colour transparent {0x00000000};
+    const Colour almostWhite {0xffeeeeee};                    // Slider stylings set in SliderStep not here!!!
+    const Colour notSoWhite  {0xffb0b0b0};
+    const Colour grey20      {0xff202020};
+    const Colour grey30      {0xff303030};
+    const Colour grey50      {0xff505050};
+    const Colour transparent {0x00000000};
 
     setColour (Slider::textBoxTextColourId,       notSoWhite);
     setColour (Slider::textBoxBackgroundColourId, transparent);
@@ -189,12 +189,12 @@ void CustomLook::drawButtonBackground (Graphics& g, Button& button, const Colour
     const bool flatOnTop    = button.isConnectedOnTop();
     const bool flatOnBottom = button.isConnectedOnBottom();
 
-    float border = 1.0f;
+    float border = 0.0f;
     if (dynamic_cast<ToggleButton*> (&button))                      // hideous again!
-        border = 10.0f;
+        border = 16.0f;
 
-    const float width  = button.getWidth() - border;
-    const float height = button.getHeight() - border;
+    const float width  = button.getWidth() + border;
+    const float height = button.getHeight() + border;
     const float pos = border / 2;
 
     if (width > 0 && height > 0)
@@ -202,7 +202,9 @@ void CustomLook::drawButtonBackground (Graphics& g, Button& button, const Colour
         const float cornerSize = 4.0f;
 
         Path outline;
-        outline.addRoundedRectangle (pos, pos, width, height, cornerSize, cornerSize,
+        outline.addRoundedRectangle (pos, pos,
+                                     width - 2 * border, height - 2 * border,
+                                     cornerSize, cornerSize,
                                      ! (flatOnLeft  || flatOnTop),
                                      ! (flatOnRight || flatOnTop),
                                      ! (flatOnLeft  || flatOnBottom),
@@ -213,9 +215,10 @@ void CustomLook::drawButtonBackground (Graphics& g, Button& button, const Colour
             if (b->getToggleState())
             {
                 DropShadow dropShadow {Colour {0xff1eaedb},
-                                       5,
+                                       8,
                                        Point<int> {0, 0}};
 
+                dropShadow.drawForPath (g, outline); // draw x2 for more density
                 dropShadow.drawForPath (g, outline);
             }
         }
