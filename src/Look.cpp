@@ -28,11 +28,17 @@ namespace jdo
 
 CustomLook::CustomLook()
 {
-    Colour almostWhite {0xffeeeeee};
+    Colour almostWhite {0xffeeeeee};                    // Slider stylings set in SliderStep not here!!!
     Colour notSoWhite  {0xffb0b0b0};
     Colour grey20      {0xff202020};
     Colour grey30      {0xff303030};
     Colour grey50      {0xff505050};
+    Colour transparent {0x00000000};
+
+    setColour (Slider::textBoxTextColourId,       notSoWhite);
+    setColour (Slider::textBoxBackgroundColourId, transparent);
+    setColour (Slider::textBoxHighlightColourId,  transparent);
+    setColour (Slider::textBoxOutlineColourId,    transparent);
 
     setColour (TextButton::buttonColourId,   grey30);
     setColour (TextButton::buttonOnColourId, Colour (0xff0000ff));  // change something sensible later
@@ -59,7 +65,7 @@ CustomLook::CustomLook()
     setColour (TextEditor::textColourId,             notSoWhite);
     setColour (TextEditor::highlightColourId,        grey50);
     setColour (TextEditor::highlightedTextColourId,  almostWhite);
-    setColour (TextEditor::outlineColourId,          grey30);
+    setColour (TextEditor::outlineColourId,          transparent);
     setColour (TextEditor::focusedOutlineColourId,   grey30);
     setColour (TextEditor::shadowColourId,           grey20);
 }
@@ -114,12 +120,46 @@ Slider::SliderLayout CustomLook::getSliderLayout (Slider& slider)
 
     const int smallestSide {jmin (w, h)};
 
-    layout.textBoxBounds = Rectangle<int> {w / 2 + 11,                      // x pos
-                                          (h / 2 - smallestSide / 2) + 4,   // y pos
-                                           40,                              // box width
-                                           12};                             // box height
+    layout.textBoxBounds = Rectangle<int> {w / 2 + 4,                       // x pos
+                                          (h / 2 - smallestSide / 2) + 2,   // y pos
+                                           55,                              // box width
+                                           18};                             // box height
 
     return layout;
+}
+
+class CustomLook::SliderLabelComp  : public Label
+{
+public:
+    SliderLabelComp() : Label (String(), String()) {}
+
+    void mouseWheelMove (const MouseEvent&, const MouseWheelDetails&) {}
+};
+
+Label* CustomLook::createSliderTextBox (Slider& slider)
+{
+    Label* const l = new SliderLabelComp();
+
+    l->setFont(Font {fontSize + 1});
+
+    l->setJustificationType (Justification::left);
+    l->setKeyboardType (TextInputTarget::decimalKeyboard);
+
+    l->setColour (Label::textColourId, slider.findColour (Slider::textBoxTextColourId));
+    l->setColour (Label::backgroundColourId,
+                  (slider.getSliderStyle() == Slider::LinearBar || slider.getSliderStyle() == Slider::LinearBarVertical)
+                            ? Colours::transparentBlack
+                            : slider.findColour (Slider::textBoxBackgroundColourId));
+    l->setColour (Label::outlineColourId, slider.findColour (Slider::textBoxOutlineColourId));
+    l->setColour (TextEditor::textColourId, slider.findColour (Slider::textBoxTextColourId));
+    l->setColour (TextEditor::backgroundColourId,
+                  slider.findColour (Slider::textBoxBackgroundColourId)
+                        .withAlpha ((slider.getSliderStyle() == Slider::LinearBar || slider.getSliderStyle() == Slider::LinearBarVertical)
+                                        ? 0.7f : 1.0f));
+    l->setColour (TextEditor::outlineColourId, slider.findColour (Slider::textBoxOutlineColourId));
+    l->setColour (TextEditor::highlightColourId, slider.findColour (Slider::textBoxHighlightColourId));
+
+    return l;
 }
 
 //==============================================================================
