@@ -1,0 +1,58 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup Condition="'$(UseDefaultPropertyPageSchemas)' != 'false'">
+        <PropertyPageSchema Condition="'$(ConfigurationType)'!='Utility' and '$(ConfigurationType)'!='Makefile'" Include="$(MSBuildThisFileDirectory)Microsoft.CppCoreCheck.xml" />
+    </ItemGroup>
+
+    <Target Name="CppCoreCheck_ValidateProject">
+        <Warning
+          Condition="'%(ClCompile.EnablePREfast)'=='true' and '%(ClCompile.CompileAsManaged)' != 'false' and '%(ClCompile.CompileAsManaged)' != ''"
+          Text="CppCoreCheck is disabled on C++/CLI projects."/>
+        <Warning
+          Condition="'%(ClCompile.EnablePREfast)'=='true' and '%(ClCompile.CompileAsWinRT)' == 'true'"
+          Text="CppCoreCheck is disabled on C++/CX projects."/>
+    </Target>
+
+    <PropertyGroup Condition="'$(EnableCppCoreCheck)' == 'true' Or '$(EnableExperimentalCppCoreCheck)' == 'true'">
+        <AfterBuildCompileTargets>
+            $(AfterBuildCompileTargets);
+            CppCoreCheck_ValidateProject;
+        </AfterBuildCompileTargets>
+    </PropertyGroup>
+
+    <ItemDefinitionGroup Condition="'$(EnableCppCoreCheck)' == 'true' Or '$(EnableExperimentalCppCoreCheck)' == 'true'">
+        <ClCompile>
+            <PREfastAdditionalPlugins Condition="'%(ClCompile.EnablePREfast)'=='true' and ('%(ClCompile.CompileAsManaged)' == 'false' or '%(ClCompile.CompileAsManaged)' == '') and '%(ClCompile.CompileAsWinRT)' != 'true'">
+                $(MSBuildThisFileDirectory)$(PreferredToolArchitecture)\EspXEngine.dll;%(ClCompile.PREfastAdditionalPlugins)
+            </PREfastAdditionalPlugins>
+        </ClCompile>
+    </ItemDefinitionGroup>
+
+    <ItemGroup Condition="'$(EnableCppCoreCheck)' == 'true'">
+        <CodeAnalysisExtension Include="CppCoreCheck.dll" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(EnableExperimentalCppCoreCheck)' == 'true'">
+        <CodeAnalysisExtension Include="ExperimentalCppCoreCheck.dll" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(EnableCppCoreCheck)' == 'true' Or '$(EnableExperimentalCppCoreCheck)' == 'true'">
+        <BuildMacro Include="CAExcludePath">
+            <EnvironmentVariable>true</EnvironmentVariable>
+            <Value>$(IncludePath)</Value>
+        </BuildMacro>
+        <BuildMacro Include="Esp_AnnotationBuildLevel">
+            <EnvironmentVariable>true</EnvironmentVariable>
+            <Value>Ignore</Value>
+        </BuildMacro>
+        <BuildMacro Include="Esp_Extensions">
+            <EnvironmentVariable>true</EnvironmentVariable>
+            <Value>@(CodeAnalysisExtension)</Value>
+        </BuildMacro>
+    </ItemGroup>
+
+    <ItemDefinitionGroup>
+        <ClCompile>
+            <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+        </ClCompile>
+    </ItemDefinitionGroup>
+</Project>

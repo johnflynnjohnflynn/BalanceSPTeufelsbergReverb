@@ -116,13 +116,13 @@ void ParamStepListenGain::changeListenerCallback (ChangeBroadcaster* source)
             // calc temp values
         const float newStepSize = stepSizeParam.get();
 
-        const int numSteps = getNumSteps();
+        const int steps = getNumSteps();
         const float oldMin = getRange().getStart();
         const float oldMax = getRange().getEnd();
         const float centre = oldMin + (oldMax - oldMin) / 2.0f;
         
-        const float newMin = centre - (numSteps * newStepSize) / 2.0f;
-        const float newMax = centre + (numSteps * newStepSize) / 2.0f;
+        const float newMin = centre - (steps * newStepSize) / 2.0f;
+        const float newMax = centre + (steps * newStepSize) / 2.0f;
 
             // hold parameter position before, to avoid clamping
         const float val0to1 = getRange().convertTo0to1 (get());
