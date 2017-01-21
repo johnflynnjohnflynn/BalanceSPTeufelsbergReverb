@@ -171,7 +171,8 @@ StateComponent::StateComponent (StateAB& sab, StatePresets& sp)
       copyABButton {"Copy"},
       presetBox {"PresetBoxID"},
       savePresetButton {"Save"},
-      deletePresetButton {"Delete"}
+      deletePresetButton {"Delete"},
+      settingsButton {"Settings"}
 {
     addAndMakeVisible (toggleABButton);
     addAndMakeVisible (copyABButton);
@@ -188,6 +189,9 @@ StateComponent::StateComponent (StateAB& sab, StatePresets& sp)
     savePresetButton.addListener (this);
     addAndMakeVisible (deletePresetButton);
     deletePresetButton.addListener (this);
+
+    addAndMakeVisible (settingsButton);
+    settingsButton.addListener (this);
 }
 
 void StateComponent::paint (Graphics& /*g*/)
@@ -195,11 +199,22 @@ void StateComponent::paint (Graphics& /*g*/)
     //g.fillAll (Colours::lightgrey);
 }
 
-void StateComponent::resized()              // set button height by setting overall component height!
+void StateComponent::resized()
 {
-    Rectangle<int> r (getLocalBounds());
-
+    const int sideBorder {20};
     const int spacer {5};
+
+    settingsButton.setBounds (getWidth() - CustomLook::buttonWidth - sideBorder,
+                              getHeight() - CustomLook::buttonHeight - 2 * spacer,
+                              CustomLook::buttonWidth,
+                              CustomLook::buttonHeight);
+
+    Rectangle<int> r (getLocalBounds());                // preset and state bar
+
+    r.removeFromTop   (77);
+    r.removeFromLeft  (sideBorder);
+    r.removeFromRight (sideBorder);
+    r.removeFromBottom(r.getHeight() - CustomLook::buttonHeight);
 
     toggleABButton    .setBounds (r.removeFromLeft (CustomLook::buttonWidth));
     r.removeFromLeft  (spacer);

@@ -113,6 +113,7 @@ private:
     ComboBox   presetBox;
     TextButton savePresetButton;
     TextButton deletePresetButton;
+    TextButton settingsButton;
 
     void buttonClicked (Button* clickedButton) override;
     void comboBoxChanged (ComboBox* changedComboBox) override;
