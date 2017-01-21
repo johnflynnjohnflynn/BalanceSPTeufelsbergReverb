@@ -44,6 +44,7 @@
 struct JassertError { JassertError() {} };
 
 #if AIDIO_UNIT_TESTS
+ #undef jassertfalse
  #define jassertfalse JUCE_BLOCK_WITH_FORCED_SEMICOLON (throw JassertError();)
 #endif
 

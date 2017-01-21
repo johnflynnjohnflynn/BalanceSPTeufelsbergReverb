@@ -24,12 +24,12 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#include "Convolution.h"
 #include <cassert>
 #include "gsl.h"
-#include "Utility.h"
-#include "Buffer.h"
-#include "Resampling.h"
+#include "Aidio/Convolution.h"
+#include "Aidio/Utility.h"
+#include "Aidio/Buffer.h"
+#include "Aidio/Resampling.h"
 
 namespace ado
 {
@@ -55,9 +55,9 @@ void Convolution::resampleIrOnRateChange (double sampleRate)
 
     if (sampleRate != lastSampleRate)
     {
-        irResampled = ado::resampleBuffer (irOriginal, sampleRate);
+        irResampled = ado::resampleBuffer (irOriginal, static_cast<int> (sampleRate));
 
-        const double scale = irOriginal.getSampleRate() / sampleRate; // more samples convolved = louder!
+        const float scale = static_cast<float> (irOriginal.getSampleRate() / sampleRate); // more samples convolved = louder!
         irResampled *= scale;
 
         set (irResampled);
