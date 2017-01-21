@@ -36,7 +36,7 @@ private:
     jdo::SliderStep mixSlider;
     jdo::SliderStep gainSlider;
 
-    ToggleButton bypassToggle {"Bypass"};
+    ToggleButton bypassToggle {"On"};
 
     Image backgroundImage {ImageCache::getFromMemory (BinaryData::layout04NoKnobsfs8_png,
                                                       BinaryData::layout04NoKnobsfs8_pngSize)};
