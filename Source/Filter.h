@@ -36,7 +36,7 @@ private:
     std::vector<double> yn_1;
     std::vector<double> yn_2;
 
-    float denormal {1.0e-8}; // use to keep mantissa from dropping below 1.xxx
+    float denormal {1.0e-8f}; // use to keep mantissa from dropping below 1.xxx
                               // see http://www.earlevel.com/main/2012/12/03/a-note-about-de-normalization/
                               // also see Falco's DspFilters MathSupplement.h re: 1e-8?
 };
