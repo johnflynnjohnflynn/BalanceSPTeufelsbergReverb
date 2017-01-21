@@ -113,22 +113,16 @@ Slider::SliderLayout CustomLook::getSliderLayout (Slider& slider)
 }
 
 //==============================================================================
+Font CustomLook::getTextButtonFont (TextButton&, int /*buttonHeight*/)
+{
+    return Font (fontSize);
+}
+
 static void drawButtonShape (Graphics& g, const Path& outline, Colour baseColour, float height)
 {
-    //const float mainBrightness = baseColour.getBrightness();
-    //const float mainAlpha = baseColour.getFloatAlpha();
-
     g.setGradientFill (ColourGradient (baseColour.brighter (0.025f), 0.0f, 0.0f,
                                        baseColour.darker (0.025f), 0.0f, height, false));
-    g.fillPath (outline);
-
-
-        // Don't draw outline!
-    //g.setColour (Colours::white.withAlpha (0.4f * mainAlpha * mainBrightness * mainBrightness));
-    //g.strokePath (outline, PathStrokeType (1.0f), AffineTransform::translation (0.0f, 1.0f)
-    //                                                    .scaled (1.0f, (height - 1.6f) / height));
-    //g.setColour (Colours::black.withAlpha (0.4f * mainAlpha));
-    //g.strokePath (outline, PathStrokeType (1.0f));
+    g.fillPath (outline);   // Don't draw outline, just fill
 }
 
 void CustomLook::drawButtonBackground (Graphics& g, Button& button, const Colour& backgroundColour,
@@ -146,7 +140,7 @@ void CustomLook::drawButtonBackground (Graphics& g, Button& button, const Colour
     const bool flatOnBottom = button.isConnectedOnBottom();
 
     float border = 1.0f;
-    if (dynamic_cast<ToggleButton*> (&button))            // hideous again!
+    if (dynamic_cast<ToggleButton*> (&button))                      // hideous again!
         border = 10.0f;
 
     const float width  = button.getWidth() - border;
@@ -198,8 +192,6 @@ void CustomLook::drawToggleButton (Graphics& g, ToggleButton& button,
     else
         g.setColour (button.findColour (TextButton::textColourOffId));
 
-
-    float fontSize = jmin (15.0f, button.getHeight() * 0.75f);
     g.setFont (fontSize);
 
     g.drawFittedText (button.getButtonText(),
