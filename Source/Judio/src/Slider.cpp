@@ -33,14 +33,6 @@ SliderStep::SliderStep (AudioProcessorParameter& p)
     setTextBoxStyle (Slider::TextEntryBoxPosition::TextBoxAbove, false, 75, 16);
     setRotaryParameters (float_Pi * 1.2f + 0.1f, float_Pi * 2.8f - 0.1f, true);
 
-    Colour almostWhite {0xffeeeeee};
-    Colour grey20      {0xff202020};
-    Colour grey30      {0xff303030};
-    setColour (Slider::textBoxTextColourId,       almostWhite);                     // move to lookandfeel?
-    setColour (Slider::textBoxBackgroundColourId, grey20);
-    setColour (Slider::textBoxHighlightColourId,  grey30);
-    setColour (Slider::textBoxOutlineColourId,    grey20);
-
     if (1 <= p.getNumSteps() && p.getNumSteps() <= 100) // <=100? defaults to 37850784 steps!
     {
         const double normStepSize = 1.0 / (p.getNumSteps());

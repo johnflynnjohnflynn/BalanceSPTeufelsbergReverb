@@ -28,7 +28,7 @@ namespace jdo
 {
 
 //==============================================================================
-/** Custom LookAndFeel class for uniform styling across plugins
+/** Custom LookAndFeel class for uniform styling across plugins                    // Slider stylings set in SliderStep not here!!!
 
     @see juce::LookAndFeel
 */
@@ -43,6 +43,8 @@ public:
 
     Slider::SliderLayout getSliderLayout (Slider& slider) override;
 
+    Label* createSliderTextBox (Slider&) override;
+
     //==============================================================================    // very hacky now!
     void drawButtonBackground (Graphics&, Button&, const Colour& backgroundColour,      // make button/toggle
                            bool isMouseOverButton, bool isButtonDown) override;         // more generic
@@ -50,11 +52,11 @@ public:
     void drawToggleButton (Graphics&, ToggleButton&, bool isMouseOverButton, bool isButtonDown) override;
 
     //==============================================================================
-    virtual Typeface::Ptr getTypefaceForFont (const Font&);
+    virtual Typeface::Ptr getTypefaceForFont (const Font&) override;
 
-    Font getTextButtonFont (TextButton&, int buttonHeight);
-    Font getComboBoxFont (ComboBox&);
-    Font getPopupMenuFont();
+    Font getTextButtonFont (TextButton&, int buttonHeight) override;
+    Font getComboBoxFont (ComboBox&) override;
+    Font getPopupMenuFont() override;
 
     //==============================================================================
     static const int buttonWidth       {65};
@@ -68,6 +70,8 @@ private:
                                                  BinaryData::layout04knob01onfs8_pngSize)};
     Image knobMarker {ImageCache::getFromMemory (BinaryData::layout04knob01dotonfs8_png,
                                                  BinaryData::layout04knob01dotonfs8_pngSize)};
+
+    class SliderLabelComp;
 };
 
 //==============================================================================
