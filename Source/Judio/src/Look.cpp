@@ -39,6 +39,7 @@ CustomLook::CustomLook()
     setColour (Slider::textBoxBackgroundColourId, transparent);
     setColour (Slider::textBoxHighlightColourId,  transparent);
     setColour (Slider::textBoxOutlineColourId,    transparent);
+    setColour (Slider::thumbColourId,             grey50);
 
     setColour (TextButton::buttonColourId,   grey30);
     setColour (TextButton::buttonOnColourId, Colour (0xff0000ff));  // change something sensible later

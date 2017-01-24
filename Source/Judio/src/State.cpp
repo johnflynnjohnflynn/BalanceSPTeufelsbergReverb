@@ -164,7 +164,7 @@ void populateComboBox (ComboBox& comboBox, const StringArray& listItems)
 }
 
 //==============================================================================
-StateComponent::StateComponent (StateAB& sab, StatePresets& sp)
+StateComponent::StateComponent (StateAB& sab, StatePresets& sp, AudioProcessorParameter& gainStepSizeParam)
     : procStateAB {sab},
       procStatePresets {sp},
       toggleABButton {"A-B"},
@@ -172,7 +172,8 @@ StateComponent::StateComponent (StateAB& sab, StatePresets& sp)
       presetBox {"PresetBoxID"},
       savePresetButton {"Save"},
       deletePresetButton {"Delete"},
-      settingsButton {"Settings"}
+      settingsButton {"Settings"},
+      stepSizeSlider {gainStepSizeParam}
 {
     addAndMakeVisible (toggleABButton);
     addAndMakeVisible (copyABButton);
@@ -233,6 +234,7 @@ void StateComponent::buttonClicked (Button* clickedButton)
     if (clickedButton == &copyABButton)       procStateAB.copyAB();
     if (clickedButton == &savePresetButton)   savePresetAlertWindow();
     if (clickedButton == &deletePresetButton) deletePresetAndRefresh();
+    if (clickedButton == &settingsButton)     settingsAlertWindow();
 }
 
 void StateComponent::comboBoxChanged (ComboBox* changedComboBox)
@@ -279,6 +281,28 @@ void StateComponent::savePresetAlertWindow()
         procStatePresets.savePreset (presetName);
         refreshPresetBox();
         presetBox.setSelectedId (procStatePresets.getNumPresets());
+    }
+}
+
+void StateComponent::settingsAlertWindow()
+{
+    enum choice { ok, cancel };
+
+    AlertWindow alert   {"Settings", "", AlertWindow::AlertIconType::NoIcon};
+
+    stepSizeSlider.setBounds(0, 0, 300, 22);
+    stepSizeSlider.setSliderStyle (Slider::SliderStyle::LinearBar);
+    alert.addCustomComponent (&stepSizeSlider);
+    alert.addButton     ("OK",     choice::ok,     KeyPress (KeyPress::returnKey, 0, 0));
+    alert.addButton     ("Cancel", choice::cancel, KeyPress (KeyPress::escapeKey, 0, 0));
+    
+    if (alert.runModalLoop() == choice::ok)                                     // LEAKS when quit while open !!!
+    {
+        /*String presetName {alert.getTextEditorContents ("presetEditorID")};
+
+        procStatePresets.savePreset (presetName);
+        refreshPresetBox();
+        presetBox.setSelectedId (procStatePresets.getNumPresets());*/
     }
 }
 

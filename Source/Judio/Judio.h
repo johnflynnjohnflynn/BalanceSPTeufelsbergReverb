@@ -38,6 +38,5 @@
 #include "Parameter.h"
 #include "Slider.h"
 #include "State.h"
-#include "UtilityBar.h"
 
 #endif  // JUDIO_H_INCLUDED
