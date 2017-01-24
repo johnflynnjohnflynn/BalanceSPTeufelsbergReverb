@@ -32,6 +32,12 @@ namespace ado
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 
+Buffer::Buffer (int numChannels, int numSamples, int samplingRate)
+    : sampleRate {-1}
+{
+    clearAndResize (numChannels, numSamples, samplingRate);
+}
+
 void Buffer::clearAndResize (int numChannels, int numSamples)
 {
     Expects (numChannels  > 0);
