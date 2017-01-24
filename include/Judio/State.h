@@ -23,6 +23,8 @@
 #define STATE_H_INCLUDED
 
 #include "../../JuceLibraryCode/JuceHeader.h"
+#include "Judio/Slider.h"
+#include "Judio/Parameter.h"
 
 namespace jdo
 {
@@ -99,7 +101,7 @@ class StateComponent  : public Component,
                         public ComboBox::Listener
 {
 public:
-    StateComponent (StateAB& sab, StatePresets& sp);
+    StateComponent (StateAB& sab, StatePresets& sp, AudioProcessorParameter& gainStepSizeParam);
     
     void paint (Graphics&) override;
     void resized() override;
@@ -108,12 +110,13 @@ private:
     StateAB&      procStateAB;
     StatePresets& procStatePresets;
 
-    TextButton toggleABButton;
-    TextButton copyABButton;
-    ComboBox   presetBox;
-    TextButton savePresetButton;
-    TextButton deletePresetButton;
-    TextButton settingsButton;
+    TextButton      toggleABButton;
+    TextButton      copyABButton;
+    ComboBox        presetBox;
+    TextButton      savePresetButton;
+    TextButton      deletePresetButton;
+    TextButton      settingsButton;
+    jdo::SliderStep stepSizeSlider;
 
     void buttonClicked (Button* clickedButton) override;
     void comboBoxChanged (ComboBox* changedComboBox) override;
@@ -122,6 +125,7 @@ private:
     void ifPresetActiveShowInBox();
     void deletePresetAndRefresh();
     void savePresetAlertWindow();
+    void settingsAlertWindow();
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StateComponent);
 };

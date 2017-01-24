@@ -144,7 +144,6 @@
     <ClCompile Include="..\..\src\Parameter.cpp"/>
     <ClCompile Include="..\..\src\Slider.cpp"/>
     <ClCompile Include="..\..\src\State.cpp"/>
-    <ClCompile Include="..\..\src\UtilityBar.cpp"/>
     <ClCompile Include="..\..\test\main.cpp"/>
     <ClCompile Include="..\..\test\TestHelper.cpp"/>
     <ClCompile Include="..\..\test\TestParameter.cpp"/>
@@ -1684,7 +1683,6 @@
     <ClInclude Include="..\..\include\Judio\Parameter.h"/>
     <ClInclude Include="..\..\include\Judio\Slider.h"/>
     <ClInclude Include="..\..\include\Judio\State.h"/>
-    <ClInclude Include="..\..\include\Judio\UtilityBar.h"/>
     <ClInclude Include="..\..\lib\Aidio\Aidio.h"/>
     <ClInclude Include="..\..\lib\Aidio\Buffer.h"/>
     <ClInclude Include="..\..\lib\Aidio\Convolution.h"/>
