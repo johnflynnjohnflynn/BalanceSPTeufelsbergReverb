@@ -45,10 +45,7 @@ namespace ado
 class Buffer
 {
 public:
-    Buffer (int numChannels, int numSamples, int samplingRate = 44100)
-    {
-        clearAndResize (numChannels, numSamples, samplingRate);
-    }
+    Buffer (int numChannels, int numSamples, int samplingRate = 44100);
     ~Buffer() {}
 
     void clearAndResize (int numChannels, int numSamples);
