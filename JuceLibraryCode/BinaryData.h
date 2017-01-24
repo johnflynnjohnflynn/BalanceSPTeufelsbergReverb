@@ -25,7 +25,7 @@ namespace BinaryData
     const int            layout04knob01onfs8_pngSize = 13452;
 
     extern const char*   layout04NoKnobsfs8_png;
-    const int            layout04NoKnobsfs8_pngSize = 204214;
+    const int            layout04NoKnobsfs8_pngSize = 203414;
 
     extern const char*   OpenSansRegular_ttf;
     const int            OpenSansRegular_ttfSize = 217360;
