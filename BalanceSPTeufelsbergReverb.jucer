@@ -48,22 +48,20 @@
         <FILE id="E0TmbB" name="Test.h" compile="0" resource="0" file="Source/Aidio/Test.h"/>
         <FILE id="Ht5aQ4" name="Utility.h" compile="0" resource="0" file="Source/Aidio/Utility.h"/>
       </GROUP>
-      <GROUP id="{C274593C-801E-B1F4-D44E-D9460660671F}" name="Judio">
-        <GROUP id="{0E5AD68D-306A-BF07-7171-CDBEEDD5D8A6}" name="src">
-          <FILE id="QVFcAS" name="Helper.cpp" compile="1" resource="0" file="Source/Judio/src/Helper.cpp"/>
-          <FILE id="XuIasg" name="Look.cpp" compile="1" resource="0" file="Source/Judio/src/Look.cpp"/>
-          <FILE id="u0nBjg" name="Parameter.cpp" compile="1" resource="0" file="Source/Judio/src/Parameter.cpp"/>
-          <FILE id="D9Fz1p" name="Slider.cpp" compile="1" resource="0" file="Source/Judio/src/Slider.cpp"/>
-          <FILE id="bgSyda" name="State.cpp" compile="1" resource="0" file="Source/Judio/src/State.cpp"/>
-          <FILE id="TpYobx" name="UtilityBar.cpp" compile="1" resource="0" file="Source/Judio/src/UtilityBar.cpp"/>
+      <GROUP id="{45101194-FA4E-2EBC-0BF8-A9D6BA1C2DA8}" name="Judio">
+        <GROUP id="{F7E5A27E-2229-5C4D-E622-541AC24BC9B8}" name="src">
+          <FILE id="Cg8lf6" name="Helper.cpp" compile="1" resource="0" file="Source/Judio/src/Helper.cpp"/>
+          <FILE id="PafIy4" name="Look.cpp" compile="1" resource="0" file="Source/Judio/src/Look.cpp"/>
+          <FILE id="zr6EbS" name="Parameter.cpp" compile="1" resource="0" file="Source/Judio/src/Parameter.cpp"/>
+          <FILE id="scGYDm" name="Slider.cpp" compile="1" resource="0" file="Source/Judio/src/Slider.cpp"/>
+          <FILE id="SKP677" name="State.cpp" compile="1" resource="0" file="Source/Judio/src/State.cpp"/>
         </GROUP>
-        <FILE id="EUkn2J" name="Helper.h" compile="0" resource="0" file="Source/Judio/Helper.h"/>
-        <FILE id="mI6N8l" name="Judio.h" compile="0" resource="0" file="Source/Judio/Judio.h"/>
-        <FILE id="IMg9kK" name="Look.h" compile="0" resource="0" file="Source/Judio/Look.h"/>
-        <FILE id="plpTEZ" name="Parameter.h" compile="0" resource="0" file="Source/Judio/Parameter.h"/>
-        <FILE id="MD60GY" name="Slider.h" compile="0" resource="0" file="Source/Judio/Slider.h"/>
-        <FILE id="KJJiJu" name="State.h" compile="0" resource="0" file="Source/Judio/State.h"/>
-        <FILE id="NeYzcM" name="UtilityBar.h" compile="0" resource="0" file="Source/Judio/UtilityBar.h"/>
+        <FILE id="JZhjhX" name="Helper.h" compile="0" resource="0" file="Source/Judio/Helper.h"/>
+        <FILE id="sXHrpm" name="Judio.h" compile="0" resource="0" file="Source/Judio/Judio.h"/>
+        <FILE id="Zv2QPS" name="Look.h" compile="0" resource="0" file="Source/Judio/Look.h"/>
+        <FILE id="jn1kPh" name="Parameter.h" compile="0" resource="0" file="Source/Judio/Parameter.h"/>
+        <FILE id="O7a3b5" name="Slider.h" compile="0" resource="0" file="Source/Judio/Slider.h"/>
+        <FILE id="i8vbUJ" name="State.h" compile="0" resource="0" file="Source/Judio/State.h"/>
       </GROUP>
       <GROUP id="{18483275-6744-FD53-3603-D678BE520D4D}" name="WDL">
         <FILE id="BWQgib" name="convoengine.cpp" compile="1" resource="0" file="Source/WDL/convoengine.cpp"/>

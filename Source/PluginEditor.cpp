@@ -14,7 +14,7 @@
 //==============================================================================
 Editor::Editor (Processor& p)
     : AudioProcessorEditor (&p),
-      stateComponent {p.stateAB, p.statePresets},
+      stateComponent {p.stateAB, p.statePresets, *p.getParameters()[0]},
       //gainStepSizeSlider {*p.getParameters()[0]},                             // these now live in UtilityComponent
       //freqStepSizeSlider {*p.getParameters()[1]},
       mixSlider            {*p.getParameters()[2]},                             // better way than indices?
