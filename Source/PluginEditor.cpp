@@ -14,12 +14,12 @@
 //==============================================================================
 Editor::Editor (Processor& p)
     : AudioProcessorEditor (&p),
-      stateComponent {p.stateAB, p.statePresets, *p.getParameters()[0]},
+      stateComponent {p.stateAB, p.statePresets}, //*p.getParameters()[0]},
       //gainStepSizeSlider {*p.getParameters()[0]},                             // these now live in State
       //freqStepSizeSlider {*p.getParameters()[1]},
-      irChooseSlider       {*p.getParameters()[1]},
-      mixSlider            {*p.getParameters()[2]},                             // better way than indices?
-      gainSlider           {*p.getParameters()[3]},
+      irChooseSlider       {*p.getParameters()[0]},
+      mixSlider            {*p.getParameters()[1]},                             // better way than indices?
+      gainSlider           {*p.getParameters()[2]},
       bypassToggle {"On"},
       processor (p)
 {
