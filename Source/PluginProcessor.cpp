@@ -39,10 +39,11 @@ Processor::Processor()
     addParameter (mixParam);
     addParameter (gainParam);
 
-    jdo::bufferLoadFromWavBinaryData (BinaryData::Europa_wav,
-                                      BinaryData::Europa_wavSize,
+    jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR014410024bit_wav,
+                                      BinaryData::balancemasteringteufelsbergIR014410024bit_wavSize,
                                       ir,
                                       44100);
+    ir *= 0.1; // reduce WAV gain
     engine.set (ir);
 }
 
@@ -171,7 +172,6 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
     engine.process (buffer.getArrayOfWritePointers(),       // convolve buffer
                     bufferNumChannels,
                     bufferNumSamples);
-    buffer.applyGain (0.01);
     buffer.applyGain (mix);
 
     for (int chan = 0; chan < bufferNumChannels; ++chan)    // mix back dry

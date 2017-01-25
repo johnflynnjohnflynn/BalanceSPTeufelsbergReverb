@@ -13,7 +13,18 @@
               defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;">
   <MAINGROUP id="QuTSDH" name="BalanceSPTeufelsbergReverb">
     <GROUP id="{BEE0B3EC-1FBF-760F-F70A-05FD1058C7B5}" name="Resources">
-      <FILE id="Pd3V5v" name="Europa.wav" compile="0" resource="1" file="Resources/Europa.wav"/>
+      <FILE id="NWZyHr" name="balance-mastering-teufelsberg-IR-01-44100-24bit.wav"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-01-44100-24bit.wav"/>
+      <FILE id="jcQl8I" name="balance-mastering-teufelsberg-IR-02-44100-24bit.wav"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-02-44100-24bit.wav"/>
+      <FILE id="ata14i" name="balance-mastering-teufelsberg-IR-03-44100-24bit.wav"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-03-44100-24bit.wav"/>
+      <FILE id="BlOLPH" name="balance-mastering-teufelsberg-IR-04-44100-24bit.wav"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-04-44100-24bit.wav"/>
+      <FILE id="FmHkXG" name="balance-mastering-teufelsberg-IR-05-44100-24bit.wav"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-05-44100-24bit.wav"/>
+      <FILE id="VmV5CA" name="balance-mastering-teufelsberg-IR-06-44100-24bit.wav"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-06-44100-24bit.wav"/>
       <FILE id="JylYpO" name="layout04knob01dotoff-fs8.png" compile="0" resource="1"
             file="Resources/layout04knob01dotoff-fs8.png"/>
       <FILE id="dDTdgp" name="layout04knob01doton-fs8.png" compile="0" resource="1"
@@ -26,10 +37,6 @@
             file="Resources/layout04NoKnobs-fs8.png"/>
       <FILE id="aDbh3F" name="OpenSans-Regular.ttf" compile="0" resource="1"
             file="Resources/OpenSans-Regular.ttf"/>
-      <FILE id="YlEv0y" name="PercussionAir.wav" compile="0" resource="1"
-            file="Resources/PercussionAir.wav"/>
-      <FILE id="ca80CY" name="PercussionAirShort.wav" compile="0" resource="1"
-            file="Resources/PercussionAirShort.wav"/>
     </GROUP>
     <GROUP id="{94CA6903-4B8D-DD43-557E-5CE559F273F9}" name="Source">
       <GROUP id="{C1B3C3B4-6126-D2A9-3301-28FA1D86F974}" name="Aidio">
