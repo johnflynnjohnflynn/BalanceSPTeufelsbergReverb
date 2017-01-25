@@ -82,10 +82,10 @@ void rawBufferDownmix4To2 (float** buffer, int samples)
     }
 }
 
-//--------//--------//--------//--------//--------//--------//--------//--------
+//--------//--------//--------//--------//--------//--------//--------//--------    // rawbufferview
 /** 
     Outputs 2 channel from a mono raw buffer pointer. NOT CHECKED!
-*/
+
 ado::RawBufferView rawBufferCopyChannelPointers1to2 (float** buffer)
 {
     ado::RawBufferView bv;
@@ -95,11 +95,11 @@ ado::RawBufferView rawBufferCopyChannelPointers1to2 (float** buffer)
 
     return bv;
 }
-
+*/
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
     Outputs 4 channel from a 2 channel raw buffer pointer 12->1122. NOT CHECKED!
-*/
+
 ado::RawBufferView rawBufferCopyChannelPointers2to4 (float** buffer)
 {
     ado::RawBufferView bv;
@@ -111,7 +111,7 @@ ado::RawBufferView rawBufferCopyChannelPointers2to4 (float** buffer)
 
     return bv;
 }
-
+*/
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
     Next power of two integer larger than x
