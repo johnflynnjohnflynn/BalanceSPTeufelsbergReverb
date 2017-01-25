@@ -101,7 +101,7 @@ class StateComponent  : public Component,
                         public ComboBox::Listener
 {
 public:
-    StateComponent (StateAB& sab, StatePresets& sp, AudioProcessorParameter& gainStepSizeParam);
+    StateComponent (StateAB& sab, StatePresets& sp); //, AudioProcessorParameter& gainStepSizeParam);
     
     void paint (Graphics&) override;
     void resized() override;
@@ -115,8 +115,8 @@ private:
     ComboBox        presetBox;
     TextButton      savePresetButton;
     TextButton      deletePresetButton;
-    TextButton      settingsButton;
-    jdo::SliderStep stepSizeSlider;
+    // TextButton      settingsButton;
+    // jdo::SliderStep stepSizeSlider;
 
     void buttonClicked (Button* clickedButton) override;
     void comboBoxChanged (ComboBox* changedComboBox) override;
@@ -125,7 +125,7 @@ private:
     void ifPresetActiveShowInBox();
     void deletePresetAndRefresh();
     void savePresetAlertWindow();
-    void settingsAlertWindow();
+    // void settingsAlertWindow();
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StateComponent);
 };

@@ -164,16 +164,16 @@ void populateComboBox (ComboBox& comboBox, const StringArray& listItems)
 }
 
 //==============================================================================
-StateComponent::StateComponent (StateAB& sab, StatePresets& sp, AudioProcessorParameter& gainStepSizeParam)
+StateComponent::StateComponent (StateAB& sab, StatePresets& sp)//, AudioProcessorParameter& gainStepSizeParam)
     : procStateAB {sab},
       procStatePresets {sp},
       toggleABButton {"A-B"},
       copyABButton {"Copy"},
       presetBox {"PresetBoxID"},
       savePresetButton {"Save"},
-      deletePresetButton {"Delete"},
-      settingsButton {"Settings"},
-      stepSizeSlider {gainStepSizeParam}
+      deletePresetButton {"Delete"}
+      // settingsButton {"Settings"},
+      // stepSizeSlider {gainStepSizeParam}
 {
     addAndMakeVisible (toggleABButton);
     addAndMakeVisible (copyABButton);
@@ -191,8 +191,8 @@ StateComponent::StateComponent (StateAB& sab, StatePresets& sp, AudioProcessorPa
     addAndMakeVisible (deletePresetButton);
     deletePresetButton.addListener (this);
 
-    addAndMakeVisible (settingsButton);
-    settingsButton.addListener (this);
+    // addAndMakeVisible (settingsButton);
+    // settingsButton.addListener (this);
 }
 
 void StateComponent::paint (Graphics& /*g*/)
@@ -204,12 +204,12 @@ void StateComponent::resized()
 {
     const int sideBorder {20};
     const int spacer {5};
-
+/*
     settingsButton.setBounds (getWidth() - CustomLook::buttonWidth - sideBorder,
                               getHeight() - CustomLook::buttonHeight - 2 * spacer,
                               CustomLook::buttonWidth,
                               CustomLook::buttonHeight);
-
+*/
     Rectangle<int> r (getLocalBounds());                // preset and state bar
 
     r.removeFromTop   (77);
@@ -234,7 +234,7 @@ void StateComponent::buttonClicked (Button* clickedButton)
     if (clickedButton == &copyABButton)       procStateAB.copyAB();
     if (clickedButton == &savePresetButton)   savePresetAlertWindow();
     if (clickedButton == &deletePresetButton) deletePresetAndRefresh();
-    if (clickedButton == &settingsButton)     settingsAlertWindow();
+    // if (clickedButton == &settingsButton)     settingsAlertWindow();
 }
 
 void StateComponent::comboBoxChanged (ComboBox* changedComboBox)
@@ -283,7 +283,7 @@ void StateComponent::savePresetAlertWindow()
         presetBox.setSelectedId (procStatePresets.getNumPresets());
     }
 }
-
+/*
 void StateComponent::settingsAlertWindow()
 {
     enum choice { ok, cancel };
@@ -298,12 +298,7 @@ void StateComponent::settingsAlertWindow()
     
     if (alert.runModalLoop() == choice::ok)                                     // LEAKS when quit while open !!!
     {
-        /*String presetName {alert.getTextEditorContents ("presetEditorID")};
-
-        procStatePresets.savePreset (presetName);
-        refreshPresetBox();
-        presetBox.setSelectedId (procStatePresets.getNumPresets());*/
     }
 }
-
+*/
 } // namespace jdo
