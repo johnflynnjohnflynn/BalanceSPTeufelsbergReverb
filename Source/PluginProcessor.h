@@ -13,8 +13,6 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Judio/Judio.h"
-#include "OrfanidisCalc.h"
-#include "Filter.h"
 
 //==============================================================================
 /**
@@ -66,38 +64,12 @@ private:
     //==============================================================================
     jdo::CustomLook look;
 
-    jdo::ParamStepBroadcast*  gainStepSizeParam;   // Raw pointers here. Processor's
-    jdo::ParamStepBroadcast*  freqStepSizeParam;   // managedParameters OwnedArray
-                                                         // owns and manages. (See xtor.)
-    jdo::ParamStepListenGain* gain1Param;
-    jdo::ParamStepListenFreq* freq1Param;
-    jdo::ParamStep*           q1Param;
-    jdo::ParamStepListenGain* gain2Param;
-    jdo::ParamStepListenFreq* freq2Param;
-    jdo::ParamStep*           q2Param;
-    jdo::ParamStepListenGain* gain3Param;
-    jdo::ParamStepListenFreq* freq3Param;
-    jdo::ParamStep*           q3Param;
-    jdo::ParamStepListenGain* gain4Param;
-    jdo::ParamStepListenFreq* freq4Param;
-    jdo::ParamStep*           q4Param;
-    jdo::ParamStepListenGain* gain5Param;
-    jdo::ParamStepListenFreq* freq5Param;
-    jdo::ParamStep*           q5Param;
-    jdo::ParamStepListenGain* gain6Param;
-    jdo::ParamStepListenFreq* freq6Param;
-    jdo::ParamStep*           q6Param;
-    jdo::ParamStepListenGain* gain7Param;
-    jdo::ParamStepListenFreq* freq7Param;
-    jdo::ParamStep*           q7Param;
+    jdo::ParamStepBroadcast*  gainStepSizeParam;    // Raw pointers here. Processor's
+                                                    // managedParameters OwnedArray
+    jdo::ParamStep*           reverbTypeParam;      // owns and manages. (See xtor.)
 
-    filter::ParametricBand band1;
-    filter::ParametricBand band2;
-    filter::ParametricBand band3;
-    filter::ParametricBand band4;
-    filter::ParametricBand band5;
-    filter::ParametricBand band6;
-    filter::ParametricBand band7;
+    jdo::ParamStep*           mixParam;
+    jdo::ParamStep*           gainParam;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Processor)
 };

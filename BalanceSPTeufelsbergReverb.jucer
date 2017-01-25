@@ -91,7 +91,7 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" extraCompilerFlags="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
                        osxCompatibility="10.5 SDK" headerPath="../../Source"/>
