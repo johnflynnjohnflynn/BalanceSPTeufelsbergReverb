@@ -66,10 +66,12 @@ private:
 
     // jdo::ParamStepBroadcast*  gainStepSizeParam; // Raw pointers here. Processor's
                                                     // managedParameters OwnedArray
-    jdo::ParamStep*           reverbTypeParam;      // owns and manages. (See xtor.)
+    jdo::ParamStep* reverbTypeParam;                // owns and manages. (See xtor.)
+    jdo::ParamStep* mixParam;
+    jdo::ParamStep* gainParam;
 
-    jdo::ParamStep*           mixParam;
-    jdo::ParamStep*           gainParam;
+    ado::Buffer ir {1, 1};
+    ado::Convolution engine {ir};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Processor)
 };

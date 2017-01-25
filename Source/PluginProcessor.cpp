@@ -38,6 +38,12 @@ Processor::Processor()
     addParameter (reverbTypeParam);
     addParameter (mixParam);
     addParameter (gainParam);
+
+    jdo::bufferLoadFromWavBinaryData (BinaryData::Europa_wav,
+                                      BinaryData::Europa_wavSize,
+                                      ir,
+                                      44100);
+    engine.set (ir);
 }
 
 Processor::~Processor()
@@ -102,6 +108,8 @@ void Processor::prepareToPlay (double sampleRate, int /*samplesPerBlock*/)
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+
+    engine.resampleIrOnRateChange (sampleRate);
 }
 
 void Processor::releaseResources()
@@ -139,6 +147,9 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
     const int totalNumInputChannels  = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
 
+    const int bufferNumChannels = buffer.getNumChannels();
+    const int bufferNumSamples  = buffer.getNumSamples();
+
     // In case we have more outputs than inputs, this code clears any output
     // channels that didn't contain input data, (because these aren't
     // guaranteed to be empty - they may contain garbage).
@@ -146,17 +157,27 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
     // when they first compile a plugin, but obviously you don't need to keep
     // this code if your algorithm always overwrites all the output channels.
     for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
+        buffer.clear (i, 0, bufferNumSamples);
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
 
-    /*std::cout << getParameters()[1]->getName(64) << " " << (String) getParameters()[1]->getValue() << "\n";
-    std::cout << "*freqStep  " << (String) *freqStepSizeParam << "\n";
-    std::cout << getParameters()[3]->getName(64) << " " << (String) getParameters()[3]->getValue() << "\n";
-    std::cout << "*freqparam " << (String) *freq1Param << "\n";
-    std::cout << "*qparam " << (String) *q1Param << "\n";
-    std::cout << "\n";*/
+    //const float gain = *gainParam;
+    const float mix = *mixParam / 100.0f; // range 0-1
+
+    AudioBuffer<float> dryBuffer;                           // copy dry buffer
+    dryBuffer.makeCopyOf (buffer, false);
+
+    engine.process (buffer.getArrayOfWritePointers(),       // convolve buffer
+                    bufferNumChannels,
+                    bufferNumSamples);
+    buffer.applyGain (0.01);
+    buffer.applyGain (mix);
+
+    for (int chan = 0; chan < bufferNumChannels; ++chan)    // mix back dry
+        buffer.addFrom (chan, 0, dryBuffer,
+                        chan, 0, dryBuffer.getNumSamples(),
+                        1.0f - mix);
 }
 
 //==============================================================================
