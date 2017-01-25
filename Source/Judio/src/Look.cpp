@@ -123,19 +123,10 @@ Slider::SliderLayout CustomLook::getSliderLayout (Slider& slider)
 
     const int smallestSide {jmin (w, h)};
 
-    const int textBoxWidth {55};
-    const int textBoxHeight{18};
-
-    if (slider.getSliderStyle() == Slider::SliderStyle::RotaryHorizontalVerticalDrag)
-        layout.textBoxBounds = Rectangle<int> {w / 2 + 4,                       // x pos
-                                              (h / 2 - smallestSide / 2) + 2,   // y pos
-                                               textBoxWidth,
-                                               textBoxHeight};
-    else
-        layout.textBoxBounds = Rectangle<int> {w / 2 - textBoxWidth / 2 + 17,   // x pos
-                                               h / 2 - textBoxHeight / 2,       // y pos
-                                               textBoxWidth,
-                                               textBoxHeight};
+    layout.textBoxBounds = Rectangle<int> {w / 2 + 4,                       // x pos
+                                          (h / 2 - smallestSide / 2) + 2,   // y pos
+                                           55,                              // box width
+                                           18};                             // box height
 
     return layout;
 }
