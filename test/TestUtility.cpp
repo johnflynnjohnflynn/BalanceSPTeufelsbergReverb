@@ -51,7 +51,7 @@ void Utility::runTest()
         buffer.fillAllOnes();
         expectEquals (ado::rawBufferSum (buffer.getReadArray(), 1, 2048), 2048.0f);
     }
-
+/*
     beginTest("rawBufferCopyChannelPointers1to2()");
 
     {
@@ -73,7 +73,7 @@ void Utility::runTest()
         expectEquals (buffer4Chan.writeArray[2][15], 2.f);
         expectEquals (buffer4Chan.writeArray[3][15], 2.f);
     }
-
+*/
     beginTest("rawBufferDownmix4To2()");
 
     {
