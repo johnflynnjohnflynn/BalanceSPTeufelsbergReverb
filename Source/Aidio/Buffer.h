@@ -71,14 +71,14 @@ private:
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
-    Quick data struct for raw pointers of up to 4 channels
+    Quick data struct for raw pointers of up to 4 channels                      // does not compile in MSVC 2013
 */
+/*
 struct RawBufferView
 {
     float*  channels[4] {nullptr};
     float** writeArray  {channels};
-};
-
+};*/
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 

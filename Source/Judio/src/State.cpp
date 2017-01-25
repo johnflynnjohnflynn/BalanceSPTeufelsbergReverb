@@ -210,7 +210,7 @@ void StateComponent::resized()
                               CustomLook::buttonWidth,
                               CustomLook::buttonHeight);
 */
-    Rectangle<int> r (getLocalBounds());                // preset and state bar
+    juce::Rectangle<int> r (getLocalBounds());                // preset and state bar (explicit juce:: for MSVC2013)
 
     r.removeFromTop   (77);
     r.removeFromLeft  (sideBorder);
