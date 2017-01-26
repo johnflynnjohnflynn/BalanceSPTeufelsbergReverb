@@ -123,10 +123,16 @@ Slider::SliderLayout CustomLook::getSliderLayout (Slider& slider)
 
     const int smallestSide {jmin (w, h)};
 
-    layout.textBoxBounds = Rectangle<int> {w / 2 + 4,                       // x pos
-                                          (h / 2 - smallestSide / 2) + 2,   // y pos
-                                           55,                              // box width
-                                           18};                             // box height
+    if (slider.getSliderStyle() == Slider::LinearBar)
+        layout.textBoxBounds = Rectangle<int> {w - 55 - 3,                      // x pos
+                                              (h / 2 - smallestSide / 2) + 2,   // y pos
+                                               55,                              // box width
+                                               18};                             // box height
+    else    // rotary settings
+        layout.textBoxBounds = Rectangle<int> {w / 2 + 4,                       // x pos
+                                              (h / 2 - smallestSide / 2) + 2,   // y pos
+                                               55,                              // box width
+                                               18};                             // box height
 
     return layout;
 }
@@ -145,7 +151,11 @@ Label* CustomLook::createSliderTextBox (Slider& slider)
 
     l->setFont(Font {fontSize + 1});
 
-    l->setJustificationType (Justification::left);
+    if (slider.getSliderStyle() == Slider::LinearBar)
+        l->setJustificationType (Justification::right);
+    else
+        l->setJustificationType (Justification::left);
+
     l->setKeyboardType (TextInputTarget::decimalKeyboard);
 
     l->setColour (Label::textColourId, slider.findColour (Slider::textBoxTextColourId));
