@@ -29,24 +29,21 @@ Processor::Processor()
       bypassParam       {new jdo::ParamStep           {"bypassID",   "Bypass",           0.0f,     1.0f,   0.0f,    1        }},
       reverbTypeParam   {new jdo::ParamStep           {"revTypeID",  "Reverb Type",      1.0f,     6.0f,   1.0f,    5        }},
       mixParam          {new jdo::ParamStep           {"mixID",      "Mix",              0.0f,   100.0f,  50.0f,   64        }},
-      gainParam         {new jdo::ParamStep           {"gainID",     "Gain",           -18.0f,    18.0f,   0.0f,   72        }}
+      gainParam         {new jdo::ParamStep           {"gainID",     "Gain",           -18.0f,    18.0f,   0.0f,   72        }},
+      ir {1, 1},
+      engine {ir},
+      currentImpulse {1}
 {
     LookAndFeel::setDefaultLookAndFeel (&look);
     
         // addParameter()s to the processor's OwnedArray<AudioProcessorParameter>
         // managedParameters (which takes ownership and deletes appropriately)
-    // addParameter (gainStepSizeParam);
     addParameter (bypassParam);
     addParameter (reverbTypeParam);
     addParameter (mixParam);
     addParameter (gainParam);
 
-    jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR014410024bit_wav,
-                                      BinaryData::balancemasteringteufelsbergIR014410024bit_wavSize,
-                                      ir,
-                                      44100);
-    ir *= 0.1; // reduce WAV gain
-    engine.set (ir);
+    changeImpulse (1);
 }
 
 Processor::~Processor()
@@ -225,7 +222,7 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 //==============================================================================
 void Processor::changeImpulse (int newImpulse)
 {
-    jassert (isPositiveAndNotGreaterThan (newImpulse, 6));
+    jassert (1 <= newImpulse && newImpulse <= 6);
 
     if (newImpulse != currentImpulse)
     {
@@ -277,7 +274,7 @@ void Processor::changeImpulse (int newImpulse)
             break;
         }
 
-        ir *= 0.1; // reduce WAV gain
+        ir *= 0.1f; // reduce WAV gain
         engine.set (ir);
     }
 }

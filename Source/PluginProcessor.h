@@ -64,16 +64,15 @@ private:
     //==============================================================================
     jdo::CustomLook look;
 
-    // jdo::ParamStepBroadcast*  gainStepSizeParam; // Raw pointers here. Processor's
-    jdo::ParamStep* bypassParam;                    // managedParameters OwnedArray
-    jdo::ParamStep* reverbTypeParam;                // owns and manages. (See xtor.)
-    jdo::ParamStep* mixParam;
+    jdo::ParamStep* bypassParam;                // Raw pointers here. Processor's
+    jdo::ParamStep* reverbTypeParam;            // managedParameters OwnedArray
+    jdo::ParamStep* mixParam;                   // owns and manages. (See xtor.)
     jdo::ParamStep* gainParam;
 
-    ado::Buffer ir {1, 1};
-    ado::Convolution engine {ir};
+    ado::Buffer ir;
+    ado::Convolution engine;
 
-    int currentImpulse {0};
+    int currentImpulse;
     void changeImpulse (int newImpulse);
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Processor)
