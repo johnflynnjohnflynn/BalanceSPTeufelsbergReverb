@@ -62,6 +62,7 @@
           <FILE id="zr6EbS" name="Parameter.cpp" compile="1" resource="0" file="Source/Judio/src/Parameter.cpp"/>
           <FILE id="scGYDm" name="Slider.cpp" compile="1" resource="0" file="Source/Judio/src/Slider.cpp"/>
           <FILE id="SKP677" name="State.cpp" compile="1" resource="0" file="Source/Judio/src/State.cpp"/>
+          <FILE id="bCsKKG" name="Toggle.cpp" compile="1" resource="0" file="Source/Judio/src/Toggle.cpp"/>
         </GROUP>
         <FILE id="JZhjhX" name="Helper.h" compile="0" resource="0" file="Source/Judio/Helper.h"/>
         <FILE id="sXHrpm" name="Judio.h" compile="0" resource="0" file="Source/Judio/Judio.h"/>
@@ -69,6 +70,7 @@
         <FILE id="jn1kPh" name="Parameter.h" compile="0" resource="0" file="Source/Judio/Parameter.h"/>
         <FILE id="O7a3b5" name="Slider.h" compile="0" resource="0" file="Source/Judio/Slider.h"/>
         <FILE id="i8vbUJ" name="State.h" compile="0" resource="0" file="Source/Judio/State.h"/>
+        <FILE id="iNB4mx" name="Toggle.h" compile="0" resource="0" file="Source/Judio/Toggle.h"/>
       </GROUP>
       <GROUP id="{18483275-6744-FD53-3603-D678BE520D4D}" name="WDL">
         <FILE id="BWQgib" name="convoengine.cpp" compile="1" resource="0" file="Source/WDL/convoengine.cpp"/>

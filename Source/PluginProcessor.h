@@ -65,7 +65,7 @@ private:
     jdo::CustomLook look;
 
     // jdo::ParamStepBroadcast*  gainStepSizeParam; // Raw pointers here. Processor's
-                                                    // managedParameters OwnedArray
+    jdo::ParamStep* bypassParam;                    // managedParameters OwnedArray
     jdo::ParamStep* reverbTypeParam;                // owns and manages. (See xtor.)
     jdo::ParamStep* mixParam;
     jdo::ParamStep* gainParam;

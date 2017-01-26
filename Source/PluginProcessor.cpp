@@ -26,6 +26,7 @@ Processor::Processor()
       stateAB {*this},
       statePresets {*this, "JohnFlynn/TestParameters02/presets.xml"}, // ID     Name      Min      Max     Def nSteps   skew broadcastParam
       // gainStepSizeParam {new jdo::ParamStepBroadcast  {"gainStepID", "Gain Step Size",  0.05f,     3.0f,   0.5f              }},
+      bypassParam       {new jdo::ParamStep           {"BypassID",   "Bypass",          0.0f,      1.0f,   0.0f,    1        }},
       reverbTypeParam   {new jdo::ParamStep           {"RevTypeID",  "Reverb Type",     1.0f,      5.0f,   1.0f,    4        }},
       mixParam          {new jdo::ParamStep           {"mixID",      "Mix",              0.0f,   100.0f,  50.0f,   64        }},
       gainParam         {new jdo::ParamStep           {"gainID",     "Gain",           -36.0f,     0.0f,   0.0f,   72        }}
@@ -35,6 +36,7 @@ Processor::Processor()
         // addParameter()s to the processor's OwnedArray<AudioProcessorParameter>
         // managedParameters (which takes ownership and deletes appropriately)
     // addParameter (gainStepSizeParam);
+    addParameter (bypassParam);
     addParameter (reverbTypeParam);
     addParameter (mixParam);
     addParameter (gainParam);

@@ -32,12 +32,12 @@ private:
     //==============================================================================
     jdo::StateComponent stateComponent;
 
+    jdo::Toggle bypassToggle;
+
     jdo::SliderStep irChooseSlider;
 
     jdo::SliderStep mixSlider;
     jdo::SliderStep gainSlider;
-
-    ToggleButton bypassToggle;
 
     Image backgroundImage {ImageCache::getFromMemory (BinaryData::layout04NoKnobsfs8_png,
                                                       BinaryData::layout04NoKnobsfs8_pngSize)};
