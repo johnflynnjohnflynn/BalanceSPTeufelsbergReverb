@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>C225D5F9-D689-4EF1-9E53-3718911AB03B</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Judio</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B859081F4ABEE2434AEF72DB38426F52F9377CF9</key>
 		<string>https://github.com/johnflynnjohnflynn/judio.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>build/MacOSX/Judio.xcodeproj/project.xcworkspace</string>
+	<string>build/MacOSX/Judio.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B859081F4ABEE2434AEF72DB38426F52F9377CF9</key>
