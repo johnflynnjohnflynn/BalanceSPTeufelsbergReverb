@@ -32,7 +32,7 @@ Processor::Processor()
       gainParam         {new jdo::ParamStep           {"gainID",     "Gain",           -18.0f,    18.0f,   0.0f,   72        }},
       ir {1, 1},
       engine {ir},
-      currentImpulse {1}
+      currentImpulse {-1}
 {
     LookAndFeel::setDefaultLookAndFeel (&look);
     
