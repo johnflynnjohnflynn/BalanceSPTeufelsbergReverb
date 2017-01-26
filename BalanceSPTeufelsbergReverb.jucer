@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="eLVGA9" name="BalanceSPTeufelsbergReverb" projectType="audioplug"
-              version="1.0.0" bundleIdentifier="com.yourcompany.BalanceSPTeufelsbergReverb"
+              version="1.0.0" bundleIdentifier="com.BalanceMastering.BalanceSPTeufelsbergReverb"
               includeBinaryInAppConfig="1" buildVST="1" buildVST3="0" buildAU="1"
               buildAUv3="0" buildRTAS="0" buildAAX="0" pluginName="BalanceSPTeufelsbergReverb"
-              pluginDesc="BalanceSPTeufelsbergReverb" pluginManufacturer="yourcompany"
-              pluginManufacturerCode="Manu" pluginCode="Elvg" pluginChannelConfigs=""
+              pluginDesc="BalanceSPTeufelsbergReverb" pluginManufacturer="BalanceMastering"
+              pluginManufacturerCode="BaMa" pluginCode="BmTf" pluginChannelConfigs="{1,1},{1,2},{2,2}"
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="BalanceSPTeufelsbergReverbAU"
-              pluginRTASCategory="" aaxIdentifier="com.yourcompany.BalanceSPTeufelsbergReverb"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.3.0"
-              defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;">
+              pluginRTASCategory="ePluginCategory_Reverb" aaxIdentifier="com.BalanceMastering.BalanceSPTeufelsbergReverb"
+              pluginAAXCategory="AAX_ePlugInCategory_Reverb" jucerVersion="4.3.0"
+              defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;"
+              companyName="BalanceMastering" companyWebsite="www.BalanceMastering.com"
+              companyEmail="info@BalanceMastering.com" pluginAUMainType="Reverb"
+              pluginVSTCategory="">
   <MAINGROUP id="QuTSDH" name="BalanceSPTeufelsbergReverb">
     <GROUP id="{BEE0B3EC-1FBF-760F-F70A-05FD1058C7B5}" name="Resources">
       <FILE id="NWZyHr" name="balance-mastering-teufelsberg-IR-01-44100-24bit.wav"

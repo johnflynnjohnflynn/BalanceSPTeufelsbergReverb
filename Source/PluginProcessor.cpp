@@ -14,22 +14,22 @@
 //==============================================================================
 Processor::Processor()
 #ifndef JucePlugin_PreferredChannelConfigurations
-     : AudioProcessor (BusesProperties()
+     : AudioProcessor (BusesProperties()                // Note position of ':' relies on this define!!!
                      #if ! JucePlugin_IsMidiEffect
                       #if ! JucePlugin_IsSynth
                        .withInput  ("Input",  AudioChannelSet::stereo(), true)
                       #endif
                        .withOutput ("Output", AudioChannelSet::stereo(), true)
                      #endif
-                       ),                                                       // now reliant on this define!!!
+                       ),
 #endif
-      stateAB {*this},
+    : stateAB {*this},
       statePresets {*this, "BalanceAudioTools/SPTeufelsbergReverb/presets.xml"},
-                                                    // ID            Name                 Min      Max     Def nSteps   skew broadcastParam
-      bypassParam       {new jdo::ParamStep           {"bypassID",   "Bypass",           0.0f,     1.0f,   0.0f,    1        }},
-      reverbTypeParam   {new jdo::ParamStep           {"revTypeID",  "Reverb Type",      1.0f,     6.0f,   1.0f,    5        }},
-      mixParam          {new jdo::ParamStep           {"mixID",      "Mix",              0.0f,   100.0f,  50.0f,   64        }},
-      gainParam         {new jdo::ParamStep           {"gainID",     "Gain",           -18.0f,    18.0f,   0.0f,   72        }},
+                                         // ID            Name                 Min      Max     Def nSteps   skew broadcastParam
+      bypassParam     {new jdo::ParamStep {"bypassID",   "Bypass",           0.0f,     1.0f,   0.0f,    1        }},
+      reverbTypeParam {new jdo::ParamStep {"revTypeID",  "Reverb Type",      1.0f,     6.0f,   1.0f,    5        }},
+      mixParam        {new jdo::ParamStep {"mixID",      "Mix",              0.0f,   100.0f,  50.0f,   64        }},
+      gainParam       {new jdo::ParamStep {"gainID",     "Gain",           -18.0f,    18.0f,   0.0f,   72        }},
       ir {1, 1},
       engine {ir},
       currentImpulse {-1} // force changeImpulse() on load
