@@ -29,7 +29,7 @@ Processor::Processor()
       bypassParam       {new jdo::ParamStep           {"BypassID",   "Bypass",          0.0f,      1.0f,   0.0f,    1        }},
       reverbTypeParam   {new jdo::ParamStep           {"RevTypeID",  "Reverb Type",     1.0f,      5.0f,   1.0f,    4        }},
       mixParam          {new jdo::ParamStep           {"mixID",      "Mix",              0.0f,   100.0f,  50.0f,   64        }},
-      gainParam         {new jdo::ParamStep           {"gainID",     "Gain",           -36.0f,     0.0f,   0.0f,   72        }}
+      gainParam         {new jdo::ParamStep           {"gainID",     "Gain",           -18.0f,    18.0f,   0.0f,   72        }}
 {
     LookAndFeel::setDefaultLookAndFeel (&look);
     
@@ -164,10 +164,10 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
-    
+
     if (*bypassParam != 1.0f)
     {
-        //const float gain = *gainParam;
+        const float gainLin = Decibels::decibelsToGain<float> (*gainParam);
         const float mix = *mixParam / 100.0f; // range 0-1
 
         AudioBuffer<float> dryBuffer;                           // copy dry buffer
@@ -182,7 +182,10 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
             buffer.addFrom (chan, 0, dryBuffer,
                             chan, 0, dryBuffer.getNumSamples(),
                             1.0f - mix);
-    } // else bypass
+
+        buffer.applyGain (gainLin);                             // apply gain
+    }
+    // else bypass
 }
 
 //==============================================================================
