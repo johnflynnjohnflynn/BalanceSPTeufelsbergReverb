@@ -12,7 +12,7 @@
               pluginAAXCategory="AAX_ePlugInCategory_Reverb" jucerVersion="4.3.0"
               defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;"
               companyName="BalanceMastering" companyWebsite="www.BalanceMastering.com"
-              companyEmail="info@BalanceMastering.com" pluginAUMainType="Reverb"
+              companyEmail="info@BalanceMastering.com" pluginAUMainType=""
               pluginVSTCategory="">
   <MAINGROUP id="QuTSDH" name="BalanceSPTeufelsbergReverb">
     <GROUP id="{BEE0B3EC-1FBF-760F-F70A-05FD1058C7B5}" name="Resources">
