@@ -45,7 +45,7 @@ void Toggle::timerCallback()
 
 void Toggle::updateToggle()
 {
-    const bool newState = static_cast<bool> (param.getValue());
+    const bool newState = (param.getValue() >= 0.5f);
 
     if (newState != getToggleState() && ! isMouseButtonDown())
         setToggleState (newState, NotificationType::dontSendNotification);
