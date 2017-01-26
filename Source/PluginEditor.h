@@ -34,7 +34,7 @@ private:
 
     jdo::Toggle bypassToggle;
 
-    jdo::SliderStep irChooseSlider;
+    jdo::SliderStep reverbTypeSlider;
 
     jdo::SliderStep mixSlider;
     jdo::SliderStep gainSlider;

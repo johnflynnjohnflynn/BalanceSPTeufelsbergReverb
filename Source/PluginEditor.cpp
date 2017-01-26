@@ -18,7 +18,7 @@ Editor::Editor (Processor& p)
       //gainStepSizeSlider {*p.getParameters()[0]},                             // these now live in State
       //freqStepSizeSlider {*p.getParameters()[1]},
       bypassToggle         {*p.getParameters()[0]},
-      irChooseSlider       {*p.getParameters()[1]},
+      reverbTypeSlider     {*p.getParameters()[1]},
       mixSlider            {*p.getParameters()[2]},                             // better way than indices?
       gainSlider           {*p.getParameters()[3]},
       processor (p)
@@ -27,8 +27,8 @@ Editor::Editor (Processor& p)
 
     addAndMakeVisible (&bypassToggle);
 
-    irChooseSlider.setSliderStyle(Slider::SliderStyle::LinearBar);
-    addAndMakeVisible (&irChooseSlider);
+    reverbTypeSlider.setSliderStyle(Slider::SliderStyle::LinearBar);
+    addAndMakeVisible (&reverbTypeSlider);
 
     addAndMakeVisible (&mixSlider);
     addAndMakeVisible (&gainSlider);
@@ -50,7 +50,7 @@ void Editor::resized()
 {
     stateComponent.setBounds(0, 0, getWidth(), getHeight());
 
-    irChooseSlider.setBounds (24, 134, 166, jdo::CustomLook::buttonHeight);
+    reverbTypeSlider.setBounds (24, 134, 166, jdo::CustomLook::buttonHeight);
 
     mixSlider .setBounds (38, 172, 135, 135);
     gainSlider.setBounds (38, 308, 135, 135);
