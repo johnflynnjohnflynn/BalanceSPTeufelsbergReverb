@@ -266,11 +266,8 @@ void Processor::changeImpulse (int newImpulse)
                                               ir,
                                               44100);
             break;
-            default:
-            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR014410024bit_wav,
-                                              BinaryData::balancemasteringteufelsbergIR014410024bit_wavSize,
-                                              ir,
-                                              44100);
+
+            default: jassertfalse; // there are only 6 IRs 1-6 !!!
             break;
         }
 
