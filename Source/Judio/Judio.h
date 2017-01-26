@@ -38,5 +38,6 @@
 #include "Parameter.h"
 #include "Slider.h"
 #include "State.h"
+#include "Toggle.h"
 
 #endif  // JUDIO_H_INCLUDED
