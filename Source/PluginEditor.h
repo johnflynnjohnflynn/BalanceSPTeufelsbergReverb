@@ -39,8 +39,7 @@ private:
     jdo::SliderStep mixSlider;
     jdo::SliderStep gainSlider;
 
-    Image backgroundImage {ImageCache::getFromMemory (BinaryData::layout04NoKnobsfs8_png,
-                                                      BinaryData::layout04NoKnobsfs8_pngSize)};
+    Image backgroundImage;
 
     Processor& processor;
     

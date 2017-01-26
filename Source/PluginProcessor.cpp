@@ -17,23 +17,25 @@ Processor::Processor()
      : AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
                       #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  AudioChannelSet::stereo(), true)  // Change JohnFlynn/TestParameters02/presets.xml !!!
-                      #endif                                                    // Remove stepSize param???
+                       .withInput  ("Input",  AudioChannelSet::stereo(), true)
+                      #endif
                        .withOutput ("Output", AudioChannelSet::stereo(), true)
                      #endif
                        ),                                                       // now reliant on this define!!!
 #endif
       stateAB {*this},
-      statePresets {*this, "JohnFlynn/TestParameters02/presets.xml"}, // ID     Name      Min      Max     Def nSteps   skew broadcastParam
-      // gainStepSizeParam {new jdo::ParamStepBroadcast  {"gainStepID", "Gain Step Size",  0.05f,     3.0f,   0.5f              }},
+      statePresets {*this, "BalanceAudioTools/SPTeufelsbergReverb/presets.xml"},
+                                                    // ID            Name                 Min      Max     Def nSteps   skew broadcastParam
       bypassParam       {new jdo::ParamStep           {"bypassID",   "Bypass",           0.0f,     1.0f,   0.0f,    1        }},
       reverbTypeParam   {new jdo::ParamStep           {"revTypeID",  "Reverb Type",      1.0f,     6.0f,   1.0f,    5        }},
       mixParam          {new jdo::ParamStep           {"mixID",      "Mix",              0.0f,   100.0f,  50.0f,   64        }},
       gainParam         {new jdo::ParamStep           {"gainID",     "Gain",           -18.0f,    18.0f,   0.0f,   72        }},
       ir {1, 1},
       engine {ir},
-      currentImpulse {-1}
+      currentImpulse {-1} // force changeImpulse() on load
 {
+        // Set look here not in editor.
+        // Needs to be set before editor's member variables are initialised     // better way?
     LookAndFeel::setDefaultLookAndFeel (&look);
     
         // addParameter()s to the processor's OwnedArray<AudioProcessorParameter>
@@ -164,7 +166,7 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
 
     changeImpulse (static_cast<int> (*reverbTypeParam));
 
-    if (*bypassParam != 1.0f)
+    if (*bypassParam < 0.5f)
     {
         const float gainLin = Decibels::decibelsToGain<float> (*gainParam);
         const float mix = *mixParam / 100.0f; // range 0-1
@@ -182,7 +184,7 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
                             chan, 0, dryBuffer.getNumSamples(),
                             1.0f - mix);
 
-        buffer.applyGain (gainLin);                             // apply gain
+        buffer.applyGain (gainLin);                             // apply gain from param
     }
     // else bypass
 }
@@ -222,7 +224,7 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 //==============================================================================
 void Processor::changeImpulse (int newImpulse)
 {
-    jassert (1 <= newImpulse && newImpulse <= 6);
+    jassert (1 <= newImpulse && newImpulse <= 6);   // only 6 WAV IRs to choose!
 
     if (newImpulse != currentImpulse)
     {
@@ -267,11 +269,12 @@ void Processor::changeImpulse (int newImpulse)
                                               44100);
             break;
 
-            default: jassertfalse; // there are only 6 IRs 1-6 !!!
+            default: jassertfalse;  // there are only 6 IRs 1-6 !!!
             break;
         }
 
-        ir *= 0.1f; // reduce WAV gain
+        ir *= 0.1f;                 // reduce WAV gain
+
         engine.set (ir);
     }
 }

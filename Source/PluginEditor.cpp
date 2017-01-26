@@ -13,21 +13,21 @@
 
 //==============================================================================
 Editor::Editor (Processor& p)
-    : AudioProcessorEditor (&p),
-      stateComponent {p.stateAB, p.statePresets}, //*p.getParameters()[0]},
-      //gainStepSizeSlider {*p.getParameters()[0]},                             // these now live in State
-      //freqStepSizeSlider {*p.getParameters()[1]},
-      bypassToggle         {*p.getParameters()[0]},
-      reverbTypeSlider     {*p.getParameters()[1]},
-      mixSlider            {*p.getParameters()[2]},                             // better way than indices?
-      gainSlider           {*p.getParameters()[3]},
-      processor (p)
+    : AudioProcessorEditor {&p},
+      stateComponent {p.stateAB, p.statePresets}, //*p.getParameters()[0]},     // move bypass to State?
+      bypassToggle     {*p.getParameters()[Processor::ParamNames::bypassName]},
+      reverbTypeSlider {*p.getParameters()[Processor::ParamNames::reverbTypeName]},
+      mixSlider        {*p.getParameters()[Processor::ParamNames::mixName]},
+      gainSlider       {*p.getParameters()[Processor::ParamNames::gainName]},
+      backgroundImage {ImageCache::getFromMemory (BinaryData::layout04NoKnobsfs8_png,
+                                                  BinaryData::layout04NoKnobsfs8_pngSize)},
+      processor {p}
 {
     addAndMakeVisible (&stateComponent);
 
     addAndMakeVisible (&bypassToggle);
 
-    reverbTypeSlider.setSliderStyle(Slider::SliderStyle::LinearBar);
+    reverbTypeSlider.setSliderStyle (Slider::SliderStyle::LinearBar);
     addAndMakeVisible (&reverbTypeSlider);
 
     addAndMakeVisible (&mixSlider);
@@ -43,12 +43,13 @@ Editor::~Editor()
 //==============================================================================
 void Editor::paint (Graphics& g)
 {
-    g.drawImage (backgroundImage, 0, 0, 1000, 500, 0, 0, 2000, 1000);
+    g.drawImage (backgroundImage, 0, 0, 1000, 500,  // xPos, yPos, xSize, ySize
+                                  0, 0, 2000, 1000);
 }
 
 void Editor::resized()
 {
-    stateComponent.setBounds(0, 0, getWidth(), getHeight());
+    stateComponent.setBounds (0, 0, getWidth(), getHeight());
 
     reverbTypeSlider.setBounds (24, 134, 166, jdo::CustomLook::buttonHeight);
 

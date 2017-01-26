@@ -60,6 +60,14 @@ public:
     jdo::StateAB stateAB;
     jdo::StatePresets statePresets;
 
+    enum ParamNames                             // Avoid confusing indices when
+    {                                           // instantiating each jdo::SliderStep
+        bypassName,                             // in the plugin editor's constructor
+        reverbTypeName,                         // NOTE: MUST be same order as below
+        mixName,
+        gainName
+    };
+
 private:
     //==============================================================================
     jdo::CustomLook look;
