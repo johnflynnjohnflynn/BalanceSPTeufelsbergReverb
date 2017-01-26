@@ -13,16 +13,16 @@ namespace BinaryData
     const int            balancemasteringteufelsbergIR014410024bit_wavSize = 2041946;
 
     extern const char*   balancemasteringteufelsbergIR024410024bit_wav;
-    const int            balancemasteringteufelsbergIR024410024bit_wavSize = 2500422;
+    const int            balancemasteringteufelsbergIR024410024bit_wavSize = 2031788;
 
     extern const char*   balancemasteringteufelsbergIR034410024bit_wav;
-    const int            balancemasteringteufelsbergIR034410024bit_wavSize = 2581434;
+    const int            balancemasteringteufelsbergIR034410024bit_wavSize = 2027150;
 
     extern const char*   balancemasteringteufelsbergIR044410024bit_wav;
     const int            balancemasteringteufelsbergIR044410024bit_wavSize = 1664862;
 
     extern const char*   balancemasteringteufelsbergIR054410024bit_wav;
-    const int            balancemasteringteufelsbergIR054410024bit_wavSize = 2208168;
+    const int            balancemasteringteufelsbergIR054410024bit_wavSize = 1820096;
 
     extern const char*   balancemasteringteufelsbergIR064410024bit_wav;
     const int            balancemasteringteufelsbergIR064410024bit_wavSize = 570504;

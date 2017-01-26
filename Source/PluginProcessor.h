@@ -73,6 +73,9 @@ private:
     ado::Buffer ir {1, 1};
     ado::Convolution engine {ir};
 
+    int currentImpulse {0};
+    void changeImpulse (int newImpulse);
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Processor)
 };
 

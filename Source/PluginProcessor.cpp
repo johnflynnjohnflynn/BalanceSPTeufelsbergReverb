@@ -26,8 +26,8 @@ Processor::Processor()
       stateAB {*this},
       statePresets {*this, "JohnFlynn/TestParameters02/presets.xml"}, // ID     Name      Min      Max     Def nSteps   skew broadcastParam
       // gainStepSizeParam {new jdo::ParamStepBroadcast  {"gainStepID", "Gain Step Size",  0.05f,     3.0f,   0.5f              }},
-      bypassParam       {new jdo::ParamStep           {"BypassID",   "Bypass",          0.0f,      1.0f,   0.0f,    1        }},
-      reverbTypeParam   {new jdo::ParamStep           {"RevTypeID",  "Reverb Type",     1.0f,      5.0f,   1.0f,    4        }},
+      bypassParam       {new jdo::ParamStep           {"bypassID",   "Bypass",           0.0f,     1.0f,   0.0f,    1        }},
+      reverbTypeParam   {new jdo::ParamStep           {"revTypeID",  "Reverb Type",      1.0f,     6.0f,   1.0f,    5        }},
       mixParam          {new jdo::ParamStep           {"mixID",      "Mix",              0.0f,   100.0f,  50.0f,   64        }},
       gainParam         {new jdo::ParamStep           {"gainID",     "Gain",           -18.0f,    18.0f,   0.0f,   72        }}
 {
@@ -165,6 +165,8 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
 
+    changeImpulse (static_cast<int> (*reverbTypeParam));
+
     if (*bypassParam != 1.0f)
     {
         const float gainLin = Decibels::decibelsToGain<float> (*gainParam);
@@ -218,4 +220,64 @@ void Processor::setStateInformation (const void* /*data*/, int /*sizeInBytes*/)
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new Processor();
+}
+
+//==============================================================================
+void Processor::changeImpulse (int newImpulse)
+{
+    jassert (isPositiveAndNotGreaterThan (newImpulse, 6));
+
+    if (newImpulse != currentImpulse)
+    {
+        currentImpulse = newImpulse;
+
+        switch (newImpulse)
+        {
+            case 1:                                               // here's the number \/
+            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR014410024bit_wav,
+                                              BinaryData::balancemasteringteufelsbergIR014410024bit_wavSize,
+                                              ir,
+                                              44100);
+            break;
+            case 2:
+            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR024410024bit_wav,
+                                              BinaryData::balancemasteringteufelsbergIR024410024bit_wavSize,
+                                              ir,
+                                              44100);
+            break;
+            case 3:
+            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR034410024bit_wav,
+                                              BinaryData::balancemasteringteufelsbergIR034410024bit_wavSize,
+                                              ir,
+                                              44100);
+            break;
+            case 4:
+            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR044410024bit_wav,
+                                              BinaryData::balancemasteringteufelsbergIR044410024bit_wavSize,
+                                              ir,
+                                              44100);
+            break;
+            case 5:
+            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR054410024bit_wav,
+                                              BinaryData::balancemasteringteufelsbergIR054410024bit_wavSize,
+                                              ir,
+                                              44100);
+            break;
+            case 6:
+            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR064410024bit_wav,
+                                              BinaryData::balancemasteringteufelsbergIR064410024bit_wavSize,
+                                              ir,
+                                              44100);
+            break;
+            default:
+            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR014410024bit_wav,
+                                              BinaryData::balancemasteringteufelsbergIR014410024bit_wavSize,
+                                              ir,
+                                              44100);
+            break;
+        }
+
+        ir *= 0.1; // reduce WAV gain
+        engine.set (ir);
+    }
 }
