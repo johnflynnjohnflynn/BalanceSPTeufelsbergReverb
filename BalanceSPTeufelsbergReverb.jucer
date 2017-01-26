@@ -86,10 +86,7 @@
         <FILE id="fEHfDK" name="resample.h" compile="0" resource="0" file="Source/WDL/resample.h"/>
         <FILE id="ifj4xe" name="wdltypes.h" compile="0" resource="0" file="Source/WDL/wdltypes.h"/>
       </GROUP>
-      <FILE id="NV4JvC" name="Filter.cpp" compile="1" resource="0" file="Source/Filter.cpp"/>
-      <FILE id="BOIWmq" name="Filter.h" compile="0" resource="0" file="Source/Filter.h"/>
       <FILE id="OHeywv" name="gsl.h" compile="0" resource="0" file="Source/gsl.h"/>
-      <FILE id="C4wPUi" name="OrfanidisCalc.h" compile="0" resource="0" file="Source/OrfanidisCalc.h"/>
       <FILE id="OzGfUN" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="nzzmKr" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
