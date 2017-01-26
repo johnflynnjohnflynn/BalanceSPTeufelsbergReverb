@@ -66,6 +66,11 @@ public:
     explicit Convolution (const ado::Buffer& impulse);
     ~Convolution() {}
 
+    Convolution (const Convolution&) = delete;     // disable copying & move
+    Convolution& operator=(const Convolution&) = delete;
+    Convolution (Convolution&&) = delete;
+    Convolution& operator=(Convolution&&) = delete;
+
     void set (const ado::Buffer& impulse);
 
     void resampleIrOnRateChange (double sampleRate);
