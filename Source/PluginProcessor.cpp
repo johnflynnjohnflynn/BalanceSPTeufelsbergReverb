@@ -164,22 +164,25 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
+    
+    if (*bypassParam != 1.0f)
+    {
+        //const float gain = *gainParam;
+        const float mix = *mixParam / 100.0f; // range 0-1
 
-    //const float gain = *gainParam;
-    const float mix = *mixParam / 100.0f; // range 0-1
+        AudioBuffer<float> dryBuffer;                           // copy dry buffer
+        dryBuffer.makeCopyOf (buffer, false);
 
-    AudioBuffer<float> dryBuffer;                           // copy dry buffer
-    dryBuffer.makeCopyOf (buffer, false);
+        engine.process (buffer.getArrayOfWritePointers(),       // convolve buffer
+                        bufferNumChannels,
+                        bufferNumSamples);
+        buffer.applyGain (mix);
 
-    engine.process (buffer.getArrayOfWritePointers(),       // convolve buffer
-                    bufferNumChannels,
-                    bufferNumSamples);
-    buffer.applyGain (mix);
-
-    for (int chan = 0; chan < bufferNumChannels; ++chan)    // mix back dry
-        buffer.addFrom (chan, 0, dryBuffer,
-                        chan, 0, dryBuffer.getNumSamples(),
-                        1.0f - mix);
+        for (int chan = 0; chan < bufferNumChannels; ++chan)    // mix back dry
+            buffer.addFrom (chan, 0, dryBuffer,
+                            chan, 0, dryBuffer.getNumSamples(),
+                            1.0f - mix);
+    } // else bypass
 }
 
 //==============================================================================
