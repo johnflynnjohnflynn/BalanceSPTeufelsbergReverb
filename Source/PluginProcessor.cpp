@@ -46,6 +46,8 @@ Processor::Processor()
     addParameter (gainParam);
 
     changeImpulse (1);
+
+    startTimer (1000); // ms
 }
 
 Processor::~Processor()
@@ -164,9 +166,14 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
 
-    changeImpulse (static_cast<int> (*reverbTypeParam));
+    const int newImpulse = static_cast<int> (*reverbTypeParam);
+    if (newImpulse != currentImpulse)
+    {
+        currentImpulse = newImpulse;
+        doChangeImpulse = true;
+    }
 
-    if (*bypassParam < 0.5f)
+    if (*bypassParam < 0.5f && doChangeImpulse != true) // bypass while changing impulse also
     {
         const float gainLin = Decibels::decibelsToGain<float> (*gainParam);
         const float mix = *mixParam / 100.0f; // range 0-1
@@ -226,55 +233,50 @@ void Processor::changeImpulse (int newImpulse)
 {
     jassert (1 <= newImpulse && newImpulse <= 6);   // only 6 WAV IRs to choose!
 
-    if (newImpulse != currentImpulse)
+    switch (newImpulse)
     {
-        currentImpulse = newImpulse;
+        case 1:                                               // here's the number \/
+        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR014410024bit_wav,
+                                          BinaryData::balancemasteringteufelsbergIR014410024bit_wavSize,
+                                          ir,
+                                          44100);
+        break;
+        case 2:
+        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR024410024bit_wav,
+                                          BinaryData::balancemasteringteufelsbergIR024410024bit_wavSize,
+                                          ir,
+                                          44100);
+        break;
+        case 3:
+        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR034410024bit_wav,
+                                          BinaryData::balancemasteringteufelsbergIR034410024bit_wavSize,
+                                          ir,
+                                          44100);
+        break;
+        case 4:
+        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR044410024bit_wav,
+                                          BinaryData::balancemasteringteufelsbergIR044410024bit_wavSize,
+                                          ir,
+                                          44100);
+        break;
+        case 5:
+        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR054410024bit_wav,
+                                          BinaryData::balancemasteringteufelsbergIR054410024bit_wavSize,
+                                          ir,
+                                          44100);
+        break;
+        case 6:
+        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR064410024bit_wav,
+                                          BinaryData::balancemasteringteufelsbergIR064410024bit_wavSize,
+                                          ir,
+                                          44100);
+        break;
 
-        switch (newImpulse)
-        {
-            case 1:                                               // here's the number \/
-            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR014410024bit_wav,
-                                              BinaryData::balancemasteringteufelsbergIR014410024bit_wavSize,
-                                              ir,
-                                              44100);
-            break;
-            case 2:
-            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR024410024bit_wav,
-                                              BinaryData::balancemasteringteufelsbergIR024410024bit_wavSize,
-                                              ir,
-                                              44100);
-            break;
-            case 3:
-            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR034410024bit_wav,
-                                              BinaryData::balancemasteringteufelsbergIR034410024bit_wavSize,
-                                              ir,
-                                              44100);
-            break;
-            case 4:
-            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR044410024bit_wav,
-                                              BinaryData::balancemasteringteufelsbergIR044410024bit_wavSize,
-                                              ir,
-                                              44100);
-            break;
-            case 5:
-            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR054410024bit_wav,
-                                              BinaryData::balancemasteringteufelsbergIR054410024bit_wavSize,
-                                              ir,
-                                              44100);
-            break;
-            case 6:
-            jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR064410024bit_wav,
-                                              BinaryData::balancemasteringteufelsbergIR064410024bit_wavSize,
-                                              ir,
-                                              44100);
-            break;
-
-            default: jassertfalse;  // there are only 6 IRs 1-6 !!!
-            break;
-        }
-
-        ir *= 0.1f;                 // reduce WAV gain
-
-        engine.set (ir);
+        default: jassertfalse;  // there are only 6 IRs 1-6 !!!
+        break;
     }
+
+    ir *= 0.1f;                 // reduce WAV gain
+
+    engine.set (ir);
 }

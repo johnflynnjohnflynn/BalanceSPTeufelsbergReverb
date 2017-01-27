@@ -17,7 +17,8 @@
 //==============================================================================
 /**
 */
-class Processor  : public AudioProcessor
+class Processor  : public AudioProcessor,
+                   private Timer
 {
 public:
     //==============================================================================
@@ -80,8 +81,18 @@ private:
     ado::Buffer ir;
     ado::Convolution engine;
 
+    bool doChangeImpulse {false};
     int currentImpulse;
     void changeImpulse (int newImpulse);
+
+    void timerCallback() override
+    {
+        if (doChangeImpulse)
+        {
+            changeImpulse (currentImpulse);
+            doChangeImpulse = false;
+        }
+    }
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Processor)
 };
