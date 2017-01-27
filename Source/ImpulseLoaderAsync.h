@@ -31,6 +31,7 @@ public:
     ImpulseLoaderAsync (ado::Convolution& eng, ado::Buffer& impulse);
 
     void changeImpulseAsync (int newImpulse);
+    void changeImpulseNow (int newImpulse) { changeImpulse (newImpulse); } // will block
     
     const bool isNowChanging() { return nowChangingImpulseAsync; }
 

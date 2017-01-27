@@ -45,7 +45,7 @@ Processor::Processor()
     addParameter (mixParam);
     addParameter (gainParam);
 
-    impulseLoaderAsync.changeImpulseAsync (1);
+    impulseLoaderAsync.changeImpulseNow (1);
 }
 
 Processor::~Processor()
@@ -167,7 +167,7 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
     const int newImpulse = static_cast<int> (*reverbTypeParam);
     impulseLoaderAsync.changeImpulseAsync (newImpulse);
 
-    if (*bypassParam < 0.5f && impulseLoaderAsync.isNowChanging() != true) // bypass while changing impulse also
+    if (*bypassParam < 0.5f && ! impulseLoaderAsync.isNowChanging()) // bypass while changing impulse also
     {
         const float gainLin = Decibels::decibelsToGain<float> (*gainParam);
         const float mix = *mixParam / 100.0f; // range 0-1
