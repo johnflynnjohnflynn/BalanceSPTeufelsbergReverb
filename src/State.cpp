@@ -99,20 +99,17 @@ StatePresets::StatePresets (AudioProcessor& proc, const String& presetFileLocati
     parseFileToXmlElement (presetFile, presetXml);
 }
 
-StatePresets::~StatePresets()
-{
-    writeXmlElementToFile (presetXml, presetFile);
-}
-
 void StatePresets::savePreset (const String& presetName)
 {
     String newPresetID = getNextAvailablePresetID (presetXml); // presetID format: "preset##"
 
-    ScopedPointer<XmlElement> currentState {new XmlElement {newPresetID}};    // must be pointer as
-    saveStateToXml (pluginProcessor, *currentState);                            // parent takes ownership
+    ScopedPointer<XmlElement> currentState {new XmlElement {newPresetID}};  // must be pointer as
+    saveStateToXml (pluginProcessor, *currentState);                        // parent takes ownership
     currentState->setAttribute ("presetName", presetName);
     
-    presetXml.addChildElement (currentState.release());                         // will be deleted by parent element
+    presetXml.addChildElement (currentState.release());                     // will be deleted by parent element
+
+    writeXmlElementToFile (presetXml, presetFile);  // write to shared Xml on disk
 }
 
 void StatePresets::loadPreset (int presetID)
@@ -130,10 +127,14 @@ void StatePresets::deletePreset()
     XmlElement* childToDelete {presetXml.getChildElement (currentPresetID - 1)};
     if (childToDelete)
         presetXml.removeChildElement (childToDelete, true);
+
+    writeXmlElementToFile (presetXml, presetFile);  // write to shared Xml on disk
 }
 
-StringArray StatePresets::getPresetNames() const
+StringArray StatePresets::getPresetNames()
 {
+    parseFileToXmlElement (presetFile, presetXml); // refresh from disk
+
     StringArray names;
 
     forEachXmlChildElement(presetXml, child)                                    // should avoid macro?
@@ -172,8 +173,6 @@ StateComponent::StateComponent (StateAB& sab, StatePresets& sp)//, AudioProcesso
       presetBox {"PresetBoxID"},
       savePresetButton {"Save"},
       deletePresetButton {"Delete"}
-      // settingsButton {"Settings"},
-      // stepSizeSlider {gainStepSizeParam}
 {
     addAndMakeVisible (toggleABButton);
     addAndMakeVisible (copyABButton);
@@ -190,26 +189,17 @@ StateComponent::StateComponent (StateAB& sab, StatePresets& sp)//, AudioProcesso
     savePresetButton.addListener (this);
     addAndMakeVisible (deletePresetButton);
     deletePresetButton.addListener (this);
-
-    // addAndMakeVisible (settingsButton);
-    // settingsButton.addListener (this);
 }
 
 void StateComponent::paint (Graphics& /*g*/)
 {
-    //g.fillAll (Colours::lightgrey);
 }
 
 void StateComponent::resized()
 {
     const int sideBorder {20};
     const int spacer {5};
-/*
-    settingsButton.setBounds (getWidth() - CustomLook::buttonWidth - sideBorder,
-                              getHeight() - CustomLook::buttonHeight - 2 * spacer,
-                              CustomLook::buttonWidth,
-                              CustomLook::buttonHeight);
-*/
+
     juce::Rectangle<int> r (getLocalBounds());                // preset and state bar (explicit juce:: for MSVC2013)
 
     r.removeFromTop   (77);
@@ -234,7 +224,6 @@ void StateComponent::buttonClicked (Button* clickedButton)
     if (clickedButton == &copyABButton)       procStateAB.copyAB();
     if (clickedButton == &savePresetButton)   savePresetAlertWindow();
     if (clickedButton == &deletePresetButton) deletePresetAndRefresh();
-    // if (clickedButton == &settingsButton)     settingsAlertWindow();
 }
 
 void StateComponent::comboBoxChanged (ComboBox* changedComboBox)
@@ -283,22 +272,5 @@ void StateComponent::savePresetAlertWindow()
         presetBox.setSelectedId (procStatePresets.getNumPresets());
     }
 }
-/*
-void StateComponent::settingsAlertWindow()
-{
-    enum choice { ok, cancel };
 
-    AlertWindow alert   {"Settings", "", AlertWindow::AlertIconType::NoIcon};
-
-    stepSizeSlider.setBounds(0, 0, 300, 22);
-    stepSizeSlider.setSliderStyle (Slider::SliderStyle::LinearBar);
-    alert.addCustomComponent (&stepSizeSlider);
-    alert.addButton     ("OK",     choice::ok,     KeyPress (KeyPress::returnKey, 0, 0));
-    alert.addButton     ("Cancel", choice::cancel, KeyPress (KeyPress::escapeKey, 0, 0));
-    
-    if (alert.runModalLoop() == choice::ok)                                     // LEAKS when quit while open !!!
-    {
-    }
-}
-*/
 } // namespace jdo

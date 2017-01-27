@@ -69,13 +69,13 @@ class StatePresets
 {
 public:
     StatePresets (AudioProcessor& proc, const String& presetFileLocation);
-    ~StatePresets();
+    ~StatePresets() {}
 
     void savePreset (const String& presetName); // preset already exists? confirm overwrite
     void loadPreset (int presetID);
     void deletePreset();
                      
-    StringArray getPresetNames() const;
+    StringArray getPresetNames();
     int getNumPresets() const;
     int getCurrentPresetId() const;
 
@@ -101,7 +101,7 @@ class StateComponent  : public Component,
                         public ComboBox::Listener
 {
 public:
-    StateComponent (StateAB& sab, StatePresets& sp); //, AudioProcessorParameter& gainStepSizeParam);
+    StateComponent (StateAB& sab, StatePresets& sp);
     
     void paint (Graphics&) override;
     void resized() override;
@@ -115,8 +115,6 @@ private:
     ComboBox        presetBox;
     TextButton      savePresetButton;
     TextButton      deletePresetButton;
-    // TextButton      settingsButton;
-    // jdo::SliderStep stepSizeSlider;
 
     void buttonClicked (Button* clickedButton) override;
     void comboBoxChanged (ComboBox* changedComboBox) override;
@@ -125,7 +123,6 @@ private:
     void ifPresetActiveShowInBox();
     void deletePresetAndRefresh();
     void savePresetAlertWindow();
-    // void settingsAlertWindow();
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StateComponent);
 };
