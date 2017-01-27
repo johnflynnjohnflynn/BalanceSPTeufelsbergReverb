@@ -13,12 +13,12 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Judio/Judio.h"
+#include "ImpulseLoaderAsync.h"
 
 //==============================================================================
 /**
 */
-class Processor  : public AudioProcessor,
-                   private Timer
+class Processor  : public AudioProcessor
 {
 public:
     //==============================================================================
@@ -81,18 +81,7 @@ private:
     ado::Buffer ir;
     ado::Convolution engine;
 
-    bool doChangeImpulse {false};
-    int currentImpulse;
-    void changeImpulse (int newImpulse);
-
-    void timerCallback() override
-    {
-        if (doChangeImpulse)
-        {
-            changeImpulse (currentImpulse);
-            doChangeImpulse = false;
-        }
-    }
+    ImpulseLoaderAsync impulseLoaderAsync;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Processor)
 };

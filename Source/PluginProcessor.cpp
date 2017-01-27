@@ -32,7 +32,7 @@ Processor::Processor()
       gainParam       {new jdo::ParamStep {"gainID",     "Gain",           -18.0f,    18.0f,   0.0f,   72        }},
       ir {1, 1},
       engine {ir},
-      currentImpulse {-1} // force changeImpulse() on load
+      impulseLoaderAsync {engine, ir}
 {
         // Set look here not in editor.
         // Needs to be set before editor's member variables are initialised     // better way?
@@ -45,9 +45,7 @@ Processor::Processor()
     addParameter (mixParam);
     addParameter (gainParam);
 
-    changeImpulse (1);
-
-    startTimer (1000); // ms
+    impulseLoaderAsync.changeImpulseAsync (1);
 }
 
 Processor::~Processor()
@@ -167,13 +165,9 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
     // audio processing...
 
     const int newImpulse = static_cast<int> (*reverbTypeParam);
-    if (newImpulse != currentImpulse)
-    {
-        currentImpulse = newImpulse;
-        doChangeImpulse = true;
-    }
+    impulseLoaderAsync.changeImpulseAsync (newImpulse);
 
-    if (*bypassParam < 0.5f && doChangeImpulse != true) // bypass while changing impulse also
+    if (*bypassParam < 0.5f && impulseLoaderAsync.isNowChanging() != true) // bypass while changing impulse also
     {
         const float gainLin = Decibels::decibelsToGain<float> (*gainParam);
         const float mix = *mixParam / 100.0f; // range 0-1
@@ -227,7 +221,7 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new Processor();
 }
-
+/*
 //==============================================================================
 void Processor::changeImpulse (int newImpulse)
 {
@@ -279,4 +273,4 @@ void Processor::changeImpulse (int newImpulse)
     ir *= 0.1f;                 // reduce WAV gain
 
     engine.set (ir);
-}
+}*/

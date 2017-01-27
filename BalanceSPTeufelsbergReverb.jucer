@@ -90,6 +90,10 @@
         <FILE id="ifj4xe" name="wdltypes.h" compile="0" resource="0" file="Source/WDL/wdltypes.h"/>
       </GROUP>
       <FILE id="OHeywv" name="gsl.h" compile="0" resource="0" file="Source/gsl.h"/>
+      <FILE id="vUEbCh" name="ImpulseLoaderAsync.cpp" compile="1" resource="0"
+            file="Source/ImpulseLoaderAsync.cpp"/>
+      <FILE id="jVI8vW" name="ImpulseLoaderAsync.h" compile="0" resource="0"
+            file="Source/ImpulseLoaderAsync.h"/>
       <FILE id="OzGfUN" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="nzzmKr" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
