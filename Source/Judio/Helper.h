@@ -24,25 +24,42 @@
 
 #include "../../JuceLibraryCode/JuceHeader.h"
 #include "Aidio/Buffer.h"
+#include "Aidio/Utility.h"
 
 namespace jdo
 {
 //--------//--------//--------//--------//--------//--------//--------//--------
 /**
-    Loads JUCE binary data in WAV format into AudioBuffer<float>
+    Loads JUCE binary data in an audio file format into AudioBuffer<float>
 
+    @param  AudioFormatType e.g. WavAudioFormat or FlacAudioFormat
     @param  binaryData      Binary data. Needs WAV but DOES NOT CHECK!!!
     @param  binaryDataSize  Binary data size.
     @param  targetBuffer    buffer to write into. Will be cleared and resized!!!
     @param  fileSampleRate  Native sample rate of the file
                             Does not check if sample rate is correct!!!
 
-    @see    juce::AudioBuffer<T>
+    @see    juce::AudioBuffer<T>, juce::AudioFileFormat
 */
-void bufferLoadFromWavBinaryData (const void* binaryData,
-                                  size_t binaryDataSize,
-                                  ado::Buffer& targetBuffer,
-                                  int fileSampleRate);
+template <typename AudioFormatType> // e.g. WavAudioFormat, FlacAudioFormat
+void bufferLoadFromAudioBinaryData (const void* binaryData,
+                                    size_t binaryDataSize,
+                                    ado::Buffer& targetBuffer,
+                                    int fileSampleRate)
+{
+    ScopedPointer<AudioFormatType> format {new AudioFormatType};
+    ScopedPointer<MemoryInputStream> mis {new MemoryInputStream {binaryData, binaryDataSize, false}};
+    ScopedPointer<AudioFormatReader> audioReader {format->createReaderFor (mis.release(), true)}; // now owns mis
+
+    const int chans = gsl::narrow<int> (audioReader->numChannels);
+    const int samps = gsl::narrow<int> (audioReader->lengthInSamples);
+
+    juce::AudioBuffer<float> temp {chans, samps};
+    audioReader->read (&temp, 0, samps, 0, true, true);
+
+    targetBuffer.clearAndResize (chans, samps, fileSampleRate);
+    ado::rawBufferCopy (temp.getArrayOfReadPointers(), targetBuffer.getWriteArray(), chans, samps);
+}
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /**

@@ -27,27 +27,6 @@ namespace jdo
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-void bufferLoadFromWavBinaryData (const void* binaryData,
-                                  size_t binaryDataSize,
-                                  ado::Buffer& targetBuffer,
-                                  int fileSampleRate)
-{
-    ScopedPointer<WavAudioFormat> wav {new WavAudioFormat};
-    ScopedPointer<MemoryInputStream> mis {new MemoryInputStream {binaryData, binaryDataSize, false}};
-    ScopedPointer<AudioFormatReader> audioReader {wav->createReaderFor (mis.release(), true)}; // now owns mis
-
-    const int chans = gsl::narrow<int> (audioReader->numChannels);
-    const int samps = gsl::narrow<int> (audioReader->lengthInSamples);
-
-    juce::AudioBuffer<float> temp {chans, samps};
-    audioReader->read (&temp, 0, samps, 0, true, true);
-
-    targetBuffer.clearAndResize (chans, samps, fileSampleRate);
-    ado::rawBufferCopy (temp.getArrayOfReadPointers(), targetBuffer.getWriteArray(), chans, samps);
-}
-
-//--------//--------//--------//--------//--------//--------//--------//--------
-
 void bufferFillAllOnes (AudioBuffer<float>& b)
 {
     for (int chan = 0; chan < b.getNumChannels(); ++chan)
