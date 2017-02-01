@@ -42,16 +42,16 @@ void Helper::runTest()
 
     {
         ado::Buffer buffer {1,1};
-        jdo::bufferLoadFromWavBinaryData(BinaryData::Stereo64SamplesAllOnes_wav,
-                                         BinaryData::Stereo64SamplesAllOnes_wavSize,
-                                         buffer,
-                                         44100);
+        jdo::bufferLoadFromAudioBinaryData<WavAudioFormat>(BinaryData::Stereo64SamplesAllOnes_wav,
+                                                           BinaryData::Stereo64SamplesAllOnes_wavSize,
+                                                           buffer,
+                                                           44100);
         float sum {ado::rawBufferSum (buffer.getReadArray(), buffer.getNumChannels(), buffer.getNumSamples())};
         expectWithinAbsoluteError (sum, 128.0f, 0.001f);
-        jdo::bufferLoadFromWavBinaryData(BinaryData::Stereo64SamplesAllOnes_wav,
-                                         BinaryData::Stereo64SamplesAllOnes_wavSize,
-                                         buffer,
-                                         44100);
+        jdo::bufferLoadFromAudioBinaryData<WavAudioFormat>(BinaryData::Stereo64SamplesAllOnes_wav,
+                                                           BinaryData::Stereo64SamplesAllOnes_wavSize,
+                                                           buffer,
+                                                           44100);
         sum = ado::rawBufferSum (buffer.getReadArray(), buffer.getNumChannels(), buffer.getNumSamples());
         expectWithinAbsoluteError (sum, 128.0f, 0.001f);
     }
@@ -60,10 +60,10 @@ void Helper::runTest()
 
     {
         ado::Buffer buffer {1,1};
-        jdo::bufferLoadFromWavBinaryData(BinaryData::Stereo64SamplesAllOnes_wav,
-                                         BinaryData::Stereo64SamplesAllOnes_wavSize,
-                                         buffer,
-                                         48000);
+        jdo::bufferLoadFromAudioBinaryData<WavAudioFormat>(BinaryData::Stereo64SamplesAllOnes_wav,
+                                                           BinaryData::Stereo64SamplesAllOnes_wavSize,
+                                                           buffer,
+                                                           48000);
         expectEquals (buffer.getSampleRate(), 48000);
     }
 
@@ -72,10 +72,10 @@ void Helper::runTest()
 
     {
         ado::Buffer buffer {1,1};
-        jdo::bufferLoadFromWavBinaryData(BinaryData::_4Channel_wav,     // 4 channel WAV file.
-                                         BinaryData::_4Channel_wavSize, // ch1: 1 impulse
-                                         buffer,                        // ch2: 2 impulses
-                                         44100);                        // ch3: 3 impulses
+        jdo::bufferLoadFromAudioBinaryData<WavAudioFormat>(BinaryData::_4Channel_wav,     // 4 channel WAV file.
+                                                           BinaryData::_4Channel_wavSize, // ch1: 1 impulse
+                                                           buffer,                        // ch2: 2 impulses
+                                                           44100);                        // ch3: 3 impulses
         //ado::coutBuffer(buffer);                                      // ch4: 4 impulses
         expectEquals (buffer.getNumChannels(), 4);
         expectWithinAbsoluteError (ado::bufferSumElements (buffer), 1 + 2 + 3 + 4.f, 0.001f);
