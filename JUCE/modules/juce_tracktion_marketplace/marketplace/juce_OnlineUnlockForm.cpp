@@ -39,6 +39,7 @@ struct OnlineUnlockForm::OverlayComp  : public Component,
 {
     OverlayComp (OnlineUnlockForm& f)  : Thread (String()), form (f)
     {
+        result.succeeded = false;
         email = form.emailBox.getText();
         password = form.passwordBox.getText();
         addAndMakeVisible (spinner);
@@ -112,6 +113,8 @@ struct OnlineUnlockForm::OverlayComp  : public Component,
     Spinner spinner;
     OnlineUnlockStatus::UnlockResult result;
     String email, password;
+
+    JUCE_LEAK_DETECTOR (OnlineUnlockForm::OverlayComp)
 };
 
 static juce_wchar getDefaultPasswordChar() noexcept
