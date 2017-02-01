@@ -44,47 +44,45 @@ void ImpulseLoaderAsync::changeImpulse (int newImpulse)
     switch (newImpulse)
     {
         case 1:                                               // here's the number \/
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR014410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR014410024bit_wavSize,
-                                          ir,
-                                          44100);
+        jdo::bufferLoadFromAudioBinaryData<FlacAudioFormat> (BinaryData::balancemasteringteufelsbergIR014410024bit_flac,
+                                                             BinaryData::balancemasteringteufelsbergIR014410024bit_flacSize,
+                                                             ir,
+                                                             44100);
         break;
         case 2:
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR024410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR024410024bit_wavSize,
-                                          ir,
-                                          44100);
+        jdo::bufferLoadFromAudioBinaryData<FlacAudioFormat> (BinaryData::balancemasteringteufelsbergIR024410024bit_flac,
+                                                             BinaryData::balancemasteringteufelsbergIR024410024bit_flacSize,
+                                                             ir,
+                                                             44100);
         break;
         case 3:
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR034410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR034410024bit_wavSize,
-                                          ir,
-                                          44100);
+        jdo::bufferLoadFromAudioBinaryData<FlacAudioFormat> (BinaryData::balancemasteringteufelsbergIR034410024bit_flac,
+                                                             BinaryData::balancemasteringteufelsbergIR034410024bit_flacSize,
+                                                             ir,
+                                                             44100);
         break;
         case 4:
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR044410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR044410024bit_wavSize,
-                                          ir,
-                                          44100);
+        jdo::bufferLoadFromAudioBinaryData<FlacAudioFormat> (BinaryData::balancemasteringteufelsbergIR044410024bit_flac,
+                                                             BinaryData::balancemasteringteufelsbergIR044410024bit_flacSize,
+                                                             ir,
+                                                             44100);
         break;
         case 5:
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR054410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR054410024bit_wavSize,
-                                          ir,
-                                          44100);
+        jdo::bufferLoadFromAudioBinaryData<FlacAudioFormat> (BinaryData::balancemasteringteufelsbergIR054410024bit_flac,
+                                                             BinaryData::balancemasteringteufelsbergIR054410024bit_flacSize,
+                                                             ir,
+                                                             44100);
         break;
         case 6:
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR064410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR064410024bit_wavSize,
-                                          ir,
-                                          44100);
+        jdo::bufferLoadFromAudioBinaryData<FlacAudioFormat> (BinaryData::balancemasteringteufelsbergIR064410024bit_flac,
+                                                             BinaryData::balancemasteringteufelsbergIR064410024bit_flacSize,
+                                                             ir,
+                                                             44100);
         break;
 
         default: jassertfalse;  // there are only 6 IRs 1-6 !!!
         break;
     }
-
-    ir *= 0.1f;                 // reduce WAV gain
 
     engine.set (ir);
 }

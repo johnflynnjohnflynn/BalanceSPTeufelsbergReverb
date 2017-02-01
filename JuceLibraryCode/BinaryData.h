@@ -9,23 +9,23 @@
 
 namespace BinaryData
 {
-    extern const char*   balancemasteringteufelsbergIR014410024bit_wav;
-    const int            balancemasteringteufelsbergIR014410024bit_wavSize = 2041946;
+    extern const char*   balancemasteringteufelsbergIR014410024bit_flac;
+    const int            balancemasteringteufelsbergIR014410024bit_flacSize = 857337;
 
-    extern const char*   balancemasteringteufelsbergIR024410024bit_wav;
-    const int            balancemasteringteufelsbergIR024410024bit_wavSize = 2031788;
+    extern const char*   balancemasteringteufelsbergIR024410024bit_flac;
+    const int            balancemasteringteufelsbergIR024410024bit_flacSize = 809408;
 
-    extern const char*   balancemasteringteufelsbergIR034410024bit_wav;
-    const int            balancemasteringteufelsbergIR034410024bit_wavSize = 2027150;
+    extern const char*   balancemasteringteufelsbergIR034410024bit_flac;
+    const int            balancemasteringteufelsbergIR034410024bit_flacSize = 774240;
 
-    extern const char*   balancemasteringteufelsbergIR044410024bit_wav;
-    const int            balancemasteringteufelsbergIR044410024bit_wavSize = 1664862;
+    extern const char*   balancemasteringteufelsbergIR044410024bit_flac;
+    const int            balancemasteringteufelsbergIR044410024bit_flacSize = 652577;
 
-    extern const char*   balancemasteringteufelsbergIR054410024bit_wav;
-    const int            balancemasteringteufelsbergIR054410024bit_wavSize = 1820096;
+    extern const char*   balancemasteringteufelsbergIR054410024bit_flac;
+    const int            balancemasteringteufelsbergIR054410024bit_flacSize = 679626;
 
-    extern const char*   balancemasteringteufelsbergIR064410024bit_wav;
-    const int            balancemasteringteufelsbergIR064410024bit_wavSize = 570504;
+    extern const char*   balancemasteringteufelsbergIR064410024bit_flac;
+    const int            balancemasteringteufelsbergIR064410024bit_flacSize = 300974;
 
     extern const char*   layout04knob01dotofffs8_png;
     const int            layout04knob01dotofffs8_pngSize = 331;

@@ -16,18 +16,18 @@
               pluginVSTCategory="">
   <MAINGROUP id="QuTSDH" name="BalanceSPTeufelsbergReverb">
     <GROUP id="{BEE0B3EC-1FBF-760F-F70A-05FD1058C7B5}" name="Resources">
-      <FILE id="NWZyHr" name="balance-mastering-teufelsberg-IR-01-44100-24bit.wav"
-            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-01-44100-24bit.wav"/>
-      <FILE id="jcQl8I" name="balance-mastering-teufelsberg-IR-02-44100-24bit.wav"
-            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-02-44100-24bit.wav"/>
-      <FILE id="ata14i" name="balance-mastering-teufelsberg-IR-03-44100-24bit.wav"
-            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-03-44100-24bit.wav"/>
-      <FILE id="BlOLPH" name="balance-mastering-teufelsberg-IR-04-44100-24bit.wav"
-            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-04-44100-24bit.wav"/>
-      <FILE id="FmHkXG" name="balance-mastering-teufelsberg-IR-05-44100-24bit.wav"
-            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-05-44100-24bit.wav"/>
-      <FILE id="VmV5CA" name="balance-mastering-teufelsberg-IR-06-44100-24bit.wav"
-            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-06-44100-24bit.wav"/>
+      <FILE id="Ve6i8f" name="balance-mastering-teufelsberg-IR-01-44100-24bit.flac"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-01-44100-24bit.flac"/>
+      <FILE id="jEnbIP" name="balance-mastering-teufelsberg-IR-02-44100-24bit.flac"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-02-44100-24bit.flac"/>
+      <FILE id="yy0bea" name="balance-mastering-teufelsberg-IR-03-44100-24bit.flac"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-03-44100-24bit.flac"/>
+      <FILE id="Tp0MLI" name="balance-mastering-teufelsberg-IR-04-44100-24bit.flac"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-04-44100-24bit.flac"/>
+      <FILE id="IYn0NO" name="balance-mastering-teufelsberg-IR-05-44100-24bit.flac"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-05-44100-24bit.flac"/>
+      <FILE id="E0J7Qj" name="balance-mastering-teufelsberg-IR-06-44100-24bit.flac"
+            compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-06-44100-24bit.flac"/>
       <FILE id="JylYpO" name="layout04knob01dotoff-fs8.png" compile="0" resource="1"
             file="Resources/layout04knob01dotoff-fs8.png"/>
       <FILE id="dDTdgp" name="layout04knob01doton-fs8.png" compile="0" resource="1"
