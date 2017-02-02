@@ -21,6 +21,7 @@ Editor::Editor (Processor& p)
       gainSlider       {*p.getParameters()[Processor::ParamNames::gainName]},
       backgroundImage {ImageCache::getFromMemory (BinaryData::layout04NoKnobsfs8_png,
                                                   BinaryData::layout04NoKnobsfs8_pngSize)},
+      versionNumberLabel {"LabelID", "v" + String {ProjectInfo::versionString}},
       processor {p}
 {
     addAndMakeVisible (&stateComponent);
@@ -32,6 +33,9 @@ Editor::Editor (Processor& p)
 
     addAndMakeVisible (&mixSlider);
     addAndMakeVisible (&gainSlider);
+
+    versionNumberLabel.setColour (Label::textColourId, Colour {0xff575757});
+    addAndMakeVisible (&versionNumberLabel);
 
     setSize (550, 500); // remember to set before xtor finished
 }
@@ -45,6 +49,8 @@ void Editor::paint (Graphics& g)
 {
     g.drawImage (backgroundImage, 0, 0, 1000, 500,  // xPos, yPos, xSize, ySize
                                   0, 0, 2000, 1000);
+
+    versionNumberLabel.setBounds(213, 34, 100, 10);
 }
 
 void Editor::resized()
