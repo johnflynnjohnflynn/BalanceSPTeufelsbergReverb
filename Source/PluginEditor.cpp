@@ -29,6 +29,7 @@ Editor::Editor (Processor& p)
     addAndMakeVisible (&bypassToggle);
 
     reverbTypeSlider.setSliderStyle (Slider::SliderStyle::LinearBar);
+    reverbTypeSlider.setVelocityBasedMode (false);
     addAndMakeVisible (&reverbTypeSlider);
 
     addAndMakeVisible (&mixSlider);
