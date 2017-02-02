@@ -25,11 +25,11 @@ Processor::Processor()
 #endif
     : stateAB {getParametersForWriting()},
       statePresets {getParametersForWriting(), "BalanceAudioTools/SPTeufelsbergReverb/presets.xml"},
-                                         // ID            Name                 Min      Max     Def nSteps   skew broadcastParam
-      bypassParam     {new jdo::ParamStep {"bypassID",   "Bypass",           0.0f,     1.0f,   0.0f,    1        }},
-      reverbTypeParam {new jdo::ParamStep {"revTypeID",  "Reverb Type",      1.0f,     6.0f,   1.0f,    5        }},
-      mixParam        {new jdo::ParamStep {"mixID",      "Mix",              0.0f,   100.0f,  50.0f,   64        }},
-      gainParam       {new jdo::ParamStep {"gainID",     "Gain",           -18.0f,    18.0f,   0.0f,   72        }},
+                                         // ID            Name       Suffix          Min      Max     Def nSteps   skew broadcastParam
+      bypassParam     {new jdo::ParamStep {"bypassID",   "Bypass",       "",    0.0f,     1.0f,   0.0f,    1        }},
+      reverbTypeParam {new jdo::ParamStep {"revTypeID",  "Reverb Type",  "",    1.0f,     6.0f,   1.0f,    5        }},
+      mixParam        {new jdo::ParamStep {"mixID",      "Mix",         "%",    0.0f,   100.0f,  50.0f,   64        }},
+      gainParam       {new jdo::ParamStep {"gainID",     "Gain",       "dB",  -18.0f,    18.0f,   0.0f,   72        }},
       ir {1, 1},
       engine {ir},
       impulseLoaderAsync {engine, ir}
