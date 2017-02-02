@@ -30,8 +30,14 @@ namespace jdo
 {
 
 //==============================================================================
-void saveStateToXml (const AudioProcessor& processor, XmlElement& xml);
-void loadStateFromXml (const XmlElement& xml, AudioProcessor& processor);
+/** For all methods below that require a non-const OwnedArray<AudioProcessorParameter>&
+    remember to make a...
+        OwnedArray<AudioProcessorParameter>& getParametersForWriting();
+    ...function in your derived PluginProcessor class, which just casts away const
+    on AudioProcessor::getParameters()
+*/
+void saveStateToXml (const OwnedArray<AudioProcessorParameter>& params, XmlElement& xml);
+void loadStateFromXml (const XmlElement& xml, OwnedArray<AudioProcessorParameter>& params);
 
 //==============================================================================
 /** Handler for AB state toggling and copying in plugin.                        // improve descriptions
@@ -41,13 +47,13 @@ void loadStateFromXml (const XmlElement& xml, AudioProcessor& processor);
 class StateAB
 {
 public:
-    explicit StateAB (AudioProcessor& p);
+    explicit StateAB (OwnedArray<AudioProcessorParameter>& params);
     
     void toggleAB();
     void copyAB();
 
 private:
-    AudioProcessor& pluginProcessor;
+    OwnedArray<AudioProcessorParameter>& parameters;
     XmlElement ab {"AB"};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StateAB);
@@ -68,24 +74,51 @@ String getNextAvailablePresetID (const XmlElement& presetXml);
 class StatePresets
 {
 public:
-    StatePresets (AudioProcessor& proc, const String& presetFileLocation);
+    StatePresets (OwnedArray<AudioProcessorParameter>& params, const String& presetFileLocation);
     ~StatePresets() {}
 
-    void savePreset (const String& presetName); // preset already exists? confirm overwrite
     void loadPreset (int presetID);
-    void deletePreset();
-                     
-    StringArray getPresetNames();
+
+    void savePresetToDisk (const String& presetName);
+    void deletePresetFromDisk();
+    StringArray getPresetNamesFromDisk();
+
     int getNumPresets() const;
     int getCurrentPresetId() const;
 
 private:
-    AudioProcessor& pluginProcessor;
+    OwnedArray<AudioProcessorParameter>& parameters;
     XmlElement presetXml {"PRESETS"}; // local, in-plugin representation
     File presetFile;                  // on-disk representation
     int currentPresetID {0};
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StatePresets);
+};
+
+//==============================================================================
+/** We need to reload the presets from disk every time the mouse drops down the 
+    combobox. (This syncs changes from other plugin instances)
+
+    We need to call refreshPresetBoxFromDisk() which is a member of the parent. 
+    This sends a callback up the stack which is caught by the parent.
+    
+    NOT a very elegant solution!!!
+*/
+class ComboBoxWithRefreshOnClick  : public ComboBox,
+                                    public ChangeBroadcaster
+{
+public:
+    ComboBoxWithRefreshOnClick (const String& componentName, ChangeListener* parentStateComponent)
+        : ComboBox {componentName}
+    {
+        addChangeListener (parentStateComponent);
+    }
+
+    void showPopup()
+    {
+        sendSynchronousChangeMessage();
+        ComboBox::showPopup();
+    }
 };
 
 //==============================================================================
@@ -98,7 +131,8 @@ private:
 */
 class StateComponent  : public Component,
                         public Button::Listener,
-                        public ComboBox::Listener
+                        public ComboBox::Listener,
+                        public ChangeListener
 {
 public:
     StateComponent (StateAB& sab, StatePresets& sp);
@@ -110,19 +144,21 @@ private:
     StateAB&      procStateAB;
     StatePresets& procStatePresets;
 
-    TextButton      toggleABButton;
-    TextButton      copyABButton;
-    ComboBox        presetBox;
-    TextButton      savePresetButton;
-    TextButton      deletePresetButton;
+    TextButton                  toggleABButton;
+    TextButton                  copyABButton;
+    ComboBoxWithRefreshOnClick  presetBox;
+    TextButton                  savePresetButton;
+    TextButton                  deletePresetButton;
 
     void buttonClicked (Button* clickedButton) override;
     void comboBoxChanged (ComboBox* changedComboBox) override;
-    
-    void refreshPresetBox();
+
+    void refreshPresetBoxFromDisk();
     void ifPresetActiveShowInBox();
     void deletePresetAndRefresh();
     void savePresetAlertWindow();
+
+    void changeListenerCallback (ChangeBroadcaster* source); // for refreshing presetBox from disk on click
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StateComponent);
 };
