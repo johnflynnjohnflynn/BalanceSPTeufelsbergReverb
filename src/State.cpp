@@ -106,8 +106,7 @@ void StatePresets::loadPreset (int presetID)
         XmlElement loadThisChild {*presetXml.getChildElement (presetID - 1)}; // (0 indexed method)
         loadStateFromXml (loadThisChild, parameters);
     }
-    else
-        jassertfalse;
+    // else do nothing, on preset delete, refreshing will try to load a non-existent presetID
 
     currentPresetID = presetID; // allow 0 for 'no preset selected' (?)
 }
@@ -169,12 +168,12 @@ void populateComboBox (ComboBox& comboBox, const StringArray& listItems)
 }
 
 //==============================================================================
-StateComponent::StateComponent (StateAB& sab, StatePresets& sp)//, AudioProcessorParameter& gainStepSizeParam)
+StateComponent::StateComponent (StateAB& sab, StatePresets& sp)
     : procStateAB {sab},
       procStatePresets {sp},
       toggleABButton {"A-B"},
       copyABButton {"Copy"},
-      presetBox {"PresetBoxID"},
+      presetBox {"PresetBoxID", this},
       savePresetButton {"Save"},
       deletePresetButton {"Delete"}
 {
@@ -275,6 +274,11 @@ void StateComponent::savePresetAlertWindow()
         refreshPresetBoxFromDisk();
         presetBox.setSelectedId (procStatePresets.getNumPresets());
     }
+}
+
+void StateComponent::changeListenerCallback (ChangeBroadcaster* source)
+{
+    refreshPresetBoxFromDisk();
 }
 
 } // namespace jdo

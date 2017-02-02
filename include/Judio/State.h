@@ -30,6 +30,12 @@ namespace jdo
 {
 
 //==============================================================================
+/** For all methods below that require a non-const OwnedArray<AudioProcessorParameter>&
+    remember to make a...
+        OwnedArray<AudioProcessorParameter>& getParametersForWriting();
+    ...function in your derived PluginProcessor class, which just casts away const
+    on AudioProcessor::getParameters()
+*/
 void saveStateToXml (const OwnedArray<AudioProcessorParameter>& params, XmlElement& xml);
 void loadStateFromXml (const XmlElement& xml, OwnedArray<AudioProcessorParameter>& params);
 
@@ -90,6 +96,32 @@ private:
 };
 
 //==============================================================================
+/** We need to reload the presets from disk every time the mouse drops down the 
+    combobox. (This syncs changes from other plugin instances)
+
+    We need to call refreshPresetBoxFromDisk() which is a member of the parent. 
+    This sends a callback up the stack which is caught by the parent.
+    
+    NOT a very elegant solution!!!
+*/
+class ComboBoxWithRefreshOnClick  : public ComboBox,
+                                    public ChangeBroadcaster
+{
+public:
+    ComboBoxWithRefreshOnClick (const String& componentName, ChangeListener* parentStateComponent)
+        : ComboBox {componentName}
+    {
+        addChangeListener (parentStateComponent);
+    }
+
+    void showPopup()
+    {
+        sendSynchronousChangeMessage();
+        ComboBox::showPopup();
+    }
+};
+
+//==============================================================================
 /** GUI-side component for the State objects. Handles GUI visual layout and 
     logic of the state handlers.
 
@@ -99,7 +131,8 @@ private:
 */
 class StateComponent  : public Component,
                         public Button::Listener,
-                        public ComboBox::Listener
+                        public ComboBox::Listener,
+                        public ChangeListener
 {
 public:
     StateComponent (StateAB& sab, StatePresets& sp);
@@ -111,19 +144,21 @@ private:
     StateAB&      procStateAB;
     StatePresets& procStatePresets;
 
-    TextButton      toggleABButton;
-    TextButton      copyABButton;
-    ComboBox        presetBox;
-    TextButton      savePresetButton;
-    TextButton      deletePresetButton;
+    TextButton                  toggleABButton;
+    TextButton                  copyABButton;
+    ComboBoxWithRefreshOnClick  presetBox;
+    TextButton                  savePresetButton;
+    TextButton                  deletePresetButton;
 
     void buttonClicked (Button* clickedButton) override;
     void comboBoxChanged (ComboBox* changedComboBox) override;
-    
+
     void refreshPresetBoxFromDisk();
     void ifPresetActiveShowInBox();
     void deletePresetAndRefresh();
     void savePresetAlertWindow();
+
+    void changeListenerCallback (ChangeBroadcaster* source); // for refreshing presetBox from disk on click
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StateComponent);
 };

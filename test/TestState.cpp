@@ -16,6 +16,10 @@
 
 //==============================================================================
 
+                                            // now that we are using OwnedArray<AudioProcessorParameters>
+                                            // we should make some robust multi instance tests here
+                                            // testing the state functionality!!!
+
 AIDIO_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(StateTest)
 
 StateTest::StateTest() : UnitTest ("StateTest") {}
