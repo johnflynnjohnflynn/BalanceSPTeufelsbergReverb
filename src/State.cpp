@@ -26,26 +26,26 @@ namespace jdo
 {
 
 //==============================================================================
-void saveStateToXml (const AudioProcessor& proc, XmlElement& xml)
+void saveStateToXml (const OwnedArray<AudioProcessorParameter>& params, XmlElement& xml)
 {
     xml.removeAllAttributes(); // clear first
 
-    for (const auto& param : proc.getParameters())
+    for (const auto& param : params)
         if (auto* p = dynamic_cast<AudioProcessorParameterWithID*> (param))
             xml.setAttribute (p->paramID, p->getValue()); // 0to1
 }
 
-void loadStateFromXml (const XmlElement& xml, AudioProcessor& proc)
+void loadStateFromXml (const XmlElement& xml, OwnedArray<AudioProcessorParameter>& params)
 {
-    for (const auto& param : proc.getParameters())
+    for (const auto& param : params)
         if (auto* p = dynamic_cast<AudioProcessorParameterWithID*> (param))
                                                                                   // if not in xml set current
             p->setValueNotifyingHost ((float) xml.getDoubleAttribute (p->paramID, p->getValue()));
 }
 
 //==============================================================================
-StateAB::StateAB (AudioProcessor& p)
-    : pluginProcessor {p}
+StateAB::StateAB (OwnedArray<AudioProcessorParameter>& params)
+    : parameters {params}
 {
     copyAB();
 }
@@ -53,14 +53,14 @@ StateAB::StateAB (AudioProcessor& p)
 void StateAB::toggleAB()
 {
     XmlElement temp {"Temp"};
-    saveStateToXml (pluginProcessor, temp); // current to temp
-    loadStateFromXml (ab, pluginProcessor); // ab to current
-    ab = temp;                              // temp to ab
+    saveStateToXml (parameters, temp); // current to temp
+    loadStateFromXml (ab, parameters); // ab to current
+    ab = temp;                         // temp to ab
 }
 
 void StateAB::copyAB()
 {
-    saveStateToXml (pluginProcessor, ab);
+    saveStateToXml (parameters, ab);
 }
 
 //==============================================================================
@@ -91,25 +91,12 @@ String getNextAvailablePresetID (const XmlElement& presetXml)
 }
 
 //==============================================================================
-StatePresets::StatePresets (AudioProcessor& proc, const String& presetFileLocation)
-    : pluginProcessor {proc},
+StatePresets::StatePresets (OwnedArray<AudioProcessorParameter>& params, const String& presetFileLocation)
+    : parameters {params},
       presetFile {File::getSpecialLocation (File::userApplicationDataDirectory)
-                    .getChildFile (presetFileLocation)}
+                                            .getChildFile (presetFileLocation)}
 {
     parseFileToXmlElement (presetFile, presetXml);
-}
-
-void StatePresets::savePreset (const String& presetName)
-{
-    String newPresetID = getNextAvailablePresetID (presetXml); // presetID format: "preset##"
-
-    ScopedPointer<XmlElement> currentState {new XmlElement {newPresetID}};  // must be pointer as
-    saveStateToXml (pluginProcessor, *currentState);                        // parent takes ownership
-    currentState->setAttribute ("presetName", presetName);
-    
-    presetXml.addChildElement (currentState.release());                     // will be deleted by parent element
-
-    writeXmlElementToFile (presetXml, presetFile);  // write to shared Xml on disk
 }
 
 void StatePresets::loadPreset (int presetID)
@@ -117,21 +104,37 @@ void StatePresets::loadPreset (int presetID)
     if (1 <= presetID && presetID <= presetXml.getNumChildElements()) // 1 indexed to match ComboBox
     {
         XmlElement loadThisChild {*presetXml.getChildElement (presetID - 1)}; // (0 indexed method)
-        loadStateFromXml (loadThisChild, pluginProcessor);
+        loadStateFromXml (loadThisChild, parameters);
     }
+    else
+        jassertfalse;
+
     currentPresetID = presetID; // allow 0 for 'no preset selected' (?)
 }
 
-void StatePresets::deletePreset()
+void StatePresets::savePresetToDisk (const String& presetName)
+{
+    String newPresetID = getNextAvailablePresetID (presetXml); // presetID format: "preset##"
+
+    ScopedPointer<XmlElement> currentState {new XmlElement {newPresetID}};  // must be pointer as
+    saveStateToXml (parameters, *currentState);                        // parent takes ownership
+    currentState->setAttribute ("presetName", presetName);
+    
+    presetXml.addChildElement (currentState.release());                     // will be deleted by parent element
+
+    writeXmlElementToFile (presetXml, presetFile);  // write changes to shared file on disk
+}
+
+void StatePresets::deletePresetFromDisk()
 {
     XmlElement* childToDelete {presetXml.getChildElement (currentPresetID - 1)};
     if (childToDelete)
         presetXml.removeChildElement (childToDelete, true);
 
-    writeXmlElementToFile (presetXml, presetFile);  // write to shared Xml on disk
+    writeXmlElementToFile (presetXml, presetFile);  // write changes to shared file on disk
 }
 
-StringArray StatePresets::getPresetNames()
+StringArray StatePresets::getPresetNamesFromDisk()
 {
     parseFileToXmlElement (presetFile, presetXml); // refresh from disk
 
@@ -144,6 +147,7 @@ StringArray StatePresets::getPresetNames()
             n = "(Unnamed preset)";
         names.add (n);
     }
+
     return names; // hopefully moves
 }
 
@@ -181,7 +185,7 @@ StateComponent::StateComponent (StateAB& sab, StatePresets& sp)//, AudioProcesso
 
     addAndMakeVisible (presetBox);
     presetBox.setTextWhenNothingSelected("Load preset...");
-    refreshPresetBox();
+    refreshPresetBoxFromDisk();
     ifPresetActiveShowInBox();
     presetBox.addListener (this);
 
@@ -232,10 +236,10 @@ void StateComponent::comboBoxChanged (ComboBox* changedComboBox)
     procStatePresets.loadPreset (selectedId);
 }
 
-void StateComponent::refreshPresetBox()
+void StateComponent::refreshPresetBoxFromDisk()
 {
     presetBox.clear();
-    StringArray presetNames {procStatePresets.getPresetNames()};
+    StringArray presetNames {procStatePresets.getPresetNamesFromDisk()};
 
     populateComboBox (presetBox, presetNames);
 }
@@ -250,8 +254,8 @@ void StateComponent::ifPresetActiveShowInBox()
 
 void StateComponent::deletePresetAndRefresh()
 {
-    procStatePresets.deletePreset();
-    refreshPresetBox();
+    procStatePresets.deletePresetFromDisk();
+    refreshPresetBoxFromDisk();
 }
 
 void StateComponent::savePresetAlertWindow()
@@ -267,8 +271,8 @@ void StateComponent::savePresetAlertWindow()
     {
         String presetName {alert.getTextEditorContents ("presetEditorID")};
 
-        procStatePresets.savePreset (presetName);
-        refreshPresetBox();
+        procStatePresets.savePresetToDisk (presetName);
+        refreshPresetBoxFromDisk();
         presetBox.setSelectedId (procStatePresets.getNumPresets());
     }
 }

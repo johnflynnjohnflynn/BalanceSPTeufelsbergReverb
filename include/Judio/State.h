@@ -30,8 +30,8 @@ namespace jdo
 {
 
 //==============================================================================
-void saveStateToXml (const AudioProcessor& processor, XmlElement& xml);
-void loadStateFromXml (const XmlElement& xml, AudioProcessor& processor);
+void saveStateToXml (const OwnedArray<AudioProcessorParameter>& params, XmlElement& xml);
+void loadStateFromXml (const XmlElement& xml, OwnedArray<AudioProcessorParameter>& params);
 
 //==============================================================================
 /** Handler for AB state toggling and copying in plugin.                        // improve descriptions
@@ -41,13 +41,13 @@ void loadStateFromXml (const XmlElement& xml, AudioProcessor& processor);
 class StateAB
 {
 public:
-    explicit StateAB (AudioProcessor& p);
+    explicit StateAB (OwnedArray<AudioProcessorParameter>& params);
     
     void toggleAB();
     void copyAB();
 
 private:
-    AudioProcessor& pluginProcessor;
+    OwnedArray<AudioProcessorParameter>& parameters;
     XmlElement ab {"AB"};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StateAB);
@@ -68,19 +68,20 @@ String getNextAvailablePresetID (const XmlElement& presetXml);
 class StatePresets
 {
 public:
-    StatePresets (AudioProcessor& proc, const String& presetFileLocation);
+    StatePresets (OwnedArray<AudioProcessorParameter>& params, const String& presetFileLocation);
     ~StatePresets() {}
 
-    void savePreset (const String& presetName); // preset already exists? confirm overwrite
     void loadPreset (int presetID);
-    void deletePreset();
-                     
-    StringArray getPresetNames();
+
+    void savePresetToDisk (const String& presetName);
+    void deletePresetFromDisk();
+    StringArray getPresetNamesFromDisk();
+
     int getNumPresets() const;
     int getCurrentPresetId() const;
 
 private:
-    AudioProcessor& pluginProcessor;
+    OwnedArray<AudioProcessorParameter>& parameters;
     XmlElement presetXml {"PRESETS"}; // local, in-plugin representation
     File presetFile;                  // on-disk representation
     int currentPresetID {0};
@@ -119,7 +120,7 @@ private:
     void buttonClicked (Button* clickedButton) override;
     void comboBoxChanged (ComboBox* changedComboBox) override;
     
-    void refreshPresetBox();
+    void refreshPresetBoxFromDisk();
     void ifPresetActiveShowInBox();
     void deletePresetAndRefresh();
     void savePresetAlertWindow();
