@@ -233,16 +233,16 @@
  #define JucePlugin_Desc                   "BalanceSPTeufelsbergReverb"
 #endif
 #ifndef  JucePlugin_Manufacturer
- #define JucePlugin_Manufacturer           "BalanceMastering"
+ #define JucePlugin_Manufacturer           "BalanceAudioTools"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
- #define JucePlugin_ManufacturerWebsite    "www.BalanceMastering.com"
+ #define JucePlugin_ManufacturerWebsite    "www.balancemastering.com"
 #endif
 #ifndef  JucePlugin_ManufacturerEmail
- #define JucePlugin_ManufacturerEmail      "info@BalanceMastering.com"
+ #define JucePlugin_ManufacturerEmail      "info@balancemastering.com"
 #endif
 #ifndef  JucePlugin_ManufacturerCode
- #define JucePlugin_ManufacturerCode       0x42614d61 // 'BaMa'
+ #define JucePlugin_ManufacturerCode       0x42614154 // 'BaAT'
 #endif
 #ifndef  JucePlugin_PluginCode
  #define JucePlugin_PluginCode             0x426d5466 // 'BmTf'
@@ -293,7 +293,7 @@
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
 #endif
 #ifndef  JucePlugin_CFBundleIdentifier
- #define JucePlugin_CFBundleIdentifier     com.BalanceMastering.BalanceSPTeufelsbergReverb
+ #define JucePlugin_CFBundleIdentifier     com.BalanceAudioTools.BalanceSPTeufelsbergReverb
 #endif
 #ifndef  JucePlugin_RTASCategory
  #define JucePlugin_RTASCategory           ePluginCategory_Reverb
@@ -311,7 +311,7 @@
  #define JucePlugin_RTASDisableMultiMono   0
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.BalanceMastering.BalanceSPTeufelsbergReverb
+ #define JucePlugin_AAXIdentifier          com.BalanceAudioTools.BalanceSPTeufelsbergReverb
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode

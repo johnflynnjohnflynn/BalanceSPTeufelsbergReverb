@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="eLVGA9" name="BalanceSPTeufelsbergReverb" projectType="audioplug"
-              version="1.0.0" bundleIdentifier="com.BalanceMastering.BalanceSPTeufelsbergReverb"
+              version="1.0.0" bundleIdentifier="com.BalanceAudioTools.BalanceSPTeufelsbergReverb"
               includeBinaryInAppConfig="1" buildVST="1" buildVST3="0" buildAU="1"
               buildAUv3="0" buildRTAS="0" buildAAX="0" pluginName="BalanceSPTeufelsbergReverb"
-              pluginDesc="BalanceSPTeufelsbergReverb" pluginManufacturer="BalanceMastering"
-              pluginManufacturerCode="BaMa" pluginCode="BmTf" pluginChannelConfigs="{1,1},{1,2},{2,2}"
+              pluginDesc="BalanceSPTeufelsbergReverb" pluginManufacturer="BalanceAudioTools"
+              pluginManufacturerCode="BaAT" pluginCode="BmTf" pluginChannelConfigs="{1,1},{1,2},{2,2}"
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="BalanceSPTeufelsbergReverbAU"
-              pluginRTASCategory="ePluginCategory_Reverb" aaxIdentifier="com.BalanceMastering.BalanceSPTeufelsbergReverb"
+              pluginRTASCategory="ePluginCategory_Reverb" aaxIdentifier="com.BalanceAudioTools.BalanceSPTeufelsbergReverb"
               pluginAAXCategory="AAX_ePlugInCategory_Reverb" jucerVersion="4.3.0"
               defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;"
-              companyName="BalanceMastering" companyWebsite="www.BalanceMastering.com"
-              companyEmail="info@BalanceMastering.com" pluginAUMainType=""
+              companyName="BalanceAudioTools" companyWebsite="www.balancemastering.com"
+              companyEmail="info@balancemastering.com" pluginAUMainType=""
               pluginVSTCategory="">
   <MAINGROUP id="QuTSDH" name="BalanceSPTeufelsbergReverb">
     <GROUP id="{BEE0B3EC-1FBF-760F-F70A-05FD1058C7B5}" name="Resources">
@@ -148,6 +148,29 @@
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
       </MODULEPATHS>
     </VS2013>
+    <VS2013 targetFolder="Builds/VisualStudio2013x64">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
+                       headerPath="..\..\Source"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
+                       headerPath="..\..\Source"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2013>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
@@ -169,12 +192,12 @@
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
-    <VS2015 targetFolder="Builds/VisualStudio2015">
+    <VS2015 targetFolder="Builds/VisualStudio2015x64">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
                        headerPath="..\..\Source"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
                        headerPath="..\..\Source"/>
       </CONFIGURATIONS>
