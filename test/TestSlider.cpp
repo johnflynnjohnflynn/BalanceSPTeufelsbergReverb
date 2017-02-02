@@ -24,12 +24,12 @@ class SliderTestsProc  : public AudioProcessor  // Dummy processor for use in te
 {
 public:
     SliderTestsProc()
-        : cont {new jdo::ParamStep {"id", "name", 0, 10, 5,  0}},
-          step {new jdo::ParamStep {"id", "name", 0, 10, 5, 10}},
-          stepSizeParam {new jdo::ParamStepBroadcast  {"sid", "sname", 0.01f, 3, 0.75, 0, 0}},
-          gainParam     {new jdo::ParamStepListenGain {"gid", "gname",  -10, 10, 1,   20, 0, *stepSizeParam}},
-          numFreqStepsParam {new jdo::ParamStepBroadcast  {"sid", "sname",    1,    16,    4, 15, 0}},
-          freqParam         {new jdo::ParamStepListenFreq {"gid", "gname",   20, 20000,  200,  0, 3, *numFreqStepsParam}}
+        : cont {new jdo::ParamStep {"id", "name", "label", 0, 10, 5,  0}},
+          step {new jdo::ParamStep {"id", "name", "label", 0, 10, 5, 10}},
+          stepSizeParam {new jdo::ParamStepBroadcast  {"sid", "sname", "label", 0.01f, 3, 0.75, 0, 0}},
+          gainParam     {new jdo::ParamStepListenGain {"gid", "gname", "label",  -10, 10, 1,   20, 0, *stepSizeParam}},
+          numFreqStepsParam {new jdo::ParamStepBroadcast  {"sid", "sname", "label",    1,    16,    4, 15, 0}},
+          freqParam         {new jdo::ParamStepListenFreq {"gid", "gname", "label",   20, 20000,  200,  0, 3, *numFreqStepsParam}}
     {
         addParameter (cont);
         addParameter (step);

@@ -24,10 +24,10 @@ class ParamStepTestsProc  : public AudioProcessor   // Dummy processor for use i
 {
 public:
     ParamStepTestsProc()
-        : stepSizeParam     {new jdo::ParamStepBroadcast  {"sid", "sname", 0.01f,    3, 0.75,  0, 0}},
-          gainParam         {new jdo::ParamStepListenGain {"gid", "gname",  -10,    10,    0, 20, 0, *stepSizeParam}},
-          numFreqStepsParam {new jdo::ParamStepBroadcast  {"sid", "sname",    1,     7,    5,  6, 0}},
-          freqParam         {new jdo::ParamStepListenFreq {"gid", "gname",   20, 20000,  200,  0, 3, *numFreqStepsParam}}
+        : stepSizeParam     {new jdo::ParamStepBroadcast  {"sid", "sname", "slab",  0.01f,    3, 0.75,  0, 0}},
+          gainParam         {new jdo::ParamStepListenGain {"gid", "gname", "glab",   -10,    10,    0, 20, 0, *stepSizeParam}},
+          numFreqStepsParam {new jdo::ParamStepBroadcast  {"sid", "sname", "slab",     1,     7,    5,  6, 0}},
+          freqParam         {new jdo::ParamStepListenFreq {"gid", "gname", "glab",    20, 20000,  200,  0, 3, *numFreqStepsParam}}
     {
         addParameter (stepSizeParam);
         addParameter (gainParam);
@@ -79,27 +79,27 @@ void ParameterTest::runTest()
     Random rnd = getRandom();
 
     beginTest ("min < max");
-    expectDoesNotThrow ((jdo::ParamStep {"dummyID", "The Name", 0, 10, 0, 0, 0}));
-    expectThrows       ((jdo::ParamStep {"dummyID", "The Name", 0, -1, 0, 0, 0}));
+    expectDoesNotThrow ((jdo::ParamStep {"dummyID", "The Name", "dB", 0, 10, 0, 0, 0}));
+    expectThrows       ((jdo::ParamStep {"dummyID", "The Name", "dB", 0, -1, 0, 0, 0}));
 
     beginTest ("min <= default");
-    expectThrows       ((jdo::ParamStep {"dummyID", "The Name", 0, 10, -5, 0, 0}));
-    expectDoesNotThrow ((jdo::ParamStep {"dummyID", "The Name", 0, 10,  0, 0, 0}));
+    expectThrows       ((jdo::ParamStep {"dummyID", "The Name", "dB", 0, 10, -5, 0, 0}));
+    expectDoesNotThrow ((jdo::ParamStep {"dummyID", "The Name", "dB", 0, 10,  0, 0, 0}));
 
     beginTest ("default <= max");
-    expectThrows       ((jdo::ParamStep {"dummyID", "The Name", 0, 10, 20, 0, 0}));
-    expectDoesNotThrow ((jdo::ParamStep {"dummyID", "The Name", 0, 10, 10, 0, 0}));
+    expectThrows       ((jdo::ParamStep {"dummyID", "The Name", "dB", 0, 10, 20, 0, 0}));
+    expectDoesNotThrow ((jdo::ParamStep {"dummyID", "The Name", "dB", 0, 10, 10, 0, 0}));
 
     beginTest ("0 <= numSteps");
-    expectThrows       ((jdo::ParamStep {"dummyID", "The Name", 0, 10,  0, -1, 0}));
-    expectDoesNotThrow ((jdo::ParamStep {"dummyID", "The Name", 0, 10,  0, 0, 0}));
+    expectThrows       ((jdo::ParamStep {"dummyID", "The Name", "dB", 0, 10,  0, -1, 0}));
+    expectDoesNotThrow ((jdo::ParamStep {"dummyID", "The Name", "dB", 0, 10,  0, 0, 0}));
 
     beginTest ("set any skew");
     for (int i = 0; i < 1000; ++i)
-        expectDoesNotThrow ((jdo::ParamStep {"dummyID", "The Name", 0, 10,  0, 0, rnd.nextFloat()}));
+        expectDoesNotThrow ((jdo::ParamStep {"dummyID", "The Name", "dB", 0, 10,  0, 0, rnd.nextFloat()}));
 
-    jdo::ParamStep freq  {"id", "nm", 20, 20000, 632.456f,   0, 3};
-    jdo::ParamStep steps {"id", "nm",  0,   127,        0, 128, 0};
+    jdo::ParamStep freq  {"id", "nm", "lb", 20, 20000, 632.456f,   0, 3};
+    jdo::ParamStep steps {"id", "nm", "lb",  0,   127,        0, 128, 0};
 
     beginTest ("get() default");
     expect (freq.get() == 632.456f);
@@ -123,7 +123,7 @@ void ParameterTest::runTest()
     expect (freq.getRange() == range010);
 
     beginTest ("Create ParamStepBroadcast");
-    expectDoesNotThrow ((jdo::ParamStepBroadcast {"id", "name", -10, 10, 0, 20, 0}));
+    expectDoesNotThrow ((jdo::ParamStepBroadcast {"id", "name", "label", -10, 10, 0, 20, 0}));
 
     beginTest ("Create jdo::ParamStepBroadcast and jdo::ParamStepListenGain in dummy processor");
 //    expectDoesNotThrow (ParamStepTestsProc());                                            // leaks and doesn't update on stepsize change!!!
