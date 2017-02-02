@@ -33,8 +33,8 @@ void checkParamStep (float val, float min, float max, int steps)
 }
 
 //==============================================================================
-ParamStep::ParamStep (String pid, String nm, float minValue, float maxValue, float def, int steps, float ske)
-   : AudioProcessorParameterWithID (pid, nm),
+ParamStep::ParamStep (String pid, String nm, String suffix, float minValue, float maxValue, float def, int steps, float ske)
+   : AudioProcessorParameterWithID (pid, nm, suffix),
      value (def),
      range (minValue, maxValue, ske),
      defaultValue (def),
@@ -71,12 +71,13 @@ String ParamStep::getText (float v, int length) const
 //==============================================================================
 ParamStepBroadcast::ParamStepBroadcast (String parameterID,  // no spaces
                                         String name,         // spaces allowed
+                                        String labelSuffix,
                                         float minValue,
                                         float maxValue,
                                         float defaultValue,
                                         int numSteps,
                                         float skewLog)
-    : ParamStep {parameterID, name, minValue, maxValue, defaultValue, numSteps, skewLog}
+    : ParamStep {parameterID, name, labelSuffix, minValue, maxValue, defaultValue, numSteps, skewLog}
 {
 }
 
@@ -96,13 +97,14 @@ void ParamStepBroadcast::setValue (float newValue)
 //==============================================================================
 ParamStepListenGain::ParamStepListenGain (String parameterID,  // no spaces
                                           String name,         // spaces allowed
+                                          String labelSuffix,
                                           float minValue,
                                           float maxValue,
                                           float defaultValue,
                                           int numSteps,
                                           float skewLog,
                                           ParamStepBroadcast& stepParam)
-    : ParamStep {parameterID, name, minValue, maxValue, defaultValue, numSteps, skewLog},
+    : ParamStep {parameterID, name, labelSuffix, minValue, maxValue, defaultValue, numSteps, skewLog},
       stepSizeParam {stepParam}
 {
     stepSizeParam.addChangeListener (this);
@@ -138,13 +140,14 @@ void ParamStepListenGain::changeListenerCallback (ChangeBroadcaster* source)
 //==============================================================================
 ParamStepListenFreq::ParamStepListenFreq (String parameterID,  // no spaces
                                           String name,         // spaces allowed
+                                          String labelSuffix,
                                           float minValue,
                                           float maxValue,
                                           float defaultValue,
                                           int numSteps,
                                           float skewLog,
                                           ParamStepBroadcast& stepsParam)
-    : ParamStep {parameterID, name, minValue, maxValue, defaultValue, numSteps, skewLog},
+    : ParamStep {parameterID, name, labelSuffix, minValue, maxValue, defaultValue, numSteps, skewLog},
       numStepsParam {stepsParam}
 {
     numStepsParam.addChangeListener (this);

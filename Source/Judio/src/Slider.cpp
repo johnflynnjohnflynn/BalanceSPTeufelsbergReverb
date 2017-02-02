@@ -62,7 +62,10 @@ void SliderStep::startedDragging()     { param.beginChangeGesture(); }
 void SliderStep::stoppedDragging()     { param.endChangeGesture();   }
 
 double SliderStep::getValueFromText (const String& text)   { return param.getValueForText (text); }
-String SliderStep::getTextFromValue (double value)         { return param.getText ((float) value, 1024); }
+String SliderStep::getTextFromValue (double value)
+{
+    return param.getText ((float) value, 1024) + " " + param.getLabel();
+}
 
 void SliderStep::updateSliderPos()
 {

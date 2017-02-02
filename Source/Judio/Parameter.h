@@ -44,6 +44,7 @@ class ParamStep  : public AudioProcessorParameterWithID
 public:
     ParamStep (String parameterID,  // no spaces
                String name,         // spaces allowed
+               String labelSuffix,
                float minValue,
                float maxValue,
                float defaultValue,
@@ -91,6 +92,7 @@ class ParamStepBroadcast  : public ParamStep,
 public:
     ParamStepBroadcast (String parameterID,  // no spaces
                         String name,         // spaces allowed
+                        String labelSuffix,
                         float minValue,
                         float maxValue,
                         float defaultValue,
@@ -119,6 +121,7 @@ class ParamStepListenGain  : public ParamStep,
 public:
     ParamStepListenGain (String parameterID,  // no spaces
                          String name,         // spaces allowed
+                         String labelSuffix,
                          float minValue,
                          float maxValue,
                          float defaultValue,
@@ -148,6 +151,7 @@ class ParamStepListenFreq  : public ParamStep,
 public:
     ParamStepListenFreq (String parameterID,  // no spaces
                          String name,         // spaces allowed
+                         String labelSuffix,
                          float minValue,
                          float maxValue,
                          float defaultValue,
