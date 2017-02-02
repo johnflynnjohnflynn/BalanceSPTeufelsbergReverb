@@ -58,6 +58,10 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
     //==============================================================================
+    /** Returns the current list of parameters for writing. */
+    OwnedArray<AudioProcessorParameter>& getParametersForWriting() noexcept;
+
+    //==============================================================================
     jdo::StateAB stateAB;
     jdo::StatePresets statePresets;
 

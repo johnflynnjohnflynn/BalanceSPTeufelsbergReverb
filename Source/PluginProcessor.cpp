@@ -23,8 +23,8 @@ Processor::Processor()
                      #endif
                        ),
 #endif
-    : stateAB {*this},
-      statePresets {*this, "BalanceAudioTools/SPTeufelsbergReverb/presets.xml"},
+    : stateAB {getParametersForWriting()},
+      statePresets {getParametersForWriting(), "BalanceAudioTools/SPTeufelsbergReverb/presets.xml"},
                                          // ID            Name                 Min      Max     Def nSteps   skew broadcastParam
       bypassParam     {new jdo::ParamStep {"bypassID",   "Bypass",           0.0f,     1.0f,   0.0f,    1        }},
       reverbTypeParam {new jdo::ParamStep {"revTypeID",  "Reverb Type",      1.0f,     6.0f,   1.0f,    5        }},
@@ -221,56 +221,10 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new Processor();
 }
-/*
+
 //==============================================================================
-void Processor::changeImpulse (int newImpulse)
+OwnedArray<AudioProcessorParameter>& Processor::getParametersForWriting() noexcept
 {
-    jassert (1 <= newImpulse && newImpulse <= 6);   // only 6 WAV IRs to choose!
-
-    switch (newImpulse)
-    {
-        case 1:                                               // here's the number \/
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR014410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR014410024bit_wavSize,
-                                          ir,
-                                          44100);
-        break;
-        case 2:
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR024410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR024410024bit_wavSize,
-                                          ir,
-                                          44100);
-        break;
-        case 3:
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR034410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR034410024bit_wavSize,
-                                          ir,
-                                          44100);
-        break;
-        case 4:
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR044410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR044410024bit_wavSize,
-                                          ir,
-                                          44100);
-        break;
-        case 5:
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR054410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR054410024bit_wavSize,
-                                          ir,
-                                          44100);
-        break;
-        case 6:
-        jdo::bufferLoadFromWavBinaryData (BinaryData::balancemasteringteufelsbergIR064410024bit_wav,
-                                          BinaryData::balancemasteringteufelsbergIR064410024bit_wavSize,
-                                          ir,
-                                          44100);
-        break;
-
-        default: jassertfalse;  // there are only 6 IRs 1-6 !!!
-        break;
-    }
-
-    ir *= 0.1f;                 // reduce WAV gain
-
-    engine.set (ir);
-}*/
+        // hideous cast, but why no non-const getParameters() in AudioProcessor ?
+    return const_cast<OwnedArray<AudioProcessorParameter>&> (getParameters());
+}
