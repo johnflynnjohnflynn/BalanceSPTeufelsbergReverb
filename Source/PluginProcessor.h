@@ -16,7 +16,7 @@
 #include "ImpulseLoaderAsync.h"
 
 //==============================================================================
-/** v1.0.0 git 1ecd32f
+/** v1.0.0 git 953e867
 */
 class Processor  : public AudioProcessor
 {
