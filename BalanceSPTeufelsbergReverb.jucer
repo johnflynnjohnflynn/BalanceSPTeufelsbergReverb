@@ -129,16 +129,10 @@
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
-                       headerPath="..\..\Source" useRuntimeLibDLL="0"/>
+                       headerPath="..\..\Source" useRuntimeLibDLL="0" binaryPath=""/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
-                       headerPath="..\..\Source" useRuntimeLibDLL="0"/>
-        <CONFIGURATION name="Debug64" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
-                       headerPath="..\..\Source" useRuntimeLibDLL="0"/>
-        <CONFIGURATION name="Release64" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
-                       headerPath="..\..\Source" useRuntimeLibDLL="0"/>
+                       headerPath="..\..\Source" useRuntimeLibDLL="0" binaryPath=""/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="JUCE/modules"/>
@@ -154,11 +148,34 @@
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
       </MODULEPATHS>
     </VS2013>
+    <VS2013 targetFolder="Builds/VisualStudio2013x64">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
+                       useRuntimeLibDLL="0"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
+                       useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2013>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug64" isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
                        headerPath="../../Source" linuxArchitecture="-m64"/>
-        <CONFIGURATION name="Release64" isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
                        headerPath="../../Source" linuxArchitecture="-m64"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

@@ -34,13 +34,13 @@ namespace BinaryData
     const int            layout04knob01dotonfs8_pngSize = 3299;
 
     extern const char*   layout04knob01offfs8_png;
-    const int            layout04knob01offfs8_pngSize = 12938;
+    const int            layout04knob01offfs8_pngSize = 16241;
 
     extern const char*   layout04knob01onfs8_png;
-    const int            layout04knob01onfs8_pngSize = 13452;
+    const int            layout04knob01onfs8_pngSize = 16567;
 
     extern const char*   layout04NoKnobsfs8_png;
-    const int            layout04NoKnobsfs8_pngSize = 202839;
+    const int            layout04NoKnobsfs8_pngSize = 203982;
 
     extern const char*   OpenSansRegular_ttf;
     const int            OpenSansRegular_ttfSize = 217360;
