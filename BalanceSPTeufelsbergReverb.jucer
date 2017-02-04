@@ -152,10 +152,10 @@
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
-                       useRuntimeLibDLL="0"/>
+                       useRuntimeLibDLL="0" headerPath="..\..\Source"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
-                       useRuntimeLibDLL="0"/>
+                       useRuntimeLibDLL="0" headerPath="..\..\Source"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
