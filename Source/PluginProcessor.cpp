@@ -167,25 +167,29 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
     const int newImpulse = static_cast<int> (*reverbTypeParam);
     impulseLoaderAsync.changeImpulseAsync (newImpulse);
 
-    if (*bypassParam < 0.5f && ! impulseLoaderAsync.isNowChanging()) // bypass while changing impulse also
+    const bool impulseIsChanging {impulseLoaderAsync.isNowChanging()};  // lower gain on IR change
+    if (impulseIsChanging)
+        buffer.applyGain (0.25f);
+
+    if (*bypassParam < 0.5f && ! impulseIsChanging) // bypass while changing impulse also
     {
         const float gainLin = Decibels::decibelsToGain<float> (*gainParam);
         const float mix = *mixParam / 100.0f; // range 0-1
 
-        AudioBuffer<float> dryBuffer;                           // copy dry buffer
+        AudioBuffer<float> dryBuffer;                                   // copy dry buffer
         dryBuffer.makeCopyOf (buffer, false);
 
-        engine.process (buffer.getArrayOfWritePointers(),       // convolve buffer
+        engine.process (buffer.getArrayOfWritePointers(),               // convolve buffer
                         bufferNumChannels,
                         bufferNumSamples);
         buffer.applyGain (mix);
 
-        for (int chan = 0; chan < bufferNumChannels; ++chan)    // mix back dry
+        for (int chan = 0; chan < bufferNumChannels; ++chan)            // mix back dry
             buffer.addFrom (chan, 0, dryBuffer,
                             chan, 0, dryBuffer.getNumSamples(),
                             1.0f - mix);
 
-        buffer.applyGain (gainLin);                             // apply gain from param
+        buffer.applyGain (gainLin);                                     // apply gain from param
     }
     // else bypass
 }
