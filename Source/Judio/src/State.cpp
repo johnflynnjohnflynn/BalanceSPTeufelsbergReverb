@@ -240,7 +240,12 @@ void StateComponent::refreshPresetBoxFromDisk()
     presetBox.clear();
     StringArray presetNames {procStatePresets.getPresetNamesFromDisk()};
 
-    populateComboBox (presetBox, presetNames);
+    StringArray empty = StringArray();
+
+    if (presetNames != empty)
+        populateComboBox (presetBox, presetNames);
+    else
+        presetBox.getRootMenu()->addItem(1, "No presets", false, false);
 }
 
 void StateComponent::ifPresetActiveShowInBox()
