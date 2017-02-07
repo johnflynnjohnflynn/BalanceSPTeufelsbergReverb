@@ -171,10 +171,9 @@
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
       </MODULEPATHS>
     </VS2013>
-    <LINUX_MAKE targetFolder="Builds/LinuxMakefile" cppLanguageStandard="-std=c++11">
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile" cppLanguageStandard="-std=c++11"
+                extraCompilerFlags="-Wall -Wno-misleading-indentation">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BalanceSPTeufelsbergReverb"
-                       headerPath="../../Source" linuxArchitecture="-m64"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="BalanceSPTeufelsbergReverb"
                        headerPath="../../Source" linuxArchitecture="-m64"/>
       </CONFIGURATIONS>
