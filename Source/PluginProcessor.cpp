@@ -165,20 +165,28 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
 
-    bool isMonoToStereo = getTotalNumInputChannels()  == 1
-                       && getTotalNumOutputChannels() == 2;
-    if (isMonoToStereo)
-        buffer.copyFrom(1, 0, buffer,               // dest chan, offset, buff
-                        0, 0, bufferNumSamples);    //  src chan, offset, size
+    {
+        bool isMonoToStereo = getTotalNumInputChannels()  == 1
+                           && getTotalNumOutputChannels() == 2;
+        if (isMonoToStereo)
+            buffer.copyFrom(1, 0, buffer,               // dest chan, offset, buff
+                            0, 0, bufferNumSamples);    //  src chan, offset, size
+    }
+
+    bool bypassed = *bypassParam >= 0.5f;
 
     const int newImpulse = static_cast<int> (*reverbTypeParam);
     impulseLoaderAsync.changeImpulseAsync (newImpulse);
 
     const bool impulseIsChanging {impulseLoaderAsync.isNowChanging()};  // lower gain on IR change
-    if (impulseIsChanging)
+    if (impulseIsChanging && ! bypassed)                                // (but not when bypassed)
         buffer.applyGain (0.25f);
 
-    if (*bypassParam < 0.5f && ! impulseIsChanging) // bypass while changing impulse also
+    if (bypassed || impulseIsChanging) // don't process a changing ir
+    {
+        // bypass
+    }
+    else
     {
         const float gainLin = Decibels::decibelsToGain<float> (*gainParam);
         const float mix = *mixParam / 100.0f; // range 0-1
@@ -197,7 +205,6 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
 
         buffer.applyGain (gainLin);                                     // apply gain from param
     }
-    // else bypass
 }
 
 //==============================================================================
