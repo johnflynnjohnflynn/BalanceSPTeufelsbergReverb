@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="eLVGA9" name="BalanceSPTeufelsbergReverb" projectType="audioplug"
-              version="1.0.0" bundleIdentifier="com.BalanceAudioTools.BalanceSPTeufelsbergReverb"
+              version="1.0.1" bundleIdentifier="com.BalanceAudioTools.BalanceSPTeufelsbergReverb"
               includeBinaryInAppConfig="1" buildVST="1" buildVST3="0" buildAU="1"
               buildAUv3="0" buildRTAS="0" buildAAX="0" pluginName="BalanceSPTeufelsbergReverb"
               pluginDesc="BalanceSPTeufelsbergReverb" pluginManufacturer="BalanceAudioTools"

@@ -165,6 +165,12 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
 
+    bool isMonoToStereo = getTotalNumInputChannels()  == 1
+                       && getTotalNumOutputChannels() == 2;
+    if (isMonoToStereo)
+        buffer.copyFrom(1, 0, buffer,               // dest chan, offset, buff
+                        0, 0, bufferNumSamples);    //  src chan, offset, size
+
     const int newImpulse = static_cast<int> (*reverbTypeParam);
     impulseLoaderAsync.changeImpulseAsync (newImpulse);
 

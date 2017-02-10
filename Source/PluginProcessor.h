@@ -17,6 +17,9 @@
 
 //==============================================================================
 /** v1.0.0 git 953e867
+    v1.0.1 git 7b5452c
+    
+    Don't forget to change version in .jucer for GUI!
 */
 class Processor  : public AudioProcessor
 {
