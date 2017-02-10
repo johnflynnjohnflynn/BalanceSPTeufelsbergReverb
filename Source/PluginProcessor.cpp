@@ -106,12 +106,13 @@ void Processor::changeProgramName (int /*index*/, const String& /*newName*/)
 }
 
 //==============================================================================
-void Processor::prepareToPlay (double sampleRate, int /*samplesPerBlock*/)
+void Processor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
 
     engine.resampleIrOnRateChange (sampleRate);
+    dryBuffer.setSize (2, samplesPerBlock * 2); // extra safety size
 }
 
 void Processor::releaseResources()
@@ -144,7 +145,7 @@ bool Processor::isBusesLayoutSupported (const BusesLayout& layouts) const
 }
 #endif
 
-void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessages*/)
+void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessages*/) noexcept
 {
     const int totalNumInputChannels  = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
@@ -176,8 +177,7 @@ void Processor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& /*midiMessa
         const float gainLin = Decibels::decibelsToGain<float> (*gainParam);
         const float mix = *mixParam / 100.0f; // range 0-1
 
-        AudioBuffer<float> dryBuffer;                                   // copy dry buffer
-        dryBuffer.makeCopyOf (buffer, false);
+        dryBuffer.makeCopyOf (buffer, true);                            // copy dry buffer
 
         engine.process (buffer.getArrayOfWritePointers(),               // convolve buffer
                         bufferNumChannels,

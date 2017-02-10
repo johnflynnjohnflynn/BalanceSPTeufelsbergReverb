@@ -33,7 +33,7 @@ public:
     bool isBusesLayoutSupported (const BusesLayout& layouts) const override;
    #endif
 
-    void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
+    void processBlock (AudioSampleBuffer&, MidiBuffer&) noexcept override;
 
     //==============================================================================
     AudioProcessorEditor* createEditor() override;
@@ -86,6 +86,8 @@ private:
     ado::Convolution engine;
 
     ImpulseLoaderAsync impulseLoaderAsync;
+
+    AudioBuffer<float> dryBuffer;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Processor)
 };
