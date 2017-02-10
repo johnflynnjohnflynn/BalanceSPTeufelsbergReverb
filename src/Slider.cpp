@@ -48,7 +48,10 @@ SliderStep::SliderStep (AudioProcessorParameter& p)
 // private:
 void SliderStep::valueChanged()
 {
-    param.setValueNotifyingHost ((float) Slider::getValue());
+    if (isMouseButtonDown())
+        param.setValueNotifyingHost ((float) Slider::getValue());
+    else
+        param.setValue ((float) Slider::getValue());
 }
 
 void SliderStep::timerCallback()
@@ -80,7 +83,8 @@ void SliderStep::updateInterval()
     {
         const int numStepsParam = pslf->getNumSteps();
         const float newSliderInterval0to1 = 1.0f / numStepsParam;
-
+                                                                                // add and test this when implementing steps!
+        // if (newSliderInterval0to1 != static_cast<float> (Slider::getInterval()) && ! isMouseButtonDown())
         Slider::setRange (0, 1, newSliderInterval0to1);
     }
 }
