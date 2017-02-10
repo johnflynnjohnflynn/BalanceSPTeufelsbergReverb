@@ -253,7 +253,7 @@ void StateComponent::ifPresetActiveShowInBox()
     const int currentPreset {procStatePresets.getCurrentPresetId()};
     const int numPresets    {procStatePresets.getNumPresets()};
     if (1 <= currentPreset && currentPreset <= numPresets)
-        presetBox.setSelectedId (currentPreset, dontSendNotification);
+        presetBox.setSelectedId(currentPreset);
 }
 
 void StateComponent::deletePresetAndRefresh()
