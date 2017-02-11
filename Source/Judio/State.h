@@ -60,7 +60,7 @@ private:
 };
 
 //==============================================================================
-void createFileIfNonExistant (const File& file);
+bool createFileIfNonExistant (const File& file);
 void parseFileToXmlElement (const File& file, XmlElement& xml);
 void writeXmlElementToFile (const XmlElement& xml, File& file);
 String getNextAvailablePresetID (const XmlElement& presetXml);
@@ -91,6 +91,9 @@ private:
     XmlElement presetXml {"PRESETS"}; // local, in-plugin representation
     File presetFile;                  // on-disk representation
     int currentPresetID {0};
+
+    String defaultPresetsString {String (BinaryData::presets_xml)};
+    XmlElement defaultPresetsXml {"DEFAULTPRESETS"};
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StatePresets);
 };

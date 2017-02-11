@@ -40,6 +40,7 @@
             file="Resources/layout04NoKnobs-fs8.png"/>
       <FILE id="aDbh3F" name="OpenSans-Regular.ttf" compile="0" resource="1"
             file="Resources/OpenSans-Regular.ttf"/>
+      <FILE id="LNUNfN" name="presets.xml" compile="0" resource="1" file="Resources/presets.xml"/>
     </GROUP>
     <GROUP id="{94CA6903-4B8D-DD43-557E-5CE559F273F9}" name="Source">
       <GROUP id="{C1B3C3B4-6126-D2A9-3301-28FA1D86F974}" name="Aidio">
