@@ -3107,8 +3107,27 @@ static const unsigned char temp_binary_data_5[] =
 
 const char* OpenSansRegular_ttf = (const char*) temp_binary_data_5;
 
-//================== Stereo64SamplesAllOnes.wav ==================
+//================== presets.xml ==================
 static const unsigned char temp_binary_data_6[] =
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
+"\r\n"
+"<PRESETS>\r\n"
+"  <preset1 bypassID=\"0\" revTypeID=\"0\" mixID=\"0.5\" gainID=\"0.5\" presetName=\"Reverb Type 1\"/>\r\n"
+"  <preset2 bypassID=\"0\" revTypeID=\"0.20000000298023223877\" mixID=\"0.5\" gainID=\"0.5\"\r\n"
+"           presetName=\"Reverb Type 2\"/>\r\n"
+"  <preset3 bypassID=\"0\" revTypeID=\"0.40000000596046447754\" mixID=\"0.5\" gainID=\"0.5\"\r\n"
+"           presetName=\"Reverb Type 3\"/>\r\n"
+"  <preset4 bypassID=\"0\" revTypeID=\"0.60000002384185791016\" mixID=\"0.5\" gainID=\"0.5\"\r\n"
+"           presetName=\"Reverb Type 4\"/>\r\n"
+"  <preset5 bypassID=\"0\" revTypeID=\"0.80000001192092895508\" mixID=\"0.5\" gainID=\"0.5\"\r\n"
+"           presetName=\"Reverb Type 5\"/>\r\n"
+"  <preset6 bypassID=\"0\" revTypeID=\"1\" mixID=\"0.5\" gainID=\"0.5\" presetName=\"Reverb Type 6\"/>\r\n"
+"</PRESETS>\r\n";
+
+const char* presets_xml = (const char*) temp_binary_data_6;
+
+//================== Stereo64SamplesAllOnes.wav ==================
+static const unsigned char temp_binary_data_7[] =
 { 82,73,70,70,164,1,0,0,87,65,86,69,102,109,116,32,16,0,0,0,1,0,2,0,68,172,0,0,152,9,4,0,6,0,24,0,100,97,116,97,128,1,0,0,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,
 255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,
 255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,
@@ -3117,7 +3136,7 @@ static const unsigned char temp_binary_data_6[] =
 255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,
 255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,255,255,127,0,0 };
 
-const char* Stereo64SamplesAllOnes_wav = (const char*) temp_binary_data_6;
+const char* Stereo64SamplesAllOnes_wav = (const char*) temp_binary_data_7;
 
 
 const char* getNamedResource (const char*, int&) throw();
@@ -3136,6 +3155,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
         case 0x15b8618b:  numBytes = 12938; return layout04knob01offfs8_png;
         case 0x18efe0b1:  numBytes = 13452; return layout04knob01onfs8_png;
         case 0x10277c66:  numBytes = 217360; return OpenSansRegular_ttf;
+        case 0xc1329ecc:  numBytes = 755; return presets_xml;
         case 0x86e526e8:  numBytes = 428; return Stereo64SamplesAllOnes_wav;
         default: break;
     }
@@ -3152,6 +3172,7 @@ const char* namedResourceList[] =
     "layout04knob01offfs8_png",
     "layout04knob01onfs8_png",
     "OpenSansRegular_ttf",
+    "presets_xml",
     "Stereo64SamplesAllOnes_wav"
 };
 

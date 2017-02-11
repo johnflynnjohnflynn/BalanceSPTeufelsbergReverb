@@ -1184,6 +1184,7 @@
 		EE3D54C310C8F1EF97F3C934 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TestHelper.cpp; path = ../../test/TestHelper.cpp; sourceTree = "SOURCE_ROOT"; };
 		EE4E504F1650375D15FE14CA = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_win32_ComSmartPtr.h"; path = "../../JUCE/modules/juce_core/native/juce_win32_ComSmartPtr.h"; sourceTree = "SOURCE_ROOT"; };
 		EF4DFAB0B34CFEDC5EFC41B5 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_SortedSet.h"; path = "../../JUCE/modules/juce_core/containers/juce_SortedSet.h"; sourceTree = "SOURCE_ROOT"; };
+		EF51C022D1D5FCF8FBF8A8F1 = {isa = PBXFileReference; lastKnownFileType = file.xml; name = presets.xml; path = ../../resource/presets.xml; sourceTree = "SOURCE_ROOT"; };
 		EF8F476B565BACBF6188E4F0 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_TableListBox.h"; path = "../../JUCE/modules/juce_gui_basics/widgets/juce_TableListBox.h"; sourceTree = "SOURCE_ROOT"; };
 		EFA13FD86DF70FF2D12120C8 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_MD5.h"; path = "../../JUCE/modules/juce_cryptography/hashing/juce_MD5.h"; sourceTree = "SOURCE_ROOT"; };
 		EFA29AC59AE3A048B59D92DA = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_ChildProcess.cpp"; path = "../../JUCE/modules/juce_core/threads/juce_ChildProcess.cpp"; sourceTree = "SOURCE_ROOT"; };
@@ -1308,6 +1309,7 @@
 					986A6A07B53F3D0046711DC7,
 					36EBF2C7A34F47C53B50182B,
 					03BD5FDCD490101DC390E88F,
+					EF51C022D1D5FCF8FBF8A8F1,
 					460FDAD67905EB52EBECFFD4, ); name = resource; sourceTree = "<group>"; };
 		A28432421D6CC0054514466A = {isa = PBXGroup; children = (
 					F9B36A4D8EB43B7AB684A191,

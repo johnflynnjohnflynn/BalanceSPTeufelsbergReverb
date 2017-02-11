@@ -64,11 +64,22 @@ void StateAB::copyAB()
 }
 
 //==============================================================================
-void createFileIfNonExistant (const File& file)
+bool createFileIfNonExistant (const File& file) // returns true if file didn't exist
 {
     if (! file.exists())
+    {
         file.create();
+        return true;
+    }
     jassert (file.exists());
+    return false;
+}
+
+void parseStringToXmlElement (const String& string, XmlElement& xml)                // what could go wrong here?
+{
+    ScopedPointer<XmlElement> parsed {XmlDocument::parse (string)};
+    if (parsed)
+        xml = *parsed;
 }
 
 void parseFileToXmlElement (const File& file, XmlElement& xml)                  // what could go wrong here?
@@ -96,7 +107,11 @@ StatePresets::StatePresets (OwnedArray<AudioProcessorParameter>& params, const S
       presetFile {File::getSpecialLocation (File::userApplicationDataDirectory)
                                             .getChildFile (presetFileLocation)}
 {
+    parseStringToXmlElement (defaultPresetsString, defaultPresetsXml);
     parseFileToXmlElement (presetFile, presetXml);
+
+    if (createFileIfNonExistant (presetFile))
+        writeXmlElementToFile (defaultPresetsXml, presetFile); 
 }
 
 void StatePresets::loadPreset (int presetID)

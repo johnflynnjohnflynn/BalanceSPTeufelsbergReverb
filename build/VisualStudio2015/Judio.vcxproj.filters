@@ -3986,6 +3986,9 @@
     <None Include="..\..\resource\OpenSans-Regular.ttf">
       <Filter>Judio\resource</Filter>
     </None>
+    <None Include="..\..\resource\presets.xml">
+      <Filter>Judio\resource</Filter>
+    </None>
     <None Include="..\..\resource\Stereo64SamplesAllOnes.wav">
       <Filter>Judio\resource</Filter>
     </None>

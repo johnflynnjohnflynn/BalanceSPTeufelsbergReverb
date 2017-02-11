@@ -2313,6 +2313,7 @@
     <None Include="..\..\resource\layout04knob01off-fs8.png"/>
     <None Include="..\..\resource\layout04knob01on-fs8.png"/>
     <None Include="..\..\resource\OpenSans-Regular.ttf"/>
+    <None Include="..\..\resource\presets.xml"/>
     <None Include="..\..\resource\Stereo64SamplesAllOnes.wav"/>
     <None Include="..\..\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
     <None Include="..\..\JUCE\modules\juce_audio_formats\codecs\oggvorbis\Ogg Vorbis Licence.txt"/>

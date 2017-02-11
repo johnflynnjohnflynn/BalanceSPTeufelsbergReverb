@@ -27,6 +27,9 @@ namespace BinaryData
     extern const char*   OpenSansRegular_ttf;
     const int            OpenSansRegular_ttfSize = 217360;
 
+    extern const char*   presets_xml;
+    const int            presets_xmlSize = 755;
+
     extern const char*   Stereo64SamplesAllOnes_wav;
     const int            Stereo64SamplesAllOnes_wavSize = 428;
 
@@ -34,7 +37,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 7;
+    const int namedResourceListSize = 8;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).
