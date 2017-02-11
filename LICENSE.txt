@@ -1,0 +1,23 @@
+//--------//--------//--------//--------//--------//--------//--------//--------
+/*
+  ==============================================================================
+
+   Files within follow the same open source licensing as the JUCE library as
+   outline below, EXCEPT the Aidio library which is permissively licensed under
+   MIT. If in doubt see individual source files for details.
+
+   Copyright (c) 2016 John Flynn
+
+   Permission is granted to use this software under the terms of either:
+   a) the GPL v2 (or any later version)
+   b) the Affero GPL v3
+
+   Details of these licenses can be found at: www.gnu.org/licenses
+
+   This is distributed in the hope that it will be useful, but WITHOUT ANY
+   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+   A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+  ==============================================================================
+*/
+//--------//--------//--------//--------//--------//--------//--------//--------
