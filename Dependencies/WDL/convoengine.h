@@ -57,11 +57,11 @@ typedef WDL_TypedBuf<WDL_FFT_REAL> WDL_CONVO_IMPULSE_TYPED_BUF;
 #endif
 
 #ifndef WDL_CONVO_MAX_IMPULSE_NCH
-#define WDL_CONVO_MAX_IMPULSE_NCH 2
+#define WDL_CONVO_MAX_IMPULSE_NCH 4 // JF: change from 2 to 4
 #endif
 
 #ifndef WDL_CONVO_MAX_PROC_NCH
-#define WDL_CONVO_MAX_PROC_NCH 2
+#define WDL_CONVO_MAX_PROC_NCH 4    // JF: change from 2 to 4
 #endif
 
 //#define WDL_CONVO_WANT_FULLPRECISION_IMPULSE_STORAGE // define this for slowerness with -138dB error difference in resulting output (+-1 LSB at 24 bit)

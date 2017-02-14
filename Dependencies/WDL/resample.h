@@ -41,7 +41,7 @@ typedef float WDL_SincFilterSample;
 #ifdef WDL_RESAMPLE_TYPE
 typedef WDL_RESAMPLE_TYPE WDL_ResampleSample;
 #else
-typedef double WDL_ResampleSample;
+typedef float WDL_ResampleSample; // JF: Changed from double
 #endif
 
 
