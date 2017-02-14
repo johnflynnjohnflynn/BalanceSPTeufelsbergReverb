@@ -58,7 +58,7 @@ public:
           float** getWriteArray()      { return bufferData.getArrayOfWritePointers(); }
 
     void clear() { bufferData.clear(); }
-    void fillAllOnes();
+    void fillAllOnes();                                                     
     void fillAscending();
 
     Buffer& operator*= (float scale);

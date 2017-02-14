@@ -7,7 +7,7 @@
 
   ==============================================================================
 */
-/*
+
 #include "../../Dependencies/JuceLibraryCode/JuceHeader.h"
 #include "../../Aidio.h"
 
@@ -77,4 +77,4 @@ void Utility::runTest()
     }
 }
 
-#endif // AIDIO_UNIT_TESTS*/
+#endif // AIDIO_UNIT_TESTS

@@ -7,7 +7,7 @@
 
   ==============================================================================
 */
-/*
+
 #include "../../Dependencies/JuceLibraryCode/JuceHeader.h"
 #include "../../Aidio.h"
 
@@ -165,4 +165,4 @@ void Buffer::runTest()
     }
 }
 
-#endif // AIDIO_UNIT_TESTS*/
+#endif // AIDIO_UNIT_TESTS

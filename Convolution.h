@@ -63,7 +63,7 @@ namespace ado
 class Convolution
 {
 public:
-    explicit Convolution (const ado::Buffer& impulse);
+    explicit Convolution (const ado::Buffer& impulse);                              
     ~Convolution() {}
 
     Convolution (const Convolution&) = delete;     // disable copying & move
