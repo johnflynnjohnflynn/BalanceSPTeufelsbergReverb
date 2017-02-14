@@ -27,8 +27,8 @@
 #ifndef BUFFER_H_INCLUDED
 #define BUFFER_H_INCLUDED
 
-#include "Dependencies/JuceLibraryCode/JuceHeader.h"
-#include "Dependencies/gsl.h"
+#include "../JuceLibraryCode/JuceHeader.h"
+#include "Aidio/Dependencies/gsl.h"
 
 namespace ado
 {

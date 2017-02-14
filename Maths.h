@@ -27,8 +27,8 @@
 #ifndef RANGE_H_INCLUDED
 #define RANGE_H_INCLUDED
 
-#include "Dependencies/JuceLibraryCode/JuceHeader.h"
-#include "Test.h"                               // redefine jassert for tests!
+#include "../JuceLibraryCode/JuceHeader.h"
+#include "Aidio/Test.h"                               // redefine jassert for tests!
 
 namespace ado
 {

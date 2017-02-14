@@ -27,7 +27,7 @@
 #ifndef RESAMPLING_H_INCLUDED_LS23K
 #define RESAMPLING_H_INCLUDED_LS23K
 
-#include "Buffer.h"
+#include "Aidio/Buffer.h"
 
 namespace ado
 {

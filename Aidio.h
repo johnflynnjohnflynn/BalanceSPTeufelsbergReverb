@@ -29,16 +29,42 @@
 
 //==============================================================================
 /** Parent header for the library
-
-    Don't forget WDL_RESAMPLE_TYPE=float in project preprocessor definitions.
     
     @example    #include "Aidio/Aidio.h"
+    
+    Add the folder that holds the main 'Aidio' folder to your header search 
+    paths.
+    
+    E.g. for a JUCE project:
+    - put main 'Aidio' folder in 'Source' folder.
+    - add "../../Source" in 'Header search paths' in Projucer (it's relative to
+      Xcode project file).
+    - #include "Aidio/Aidio.h"
 */
+
 #include "Utility.h"
 #include "Buffer.h"
 #include "Convolution.h"
 #include "Maths.h"
 #include "Resampling.h"
 #include "Test.h"
+
+//==============================================================================
+/** Note on dependencies. TLDR: If you use JUCE, no need to worry!
+
+    Dependent libraries are included by relative folder paths...
+    e.g. #include "Aidio/Dependencies/WDL/convoengine.h"
+    
+    EXCEPT for JUCE! Which is the regular JUCE way...
+    e.g. "../JuceLibraryCode/JuceHeader.h"
+    
+    This allows a parent JUCE project to use its own JUCE modules.
+    
+    Since Projucer handles modules automatically, we don't want user's projects
+    linking .h by relative folders inside Aidio, to .cpp (possibly different
+    JUCE versions) in their own projects. Causing some horrible linker errors.
+    
+    TODO: Find optimimum solution for end-user, both JUCE and non-JUCE projects!
+*/
 
 #endif  // AIDIO_H_INCLUDED

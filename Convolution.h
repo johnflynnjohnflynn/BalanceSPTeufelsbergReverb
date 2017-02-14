@@ -27,8 +27,8 @@
 #ifndef CONVOLUTION_H_INCLUDED
 #define CONVOLUTION_H_INCLUDED
 
-#include "Buffer.h"
-#include "Dependencies/WDL/convoengine.h"
+#include "Aidio/Buffer.h"
+#include "Aidio/Dependencies/WDL/convoengine.h"
 
 
 namespace ado
