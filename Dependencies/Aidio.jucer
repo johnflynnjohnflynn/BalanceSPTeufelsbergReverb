@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="UgKWOL" name="Aidio" projectType="consoleapp" version="1.0.0"
+              bundleIdentifier="com.yourcompany.Aidio" includeBinaryInAppConfig="1"
+              jucerVersion="4.3.0" defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;AIDIO_UNIT_TESTS=1&#10;WDL_CONVO_MAX_IMPULSE_NCH=4&#10;WDL_CONVO_MAX_PROC_NCH=4">
+  <MAINGROUP id="fnjyVf" name="Aidio">
+    <GROUP id="{45E62E73-B15C-CDFA-FF73-07520396BE6B}" name="Dependencies">
+      <GROUP id="{4981E049-7F16-5741-0546-3E38611C8649}" name="WDL">
+        <FILE id="nvIZhw" name="convoengine.cpp" compile="1" resource="0" file="WDL/convoengine.cpp"/>
+        <FILE id="C1xT5A" name="convoengine.h" compile="0" resource="0" file="WDL/convoengine.h"/>
+        <FILE id="kDzb3M" name="denormal.h" compile="0" resource="0" file="WDL/denormal.h"/>
+        <FILE id="mLUExR" name="fastqueue.h" compile="0" resource="0" file="WDL/fastqueue.h"/>
+        <FILE id="HShYD6" name="fft.c" compile="1" resource="0" file="WDL/fft.c"/>
+        <FILE id="NlsScP" name="fft.h" compile="0" resource="0" file="WDL/fft.h"/>
+        <FILE id="y4tkTV" name="heapbuf.h" compile="0" resource="0" file="WDL/heapbuf.h"/>
+        <FILE id="KRqGdQ" name="ptrlist.h" compile="0" resource="0" file="WDL/ptrlist.h"/>
+        <FILE id="K3DN1b" name="queue.h" compile="0" resource="0" file="WDL/queue.h"/>
+        <FILE id="J1isG5" name="resample.cpp" compile="1" resource="0" file="WDL/resample.cpp"/>
+        <FILE id="TPNQLi" name="resample.h" compile="0" resource="0" file="WDL/resample.h"/>
+        <FILE id="XkRa83" name="wdltypes.h" compile="0" resource="0" file="WDL/wdltypes.h"/>
+      </GROUP>
+      <FILE id="gLTWVe" name="gsl.h" compile="0" resource="0" file="gsl.h"/>
+    </GROUP>
+    <GROUP id="{FAAB3E33-3ACA-CD05-BF2D-2EE7C6EAF3A4}" name="Optional">
+      <GROUP id="{7CDAFCDD-BBC9-E33D-12AC-65ECE0F24DF0}" name="Test">
+        <FILE id="JXDRzA" name="main.cpp" compile="1" resource="0" file="../Optional/Test/main.cpp"/>
+        <FILE id="Za1ox1" name="TestBuffer.cpp" compile="1" resource="0" file="../Optional/Test/TestBuffer.cpp"/>
+        <FILE id="DUAK9U" name="TestConvolution.cpp" compile="1" resource="0"
+              file="../Optional/Test/TestConvolution.cpp"/>
+        <FILE id="Rd6raN" name="TestMaths.cpp" compile="1" resource="0" file="../Optional/Test/TestMaths.cpp"/>
+        <FILE id="jhWDnC" name="TestResampling.cpp" compile="1" resource="0"
+              file="../Optional/Test/TestResampling.cpp"/>
+        <FILE id="UtpHkV" name="TestUtility.cpp" compile="1" resource="0" file="../Optional/Test/TestUtility.cpp"/>
+      </GROUP>
+    </GROUP>
+    <GROUP id="{7A865AB4-EBF4-F85E-E37E-CF2EF59F701C}" name="Source">
+      <FILE id="lMaUk1" name="Buffer.cpp" compile="1" resource="0" file="../Source/Buffer.cpp"/>
+      <FILE id="klWNRZ" name="Convolution.cpp" compile="1" resource="0" file="../Source/Convolution.cpp"/>
+      <FILE id="Kv2h2q" name="Maths.cpp" compile="1" resource="0" file="../Source/Maths.cpp"/>
+      <FILE id="Izezxq" name="Resampling.cpp" compile="1" resource="0" file="../Source/Resampling.cpp"/>
+      <FILE id="WjLOzl" name="Utility.cpp" compile="1" resource="0" file="../Source/Utility.cpp"/>
+    </GROUP>
+    <FILE id="oJoeoV" name="Aidio.h" compile="0" resource="0" file="../Aidio.h"/>
+    <FILE id="vQcrgy" name="Buffer.h" compile="0" resource="0" file="../Buffer.h"/>
+    <FILE id="lRHHzX" name="Convolution.h" compile="0" resource="0" file="../Convolution.h"/>
+    <FILE id="O5ZRNB" name="Maths.h" compile="0" resource="0" file="../Maths.h"/>
+    <FILE id="zzukGc" name="Resampling.h" compile="0" resource="0" file="../Resampling.h"/>
+    <FILE id="HWi8L0" name="Test.h" compile="0" resource="0" file="../Test.h"/>
+    <FILE id="ErRz03" name="Utility.h" compile="0" resource="0" file="../Utility.h"/>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="../Optional/Test/Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aidio"
+                       osxCompatibility="10.5 SDK" headerPath="" osxSDK="default"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aidio"
+                       osxCompatibility="10.5 SDK" headerPath="" osxSDK="default"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="JuceModules"/>
+        <MODULEPATH id="juce_events" path="JuceModules"/>
+        <MODULEPATH id="juce_audio_basics" path="JuceModules"/>
+        <MODULEPATH id="juce_audio_devices" path="JuceModules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2013 targetFolder="../Optional/Test/Builds/VisualStudio2013">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Aidio" headerPath=""/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="Aidio" headerPath=""/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="JuceModules"/>
+        <MODULEPATH id="juce_events" path="JuceModules"/>
+        <MODULEPATH id="juce_audio_basics" path="JuceModules"/>
+        <MODULEPATH id="juce_audio_devices" path="JuceModules"/>
+      </MODULEPATHS>
+    </VS2013>
+    <LINUX_MAKE targetFolder="../Optional/Test/Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aidio"
+                       headerPath=""/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aidio"
+                       headerPath=""/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="JuceModules"/>
+        <MODULEPATH id="juce_events" path="JuceModules"/>
+        <MODULEPATH id="juce_audio_basics" path="JuceModules"/>
+        <MODULEPATH id="juce_audio_devices" path="JuceModules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
