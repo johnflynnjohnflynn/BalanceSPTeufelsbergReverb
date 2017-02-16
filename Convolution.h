@@ -36,72 +36,27 @@ namespace ado
 {
 
 //==============================================================================
-/**
+/** Simple, zero latency convolution engine.
 */
 class Convolver
 {
-public:                                                             // how/where do we check imp chans==sig chans?
-    Convolver(const Buffer& impulse, int convolvedLength) // length should be imp + sig - 1
-        : imp {impulse},
-          sigFft     {nextPowerOf2Order(convolvedLength), false}, // false==forward fft
-          impFft     {nextPowerOf2Order(convolvedLength), false},
-          inverseFft {nextPowerOf2Order(convolvedLength), true}
-    {
-        const int zeroPaddedfftLength = ado::nextPowerOf2 (convolvedLength);        // pad bufs
-        sigFftBuf.clearAndResize (imp.getNumChannels(), zeroPaddedfftLength * 2);
-        impFftBuf.clearAndResize (imp.getNumChannels(), zeroPaddedfftLength * 2);
-        
-        impFftBuf.copyFrom(impulse);                                                // pre-fft imp
-        for (int c = 0; c < impFftBuf.getNumChannels(); ++c)
-            impFft.performRealOnlyForwardTransform (impFftBuf.getWriteArray()[c]);
-        //ado::coutBuffer(impFftBuf);
-    }
+public:
+    Convolver (const Buffer& impulse, int convolvedLength); // length should be imp + sig - 1
     ~Convolver() {}
 
-    void convolve (const ado::Buffer& signal, ado::Buffer& out)
-    {
-        sigFftBuf.copyFrom(signal);                                                 // fft sig
-        for (int c = 0; c < sigFftBuf.getNumChannels(); ++c)
-            sigFft.performRealOnlyForwardTransform (sigFftBuf.getWriteArray()[c]);
-        //ado::coutBuffer(sigFftBuf);
-                                                                                                // MAKE HELPER!!!
-        complexMultiplyInterleavedBuffers();                                        // freq domain multiply
-        //ado::coutBuffer(sigFftBuf);
-
-        for (int c = 0; c < sigFftBuf.getNumChannels(); ++c)                        // inverse fft
-            inverseFft.performRealOnlyInverseTransform (sigFftBuf.getWriteArray()[c]);
-        //ado::coutBuffer(sigFftBuf);
-
-        for (int c = 0; c < out.getNumChannels(); ++c)                              // copy to out
-            for (int s = 0; s < out.getNumSamples(); ++s)
-                out.getWriteArray()[c][s] = sigFftBuf.getReadArray()[c][s];
-        //ado::coutBuffer(out);
-    }
+    void convolve (const ado::Buffer& signal, ado::Buffer& out);
 
 private:
     const ado::Buffer& imp;
 
     ado::Buffer sigFftBuf {1,1}; // zero-padded scratchpad buffers
     ado::Buffer impFftBuf {1,1};
+
     juce::FFT sigFft;
     juce::FFT impFft;
     juce::FFT inverseFft;
 
-    void complexMultiplyInterleavedBuffers()
-    {
-        for (int c = 0; c < sigFftBuf.getNumChannels(); ++c)            // freq domain complex multiply
-            for (int s = 0; s < sigFftBuf.getNumSamples(); s += 2)
-            {
-                const float x1 = sigFftBuf.getReadArray()[c][s];
-                const float y1 = sigFftBuf.getReadArray()[c][s+1];
-                const float x2 = impFftBuf.getReadArray()[c][s];
-                const float y2 = impFftBuf.getReadArray()[c][s+1];
-                const float outreal = x1*x2 - y1*y2;    // see JOS MDFT p.12
-                const float outimag = x1*y2 + y1*x2;
-                sigFftBuf.getWriteArray()[c][s]   = outreal;
-                sigFftBuf.getWriteArray()[c][s+1] = outimag;
-            }
-    }
+    void complexMultiplyInterleavedBuffers();
 };
 
 //==============================================================================
