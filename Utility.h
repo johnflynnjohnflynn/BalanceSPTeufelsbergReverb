@@ -62,6 +62,11 @@ void rawBufferDownmix4To2 (float** buffer, int samples);
 */
 int nextPowerOf2 (int x);
 
+//==============================================================================
+/** The 'order' or exponent of the next power of two integer larger than x
+*/
+int nextPowerOf2Order (int x);
+
 } // namespace
 
 #endif  // UTILITY_H_INCLUDED

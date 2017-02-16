@@ -85,4 +85,18 @@ int nextPowerOf2 (int x)
     return nextPO2;
 }
 
+int nextPowerOf2Order (int x)
+{
+    int nextPO2 {1};
+    int order {0};
+    while (nextPO2 < x)
+    {
+        nextPO2 *= 2;
+        ++order;
+    }
+
+    return order;
+}
+
+
 } // namespace
