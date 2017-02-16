@@ -8,8 +8,8 @@
   ==============================================================================
 */
 
-#include "../../Dependencies/JuceLibraryCode/JuceHeader.h"
-#include "../../Aidio.h"
+#include "../JuceLibraryCode/JuceHeader.h"
+#include "Aidio/Aidio.h"
 
 //==============================================================================
 

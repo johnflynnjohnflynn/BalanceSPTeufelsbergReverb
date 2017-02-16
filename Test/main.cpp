@@ -5,8 +5,8 @@
     NOMINMAX=1
 */
 
-#include "../../Dependencies/JuceLibraryCode/JuceHeader.h"
-#include "../../Aidio.h"
+#include "../JuceLibraryCode/JuceHeader.h"
+#include "Aidio/Aidio.h"
 
 int main(int argc, const char* argv[])
 {
