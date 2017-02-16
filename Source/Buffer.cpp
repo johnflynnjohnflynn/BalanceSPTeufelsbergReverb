@@ -31,6 +31,23 @@ namespace ado
 {
 
 //==============================================================================
+BufferView makeBufferView (juce::AudioBuffer<float> juceBuffer)
+{
+    return BufferView {juceBuffer.getArrayOfWritePointers(),
+                       juceBuffer.getNumChannels(),
+                       juceBuffer.getNumSamples()};
+}
+
+void coutBuffer (const BufferView& buffer)
+{
+    for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
+        for (int samp = 0; samp < buffer.getNumSamples(); ++samp)
+            std::cout << buffer(chan, samp)
+                      << " [" << chan << "][" << samp << "]"<< "\n";
+    std::cout << "\n";
+}
+
+//==============================================================================
 
 Buffer::Buffer (int numChannels, int numSamples, int samplingRate)
     : sampleRate {-1}

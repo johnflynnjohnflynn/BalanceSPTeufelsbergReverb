@@ -52,7 +52,7 @@
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aidio"
                        osxCompatibility="10.5 SDK" headerPath="../../../../." osxSDK="default"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aidio"
-                       osxCompatibility="10.5 SDK" headerPath="../../../../../." osxSDK="default"/>
+                       osxCompatibility="10.5 SDK" headerPath="../../../../." osxSDK="default"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="JuceModules"/>
@@ -64,9 +64,9 @@
     <VS2013 targetFolder="../Test/Builds/VisualStudio2013">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="Aidio" headerPath="../../../../../."/>
+                       isDebug="1" optimisation="1" targetName="Aidio" headerPath="../../../../."/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="Aidio" headerPath="../../../../../."/>
+                       isDebug="0" optimisation="3" targetName="Aidio" headerPath="../../../../."/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="JuceModules"/>
@@ -78,9 +78,9 @@
     <LINUX_MAKE targetFolder="../Test/Builds/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aidio"
-                       headerPath="../../../../../."/>
+                       headerPath="../../../../."/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aidio"
-                       headerPath="../../../../../."/>
+                       headerPath="../../../../."/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="JuceModules"/>

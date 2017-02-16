@@ -27,11 +27,173 @@
 #ifndef BUFFER_H_INCLUDED
 #define BUFFER_H_INCLUDED
 
+#include <cassert>
+
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Aidio/Dependencies/gsl.h"
 
 namespace ado
 {
+
+//==============================================================================
+/** class BufferView... see p948 Stroustrup PPP
+
+    @example
+
+    void process (BufferView& buff)
+    {
+        for (auto chan : buff)      // for (float* chan : buff)
+            for (auto& samp : chan) // for (float& samp : chan)
+            {
+                samp = sineWave();
+                samp *= 0.25f;
+            }
+
+        buff (0, 148) = 0.0f; // mute 148th sample in first channel
+    }
+
+    //...
+    process (BufferView {buffer, channels, samples});
+    //...
+*/
+class ChannelView
+{
+public:
+    ChannelView (float* buffer, int numSamples)
+        : fp {buffer}, samps {numSamples}
+    {
+        Expects (8 <= samps);
+    }
+
+          float& operator() (int s)       { jassert (0 <= s && s < samps); return fp[s]; }
+    const float& operator() (int s) const { jassert (0 <= s && s < samps); return fp[s]; }
+
+    int getNumSamples() const { return samps; }
+
+    //==============================================================================
+
+    class SampleIterator
+    {
+    public:
+        SampleIterator (float* sample)
+            : curr {sample}
+        {}
+
+        float* operator++()                     { ++curr; return curr; }
+        float* operator++(int) { float* c = curr; ++curr; return c; }
+        float& operator*()                              { return *curr; }
+        bool operator!= (const SampleIterator& other) { return curr != other.curr; }
+
+    private:
+        float* curr;
+    };
+
+          SampleIterator begin()       { return SampleIterator {&fp[0]    }; }
+          SampleIterator end()         { return SampleIterator {&fp[samps]}; }
+    const SampleIterator begin() const { return SampleIterator {&fp[0]    }; }
+    const SampleIterator end()   const { return SampleIterator {&fp[samps]}; }
+
+private:
+    float* fp;
+    int samps;
+};
+
+//==============================================================================
+
+class BufferView
+{
+public:
+    BufferView (float** buffer, int numChannels, int numSamples)
+        : fpp {buffer}, chans {numChannels}, samps {numSamples}
+    {
+        Expects (1 <= chans && chans <= 6);     // don't mix up channels and samples
+        Expects (8 <= samps);
+    }
+
+    float& operator() (int c, int s)
+    {
+        jassert (0 <= c && c < chans);
+        jassert (0 <= s && s < samps);
+        return fpp[c][s];
+    }
+    float operator() (int c, int s) const
+    {
+        jassert (0 <= c && c < chans);
+        jassert (0 <= s && s < samps);
+        return fpp[c][s];
+    }
+
+    ChannelView channel (int c)
+    {
+        jassert (0 <= c && c < chans);
+        return ChannelView {fpp[c], samps};
+    }
+
+    int getNumChannels() const { return chans; }
+    int getNumSamples()  const { return samps; }
+
+    //==============================================================================
+
+    class ChannelIterator
+    {
+    public:
+        ChannelIterator (float** channel, int numSamples)
+            : curr {nullptr}, samps {numSamples}
+        {
+            float** copy {channel};
+            curr = copy;
+        }
+
+        float** operator++()                      { ++curr; return curr; }
+        float** operator++(int) { float** c = curr; ++curr; return c; }
+        ChannelView operator*() { return ChannelView {*curr, samps}; }
+        bool operator!= (const ChannelIterator& other) { return curr != other.curr; }
+
+    private:
+        float** curr;
+        int samps;
+    };
+
+          ChannelIterator begin()       { return ChannelIterator {&fpp[0],     samps}; }
+          ChannelIterator end()         { return ChannelIterator {&fpp[chans], samps}; }
+    const ChannelIterator begin() const { return ChannelIterator {&fpp[0],     samps}; }
+    const ChannelIterator end()   const { return ChannelIterator {&fpp[chans], samps}; }
+
+    //==============================================================================
+
+    void fillAllOnes ()
+    {
+        for (auto chan : *this)
+            for (auto& samp : chan)
+                samp = 1.0f;
+    }
+
+    void fillAscending()
+    {
+        for (auto chan : *this)
+        {
+            float sum = 1.0f;
+
+            for (auto& samp : chan)
+            {
+                samp = sum;
+                sum += 1.0f;
+            }
+        }
+    }
+
+private:
+    float** fpp;
+    int chans;
+    int samps;
+};
+
+//==============================================================================
+/**
+*/
+BufferView makeBufferView (juce::AudioBuffer<float> juceBuffer);
+
+void coutBuffer (const BufferView& buffer);
 
 //==============================================================================
 /** Simple audio buffer based on juce::AudioBuffer<T>
@@ -60,6 +222,18 @@ public:
     void clear() { bufferData.clear(); }
     void fillAllOnes();                                                     
     void fillAscending();
+
+    void copyFrom (const Buffer& source)
+    {
+        jassert (source.getNumChannels() <= getNumChannels());
+        jassert (source.getNumSamples() <= getNumSamples());
+
+        clear();
+
+        for (int c = 0; c < source.getNumChannels(); ++c)
+            for (int s = 0; s < source.getNumSamples(); ++s)
+                getWriteArray()[c][s] = source.getReadArray()[c][s];
+    }
 
     Buffer& operator*= (float scale);
 

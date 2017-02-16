@@ -18,9 +18,29 @@
 AIDIO_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(Buffer)
 
 Buffer::Buffer() : UnitTest ("Buffer") {}
-
+                                                            // BufferView tests please!!!
 void Buffer::runTest()
 {
+/*    beginTest ("Bufferview");
+
+    {
+        juce::AudioBuffer<float> b1 {1, 16};                    // very subtle pointer weirdness going on!
+        ado::BufferView buffer1 {ado::makeBufferView (b1)};
+        buffer1.fillAllOnes();
+
+        juce::AudioBuffer<float> b2 {1, 8};
+        ado::BufferView buffer2 {ado::makeBufferView (b2)};
+        buffer2.fillAscending();
+
+        //ado::coutBuffer (buffer);
+        buffer1.fillAllOnes();
+        ado::coutBuffer (buffer1);
+
+        std::terminate();
+    }*/
+
+    //==============================================================================
+
     beginTest ("Constructs");
     expectDoesNotThrow (ado::Buffer (2, 512));
 
