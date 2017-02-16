@@ -21,6 +21,118 @@ Convolution::Convolution() : UnitTest ("Convolution") {}
 
 void Convolution::runTest()
 {
+    /*beginTest ("Convolve");
+
+    {
+        juce::AudioBuffer<float> buf {1, 16};                       // subtle pointer weirdness going on!
+        ado::BufferView buffer {ado::makeBufferView (buf)};
+        buffer.fillAllOnes();
+
+        juce::AudioBuffer<float> imp {1, 8};
+        ado::BufferView ir {ado::makeBufferView (imp)};
+        ir.fillAscending();
+
+        //ado::Convolver;
+
+        //ado::coutBuffer (buffer);
+        //buffer.fillAllOnes();
+        //ado::coutBuffer (buffer);
+
+        //std::terminate();
+    }*/
+
+    beginTest("Convolver");
+
+    {
+        ado::Buffer sig {1, 4};
+        ado::Buffer imp {1, 2};       // out size must be sig + imp - 1 !!!
+        ado::Buffer out {1, sig.getNumSamples() + imp.getNumSamples() - 1};
+        sig.fillAllOnes();
+        imp.fillAscending();
+
+        ado::Convolver eng {imp, out.getNumSamples()};
+        eng.convolve (sig, out);
+        //ado::coutBuffer(out);
+
+        auto o = out.getReadArray();
+        expectWithinAbsoluteError<float> (o[0][0], 1, 0.001);
+        expectWithinAbsoluteError<float> (o[0][1], 3, 0.001);
+        expectWithinAbsoluteError<float> (o[0][2], 3, 0.001);
+        expectWithinAbsoluteError<float> (o[0][3], 3, 0.001);
+        expectWithinAbsoluteError<float> (o[0][4], 2, 0.001);
+    }
+
+    beginTest("Convolver 2 channels");
+
+    {
+        ado::Buffer sig {2, 4};
+        ado::Buffer imp {2, 2};       // out size must be sig + imp - 1 !!!
+        ado::Buffer out {2, sig.getNumSamples() + imp.getNumSamples() - 1};
+        sig.fillAllOnes();
+        imp.fillAscending();
+
+        ado::Convolver eng {imp, out.getNumSamples()};
+        eng.convolve (sig, out);
+        //ado::coutBuffer(out);
+
+        auto o = out.getReadArray();
+        expectWithinAbsoluteError<float> (o[1][0], 1, 0.001);
+        expectWithinAbsoluteError<float> (o[1][1], 3, 0.001);
+        expectWithinAbsoluteError<float> (o[1][2], 3, 0.001);
+        expectWithinAbsoluteError<float> (o[1][3], 3, 0.001);
+        expectWithinAbsoluteError<float> (o[1][4], 2, 0.001);
+    }
+
+    beginTest("Convolver performance");
+
+    {
+        ado::Buffer sig {1, 44100};
+        ado::Buffer imp {1, 88200};       // out size must be sig + imp - 1 !!!
+        ado::Buffer out {1, sig.getNumSamples() + imp.getNumSamples() - 1};
+        sig.fillAllOnes();
+        imp.fillAscending();
+
+        ado::Convolver eng {imp, out.getNumSamples()};
+
+        juce::PerformanceCounter pc ("1SecConv2Sec", 5, File {});
+        double averageSeconds {0};
+        pc.start();
+
+        eng.convolve (sig, out);
+
+        averageSeconds = pc.getStatisticsAndReset().averageSeconds;
+        pc.stop();
+
+        expectLessThan (averageSeconds, 0.225);
+    }
+
+    beginTest("Convolution performance");
+
+    {
+        ado::Buffer sig {1, 44100};
+        ado::Buffer imp {1, 88200};       // out size must be sig + imp - 1 !!!
+        ado::Buffer out {1, sig.getNumSamples() + imp.getNumSamples() - 1};
+        sig.fillAllOnes();
+        imp.fillAscending();
+
+        ado::Convolution eng {imp};
+
+        juce::PerformanceCounter pc ("1SecConv2Sec", 5, File {});
+        double averageSeconds {0};
+        pc.start();
+
+        eng.process (sig); // process 3 times to do same amount of samples
+        eng.process (sig);
+        eng.process (sig);
+
+        averageSeconds = pc.getStatisticsAndReset().averageSeconds;
+        pc.stop();
+
+        expectLessThan (averageSeconds, 0.225);
+    }
+
+    //==============================================================================
+
     beginTest ("Different sample rates");
 
     {
