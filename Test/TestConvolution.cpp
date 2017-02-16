@@ -128,7 +128,7 @@ void Convolution::runTest()
     //==============================================================================
 
     beginTest ("Different sample rates");
-std::terminate();
+    
     {
         ado::Buffer h {1, 16};      // 16x 1.0f values in...
         h.fillAllOnes();
