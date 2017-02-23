@@ -18,28 +18,79 @@
 AIDIO_DECLARE_UNIT_TEST_WITH_STATIC_INSTANCE(Buffer)
 
 Buffer::Buffer() : UnitTest ("Buffer") {}
-                                                            // BufferView tests please!!!
+
 void Buffer::runTest()
 {
     beginTest ("Bufferview");
 
     {
-        juce::AudioBuffer<float> b1 {2, 8};                    // very subtle pointer weirdness going on!
+        juce::AudioBuffer<float> b1 {2, 8};
+        ado::BufferView buffer1 {ado::makeBufferView (b1)};
+        buffer1.fillAllOnes();
+        buffer1.fillAscending();
+
+        expectEquals<float>(buffer1(0,7), 8);
+    }
+
+    beginTest ("Bufferview Test subtle pointer weirdness due to makeBufferView()");
+
+    {
+        juce::AudioBuffer<float> b1 {2, 8};
         ado::BufferView buffer1 {ado::makeBufferView (b1)};
 
         buffer1.fillAllOnes();
 
         juce::AudioBuffer<float> b2 {1, 8};
         ado::BufferView buffer2 {ado::makeBufferView(b2)};
-        buffer2.fillAllOnes();
-        buffer2.fillAllOnes();
 
+        buffer2.fillAllOnes();
+        buffer2.fillAllOnes();
         buffer1.fillAscending();
-        ado::coutBuffer (buffer1);
 
-        ado::coutBuffer(buffer2);
+        expectEquals<float>(buffer1(0,7), 8);
+        expectEquals<float>(buffer2(0,5), 1);
+    }
 
-        //std::terminate();
+    beginTest ("Bufferview test clear");
+
+    {
+        juce::AudioBuffer<float> b1 {6, 32};
+        ado::BufferView bv {ado::makeBufferView (b1)};
+
+        bv.clear();
+
+        for (auto chan : bv)
+            for (const auto& samp : chan)
+                expectEquals<float>(samp, 0.0f);
+    }
+
+    beginTest ("Bufferview test writing in range for loops");
+
+    {
+        juce::AudioBuffer<float> b1 {6, 32};
+        ado::BufferView bv {ado::makeBufferView (b1)};
+
+        for (auto chan : bv)
+            for (auto& samp : chan)
+                samp = 3.245f;
+
+        for (const auto& chan : bv)
+            for (const auto& samp : chan)
+                expectEquals<float>(samp, 3.245f);
+    }
+
+    beginTest ("Bufferview test write specific value");
+
+    {
+        juce::AudioBuffer<float> b1 {6, 32};
+        ado::BufferView bv {ado::makeBufferView (b1)};
+        
+        bv.clear();
+        bv(4,14) = 0.999f;
+
+        expectEquals<float>(bv(4,13), 0);
+        expectEquals<float>(bv(4,14), 0.999f);
+        expectEquals<float>(bv(4,15), 0);
     }
 
     //==============================================================================

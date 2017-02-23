@@ -29,7 +29,7 @@
 
 //--------//--------//--------//--------//--------//--------//--------//--------
 /** 
-    Parent header for the library
+    Parent header file.
 
     @example    #include "Judio/Judio.h"
 */

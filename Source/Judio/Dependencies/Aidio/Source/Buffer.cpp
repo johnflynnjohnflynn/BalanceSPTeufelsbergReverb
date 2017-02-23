@@ -33,15 +33,6 @@ namespace ado
 //==============================================================================
 BufferView makeBufferView (juce::AudioBuffer<float>& juceBuffer)
 {
-/*    const int nch = juceBuffer.getNumChannels();  // force resize to avoidReallocating!!!
-    const int nsa = juceBuffer.getNumSamples();
-    juceBuffer.setSize(1, 1);
-    juceBuffer.setSize (nch,
-                        nsa,
-                        true,  // bool keepExistingContent = false,
-                        false, // bool clearExtraSpace = false,
-                        true); // bool avoidReallocating = false);*/
-
     return BufferView {juceBuffer.getArrayOfWritePointers(),
                        juceBuffer.getNumChannels(),
                        juceBuffer.getNumSamples()};
