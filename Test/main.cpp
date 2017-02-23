@@ -6,7 +6,7 @@
 */
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Aidio/Aidio.h"
+#include "../Aidio.h"
 
 int main(int argc, const char* argv[])
 {
