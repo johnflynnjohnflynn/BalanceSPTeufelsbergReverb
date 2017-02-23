@@ -19,7 +19,7 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#include "Judio/Parameter.h"
+#include "../Parameter.h"
 
 namespace jdo
 {

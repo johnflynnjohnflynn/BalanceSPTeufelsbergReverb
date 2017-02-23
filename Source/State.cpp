@@ -19,8 +19,9 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#include "Judio/State.h"
-#include "Judio/Look.h"
+#include "../State.h"
+
+#include "../Look.h"
 
 namespace jdo
 {

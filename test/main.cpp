@@ -1,6 +1,6 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Aidio/Aidio.h"
+#include "../Dependencies/Aidio/Aidio.h"
 
 int main (int argc, const char* argv[])             // Need to test FLAC loading in Helper!!!
 {
