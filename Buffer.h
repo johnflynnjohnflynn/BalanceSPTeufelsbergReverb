@@ -138,11 +138,8 @@ public:
     {
     public:
         ChannelIterator (float** channel, int numSamples)
-            : curr {nullptr}, samps {numSamples}
-        {
-            float** copy {channel};
-            curr = copy;
-        }
+            : curr {channel}, samps {numSamples}
+        {}
 
         float** operator++()                      { ++curr; return curr; }
         float** operator++(int) { float** c = curr; ++curr; return c; }
@@ -181,6 +178,7 @@ public:
             }
         }
     }
+    float** getFpp() { return fpp; }
 
 private:
     float** fpp;
@@ -191,7 +189,7 @@ private:
 //==============================================================================
 /**
 */
-BufferView makeBufferView (juce::AudioBuffer<float> juceBuffer);
+BufferView makeBufferView (juce::AudioBuffer<float>& juceBuffer);
 
 void coutBuffer (const BufferView& buffer);
 
@@ -206,7 +204,7 @@ void coutBuffer (const BufferView& buffer);
 class Buffer
 {
 public:
-    Buffer (int numChannels, int numSamples, int samplingRate = 44100);
+    Buffer (int numChannels = 1, int numSamples = 1, int samplingRate = 44100);
     ~Buffer() {}
 
     void clearAndResize (int numChannels, int numSamples);

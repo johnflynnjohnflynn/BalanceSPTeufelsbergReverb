@@ -21,23 +21,26 @@ Buffer::Buffer() : UnitTest ("Buffer") {}
                                                             // BufferView tests please!!!
 void Buffer::runTest()
 {
-/*    beginTest ("Bufferview");
+    beginTest ("Bufferview");
 
     {
-        juce::AudioBuffer<float> b1 {1, 16};                    // very subtle pointer weirdness going on!
+        juce::AudioBuffer<float> b1 {2, 8};                    // very subtle pointer weirdness going on!
         ado::BufferView buffer1 {ado::makeBufferView (b1)};
+
         buffer1.fillAllOnes();
 
         juce::AudioBuffer<float> b2 {1, 8};
-        ado::BufferView buffer2 {ado::makeBufferView (b2)};
-        buffer2.fillAscending();
+        ado::BufferView buffer2 {ado::makeBufferView(b2)};
+        buffer2.fillAllOnes();
+        buffer2.fillAllOnes();
 
-        //ado::coutBuffer (buffer);
-        buffer1.fillAllOnes();
+        buffer1.fillAscending();
         ado::coutBuffer (buffer1);
 
-        std::terminate();
-    }*/
+        ado::coutBuffer(buffer2);
+
+        //std::terminate();
+    }
 
     //==============================================================================
 
