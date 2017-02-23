@@ -35,6 +35,53 @@ namespace ado
 {
 
 //==============================================================================
+/*
+Convolver::Convolver (const ado::Buffer& impulse)
+    : ir {impulse}
+{
+    reset (impulse.getSampleRate());
+}
+
+bool Convolver::reset (double sampleRate)                                   // need to force this first time!
+{
+    if (resampleImpulseIfRateHasChanged (sampleRate))
+    {
+        if (! sliceImpulseToImpFftBufs()) { jassertfalse; return false; }
+        if (! preFftImpFftBufs()        ) { jassertfalse; return false; }
+    }
+    return true;
+}
+
+bool Convolver::convolve (ado::Buffer& blockInOut)
+{
+    using pointer = float*; // for now...
+
+    //==============================================================================
+    /** for each block * /
+    if (!  fftInputBlockToSigFftBufs()) { jassertfalse; return false; }
+    pointer inCircBufPosition {copyInputBlockToInCircBuf()};
+
+    //==============================================================================
+    /** for each IR slice (threaded with priorities) * /
+    for (size_t i = 0; i < impFftBufs.size(); ++i)
+    {
+        jassert (impFftBufs.size() == sigFftBufs.size());
+        if (! complexMultiplyFftsToSigFftBuf (inCircBufPosition,
+                                              impFftBufs[i],
+                                              sigFftBufs[i])          ) { jassertfalse; return false; }
+        //if (! ifftToOutCircBuf (sigFftBufs[i],
+        //                        sigFftBufs[i].getOutCircBufPosition())) { jassertfalse; return false; }
+    }
+    //==============================================================================
+    /** for each block * /
+    //if (!  copyOutCircBufToOutputBlock (outCircBuf.getCurrentBufferPosition())) { jassertfalse; return false; }
+    if (!  clearAlreadyOutputInOutCircBuf()                                   ) { jassertfalse; return false; }
+
+    return true;
+}
+*/
+/*
+//==============================================================================
                                                            // how/where do we check imp chans==sig chans?
 Convolver::Convolver(const Buffer& impulse, int convolvedLength) // length should be imp + sig - 1
     : imp {impulse},
@@ -50,6 +97,9 @@ Convolver::Convolver(const Buffer& impulse, int convolvedLength) // length shoul
     for (int c = 0; c < impFftBuf.getNumChannels(); ++c)
         impFft.performRealOnlyForwardTransform (impFftBuf.getWriteArray()[c]);
     //ado::coutBuffer(impFftBuf);
+
+    sliceImpulse();
+    fftImpulseSlices();
 }
 
 void Convolver::convolve (const ado::Buffer& signal, ado::Buffer& out)
@@ -89,8 +139,7 @@ void Convolver::complexMultiplyInterleavedBuffers()
             sigFftBuf.getWriteArray()[c][s+1] = outimag;
         }
 }
-
-
+*/
 //==============================================================================
 
 Convolution::Convolution (const ado::Buffer& impulse)

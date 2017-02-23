@@ -40,7 +40,7 @@ void Convolution::runTest()
 
         //std::terminate();
     }*/
-
+/*
     beginTest("Convolver");
 
     {
@@ -125,6 +125,22 @@ void Convolution::runTest()
         std::cout << "\nAre you in DEBUG MODE?!?!?!\n\n";
     }
 
+    beginTest("Convolver sliced");                                         // not a test!
+
+    {
+        ado::Buffer sig {2, 64};
+        ado::Buffer imp {2, 8000};
+        ado::Buffer out {2, sig.getNumSamples() + imp.getNumSamples() - 1}; // L+M-1
+        sig.fillAllOnes();
+        imp.fillAscending();
+
+        ado::Convolver eng {imp, out.getNumSamples()};
+
+        eng.sliceConvolve (sig, out);
+
+        DBG("boo");
+    }
+*/
     //==============================================================================
 
     beginTest ("Different sample rates");
