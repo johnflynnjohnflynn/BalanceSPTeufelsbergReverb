@@ -10,7 +10,7 @@
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="BalanceSPTeufelsbergReverbAU"
               pluginRTASCategory="ePluginCategory_Reverb" aaxIdentifier="com.BalanceAudioTools.BalanceSPTeufelsbergReverb"
               pluginAAXCategory="AAX_ePlugInCategory_Reverb" jucerVersion="4.3.0"
-              defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float&#10;"
+              defines="gsl_CONFIG_CONTRACT_VIOLATION_THROWS=1&#10;NOMINMAX=1&#10;WDL_RESAMPLE_TYPE=float"
               companyName="BalanceAudioTools" companyWebsite="www.balancemastering.com"
               companyEmail="info@balancemastering.com" pluginAUMainType=""
               pluginVSTCategory="">
