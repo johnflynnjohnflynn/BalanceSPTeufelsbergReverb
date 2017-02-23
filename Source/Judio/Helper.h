@@ -23,8 +23,8 @@
 #define HELPER_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Aidio/Buffer.h"
-#include "Aidio/Utility.h"
+#include "Dependencies/Aidio/Buffer.h"
+#include "Dependencies/Aidio/Utility.h"
 
 namespace jdo
 {

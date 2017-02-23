@@ -9,10 +9,10 @@
 */
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Aidio/Aidio.h"
+#include "../Dependencies/Aidio/Aidio.h"
 
-#include "Judio/State.h"
-#include "Judio/Parameter.h"
+#include "../State.h"
+#include "../Parameter.h"
 
 //==============================================================================
 

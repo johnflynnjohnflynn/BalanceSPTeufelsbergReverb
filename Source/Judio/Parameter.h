@@ -23,7 +23,7 @@
 #define PARAMETER_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Aidio/Aidio.h"
+#include "Dependencies/Aidio/Aidio.h"
 
 namespace jdo
 {
