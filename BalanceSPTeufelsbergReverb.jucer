@@ -16,91 +16,98 @@
               pluginVSTCategory="">
   <MAINGROUP id="QuTSDH" name="BalanceSPTeufelsbergReverb">
     <GROUP id="{BEE0B3EC-1FBF-760F-F70A-05FD1058C7B5}" name="Resources">
-      <FILE id="Ve6i8f" name="balance-mastering-teufelsberg-IR-01-44100-24bit.flac"
+      <FILE id="TCbXGN" name="balance-mastering-teufelsberg-IR-01-44100-24bit.flac"
             compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-01-44100-24bit.flac"/>
-      <FILE id="jEnbIP" name="balance-mastering-teufelsberg-IR-02-44100-24bit.flac"
+      <FILE id="hrzzIM" name="balance-mastering-teufelsberg-IR-02-44100-24bit.flac"
             compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-02-44100-24bit.flac"/>
-      <FILE id="yy0bea" name="balance-mastering-teufelsberg-IR-03-44100-24bit.flac"
+      <FILE id="RVbC13" name="balance-mastering-teufelsberg-IR-03-44100-24bit.flac"
             compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-03-44100-24bit.flac"/>
-      <FILE id="Tp0MLI" name="balance-mastering-teufelsberg-IR-04-44100-24bit.flac"
+      <FILE id="Vovq1X" name="balance-mastering-teufelsberg-IR-04-44100-24bit.flac"
             compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-04-44100-24bit.flac"/>
-      <FILE id="IYn0NO" name="balance-mastering-teufelsberg-IR-05-44100-24bit.flac"
+      <FILE id="Xqds1S" name="balance-mastering-teufelsberg-IR-05-44100-24bit.flac"
             compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-05-44100-24bit.flac"/>
-      <FILE id="E0J7Qj" name="balance-mastering-teufelsberg-IR-06-44100-24bit.flac"
+      <FILE id="IWL1ng" name="balance-mastering-teufelsberg-IR-06-44100-24bit.flac"
             compile="0" resource="1" file="Resources/balance-mastering-teufelsberg-IR-06-44100-24bit.flac"/>
-      <FILE id="JylYpO" name="layout04knob01dotoff-fs8.png" compile="0" resource="1"
+      <FILE id="fbMNJT" name="layout04knob01dotoff-fs8.png" compile="0" resource="1"
             file="Resources/layout04knob01dotoff-fs8.png"/>
-      <FILE id="dDTdgp" name="layout04knob01doton-fs8.png" compile="0" resource="1"
+      <FILE id="i3Ug1M" name="layout04knob01doton-fs8.png" compile="0" resource="1"
             file="Resources/layout04knob01doton-fs8.png"/>
-      <FILE id="ralXkP" name="layout04knob01off-fs8.png" compile="0" resource="1"
+      <FILE id="Yohila" name="layout04knob01off-fs8.png" compile="0" resource="1"
             file="Resources/layout04knob01off-fs8.png"/>
-      <FILE id="BQcWmq" name="layout04knob01on-fs8.png" compile="0" resource="1"
+      <FILE id="lFsuaG" name="layout04knob01on-fs8.png" compile="0" resource="1"
             file="Resources/layout04knob01on-fs8.png"/>
-      <FILE id="NHgO4l" name="layout04NoKnobs-fs8.png" compile="0" resource="1"
+      <FILE id="hPODYc" name="layout04NoKnobs-fs8.png" compile="0" resource="1"
             file="Resources/layout04NoKnobs-fs8.png"/>
-      <FILE id="aDbh3F" name="OpenSans-Regular.ttf" compile="0" resource="1"
+      <FILE id="ZZpVB8" name="OpenSans-Regular.ttf" compile="0" resource="1"
             file="Resources/OpenSans-Regular.ttf"/>
-      <FILE id="LNUNfN" name="presets.xml" compile="0" resource="1" file="Resources/presets.xml"/>
+      <FILE id="agIAe4" name="presets.xml" compile="0" resource="1" file="Resources/presets.xml"/>
     </GROUP>
     <GROUP id="{94CA6903-4B8D-DD43-557E-5CE559F273F9}" name="Source">
-      <GROUP id="{C1B3C3B4-6126-D2A9-3301-28FA1D86F974}" name="Aidio">
-        <GROUP id="{9CFDECA6-52BB-D22C-67A6-8F10DFA275C3}" name="src">
-          <FILE id="aE2ZDP" name="Buffer.cpp" compile="1" resource="0" file="Source/Aidio/src/Buffer.cpp"/>
-          <FILE id="hddWB9" name="Convolution.cpp" compile="1" resource="0" file="Source/Aidio/src/Convolution.cpp"/>
-          <FILE id="GaYgWc" name="Maths.cpp" compile="1" resource="0" file="Source/Aidio/src/Maths.cpp"/>
-          <FILE id="durhrS" name="Resampling.cpp" compile="1" resource="0" file="Source/Aidio/src/Resampling.cpp"/>
-          <FILE id="xMYymN" name="Utility.cpp" compile="1" resource="0" file="Source/Aidio/src/Utility.cpp"/>
+      <GROUP id="{F9FCCE92-DFB4-A590-A2BC-F00DE3AD8C46}" name="Judio">
+        <GROUP id="{44901BB5-B7E1-D990-D0A4-7DCC5B17C496}" name="Dependencies">
+          <GROUP id="{6F54E303-EC70-7346-B41D-6EDFA7021B14}" name="Aidio">
+            <GROUP id="{D06276D7-A290-0A47-FCE2-AA5B5ABD8BD6}" name="Dependencies">
+              <GROUP id="{3BE90F3B-E0E0-0C4B-5798-D1B043010931}" name="WDL">
+                <FILE id="zYETgH" name="convoengine.cpp" compile="1" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/convoengine.cpp"/>
+                <FILE id="aFMm8u" name="convoengine.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/convoengine.h"/>
+                <FILE id="I3g9C3" name="denormal.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/denormal.h"/>
+                <FILE id="T8OWHy" name="fastqueue.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/fastqueue.h"/>
+                <FILE id="c9IvrM" name="fft.c" compile="1" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/fft.c"/>
+                <FILE id="BnjA76" name="fft.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/fft.h"/>
+                <FILE id="nR3tm9" name="heapbuf.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/heapbuf.h"/>
+                <FILE id="AhavdJ" name="ptrlist.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/ptrlist.h"/>
+                <FILE id="Mzsnje" name="queue.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/queue.h"/>
+                <FILE id="OdYnJL" name="resample.cpp" compile="1" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/resample.cpp"/>
+                <FILE id="g4z4TG" name="resample.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/resample.h"/>
+                <FILE id="HVoqXX" name="wdltypes.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/WDL/wdltypes.h"/>
+              </GROUP>
+              <FILE id="PZpYzB" name="gsl.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Dependencies/gsl.h"/>
+            </GROUP>
+            <GROUP id="{8895D480-B6A3-982A-3263-1D673A33C83E}" name="Source">
+              <FILE id="jcNxWi" name="Buffer.cpp" compile="1" resource="0" file="Source/Judio/Dependencies/Aidio/Source/Buffer.cpp"/>
+              <FILE id="UKIE9l" name="Convolution.cpp" compile="1" resource="0" file="Source/Judio/Dependencies/Aidio/Source/Convolution.cpp"/>
+              <FILE id="zuVIn9" name="Maths.cpp" compile="1" resource="0" file="Source/Judio/Dependencies/Aidio/Source/Maths.cpp"/>
+              <FILE id="l2GapP" name="Resampling.cpp" compile="1" resource="0" file="Source/Judio/Dependencies/Aidio/Source/Resampling.cpp"/>
+              <FILE id="u11Lis" name="Utility.cpp" compile="1" resource="0" file="Source/Judio/Dependencies/Aidio/Source/Utility.cpp"/>
+            </GROUP>
+            <FILE id="wrVqks" name="Aidio.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Aidio.h"/>
+            <FILE id="laJoFy" name="Buffer.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Buffer.h"/>
+            <FILE id="FO3yy6" name="Convolution.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Convolution.h"/>
+            <FILE id="KosfDk" name="LICENSE.txt" compile="0" resource="1" file="Source/Judio/Dependencies/Aidio/LICENSE.txt"/>
+            <FILE id="iUZpQM" name="Maths.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Maths.h"/>
+            <FILE id="yBCiRp" name="README.md" compile="0" resource="1" file="Source/Judio/Dependencies/Aidio/README.md"/>
+            <FILE id="y7Q4R8" name="Resampling.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Resampling.h"/>
+            <FILE id="iSmC4X" name="Test.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Test.h"/>
+            <FILE id="CKtOwB" name="Utility.h" compile="0" resource="0" file="Source/Judio/Dependencies/Aidio/Utility.h"/>
+          </GROUP>
         </GROUP>
-        <FILE id="ryLWPf" name="Aidio.h" compile="0" resource="0" file="Source/Aidio/Aidio.h"/>
-        <FILE id="eNSltz" name="Buffer.h" compile="0" resource="0" file="Source/Aidio/Buffer.h"/>
-        <FILE id="rS3UQL" name="Convolution.h" compile="0" resource="0" file="Source/Aidio/Convolution.h"/>
-        <FILE id="eYkT0g" name="Maths.h" compile="0" resource="0" file="Source/Aidio/Maths.h"/>
-        <FILE id="muvBsH" name="Resampling.h" compile="0" resource="0" file="Source/Aidio/Resampling.h"/>
-        <FILE id="E0TmbB" name="Test.h" compile="0" resource="0" file="Source/Aidio/Test.h"/>
-        <FILE id="Ht5aQ4" name="Utility.h" compile="0" resource="0" file="Source/Aidio/Utility.h"/>
-      </GROUP>
-      <GROUP id="{45101194-FA4E-2EBC-0BF8-A9D6BA1C2DA8}" name="Judio">
-        <GROUP id="{F7E5A27E-2229-5C4D-E622-541AC24BC9B8}" name="src">
-          <FILE id="Cg8lf6" name="Helper.cpp" compile="1" resource="0" file="Source/Judio/src/Helper.cpp"/>
-          <FILE id="PafIy4" name="Look.cpp" compile="1" resource="0" file="Source/Judio/src/Look.cpp"/>
-          <FILE id="zr6EbS" name="Parameter.cpp" compile="1" resource="0" file="Source/Judio/src/Parameter.cpp"/>
-          <FILE id="scGYDm" name="Slider.cpp" compile="1" resource="0" file="Source/Judio/src/Slider.cpp"/>
-          <FILE id="SKP677" name="State.cpp" compile="1" resource="0" file="Source/Judio/src/State.cpp"/>
-          <FILE id="bCsKKG" name="Toggle.cpp" compile="1" resource="0" file="Source/Judio/src/Toggle.cpp"/>
+        <GROUP id="{62328CCE-88D7-2CA9-D0F2-CFA956BBC633}" name="Source">
+          <FILE id="gTmQk6" name="Helper.cpp" compile="1" resource="0" file="Source/Judio/Source/Helper.cpp"/>
+          <FILE id="CkaIYj" name="Look.cpp" compile="1" resource="0" file="Source/Judio/Source/Look.cpp"/>
+          <FILE id="f8LDYP" name="Parameter.cpp" compile="1" resource="0" file="Source/Judio/Source/Parameter.cpp"/>
+          <FILE id="vUAxYc" name="Slider.cpp" compile="1" resource="0" file="Source/Judio/Source/Slider.cpp"/>
+          <FILE id="ul4Sxt" name="State.cpp" compile="1" resource="0" file="Source/Judio/Source/State.cpp"/>
+          <FILE id="dLr4PD" name="Toggle.cpp" compile="1" resource="0" file="Source/Judio/Source/Toggle.cpp"/>
         </GROUP>
-        <FILE id="JZhjhX" name="Helper.h" compile="0" resource="0" file="Source/Judio/Helper.h"/>
-        <FILE id="sXHrpm" name="Judio.h" compile="0" resource="0" file="Source/Judio/Judio.h"/>
-        <FILE id="Zv2QPS" name="Look.h" compile="0" resource="0" file="Source/Judio/Look.h"/>
-        <FILE id="jn1kPh" name="Parameter.h" compile="0" resource="0" file="Source/Judio/Parameter.h"/>
-        <FILE id="O7a3b5" name="Slider.h" compile="0" resource="0" file="Source/Judio/Slider.h"/>
-        <FILE id="i8vbUJ" name="State.h" compile="0" resource="0" file="Source/Judio/State.h"/>
-        <FILE id="iNB4mx" name="Toggle.h" compile="0" resource="0" file="Source/Judio/Toggle.h"/>
+        <FILE id="haDsx1" name="Helper.h" compile="0" resource="0" file="Source/Judio/Helper.h"/>
+        <FILE id="I0PHzY" name="Judio.h" compile="0" resource="0" file="Source/Judio/Judio.h"/>
+        <FILE id="UF6O2i" name="LICENSE.txt" compile="0" resource="1" file="Source/Judio/LICENSE.txt"/>
+        <FILE id="kHtrog" name="Look.h" compile="0" resource="0" file="Source/Judio/Look.h"/>
+        <FILE id="bCxjyQ" name="Parameter.h" compile="0" resource="0" file="Source/Judio/Parameter.h"/>
+        <FILE id="BhSfqK" name="Slider.h" compile="0" resource="0" file="Source/Judio/Slider.h"/>
+        <FILE id="ZueJMx" name="State.h" compile="0" resource="0" file="Source/Judio/State.h"/>
+        <FILE id="vVGcWg" name="Toggle.h" compile="0" resource="0" file="Source/Judio/Toggle.h"/>
       </GROUP>
-      <GROUP id="{18483275-6744-FD53-3603-D678BE520D4D}" name="WDL">
-        <FILE id="BWQgib" name="convoengine.cpp" compile="1" resource="0" file="Source/WDL/convoengine.cpp"/>
-        <FILE id="LcalXG" name="convoengine.h" compile="0" resource="0" file="Source/WDL/convoengine.h"/>
-        <FILE id="OQH9UP" name="denormal.h" compile="0" resource="0" file="Source/WDL/denormal.h"/>
-        <FILE id="RH0iQy" name="fastqueue.h" compile="0" resource="0" file="Source/WDL/fastqueue.h"/>
-        <FILE id="XNlGw7" name="fft.c" compile="1" resource="0" file="Source/WDL/fft.c"/>
-        <FILE id="GgtZX4" name="fft.h" compile="0" resource="0" file="Source/WDL/fft.h"/>
-        <FILE id="XwdhnJ" name="heapbuf.h" compile="0" resource="0" file="Source/WDL/heapbuf.h"/>
-        <FILE id="F7gHEv" name="ptrlist.h" compile="0" resource="0" file="Source/WDL/ptrlist.h"/>
-        <FILE id="Jslftt" name="queue.h" compile="0" resource="0" file="Source/WDL/queue.h"/>
-        <FILE id="c5WC1m" name="resample.cpp" compile="1" resource="0" file="Source/WDL/resample.cpp"/>
-        <FILE id="fEHfDK" name="resample.h" compile="0" resource="0" file="Source/WDL/resample.h"/>
-        <FILE id="ifj4xe" name="wdltypes.h" compile="0" resource="0" file="Source/WDL/wdltypes.h"/>
-      </GROUP>
-      <FILE id="OHeywv" name="gsl.h" compile="0" resource="0" file="Source/gsl.h"/>
-      <FILE id="vUEbCh" name="ImpulseLoaderAsync.cpp" compile="1" resource="0"
+      <FILE id="qO0Bhx" name="ImpulseLoaderAsync.cpp" compile="1" resource="0"
             file="Source/ImpulseLoaderAsync.cpp"/>
-      <FILE id="jVI8vW" name="ImpulseLoaderAsync.h" compile="0" resource="0"
+      <FILE id="j1frrz" name="ImpulseLoaderAsync.h" compile="0" resource="0"
             file="Source/ImpulseLoaderAsync.h"/>
-      <FILE id="OzGfUN" name="PluginEditor.cpp" compile="1" resource="0"
+      <FILE id="krClS2" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
-      <FILE id="nzzmKr" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
-      <FILE id="L5Ujuo" name="PluginProcessor.cpp" compile="1" resource="0"
+      <FILE id="Hm9jIk" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="NQIfa3" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
-      <FILE id="f5Iwj2" name="PluginProcessor.h" compile="0" resource="0"
+      <FILE id="TFOvCT" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
     </GROUP>
   </MAINGROUP>

@@ -48,11 +48,20 @@ namespace BinaryData
     extern const char*   presets_xml;
     const int            presets_xmlSize = 755;
 
+    extern const char*   LICENSE_txt;
+    const int            LICENSE_txtSize = 1175;
+
+    extern const char*   README_md;
+    const int            README_mdSize = 469;
+
+    extern const char*   LICENSE_txt2;
+    const int            LICENSE_txt2Size = 897;
+
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 13;
+    const int namedResourceListSize = 16;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).
