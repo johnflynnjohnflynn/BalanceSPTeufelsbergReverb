@@ -69,6 +69,7 @@ public:
     const float& operator() (int s) const { jassert (0 <= s && s < samps); return fp[s]; }
 
     int getNumSamples() const { return samps; }
+    float* getRawArray() { return fp; }
 
     //==============================================================================
 
@@ -158,6 +159,13 @@ public:
 
     //==============================================================================
 
+    void clear ()
+    {
+        for (auto chan : *this)
+            for (auto& samp : chan)
+                samp = 0.0f;
+    }
+
     void fillAllOnes ()
     {
         for (auto chan : *this)
@@ -178,7 +186,15 @@ public:
             }
         }
     }
-    float** getFpp() { return fpp; }
+
+    void operator*= (float mult)
+    {
+        for (auto chan : *this)
+            for (auto& samp : chan)
+                samp *= mult;
+    }
+
+    float** getRawArray() { return fpp; }
 
 private:
     float** fpp;
