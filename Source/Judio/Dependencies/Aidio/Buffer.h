@@ -30,7 +30,7 @@
 #include <cassert>
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Aidio/Dependencies/gsl.h"
+#include "Dependencies/gsl.h"
 
 namespace ado
 {

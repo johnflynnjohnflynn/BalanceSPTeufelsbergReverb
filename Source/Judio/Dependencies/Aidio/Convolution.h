@@ -30,9 +30,9 @@
 #include <vector>
 #include <cmath>
 
-#include "Aidio/Buffer.h"
-#include "Aidio/Utility.h"
-#include "Aidio/Dependencies/WDL/convoengine.h"
+#include "Buffer.h"
+#include "Utility.h"
+#include "Dependencies/WDL/convoengine.h"
 
 
 namespace ado

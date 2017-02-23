@@ -27,7 +27,7 @@
 #ifndef UTILITY_H_INCLUDED
 #define UTILITY_H_INCLUDED
 
-#include "Aidio/Buffer.h"
+#include "Buffer.h"
 
 namespace ado
 {
