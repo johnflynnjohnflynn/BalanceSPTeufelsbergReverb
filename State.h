@@ -22,7 +22,7 @@
 #ifndef STATE_H_INCLUDED
 #define STATE_H_INCLUDED
 
-#include "../../JuceLibraryCode/JuceHeader.h"
+#include "../JuceLibraryCode/JuceHeader.h"
 #include "Judio/Slider.h"
 #include "Judio/Parameter.h"
 
@@ -161,7 +161,7 @@ private:
     void deletePresetAndRefresh();
     void savePresetAlertWindow();
 
-    void changeListenerCallback (ChangeBroadcaster* source); // for refreshing presetBox from disk on click
+    void changeListenerCallback (ChangeBroadcaster* source) override; // refresh presetBox from disk on click
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StateComponent);
 };

@@ -22,7 +22,7 @@
 #ifndef HELPER_H_INCLUDED
 #define HELPER_H_INCLUDED
 
-#include "../../JuceLibraryCode/JuceHeader.h"
+#include "../JuceLibraryCode/JuceHeader.h"
 #include "Aidio/Buffer.h"
 #include "Aidio/Utility.h"
 

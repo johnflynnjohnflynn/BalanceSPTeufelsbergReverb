@@ -19,10 +19,10 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#ifndef TOGGLE_H_INCLUDED
-#define TOGGLE_H_INCLUDED
+#ifndef PARAMETERSLIDER_H_INCLUDED
+#define PARAMETERSLIDER_H_INCLUDED
 
-#include "../../JuceLibraryCode/JuceHeader.h"
+#include "../JuceLibraryCode/JuceHeader.h"
 #include "Aidio/Aidio.h"
 #include "Judio/Parameter.h"
 
@@ -30,30 +30,40 @@ namespace jdo
 {
 
 //==============================================================================
-/** Modified version of ParameterSlider from Juce plugin demo that attaches to a
-    ToggleButton.
+/** Modified version of ParameterSlider from Juce plugin demo that allows
+    stepped sliders (as well as continuous).
     
-    @see ParameterSlider, Slider, jdo::Parameter, jdo::SliderStep
+    Uses numSteps member of jf::Parameter to determine steps. (Set to 0 for 
+    continuous)
+    
+    @see ParameterSlider, Slider, jf::Parameter
 */
-class Toggle  : public ToggleButton,
-                private Timer
+class SliderStep  : public Slider,
+                    private Timer
 {
 public:
-    explicit Toggle (AudioProcessorParameter& p);
+    explicit SliderStep (AudioProcessorParameter& p);
 
 private:
-    void clicked() override;
+    void valueChanged() override;
 
     void timerCallback() override;
 
-    void updateToggle();
+    void startedDragging() override;
+    void stoppedDragging() override;
+
+    double getValueFromText (const String& text) override;
+    String getTextFromValue (double value) override;
+
+    void updateSliderPos();
+    void updateInterval();
 
     AudioProcessorParameter& param;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Toggle)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SliderStep)
 };
 
 //==============================================================================
 } // namespace jdo
 
-#endif  // TOGGLE_H_INCLUDED
+#endif  // PARAMETERSLIDER_H_INCLUDED
