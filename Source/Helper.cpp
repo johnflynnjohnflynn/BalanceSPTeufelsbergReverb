@@ -19,8 +19,9 @@
 */
 //--------//--------//--------//--------//--------//--------//--------//--------
 
-#include "Judio/Helper.h"
-#include "Aidio/Utility.h"
+#include "../Helper.h"
+
+#include "../Dependencies/Aidio/Utility.h"
 
 namespace jdo
 {

@@ -9,9 +9,9 @@
 */
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Aidio/Aidio.h"
+#include "../Dependencies/Aidio/Aidio.h"
 
-#include "Judio/Slider.h"
+#include "../Slider.h"
 
 //==============================================================================
 

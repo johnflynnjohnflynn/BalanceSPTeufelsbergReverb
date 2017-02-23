@@ -23,8 +23,9 @@
 #define PARAMETERSLIDER_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Aidio/Aidio.h"
-#include "Judio/Parameter.h"
+#include "Dependencies/Aidio/Aidio.h"
+
+#include "Parameter.h"
 
 namespace jdo
 {

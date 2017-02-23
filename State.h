@@ -23,8 +23,9 @@
 #define STATE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Judio/Slider.h"
-#include "Judio/Parameter.h"
+
+#include "Slider.h"
+#include "Parameter.h"
 
 namespace jdo
 {
