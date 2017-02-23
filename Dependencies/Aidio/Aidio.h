@@ -50,7 +50,7 @@
 #include "Test.h"
 
 //==============================================================================
-/** Note on dependencies. TLDR: If you use JUCE, no need to worry!
+/** Note on dependencies. TLDR: If you use JUCE, no need to worry!!!
 
     Dependent libraries are included by relative folder paths...
     e.g. #include "Aidio/Dependencies/WDL/convoengine.h"

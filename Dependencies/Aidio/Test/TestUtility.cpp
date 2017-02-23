@@ -9,7 +9,7 @@
 */
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Aidio/Aidio.h"
+#include "../Aidio.h"
 
 //==============================================================================
 
